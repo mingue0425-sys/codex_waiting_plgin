@@ -1,5 +1,30 @@
 # Implementation report
 
+## v0.6 native ownership proof
+
+v0.6 adds strict evidence-only evaluation in
+`snooze_controller/v06_ownership.py`. A/B selection requires exact command and
+cwd evidence, sandbox parity, approval parity, process identity, p100 handoff,
+survival, model idle, correlated completion and same-thread continuation. C is
+hard-coded as a negative control and can never be selected.
+
+The live harness requests both candidates only through normal Codex thread
+turns. It records item id, process id, cwd, command, background-terminal list,
+bounded PID inspection and fixture side effects. It does not start candidate
+commands or call controller execution APIs. The installed runtime emitted
+normal command item events and process identifiers, but the disposable fixture
+side effects and background records were absent. All native ownership and
+security gates remain UNKNOWN.
+
+The durable CAS race suite passes 100/100 with one winner and one rejection per
+iteration. Its crash matrix separates durable pre/post-CAS invariants from
+unproven live process survival and reconnect behavior. Production automation
+remains disabled and the generated selector chooses `CLI_RESUME_FALLBACK`.
+See [V0.6_NATIVE_OWNERSHIP_REPORT.md](V0.6_NATIVE_OWNERSHIP_REPORT.md),
+[V0.6_SECURITY_PARITY_REPORT.md](V0.6_SECURITY_PARITY_REPORT.md),
+[V0.6_HANDOFF_E2E_REPORT.md](V0.6_HANDOFF_E2E_REPORT.md), and
+[results/v0.6/capabilities.md](results/v0.6/capabilities.md).
+
 ## v0.5 security-preserving native handoff research
 
 v0.5 adds explicit `THREAD_NATIVE_TERMINAL`,

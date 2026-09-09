@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T11:17:11.048813Z",
+  "iterations": 100,
+  "ownership_claims": 100,
+  "expected_rejections": 100,
+  "dual_owner_observations": 0,
+  "terminal_completed": 100,
+  "unexpected_errors": [],
+  "status": "PASS",
+  "exactly_once": "NOT_CLAIMED",
+  "scope": "durable ownership state only; no Codex execution or delivery exactly-once claim"
+}

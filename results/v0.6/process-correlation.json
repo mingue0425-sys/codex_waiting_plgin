@@ -1,0 +1,1100 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T11:13:04.183254Z",
+  "status": "UNKNOWN",
+  "runs_requested": 1,
+  "sample_requirement": 30,
+  "controller_candidate_execution_used": false,
+  "candidates": {
+    "THREAD_NATIVE_TERMINAL": {
+      "status": "UNKNOWN",
+      "runs_requested": 1,
+      "runs_completed": 1,
+      "sample_requirement": 30,
+      "sample_requirement_met": false,
+      "normal_tool_execution_runs": 1,
+      "fixture_exercised_runs": 0,
+      "correlation_pass_runs": 0,
+      "correlation_fail_runs": 0,
+      "correlation_unknown_runs": 1,
+      "process_identity_statuses": [
+        "UNKNOWN"
+      ],
+      "forbidden_method_observations": [
+        []
+      ],
+      "attempts": [
+        {
+          "schema_version": 1,
+          "generated_at": "2026-09-09T11:12:49.816380Z",
+          "candidate": "THREAD_NATIVE_TERMINAL",
+          "run_id": 1,
+          "requested_command": "python3 fixture.py",
+          "requested_cwd": "<v06-fixture-root>/workspace",
+          "thread_id": "01a085de-9cfe-76c3-988a-4c8fe217c186",
+          "turn_id": "01a085de-9da3-7ae0-92a6-9d1fb6522a5d",
+          "turn": {
+            "id": "01a085de-9da3-7ae0-92a6-9d1fb6522a5d",
+            "items": [
+              {
+                "type": "agentMessage",
+                "id": "msg_05c9358cead01b57016aa13f309f7487d09e20770166530941",
+                "text": "`python3 fixture.py` completed successfully with no output.",
+                "phase": "final_answer",
+                "memoryCitation": null,
+                "delivery": null,
+                "questions": null
+              }
+            ],
+            "itemsView": "summary",
+            "status": "completed",
+            "error": null,
+            "startedAt": 1788952354,
+            "completedAt": 1788952368,
+            "durationMs": 14693
+          },
+          "normal_tool_execution_observed": true,
+          "fixture_exercised": false,
+          "command_events": [
+            {
+              "method": "item/started",
+              "item_id": "exec-12e68cb6-6aa0-45b7-a57e-87fe50c1b69d",
+              "command": "/bin/zsh -lc 'python3 fixture.py'",
+              "cwd": "<v06-fixture-root>/workspace",
+              "process_id": "46091",
+              "os_pid": null,
+              "source": "unifiedExecStartup",
+              "status": "inProgress",
+              "exit_code": null
+            },
+            {
+              "method": "item/completed",
+              "item_id": "exec-12e68cb6-6aa0-45b7-a57e-87fe50c1b69d",
+              "command": "/bin/zsh -lc 'python3 fixture.py'",
+              "cwd": "<v06-fixture-root>/workspace",
+              "process_id": "46091",
+              "os_pid": null,
+              "source": "unifiedExecStartup",
+              "status": "completed",
+              "exit_code": 0
+            }
+          ],
+          "background_before": {
+            "data": [],
+            "nextCursor": null
+          },
+          "background_at_threshold": {
+            "data": [],
+            "nextCursor": null
+          },
+          "background_final": {
+            "data": [],
+            "nextCursor": null
+          },
+          "background_items_at_threshold": [],
+          "process_correlations": [],
+          "best_process_correlation": null,
+          "process_observations": {
+            "46091": {
+              "status": "UNKNOWN",
+              "pid": 46091,
+              "alive": false,
+              "returncode": 1
+            }
+          },
+          "approval_requests": [],
+          "approval_request_count": 0,
+          "threshold_elapsed_seconds": 16.942,
+          "threshold_seconds": 10.0,
+          "turn_completed_before_threshold": false,
+          "heartbeat_before_final_wait": {
+            "records": {
+              "fixture": null
+            },
+            "heartbeat_count": 0,
+            "state_exists": false
+          },
+          "heartbeat_after_final_wait": {
+            "records": {
+              "fixture": null
+            },
+            "heartbeat_count": 0,
+            "state_exists": false
+          },
+          "heartbeat_continued_after_observation": false,
+          "model_events_during_wait": 24,
+          "model_events_after_threshold": [
+            {
+              "method": "item/reasoning/summaryPartAdded",
+              "monotonic_ns": 535484833981125
+            },
+            {
+              "method": "item/reasoning/summaryTextDelta",
+              "monotonic_ns": 535484834222750
+            },
+            {
+              "method": "item/reasoning/summaryPartAdded",
+              "monotonic_ns": 535485294688375
+            },
+            {
+              "method": "item/reasoning/summaryTextDelta",
+              "monotonic_ns": 535485294797916
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "monotonic_ns": 535485315914875
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "monotonic_ns": 535485315988791
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "monotonic_ns": 535485316028125
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "monotonic_ns": 535485457660500
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "monotonic_ns": 535485457753166
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "monotonic_ns": 535485457804958
+            },
+            {
+              "method": "item/reasoning/summaryPartAdded",
+              "monotonic_ns": 535488797701666
+            },
+            {
+              "method": "item/reasoning/summaryTextDelta",
+              "monotonic_ns": 535488797913666
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "monotonic_ns": 535488803845000
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "monotonic_ns": 535488805342333
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "monotonic_ns": 535488807207333
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "monotonic_ns": 535488807292541
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "monotonic_ns": 535488807339666
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "monotonic_ns": 535488957003125
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "monotonic_ns": 535488957218583
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "monotonic_ns": 535488957317791
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "monotonic_ns": 535488957398166
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "monotonic_ns": 535488957458541
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "monotonic_ns": 535488957514041
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "monotonic_ns": 535488957568833
+            }
+          ],
+          "completion_event": {
+            "method": "item/completed",
+            "item_id": "exec-12e68cb6-6aa0-45b7-a57e-87fe50c1b69d",
+            "command": "/bin/zsh -lc 'python3 fixture.py'",
+            "cwd": "<v06-fixture-root>/workspace",
+            "process_id": "46091",
+            "os_pid": null,
+            "source": "unifiedExecStartup",
+            "status": "completed",
+            "exit_code": 0
+          },
+          "completion_exit_code": 0,
+          "command_integrity_evidence": {
+            "requested_command_sha256": "d1875209a0c71774f068101ea33eebfffdf5a9f5466199e35b96fc474ece05b4",
+            "event_command_sha256": "67ba7d553afdde2343a63982789d897c752322ccd57075fa9a06af129c52500b",
+            "background_command_sha256": null,
+            "executed_command_sha256": null,
+            "requested_cwd": "<v06-fixture-root>/workspace",
+            "event_cwd": "<v06-fixture-root>/workspace",
+            "background_cwd": null,
+            "executed_cwd": null,
+            "event_command_wrapper": "NORMAL_CODEX_RUNTIME_WRAPPER",
+            "approval_semantics_proven": false,
+            "status": "UNKNOWN",
+            "reason": "normal Codex runtime wrapper was observed; semantic command was not exposed exactly"
+          },
+          "process_identity": "UNKNOWN",
+          "handoff_10s": "UNKNOWN",
+          "job_survival": "UNKNOWN",
+          "model_idle": "UNKNOWN",
+          "completion_detection": "UNKNOWN",
+          "auto_continuation": "UNKNOWN",
+          "same_thread_continuation_attempted": false,
+          "controller_candidate_execution_used": false,
+          "forbidden_methods_used": [],
+          "error": null,
+          "app_server_snapshot": {
+            "state": "READY",
+            "experimental_api": true,
+            "restart_count": 0,
+            "event_count": 72,
+            "notification_count": 56,
+            "notification_method_counts": {
+              "account/rateLimits/updated": 2,
+              "initialize": 1,
+              "item/agentMessage/delta": 18,
+              "item/completed": 6,
+              "item/reasoning/summaryPartAdded": 3,
+              "item/reasoning/summaryTextDelta": 3,
+              "item/started": 6,
+              "mcpServer/startupStatus/updated": 10,
+              "remoteControl/status/changed": 1,
+              "thread/backgroundTerminals/list": 3,
+              "thread/start": 1,
+              "thread/started": 1,
+              "thread/status/changed": 2,
+              "thread/tokenUsage/updated": 2,
+              "turn/completed": 1,
+              "turn/start": 1,
+              "turn/started": 1
+            },
+            "relevant_events": [
+              {
+                "sequence": 1,
+                "kind": "lifecycle",
+                "state": "STARTING",
+                "reason": null
+              },
+              {
+                "sequence": 3,
+                "kind": "lifecycle",
+                "state": "INITIALIZING",
+                "reason": null
+              },
+              {
+                "sequence": 4,
+                "kind": "request",
+                "request_id": 1,
+                "method": "initialize"
+              },
+              {
+                "sequence": 6,
+                "kind": "lifecycle",
+                "state": "READY",
+                "reason": null
+              },
+              {
+                "sequence": 7,
+                "kind": "request",
+                "request_id": 2,
+                "method": "thread/start"
+              },
+              {
+                "sequence": 10,
+                "kind": "notification",
+                "method": "thread/started",
+                "params": {}
+              },
+              {
+                "sequence": 15,
+                "kind": "request",
+                "request_id": 3,
+                "method": "thread/backgroundTerminals/list"
+              },
+              {
+                "sequence": 17,
+                "kind": "request",
+                "request_id": 4,
+                "method": "turn/start"
+              },
+              {
+                "sequence": 19,
+                "kind": "notification",
+                "method": "thread/status/changed",
+                "params": {
+                  "status": {
+                    "type": "active",
+                    "activeFlags": []
+                  },
+                  "threadId": "01a085de-9cfe-76c3-988a-4c8fe217c186"
+                }
+              },
+              {
+                "sequence": 20,
+                "kind": "notification",
+                "method": "turn/started",
+                "params": {
+                  "turn": {
+                    "id": "01a085de-9da3-7ae0-92a6-9d1fb6522a5d",
+                    "status": "inProgress",
+                    "startedAt": 1788952354,
+                    "completedAt": null,
+                    "durationMs": null
+                  },
+                  "threadId": "01a085de-9cfe-76c3-988a-4c8fe217c186"
+                }
+              },
+              {
+                "sequence": 27,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "01a085de-b3df-76d1-b04b-6693ba72ade0",
+                    "type": "userMessage"
+                  },
+                  "threadId": "01a085de-9cfe-76c3-988a-4c8fe217c186",
+                  "turnId": "01a085de-9da3-7ae0-92a6-9d1fb6522a5d"
+                }
+              },
+              {
+                "sequence": 28,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "01a085de-b3df-76d1-b04b-6693ba72ade0",
+                    "type": "userMessage"
+                  },
+                  "threadId": "01a085de-9cfe-76c3-988a-4c8fe217c186",
+                  "turnId": "01a085de-9da3-7ae0-92a6-9d1fb6522a5d"
+                }
+              },
+              {
+                "sequence": 29,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "rs_05c9358cead01b57016aa13f298dd487d0aa42e737b309f183",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085de-9cfe-76c3-988a-4c8fe217c186",
+                  "turnId": "01a085de-9da3-7ae0-92a6-9d1fb6522a5d"
+                }
+              },
+              {
+                "sequence": 30,
+                "kind": "request",
+                "request_id": 5,
+                "method": "thread/backgroundTerminals/list"
+              },
+              {
+                "sequence": 36,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "rs_05c9358cead01b57016aa13f298dd487d0aa42e737b309f183",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085de-9cfe-76c3-988a-4c8fe217c186",
+                  "turnId": "01a085de-9da3-7ae0-92a6-9d1fb6522a5d"
+                }
+              },
+              {
+                "sequence": 37,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "msg_05c9358cead01b57016aa13f2d207487d0a6773b98fc68ddc5",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085de-9cfe-76c3-988a-4c8fe217c186",
+                  "turnId": "01a085de-9da3-7ae0-92a6-9d1fb6522a5d"
+                }
+              },
+              {
+                "sequence": 44,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "msg_05c9358cead01b57016aa13f2d207487d0a6773b98fc68ddc5",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085de-9cfe-76c3-988a-4c8fe217c186",
+                  "turnId": "01a085de-9da3-7ae0-92a6-9d1fb6522a5d"
+                }
+              },
+              {
+                "sequence": 45,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "exec-12e68cb6-6aa0-45b7-a57e-87fe50c1b69d",
+                    "type": "commandExecution",
+                    "command": "/bin/zsh -lc 'python3 fixture.py'",
+                    "processId": "46091",
+                    "status": "inProgress",
+                    "exitCode": null,
+                    "cwd": "<v06-fixture-root>/workspace",
+                    "source": "unifiedExecStartup",
+                    "aggregated_output_bytes": null
+                  },
+                  "threadId": "01a085de-9cfe-76c3-988a-4c8fe217c186",
+                  "turnId": "01a085de-9da3-7ae0-92a6-9d1fb6522a5d"
+                }
+              },
+              {
+                "sequence": 46,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "exec-12e68cb6-6aa0-45b7-a57e-87fe50c1b69d",
+                    "type": "commandExecution",
+                    "command": "/bin/zsh -lc 'python3 fixture.py'",
+                    "processId": "46091",
+                    "status": "completed",
+                    "exitCode": 0,
+                    "cwd": "<v06-fixture-root>/workspace",
+                    "source": "unifiedExecStartup",
+                    "aggregated_output_bytes": null
+                  },
+                  "threadId": "01a085de-9cfe-76c3-988a-4c8fe217c186",
+                  "turnId": "01a085de-9da3-7ae0-92a6-9d1fb6522a5d"
+                }
+              },
+              {
+                "sequence": 49,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "rs_05c9358cead01b57016aa13f2fb8ac87d08455d265fb3063a5",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085de-9cfe-76c3-988a-4c8fe217c186",
+                  "turnId": "01a085de-9da3-7ae0-92a6-9d1fb6522a5d"
+                }
+              },
+              {
+                "sequence": 52,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "rs_05c9358cead01b57016aa13f2fb8ac87d08455d265fb3063a5",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085de-9cfe-76c3-988a-4c8fe217c186",
+                  "turnId": "01a085de-9da3-7ae0-92a6-9d1fb6522a5d"
+                }
+              },
+              {
+                "sequence": 53,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "msg_05c9358cead01b57016aa13f309f7487d09e20770166530941",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085de-9cfe-76c3-988a-4c8fe217c186",
+                  "turnId": "01a085de-9da3-7ae0-92a6-9d1fb6522a5d"
+                }
+              },
+              {
+                "sequence": 66,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "msg_05c9358cead01b57016aa13f309f7487d09e20770166530941",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085de-9cfe-76c3-988a-4c8fe217c186",
+                  "turnId": "01a085de-9da3-7ae0-92a6-9d1fb6522a5d"
+                }
+              },
+              {
+                "sequence": 69,
+                "kind": "notification",
+                "method": "thread/status/changed",
+                "params": {
+                  "status": {
+                    "type": "idle"
+                  },
+                  "threadId": "01a085de-9cfe-76c3-988a-4c8fe217c186"
+                }
+              },
+              {
+                "sequence": 70,
+                "kind": "notification",
+                "method": "turn/completed",
+                "params": {
+                  "turn": {
+                    "id": "01a085de-9da3-7ae0-92a6-9d1fb6522a5d",
+                    "status": "completed",
+                    "startedAt": 1788952354,
+                    "completedAt": 1788952368,
+                    "durationMs": 14693
+                  },
+                  "threadId": "01a085de-9cfe-76c3-988a-4c8fe217c186"
+                }
+              },
+              {
+                "sequence": 71,
+                "kind": "request",
+                "request_id": 6,
+                "method": "thread/backgroundTerminals/list"
+              }
+            ],
+            "server_request_methods": [],
+            "stderr_line_count": 0
+          },
+          "duration_seconds": 16.946,
+          "command_integrity": "UNKNOWN",
+          "status": "UNKNOWN"
+        }
+      ]
+    },
+    "SANDBOX_DESCENDANT_SUPERVISOR": {
+      "status": "UNKNOWN",
+      "runs_requested": 1,
+      "runs_completed": 1,
+      "sample_requirement": 30,
+      "sample_requirement_met": false,
+      "normal_tool_execution_runs": 1,
+      "fixture_exercised_runs": 0,
+      "correlation_pass_runs": 0,
+      "correlation_fail_runs": 0,
+      "correlation_unknown_runs": 1,
+      "process_identity_statuses": [
+        "UNKNOWN"
+      ],
+      "forbidden_method_observations": [
+        []
+      ],
+      "attempts": [
+        {
+          "schema_version": 1,
+          "generated_at": "2026-09-09T11:13:04.160481Z",
+          "candidate": "SANDBOX_DESCENDANT_SUPERVISOR",
+          "run_id": 1,
+          "requested_command": "python3 supervisor_fixture.py parent",
+          "requested_cwd": "<v06-fixture-root>/workspace",
+          "thread_id": "01a085de-dc15-75d0-a0f8-939c7d61decb",
+          "turn_id": "01a085de-dc7a-7793-9480-ae81c05b2b6d",
+          "turn": {
+            "id": "01a085de-dc7a-7793-9480-ae81c05b2b6d",
+            "items": [
+              {
+                "type": "agentMessage",
+                "id": "msg_0c42bbcb744991be016aa13f3f00c887d0892fda4bff1b23b3",
+                "text": "Executed exactly once. It produced no output.",
+                "phase": "final_answer",
+                "memoryCitation": null,
+                "delivery": null,
+                "questions": null
+              }
+            ],
+            "itemsView": "summary",
+            "status": "completed",
+            "error": null,
+            "startedAt": 1788952370,
+            "completedAt": 1788952383,
+            "durationMs": 12956
+          },
+          "normal_tool_execution_observed": true,
+          "fixture_exercised": false,
+          "command_events": [
+            {
+              "method": "item/started",
+              "item_id": "exec-28a0ca5d-a796-4215-bf57-7a268865dcb6",
+              "command": "/bin/zsh -lc 'python3 supervisor_fixture.py parent'",
+              "cwd": "<v06-fixture-root>/workspace",
+              "process_id": "39568",
+              "os_pid": null,
+              "source": "unifiedExecStartup",
+              "status": "inProgress",
+              "exit_code": null
+            },
+            {
+              "method": "item/completed",
+              "item_id": "exec-28a0ca5d-a796-4215-bf57-7a268865dcb6",
+              "command": "/bin/zsh -lc 'python3 supervisor_fixture.py parent'",
+              "cwd": "<v06-fixture-root>/workspace",
+              "process_id": "39568",
+              "os_pid": null,
+              "source": "unifiedExecStartup",
+              "status": "completed",
+              "exit_code": 0
+            }
+          ],
+          "background_before": {
+            "data": [],
+            "nextCursor": null
+          },
+          "background_at_threshold": {
+            "data": [],
+            "nextCursor": null
+          },
+          "background_final": {
+            "data": [],
+            "nextCursor": null
+          },
+          "background_items_at_threshold": [],
+          "process_correlations": [],
+          "best_process_correlation": null,
+          "process_observations": {
+            "39568": {
+              "status": "UNKNOWN",
+              "pid": 39568,
+              "alive": false,
+              "returncode": 1
+            }
+          },
+          "approval_requests": [],
+          "approval_request_count": 0,
+          "threshold_elapsed_seconds": 14.328,
+          "threshold_seconds": 10.0,
+          "turn_completed_before_threshold": false,
+          "heartbeat_before_final_wait": {
+            "records": {
+              "parent": null,
+              "child": null,
+              "worker": null
+            },
+            "heartbeat_count": 0,
+            "state_exists": false
+          },
+          "heartbeat_after_final_wait": {
+            "records": {
+              "parent": null,
+              "child": null,
+              "worker": null
+            },
+            "heartbeat_count": 0,
+            "state_exists": false
+          },
+          "heartbeat_continued_after_observation": false,
+          "model_events_during_wait": 9,
+          "model_events_after_threshold": [
+            {
+              "method": "item/agentMessage/delta",
+              "monotonic_ns": 535503185105666
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "monotonic_ns": 535503185162750
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "monotonic_ns": 535503185352416
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "monotonic_ns": 535503187046541
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "monotonic_ns": 535503187894916
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "monotonic_ns": 535503189585291
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "monotonic_ns": 535503194527791
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "monotonic_ns": 535503194624208
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "monotonic_ns": 535503194682458
+            }
+          ],
+          "completion_event": {
+            "method": "item/completed",
+            "item_id": "exec-28a0ca5d-a796-4215-bf57-7a268865dcb6",
+            "command": "/bin/zsh -lc 'python3 supervisor_fixture.py parent'",
+            "cwd": "<v06-fixture-root>/workspace",
+            "process_id": "39568",
+            "os_pid": null,
+            "source": "unifiedExecStartup",
+            "status": "completed",
+            "exit_code": 0
+          },
+          "completion_exit_code": 0,
+          "command_integrity_evidence": {
+            "requested_command_sha256": "53e740aa30cc4cea0e47942188b6a16c8e027db183edea0f3be6fdc10e6e7e8c",
+            "event_command_sha256": "53a19f14958c9dcb760dc88c3e083d76a987a5cbd5bcbb7fb67d0a8430e10430",
+            "background_command_sha256": null,
+            "executed_command_sha256": null,
+            "requested_cwd": "<v06-fixture-root>/workspace",
+            "event_cwd": "<v06-fixture-root>/workspace",
+            "background_cwd": null,
+            "executed_cwd": null,
+            "event_command_wrapper": "NORMAL_CODEX_RUNTIME_WRAPPER",
+            "approval_semantics_proven": false,
+            "status": "UNKNOWN",
+            "reason": "normal Codex runtime wrapper was observed; semantic command was not exposed exactly"
+          },
+          "process_identity": "UNKNOWN",
+          "handoff_10s": "UNKNOWN",
+          "job_survival": "UNKNOWN",
+          "model_idle": "UNKNOWN",
+          "completion_detection": "UNKNOWN",
+          "auto_continuation": "UNKNOWN",
+          "same_thread_continuation_attempted": false,
+          "controller_candidate_execution_used": false,
+          "forbidden_methods_used": [],
+          "error": null,
+          "app_server_snapshot": {
+            "state": "READY",
+            "experimental_api": true,
+            "restart_count": 0,
+            "event_count": 65,
+            "notification_count": 49,
+            "notification_method_counts": {
+              "account/rateLimits/updated": 2,
+              "initialize": 1,
+              "item/agentMessage/delta": 15,
+              "item/completed": 6,
+              "item/reasoning/summaryPartAdded": 1,
+              "item/reasoning/summaryTextDelta": 1,
+              "item/started": 6,
+              "mcpServer/startupStatus/updated": 10,
+              "remoteControl/status/changed": 1,
+              "thread/backgroundTerminals/list": 3,
+              "thread/start": 1,
+              "thread/started": 1,
+              "thread/status/changed": 2,
+              "thread/tokenUsage/updated": 2,
+              "turn/completed": 1,
+              "turn/start": 1,
+              "turn/started": 1
+            },
+            "relevant_events": [
+              {
+                "sequence": 1,
+                "kind": "lifecycle",
+                "state": "STARTING",
+                "reason": null
+              },
+              {
+                "sequence": 3,
+                "kind": "lifecycle",
+                "state": "INITIALIZING",
+                "reason": null
+              },
+              {
+                "sequence": 4,
+                "kind": "request",
+                "request_id": 1,
+                "method": "initialize"
+              },
+              {
+                "sequence": 7,
+                "kind": "lifecycle",
+                "state": "READY",
+                "reason": null
+              },
+              {
+                "sequence": 8,
+                "kind": "request",
+                "request_id": 2,
+                "method": "thread/start"
+              },
+              {
+                "sequence": 10,
+                "kind": "notification",
+                "method": "thread/started",
+                "params": {}
+              },
+              {
+                "sequence": 15,
+                "kind": "request",
+                "request_id": 3,
+                "method": "thread/backgroundTerminals/list"
+              },
+              {
+                "sequence": 17,
+                "kind": "request",
+                "request_id": 4,
+                "method": "turn/start"
+              },
+              {
+                "sequence": 19,
+                "kind": "notification",
+                "method": "thread/status/changed",
+                "params": {
+                  "status": {
+                    "type": "active",
+                    "activeFlags": []
+                  },
+                  "threadId": "01a085de-dc15-75d0-a0f8-939c7d61decb"
+                }
+              },
+              {
+                "sequence": 20,
+                "kind": "notification",
+                "method": "turn/started",
+                "params": {
+                  "turn": {
+                    "id": "01a085de-dc7a-7793-9480-ae81c05b2b6d",
+                    "status": "inProgress",
+                    "startedAt": 1788952370,
+                    "completedAt": null,
+                    "durationMs": null
+                  },
+                  "threadId": "01a085de-dc15-75d0-a0f8-939c7d61decb"
+                }
+              },
+              {
+                "sequence": 27,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "01a085de-efac-7930-ad5d-3bb8b869c73b",
+                    "type": "userMessage"
+                  },
+                  "threadId": "01a085de-dc15-75d0-a0f8-939c7d61decb",
+                  "turnId": "01a085de-dc7a-7793-9480-ae81c05b2b6d"
+                }
+              },
+              {
+                "sequence": 28,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "01a085de-efac-7930-ad5d-3bb8b869c73b",
+                    "type": "userMessage"
+                  },
+                  "threadId": "01a085de-dc15-75d0-a0f8-939c7d61decb",
+                  "turnId": "01a085de-dc7a-7793-9480-ae81c05b2b6d"
+                }
+              },
+              {
+                "sequence": 29,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "rs_0c42bbcb744991be016aa13f388ea487d0a489983022e0cc64",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085de-dc15-75d0-a0f8-939c7d61decb",
+                  "turnId": "01a085de-dc7a-7793-9480-ae81c05b2b6d"
+                }
+              },
+              {
+                "sequence": 32,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "rs_0c42bbcb744991be016aa13f388ea487d0a489983022e0cc64",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085de-dc15-75d0-a0f8-939c7d61decb",
+                  "turnId": "01a085de-dc7a-7793-9480-ae81c05b2b6d"
+                }
+              },
+              {
+                "sequence": 33,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "msg_0c42bbcb744991be016aa13f3b017887d0a4679eedcf3815ab",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085de-dc15-75d0-a0f8-939c7d61decb",
+                  "turnId": "01a085de-dc7a-7793-9480-ae81c05b2b6d"
+                }
+              },
+              {
+                "sequence": 40,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "msg_0c42bbcb744991be016aa13f3b017887d0a4679eedcf3815ab",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085de-dc15-75d0-a0f8-939c7d61decb",
+                  "turnId": "01a085de-dc7a-7793-9480-ae81c05b2b6d"
+                }
+              },
+              {
+                "sequence": 41,
+                "kind": "request",
+                "request_id": 5,
+                "method": "thread/backgroundTerminals/list"
+              },
+              {
+                "sequence": 43,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "exec-28a0ca5d-a796-4215-bf57-7a268865dcb6",
+                    "type": "commandExecution",
+                    "command": "/bin/zsh -lc 'python3 supervisor_fixture.py parent'",
+                    "processId": "39568",
+                    "status": "inProgress",
+                    "exitCode": null,
+                    "cwd": "<v06-fixture-root>/workspace",
+                    "source": "unifiedExecStartup",
+                    "aggregated_output_bytes": null
+                  },
+                  "threadId": "01a085de-dc15-75d0-a0f8-939c7d61decb",
+                  "turnId": "01a085de-dc7a-7793-9480-ae81c05b2b6d"
+                }
+              },
+              {
+                "sequence": 44,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "exec-28a0ca5d-a796-4215-bf57-7a268865dcb6",
+                    "type": "commandExecution",
+                    "command": "/bin/zsh -lc 'python3 supervisor_fixture.py parent'",
+                    "processId": "39568",
+                    "status": "completed",
+                    "exitCode": 0,
+                    "cwd": "<v06-fixture-root>/workspace",
+                    "source": "unifiedExecStartup",
+                    "aggregated_output_bytes": null
+                  },
+                  "threadId": "01a085de-dc15-75d0-a0f8-939c7d61decb",
+                  "turnId": "01a085de-dc7a-7793-9480-ae81c05b2b6d"
+                }
+              },
+              {
+                "sequence": 47,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "rs_0c42bbcb744991be016aa13f3e503887d0ba4809deeb762487",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085de-dc15-75d0-a0f8-939c7d61decb",
+                  "turnId": "01a085de-dc7a-7793-9480-ae81c05b2b6d"
+                }
+              },
+              {
+                "sequence": 48,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "rs_0c42bbcb744991be016aa13f3e503887d0ba4809deeb762487",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085de-dc15-75d0-a0f8-939c7d61decb",
+                  "turnId": "01a085de-dc7a-7793-9480-ae81c05b2b6d"
+                }
+              },
+              {
+                "sequence": 49,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "msg_0c42bbcb744991be016aa13f3f00c887d0892fda4bff1b23b3",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085de-dc15-75d0-a0f8-939c7d61decb",
+                  "turnId": "01a085de-dc7a-7793-9480-ae81c05b2b6d"
+                }
+              },
+              {
+                "sequence": 59,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "msg_0c42bbcb744991be016aa13f3f00c887d0892fda4bff1b23b3",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085de-dc15-75d0-a0f8-939c7d61decb",
+                  "turnId": "01a085de-dc7a-7793-9480-ae81c05b2b6d"
+                }
+              },
+              {
+                "sequence": 62,
+                "kind": "notification",
+                "method": "thread/status/changed",
+                "params": {
+                  "status": {
+                    "type": "idle"
+                  },
+                  "threadId": "01a085de-dc15-75d0-a0f8-939c7d61decb"
+                }
+              },
+              {
+                "sequence": 63,
+                "kind": "notification",
+                "method": "turn/completed",
+                "params": {
+                  "turn": {
+                    "id": "01a085de-dc7a-7793-9480-ae81c05b2b6d",
+                    "status": "completed",
+                    "startedAt": 1788952370,
+                    "completedAt": 1788952383,
+                    "durationMs": 12956
+                  },
+                  "threadId": "01a085de-dc15-75d0-a0f8-939c7d61decb"
+                }
+              },
+              {
+                "sequence": 64,
+                "kind": "request",
+                "request_id": 6,
+                "method": "thread/backgroundTerminals/list"
+              }
+            ],
+            "server_request_methods": [],
+            "stderr_line_count": 0
+          },
+          "duration_seconds": 14.33,
+          "command_integrity": "UNKNOWN",
+          "status": "UNKNOWN"
+        }
+      ]
+    }
+  },
+  "notes": [
+    "Only normal thread turns were used to request candidate execution.",
+    "The controller did not call command/exec, process/spawn or thread/shellCommand.",
+    "A command string match alone is insufficient; itemId, processId, cwd and process identity are required.",
+    "A run count below 30 cannot produce a p100 handoff claim."
+  ]
+}

@@ -1,5 +1,21 @@
 # Test results
 
+## v0.6 validation
+
+The v0.6 unit additions cover strict process correlation, normal runtime
+wrapper classification, exact command/cwd integrity, unknown-on-missing
+evidence and the A/B-only selector. The live A/B probes each completed one
+normal-thread run: normal command items were observed, while fixture side
+effects, background-terminal records, approval requests and process identity
+correlation were absent. The requested 30-run p100 handoff sample was not
+claimed.
+
+The v0.6 ownership race suite passes **100/100** with zero dual owners and
+zero unexpected errors. The crash matrix records durable CAS boundary passes
+and keeps live native reconnect/survival UNKNOWN. C remains the immutable
+v0.4 security FAIL reference. See [results/v0.6/](results/v0.6/) and the three
+[v0.6 reports](V0.6_NATIVE_OWNERSHIP_REPORT.md).
+
 ## v0.5 validation
 
 The current standard-library suite contains **49 tests**. It covers the v0.1

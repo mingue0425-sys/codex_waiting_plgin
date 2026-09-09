@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T11:17:10.728433Z",
+  "candidates": {
+    "THREAD_NATIVE_TERMINAL": {
+      "status": "UNKNOWN",
+      "threshold_seconds": 10.0,
+      "sample_requirement": 30,
+      "samples": [],
+      "runs": 1,
+      "p100_status": "UNKNOWN",
+      "reason": "process identity and background owner commitment were not both observed"
+    },
+    "SANDBOX_DESCENDANT_SUPERVISOR": {
+      "status": "UNKNOWN",
+      "threshold_seconds": 10.0,
+      "sample_requirement": 30,
+      "samples": [],
+      "runs": 1,
+      "p100_status": "UNKNOWN",
+      "reason": "process identity and background owner commitment were not both observed"
+    }
+  },
+  "status": "UNKNOWN"
+}

@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T11:17:10.726689Z",
+  "baseline": "ff472c5fbbf8629bb414b61018fe5cfc22b81276",
+  "control_plane": "SNOOZE_APP_SERVER_EXPERIMENTAL",
+  "integration_flags": {
+    "THREAD_NATIVE_TERMINAL": "UNKNOWN",
+    "DESCENDANT_SUPERVISOR": "UNKNOWN",
+    "CONTROLLER_COMMAND_EXEC": "FAIL",
+    "NATIVE_SANDBOX_PARITY": "UNKNOWN",
+    "NATIVE_APPROVAL_PARITY": "UNKNOWN",
+    "COMMAND_INTEGRITY": "UNKNOWN",
+    "PROCESS_IDENTITY": "UNKNOWN",
+    "10S_HANDOFF": "UNKNOWN",
+    "JOB_SURVIVAL": "UNKNOWN",
+    "MODEL_IDLE_DURING_WAIT": "UNKNOWN",
+    "COMPLETION_DETECTION": "UNKNOWN",
+    "AUTO_CONTINUATION": "UNKNOWN",
+    "DESCENDANT_SANDBOX_INHERITANCE": "UNKNOWN",
+    "DESCENDANT_APPROVAL_INTEGRITY": "UNKNOWN",
+    "OWNERSHIP_RACES": "PASS",
+    "NATIVE_CRASH_MATRIX": "UNKNOWN",
+    "APP_SERVER_CRASH_RECOVERY": "PASS",
+    "CONTROLLER_CRASH_RECOVERY": "PASS",
+    "DESKTOP_ATTACH": "FAIL",
+    "AUTO_PRETOOL_INTERCEPTION": "FAIL"
+  },
+  "backend_matrix": {
+    "THREAD_NATIVE_TERMINAL": {
+      "status": "UNKNOWN",
+      "sandbox_parity": "UNKNOWN",
+      "approval_parity": "UNKNOWN",
+      "command_integrity": "UNKNOWN",
+      "process_identity": "UNKNOWN",
+      "handoff_10s": "UNKNOWN",
+      "job_survival": "UNKNOWN",
+      "model_idle": "UNKNOWN",
+      "completion_detection": "UNKNOWN",
+      "auto_continuation": "UNKNOWN",
+      "evidence": {
+        "process_correlation": "process-correlation.json",
+        "sandbox_parity": "sandbox-parity.json",
+        "approval_parity": "approval-parity.json"
+      },
+      "runs": 1,
+      "fixture_exercised_runs": 0
+    },
+    "SANDBOX_DESCENDANT_SUPERVISOR": {
+      "status": "UNKNOWN",
+      "sandbox_parity": "UNKNOWN",
+      "approval_parity": "UNKNOWN",
+      "command_integrity": "UNKNOWN",
+      "process_identity": "UNKNOWN",
+      "handoff_10s": "UNKNOWN",
+      "job_survival": "UNKNOWN",
+      "model_idle": "UNKNOWN",
+      "completion_detection": "UNKNOWN",
+      "auto_continuation": "UNKNOWN",
+      "evidence": {
+        "process_correlation": "process-correlation.json",
+        "sandbox_parity": "sandbox-parity.json",
+        "approval_parity": "approval-parity.json"
+      },
+      "runs": 1,
+      "fixture_exercised_runs": 0
+    },
+    "CONTROLLER_COMMAND_EXEC": {
+      "status": "FAIL",
+      "sandbox_parity": "FAIL",
+      "approval_parity": "FAIL",
+      "command_integrity": "PASS",
+      "process_identity": "NOT_SUPPORTED",
+      "reason": "immutable v0.4 controller command/exec sibling-write regression",
+      "production_candidate": false,
+      "evidence": [
+        "../v0.4/security-parity.json"
+      ]
+    }
+  },
+  "selected_backend": "CLI_RESUME_FALLBACK",
+  "safe_automatic_handoff": "NOT_SUPPORTED",
+  "selected_production_path": "CLI_RESUME_FALLBACK",
+  "fallback_path": "CLI_RESUME_FALLBACK",
+  "production_automation": "DISABLED_SECURITY_GATE",
+  "automatic_features_enabled": [],
+  "exactly_once": "NOT_CLAIMED",
+  "benchmark": "UNKNOWN",
+  "evidence_files": [
+    "backend-comparison.json",
+    "process-correlation.json",
+    "command-integrity.json",
+    "sandbox-parity.json",
+    "approval-parity.json",
+    "handoff-latency.json",
+    "model-idle.json",
+    "process-survival.json",
+    "completion-detection.json",
+    "continuation.json",
+    "crash-matrix.json"
+  ],
+  "notes": [
+    "A/B candidate execution was requested only through normal Codex thread turns.",
+    "Controller candidate execution was not used.",
+    "Normal runtime shell wrappers are recorded but do not prove command integrity.",
+    "Unknown evidence is not promoted to partial or pass."
+  ]
+}

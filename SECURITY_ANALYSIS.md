@@ -1,5 +1,26 @@
 # Security analysis
 
+## v0.6 ownership boundary
+
+The v0.6 harness never executes a candidate command from Snooze. Candidate A
+and B actions are requested only through normal Codex thread turns. The
+controller may observe App Server events, list experimental background
+terminals and perform bounded inspection of a PID already exposed by those
+events. It never calls `command/exec`, `process/spawn` or
+`thread/shellCommand` for a candidate.
+
+The runtime exposed command items and `processId` values, but it did not expose
+the temporary fixture side effects or a background-terminal record. The probe
+therefore cannot establish that the observed item is the same process that a
+background owner would manage. Normal shell wrapper text is retained as
+runtime evidence; hash equality is not treated as semantic approval proof.
+
+The v0.6 gate treats missing command stages, approval requests, sandbox
+effects, process identity, survival, completion or continuation as UNKNOWN.
+The controller does not interrupt or continue an uncorrelated process. C
+remains FAIL because the v0.4 controller-level path allowed a sibling write;
+that negative control is never used to promote A or B.
+
 ## v0.5 native backend boundary
 
 The v0.4 controller-level `command/exec` sibling-write result is immutable:

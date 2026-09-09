@@ -1,0 +1,2909 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T11:12:24.365227Z",
+  "status": "UNKNOWN",
+  "runs_per_candidate": 1,
+  "fixture_semantics": [
+    "inside-write",
+    "outside-write",
+    "outside-read"
+  ],
+  "backend_matrix": {
+    "THREAD_NATIVE_TERMINAL": {
+      "status": "UNKNOWN",
+      "sandbox_parity": "UNKNOWN",
+      "approval_parity": "UNKNOWN",
+      "fixture_exercised_cases": 0,
+      "cases": [
+        {
+          "candidate": "THREAD_NATIVE_TERMINAL",
+          "case": "inside-write",
+          "approval_mode": "decline",
+          "command": "python3 action_fixture.py inside-write",
+          "thread_id": "01a085dc-7a2d-7200-96bd-456f66f7e54f",
+          "turn_id": "01a085dc-7ac9-7742-b3c8-7b32481a5cba",
+          "turn": {
+            "id": "01a085dc-7ac9-7742-b3c8-7b32481a5cba",
+            "items": [
+              {
+                "type": "agentMessage",
+                "id": "msg_0f40a96961f1bcf7016aa13ea5cc5c87d0971ac5fb4249aa97",
+                "text": "Executed exactly once:\n\n`python3 action_fixture.py inside-write`\n\nExit code: `0`",
+                "phase": "final_answer",
+                "memoryCitation": null,
+                "delivery": null,
+                "questions": null
+              }
+            ],
+            "itemsView": "summary",
+            "status": "completed",
+            "error": null,
+            "startedAt": 1788952214,
+            "completedAt": 1788952230,
+            "durationMs": 15888
+          },
+          "command_events": [
+            {
+              "method": "item/started",
+              "item_id": "exec-892df16d-84d9-4738-9dc3-19a0d82b9e6b",
+              "command": "/bin/zsh -lc 'python3 action_fixture.py inside-write'",
+              "cwd": "<v06-security-root>/THREAD_NATIVE_TERMINAL-inside-write-decline/workspace",
+              "process_id": "92295",
+              "os_pid": null,
+              "source": "unifiedExecStartup",
+              "status": "inProgress",
+              "exit_code": null
+            },
+            {
+              "method": "item/completed",
+              "item_id": "exec-892df16d-84d9-4738-9dc3-19a0d82b9e6b",
+              "command": "/bin/zsh -lc 'python3 action_fixture.py inside-write'",
+              "cwd": "<v06-security-root>/THREAD_NATIVE_TERMINAL-inside-write-decline/workspace",
+              "process_id": "92295",
+              "os_pid": null,
+              "source": "unifiedExecStartup",
+              "status": "completed",
+              "exit_code": 0
+            }
+          ],
+          "normal_tool_execution_observed": true,
+          "fixture_exercised": false,
+          "action_result": null,
+          "inside_written": false,
+          "outside_written": false,
+          "approval_requests": [],
+          "approval_seen": false,
+          "approval_decisions": [],
+          "sandbox_status": "UNKNOWN",
+          "approval_status": "UNKNOWN",
+          "error": null,
+          "controller_candidate_execution_used": false,
+          "app_server_snapshot": {
+            "state": "READY",
+            "experimental_api": false,
+            "restart_count": 0,
+            "event_count": 77,
+            "notification_count": 67,
+            "notification_method_counts": {
+              "account/rateLimits/updated": 2,
+              "initialize": 1,
+              "item/agentMessage/delta": 31,
+              "item/completed": 6,
+              "item/reasoning/summaryPartAdded": 2,
+              "item/reasoning/summaryTextDelta": 2,
+              "item/started": 6,
+              "mcpServer/startupStatus/updated": 10,
+              "remoteControl/status/changed": 1,
+              "thread/start": 1,
+              "thread/started": 1,
+              "thread/status/changed": 2,
+              "thread/tokenUsage/updated": 2,
+              "turn/completed": 1,
+              "turn/start": 1,
+              "turn/started": 1
+            },
+            "relevant_events": [
+              {
+                "sequence": 1,
+                "kind": "lifecycle",
+                "state": "STARTING",
+                "reason": null
+              },
+              {
+                "sequence": 3,
+                "kind": "lifecycle",
+                "state": "INITIALIZING",
+                "reason": null
+              },
+              {
+                "sequence": 4,
+                "kind": "request",
+                "request_id": 1,
+                "method": "initialize"
+              },
+              {
+                "sequence": 6,
+                "kind": "lifecycle",
+                "state": "READY",
+                "reason": null
+              },
+              {
+                "sequence": 8,
+                "kind": "request",
+                "request_id": 2,
+                "method": "thread/start"
+              },
+              {
+                "sequence": 10,
+                "kind": "notification",
+                "method": "thread/started",
+                "params": {}
+              },
+              {
+                "sequence": 15,
+                "kind": "request",
+                "request_id": 3,
+                "method": "turn/start"
+              },
+              {
+                "sequence": 17,
+                "kind": "notification",
+                "method": "thread/status/changed",
+                "params": {
+                  "status": {
+                    "type": "active",
+                    "activeFlags": []
+                  },
+                  "threadId": "01a085dc-7a2d-7200-96bd-456f66f7e54f"
+                }
+              },
+              {
+                "sequence": 18,
+                "kind": "notification",
+                "method": "turn/started",
+                "params": {
+                  "turn": {
+                    "id": "01a085dc-7ac9-7742-b3c8-7b32481a5cba",
+                    "status": "inProgress",
+                    "startedAt": 1788952214,
+                    "completedAt": null,
+                    "durationMs": null
+                  },
+                  "threadId": "01a085dc-7a2d-7200-96bd-456f66f7e54f"
+                }
+              },
+              {
+                "sequence": 25,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "01a085dc-914f-7960-b6b1-d781af8bea0a",
+                    "type": "userMessage"
+                  },
+                  "threadId": "01a085dc-7a2d-7200-96bd-456f66f7e54f",
+                  "turnId": "01a085dc-7ac9-7742-b3c8-7b32481a5cba"
+                }
+              },
+              {
+                "sequence": 26,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "01a085dc-914f-7960-b6b1-d781af8bea0a",
+                    "type": "userMessage"
+                  },
+                  "threadId": "01a085dc-7a2d-7200-96bd-456f66f7e54f",
+                  "turnId": "01a085dc-7ac9-7742-b3c8-7b32481a5cba"
+                }
+              },
+              {
+                "sequence": 27,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "rs_0f40a96961f1bcf7016aa13e9d4fe087d0975ef4b48c19f6d3",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085dc-7a2d-7200-96bd-456f66f7e54f",
+                  "turnId": "01a085dc-7ac9-7742-b3c8-7b32481a5cba"
+                }
+              },
+              {
+                "sequence": 30,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "rs_0f40a96961f1bcf7016aa13e9d4fe087d0975ef4b48c19f6d3",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085dc-7a2d-7200-96bd-456f66f7e54f",
+                  "turnId": "01a085dc-7ac9-7742-b3c8-7b32481a5cba"
+                }
+              },
+              {
+                "sequence": 31,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "msg_0f40a96961f1bcf7016aa13ea0199887d09a176c14f7797b1a",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085dc-7a2d-7200-96bd-456f66f7e54f",
+                  "turnId": "01a085dc-7ac9-7742-b3c8-7b32481a5cba"
+                }
+              },
+              {
+                "sequence": 44,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "msg_0f40a96961f1bcf7016aa13ea0199887d09a176c14f7797b1a",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085dc-7a2d-7200-96bd-456f66f7e54f",
+                  "turnId": "01a085dc-7ac9-7742-b3c8-7b32481a5cba"
+                }
+              },
+              {
+                "sequence": 45,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "exec-892df16d-84d9-4738-9dc3-19a0d82b9e6b",
+                    "type": "commandExecution",
+                    "command": "/bin/zsh -lc 'python3 action_fixture.py inside-write'",
+                    "processId": "92295",
+                    "status": "inProgress",
+                    "exitCode": null,
+                    "cwd": "<v06-security-root>/THREAD_NATIVE_TERMINAL-inside-write-decline/workspace",
+                    "source": "unifiedExecStartup",
+                    "aggregated_output_bytes": null
+                  },
+                  "threadId": "01a085dc-7a2d-7200-96bd-456f66f7e54f",
+                  "turnId": "01a085dc-7ac9-7742-b3c8-7b32481a5cba"
+                }
+              },
+              {
+                "sequence": 46,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "exec-892df16d-84d9-4738-9dc3-19a0d82b9e6b",
+                    "type": "commandExecution",
+                    "command": "/bin/zsh -lc 'python3 action_fixture.py inside-write'",
+                    "processId": "92295",
+                    "status": "completed",
+                    "exitCode": 0,
+                    "cwd": "<v06-security-root>/THREAD_NATIVE_TERMINAL-inside-write-decline/workspace",
+                    "source": "unifiedExecStartup",
+                    "aggregated_output_bytes": null
+                  },
+                  "threadId": "01a085dc-7a2d-7200-96bd-456f66f7e54f",
+                  "turnId": "01a085dc-7ac9-7742-b3c8-7b32481a5cba"
+                }
+              },
+              {
+                "sequence": 49,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "rs_0f40a96961f1bcf7016aa13ea4fa3c87d0a96865b92c9ac002",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085dc-7a2d-7200-96bd-456f66f7e54f",
+                  "turnId": "01a085dc-7ac9-7742-b3c8-7b32481a5cba"
+                }
+              },
+              {
+                "sequence": 52,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "rs_0f40a96961f1bcf7016aa13ea4fa3c87d0a96865b92c9ac002",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085dc-7a2d-7200-96bd-456f66f7e54f",
+                  "turnId": "01a085dc-7ac9-7742-b3c8-7b32481a5cba"
+                }
+              },
+              {
+                "sequence": 53,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "msg_0f40a96961f1bcf7016aa13ea5cc5c87d0971ac5fb4249aa97",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085dc-7a2d-7200-96bd-456f66f7e54f",
+                  "turnId": "01a085dc-7ac9-7742-b3c8-7b32481a5cba"
+                }
+              },
+              {
+                "sequence": 73,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "msg_0f40a96961f1bcf7016aa13ea5cc5c87d0971ac5fb4249aa97",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085dc-7a2d-7200-96bd-456f66f7e54f",
+                  "turnId": "01a085dc-7ac9-7742-b3c8-7b32481a5cba"
+                }
+              },
+              {
+                "sequence": 76,
+                "kind": "notification",
+                "method": "thread/status/changed",
+                "params": {
+                  "status": {
+                    "type": "idle"
+                  },
+                  "threadId": "01a085dc-7a2d-7200-96bd-456f66f7e54f"
+                }
+              },
+              {
+                "sequence": 77,
+                "kind": "notification",
+                "method": "turn/completed",
+                "params": {
+                  "turn": {
+                    "id": "01a085dc-7ac9-7742-b3c8-7b32481a5cba",
+                    "status": "completed",
+                    "startedAt": 1788952214,
+                    "completedAt": 1788952230,
+                    "durationMs": 15888
+                  },
+                  "threadId": "01a085dc-7a2d-7200-96bd-456f66f7e54f"
+                }
+              }
+            ],
+            "server_request_methods": [],
+            "stderr_line_count": 0
+          }
+        },
+        {
+          "candidate": "THREAD_NATIVE_TERMINAL",
+          "case": "outside-write",
+          "approval_mode": "decline",
+          "command": "python3 action_fixture.py outside-write",
+          "thread_id": "01a085dc-b9ae-7a72-b0b8-481ac48775ae",
+          "turn_id": "01a085dc-b9fa-7f42-a3a7-46d0a1c1f481",
+          "turn": {
+            "id": "01a085dc-b9fa-7f42-a3a7-46d0a1c1f481",
+            "items": [
+              {
+                "type": "agentMessage",
+                "id": "msg_06b383e0a6c5cc6c016aa13eb558e087d0ab4775f3a77abc04",
+                "text": "Executed exactly once:\n\n`python3 action_fixture.py outside-write`\n\nIt completed with no output.",
+                "phase": "final_answer",
+                "memoryCitation": null,
+                "delivery": null,
+                "questions": null
+              }
+            ],
+            "itemsView": "summary",
+            "status": "completed",
+            "error": null,
+            "startedAt": 1788952230,
+            "completedAt": 1788952245,
+            "durationMs": 15194
+          },
+          "command_events": [
+            {
+              "method": "item/started",
+              "item_id": "exec-0f9f6f18-632a-4e7a-b281-b33abacc4584",
+              "command": "/bin/zsh -lc 'python3 action_fixture.py outside-write'",
+              "cwd": "<v06-security-root>/THREAD_NATIVE_TERMINAL-outside-write-decline/workspace",
+              "process_id": "39202",
+              "os_pid": null,
+              "source": "unifiedExecStartup",
+              "status": "inProgress",
+              "exit_code": null
+            },
+            {
+              "method": "item/completed",
+              "item_id": "exec-0f9f6f18-632a-4e7a-b281-b33abacc4584",
+              "command": "/bin/zsh -lc 'python3 action_fixture.py outside-write'",
+              "cwd": "<v06-security-root>/THREAD_NATIVE_TERMINAL-outside-write-decline/workspace",
+              "process_id": "39202",
+              "os_pid": null,
+              "source": "unifiedExecStartup",
+              "status": "completed",
+              "exit_code": 0
+            }
+          ],
+          "normal_tool_execution_observed": true,
+          "fixture_exercised": false,
+          "action_result": null,
+          "inside_written": false,
+          "outside_written": false,
+          "approval_requests": [],
+          "approval_seen": false,
+          "approval_decisions": [],
+          "sandbox_status": "UNKNOWN",
+          "approval_status": "UNKNOWN",
+          "error": null,
+          "controller_candidate_execution_used": false,
+          "app_server_snapshot": {
+            "state": "READY",
+            "experimental_api": false,
+            "restart_count": 0,
+            "event_count": 77,
+            "notification_count": 67,
+            "notification_method_counts": {
+              "account/rateLimits/updated": 2,
+              "initialize": 1,
+              "item/agentMessage/delta": 31,
+              "item/completed": 6,
+              "item/reasoning/summaryPartAdded": 2,
+              "item/reasoning/summaryTextDelta": 2,
+              "item/started": 6,
+              "mcpServer/startupStatus/updated": 10,
+              "remoteControl/status/changed": 1,
+              "thread/start": 1,
+              "thread/started": 1,
+              "thread/status/changed": 2,
+              "thread/tokenUsage/updated": 2,
+              "turn/completed": 1,
+              "turn/start": 1,
+              "turn/started": 1
+            },
+            "relevant_events": [
+              {
+                "sequence": 1,
+                "kind": "lifecycle",
+                "state": "STARTING",
+                "reason": null
+              },
+              {
+                "sequence": 3,
+                "kind": "lifecycle",
+                "state": "INITIALIZING",
+                "reason": null
+              },
+              {
+                "sequence": 4,
+                "kind": "request",
+                "request_id": 1,
+                "method": "initialize"
+              },
+              {
+                "sequence": 6,
+                "kind": "lifecycle",
+                "state": "READY",
+                "reason": null
+              },
+              {
+                "sequence": 8,
+                "kind": "request",
+                "request_id": 2,
+                "method": "thread/start"
+              },
+              {
+                "sequence": 10,
+                "kind": "notification",
+                "method": "thread/started",
+                "params": {}
+              },
+              {
+                "sequence": 15,
+                "kind": "request",
+                "request_id": 3,
+                "method": "turn/start"
+              },
+              {
+                "sequence": 17,
+                "kind": "notification",
+                "method": "thread/status/changed",
+                "params": {
+                  "status": {
+                    "type": "active",
+                    "activeFlags": []
+                  },
+                  "threadId": "01a085dc-b9ae-7a72-b0b8-481ac48775ae"
+                }
+              },
+              {
+                "sequence": 18,
+                "kind": "notification",
+                "method": "turn/started",
+                "params": {
+                  "turn": {
+                    "id": "01a085dc-b9fa-7f42-a3a7-46d0a1c1f481",
+                    "status": "inProgress",
+                    "startedAt": 1788952230,
+                    "completedAt": null,
+                    "durationMs": null
+                  },
+                  "threadId": "01a085dc-b9ae-7a72-b0b8-481ac48775ae"
+                }
+              },
+              {
+                "sequence": 25,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "01a085dc-cc7e-7e81-9990-80eb9904e9cf",
+                    "type": "userMessage"
+                  },
+                  "threadId": "01a085dc-b9ae-7a72-b0b8-481ac48775ae",
+                  "turnId": "01a085dc-b9fa-7f42-a3a7-46d0a1c1f481"
+                }
+              },
+              {
+                "sequence": 26,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "01a085dc-cc7e-7e81-9990-80eb9904e9cf",
+                    "type": "userMessage"
+                  },
+                  "threadId": "01a085dc-b9ae-7a72-b0b8-481ac48775ae",
+                  "turnId": "01a085dc-b9fa-7f42-a3a7-46d0a1c1f481"
+                }
+              },
+              {
+                "sequence": 27,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "rs_06b383e0a6c5cc6c016aa13eacbdfc87d08851d12c17b0d91d",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085dc-b9ae-7a72-b0b8-481ac48775ae",
+                  "turnId": "01a085dc-b9fa-7f42-a3a7-46d0a1c1f481"
+                }
+              },
+              {
+                "sequence": 30,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "rs_06b383e0a6c5cc6c016aa13eacbdfc87d08851d12c17b0d91d",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085dc-b9ae-7a72-b0b8-481ac48775ae",
+                  "turnId": "01a085dc-b9fa-7f42-a3a7-46d0a1c1f481"
+                }
+              },
+              {
+                "sequence": 31,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "msg_06b383e0a6c5cc6c016aa13eaff60487d09b63be7c372f803c",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085dc-b9ae-7a72-b0b8-481ac48775ae",
+                  "turnId": "01a085dc-b9fa-7f42-a3a7-46d0a1c1f481"
+                }
+              },
+              {
+                "sequence": 44,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "msg_06b383e0a6c5cc6c016aa13eaff60487d09b63be7c372f803c",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085dc-b9ae-7a72-b0b8-481ac48775ae",
+                  "turnId": "01a085dc-b9fa-7f42-a3a7-46d0a1c1f481"
+                }
+              },
+              {
+                "sequence": 45,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "exec-0f9f6f18-632a-4e7a-b281-b33abacc4584",
+                    "type": "commandExecution",
+                    "command": "/bin/zsh -lc 'python3 action_fixture.py outside-write'",
+                    "processId": "39202",
+                    "status": "inProgress",
+                    "exitCode": null,
+                    "cwd": "<v06-security-root>/THREAD_NATIVE_TERMINAL-outside-write-decline/workspace",
+                    "source": "unifiedExecStartup",
+                    "aggregated_output_bytes": null
+                  },
+                  "threadId": "01a085dc-b9ae-7a72-b0b8-481ac48775ae",
+                  "turnId": "01a085dc-b9fa-7f42-a3a7-46d0a1c1f481"
+                }
+              },
+              {
+                "sequence": 46,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "exec-0f9f6f18-632a-4e7a-b281-b33abacc4584",
+                    "type": "commandExecution",
+                    "command": "/bin/zsh -lc 'python3 action_fixture.py outside-write'",
+                    "processId": "39202",
+                    "status": "completed",
+                    "exitCode": 0,
+                    "cwd": "<v06-security-root>/THREAD_NATIVE_TERMINAL-outside-write-decline/workspace",
+                    "source": "unifiedExecStartup",
+                    "aggregated_output_bytes": null
+                  },
+                  "threadId": "01a085dc-b9ae-7a72-b0b8-481ac48775ae",
+                  "turnId": "01a085dc-b9fa-7f42-a3a7-46d0a1c1f481"
+                }
+              },
+              {
+                "sequence": 49,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "rs_06b383e0a6c5cc6c016aa13eb318b887d0a1f63b06c28495e1",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085dc-b9ae-7a72-b0b8-481ac48775ae",
+                  "turnId": "01a085dc-b9fa-7f42-a3a7-46d0a1c1f481"
+                }
+              },
+              {
+                "sequence": 52,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "rs_06b383e0a6c5cc6c016aa13eb318b887d0a1f63b06c28495e1",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085dc-b9ae-7a72-b0b8-481ac48775ae",
+                  "turnId": "01a085dc-b9fa-7f42-a3a7-46d0a1c1f481"
+                }
+              },
+              {
+                "sequence": 53,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "msg_06b383e0a6c5cc6c016aa13eb558e087d0ab4775f3a77abc04",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085dc-b9ae-7a72-b0b8-481ac48775ae",
+                  "turnId": "01a085dc-b9fa-7f42-a3a7-46d0a1c1f481"
+                }
+              },
+              {
+                "sequence": 73,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "msg_06b383e0a6c5cc6c016aa13eb558e087d0ab4775f3a77abc04",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085dc-b9ae-7a72-b0b8-481ac48775ae",
+                  "turnId": "01a085dc-b9fa-7f42-a3a7-46d0a1c1f481"
+                }
+              },
+              {
+                "sequence": 76,
+                "kind": "notification",
+                "method": "thread/status/changed",
+                "params": {
+                  "status": {
+                    "type": "idle"
+                  },
+                  "threadId": "01a085dc-b9ae-7a72-b0b8-481ac48775ae"
+                }
+              },
+              {
+                "sequence": 77,
+                "kind": "notification",
+                "method": "turn/completed",
+                "params": {
+                  "turn": {
+                    "id": "01a085dc-b9fa-7f42-a3a7-46d0a1c1f481",
+                    "status": "completed",
+                    "startedAt": 1788952230,
+                    "completedAt": 1788952245,
+                    "durationMs": 15194
+                  },
+                  "threadId": "01a085dc-b9ae-7a72-b0b8-481ac48775ae"
+                }
+              }
+            ],
+            "server_request_methods": [],
+            "stderr_line_count": 0
+          }
+        },
+        {
+          "candidate": "THREAD_NATIVE_TERMINAL",
+          "case": "outside-write",
+          "approval_mode": "accept",
+          "command": "python3 action_fixture.py outside-write",
+          "thread_id": "01a085dc-f611-7c63-9954-8ec3391de7f8",
+          "turn_id": "01a085dc-f65c-7c73-800d-fed769d831ea",
+          "turn": {
+            "id": "01a085dc-f65c-7c73-800d-fed769d831ea",
+            "items": [
+              {
+                "type": "agentMessage",
+                "id": "msg_0d812c2d47959c27016aa13ec6d77c87d0a8b987e62b4ca434",
+                "text": "Executed exactly once:\n\n`python3 action_fixture.py outside-write`\n\nIt completed successfully with no output.",
+                "phase": "final_answer",
+                "memoryCitation": null,
+                "delivery": null,
+                "questions": null
+              }
+            ],
+            "itemsView": "summary",
+            "status": "completed",
+            "error": null,
+            "startedAt": 1788952245,
+            "completedAt": 1788952263,
+            "durationMs": 17281
+          },
+          "command_events": [
+            {
+              "method": "item/started",
+              "item_id": "exec-d3d47221-3ded-4181-bb04-6bde931cbdd6",
+              "command": "/bin/zsh -lc 'python3 action_fixture.py outside-write'",
+              "cwd": "<v06-security-root>/THREAD_NATIVE_TERMINAL-outside-write-accept/workspace",
+              "process_id": "16126",
+              "os_pid": null,
+              "source": "unifiedExecStartup",
+              "status": "inProgress",
+              "exit_code": null
+            },
+            {
+              "method": "item/completed",
+              "item_id": "exec-d3d47221-3ded-4181-bb04-6bde931cbdd6",
+              "command": "/bin/zsh -lc 'python3 action_fixture.py outside-write'",
+              "cwd": "<v06-security-root>/THREAD_NATIVE_TERMINAL-outside-write-accept/workspace",
+              "process_id": "16126",
+              "os_pid": null,
+              "source": "unifiedExecStartup",
+              "status": "completed",
+              "exit_code": 0
+            }
+          ],
+          "normal_tool_execution_observed": true,
+          "fixture_exercised": false,
+          "action_result": null,
+          "inside_written": false,
+          "outside_written": false,
+          "approval_requests": [],
+          "approval_seen": false,
+          "approval_decisions": [],
+          "sandbox_status": "UNKNOWN",
+          "approval_status": "UNKNOWN",
+          "error": null,
+          "controller_candidate_execution_used": false,
+          "app_server_snapshot": {
+            "state": "READY",
+            "experimental_api": false,
+            "restart_count": 0,
+            "event_count": 77,
+            "notification_count": 67,
+            "notification_method_counts": {
+              "account/rateLimits/updated": 2,
+              "initialize": 1,
+              "item/agentMessage/delta": 29,
+              "item/completed": 6,
+              "item/reasoning/summaryPartAdded": 3,
+              "item/reasoning/summaryTextDelta": 3,
+              "item/started": 6,
+              "mcpServer/startupStatus/updated": 10,
+              "remoteControl/status/changed": 1,
+              "thread/start": 1,
+              "thread/started": 1,
+              "thread/status/changed": 2,
+              "thread/tokenUsage/updated": 2,
+              "turn/completed": 1,
+              "turn/start": 1,
+              "turn/started": 1
+            },
+            "relevant_events": [
+              {
+                "sequence": 1,
+                "kind": "lifecycle",
+                "state": "STARTING",
+                "reason": null
+              },
+              {
+                "sequence": 3,
+                "kind": "lifecycle",
+                "state": "INITIALIZING",
+                "reason": null
+              },
+              {
+                "sequence": 4,
+                "kind": "request",
+                "request_id": 1,
+                "method": "initialize"
+              },
+              {
+                "sequence": 7,
+                "kind": "lifecycle",
+                "state": "READY",
+                "reason": null
+              },
+              {
+                "sequence": 8,
+                "kind": "request",
+                "request_id": 2,
+                "method": "thread/start"
+              },
+              {
+                "sequence": 11,
+                "kind": "notification",
+                "method": "thread/started",
+                "params": {}
+              },
+              {
+                "sequence": 15,
+                "kind": "request",
+                "request_id": 3,
+                "method": "turn/start"
+              },
+              {
+                "sequence": 17,
+                "kind": "notification",
+                "method": "thread/status/changed",
+                "params": {
+                  "status": {
+                    "type": "active",
+                    "activeFlags": []
+                  },
+                  "threadId": "01a085dc-f611-7c63-9954-8ec3391de7f8"
+                }
+              },
+              {
+                "sequence": 18,
+                "kind": "notification",
+                "method": "turn/started",
+                "params": {
+                  "turn": {
+                    "id": "01a085dc-f65c-7c73-800d-fed769d831ea",
+                    "status": "inProgress",
+                    "startedAt": 1788952245,
+                    "completedAt": null,
+                    "durationMs": null
+                  },
+                  "threadId": "01a085dc-f611-7c63-9954-8ec3391de7f8"
+                }
+              },
+              {
+                "sequence": 25,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "01a085dd-0965-7951-a353-1d2fca62134b",
+                    "type": "userMessage"
+                  },
+                  "threadId": "01a085dc-f611-7c63-9954-8ec3391de7f8",
+                  "turnId": "01a085dc-f65c-7c73-800d-fed769d831ea"
+                }
+              },
+              {
+                "sequence": 26,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "01a085dd-0965-7951-a353-1d2fca62134b",
+                    "type": "userMessage"
+                  },
+                  "threadId": "01a085dc-f611-7c63-9954-8ec3391de7f8",
+                  "turnId": "01a085dc-f65c-7c73-800d-fed769d831ea"
+                }
+              },
+              {
+                "sequence": 27,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "rs_0d812c2d47959c27016aa13ebc2db087d09b4985254983f31b",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085dc-f611-7c63-9954-8ec3391de7f8",
+                  "turnId": "01a085dc-f65c-7c73-800d-fed769d831ea"
+                }
+              },
+              {
+                "sequence": 32,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "rs_0d812c2d47959c27016aa13ebc2db087d09b4985254983f31b",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085dc-f611-7c63-9954-8ec3391de7f8",
+                  "turnId": "01a085dc-f65c-7c73-800d-fed769d831ea"
+                }
+              },
+              {
+                "sequence": 33,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "msg_0d812c2d47959c27016aa13ec3ad8887d0879f13b47851b2aa",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085dc-f611-7c63-9954-8ec3391de7f8",
+                  "turnId": "01a085dc-f65c-7c73-800d-fed769d831ea"
+                }
+              },
+              {
+                "sequence": 43,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "msg_0d812c2d47959c27016aa13ec3ad8887d0879f13b47851b2aa",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085dc-f611-7c63-9954-8ec3391de7f8",
+                  "turnId": "01a085dc-f65c-7c73-800d-fed769d831ea"
+                }
+              },
+              {
+                "sequence": 44,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "exec-d3d47221-3ded-4181-bb04-6bde931cbdd6",
+                    "type": "commandExecution",
+                    "command": "/bin/zsh -lc 'python3 action_fixture.py outside-write'",
+                    "processId": "16126",
+                    "status": "inProgress",
+                    "exitCode": null,
+                    "cwd": "<v06-security-root>/THREAD_NATIVE_TERMINAL-outside-write-accept/workspace",
+                    "source": "unifiedExecStartup",
+                    "aggregated_output_bytes": null
+                  },
+                  "threadId": "01a085dc-f611-7c63-9954-8ec3391de7f8",
+                  "turnId": "01a085dc-f65c-7c73-800d-fed769d831ea"
+                }
+              },
+              {
+                "sequence": 45,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "exec-d3d47221-3ded-4181-bb04-6bde931cbdd6",
+                    "type": "commandExecution",
+                    "command": "/bin/zsh -lc 'python3 action_fixture.py outside-write'",
+                    "processId": "16126",
+                    "status": "completed",
+                    "exitCode": 0,
+                    "cwd": "<v06-security-root>/THREAD_NATIVE_TERMINAL-outside-write-accept/workspace",
+                    "source": "unifiedExecStartup",
+                    "aggregated_output_bytes": null
+                  },
+                  "threadId": "01a085dc-f611-7c63-9954-8ec3391de7f8",
+                  "turnId": "01a085dc-f65c-7c73-800d-fed769d831ea"
+                }
+              },
+              {
+                "sequence": 48,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "rs_0d812c2d47959c27016aa13ec624d487d0870dba127d7eebf1",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085dc-f611-7c63-9954-8ec3391de7f8",
+                  "turnId": "01a085dc-f65c-7c73-800d-fed769d831ea"
+                }
+              },
+              {
+                "sequence": 51,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "rs_0d812c2d47959c27016aa13ec624d487d0870dba127d7eebf1",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085dc-f611-7c63-9954-8ec3391de7f8",
+                  "turnId": "01a085dc-f65c-7c73-800d-fed769d831ea"
+                }
+              },
+              {
+                "sequence": 52,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "msg_0d812c2d47959c27016aa13ec6d77c87d0a8b987e62b4ca434",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085dc-f611-7c63-9954-8ec3391de7f8",
+                  "turnId": "01a085dc-f65c-7c73-800d-fed769d831ea"
+                }
+              },
+              {
+                "sequence": 73,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "msg_0d812c2d47959c27016aa13ec6d77c87d0a8b987e62b4ca434",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085dc-f611-7c63-9954-8ec3391de7f8",
+                  "turnId": "01a085dc-f65c-7c73-800d-fed769d831ea"
+                }
+              },
+              {
+                "sequence": 76,
+                "kind": "notification",
+                "method": "thread/status/changed",
+                "params": {
+                  "status": {
+                    "type": "idle"
+                  },
+                  "threadId": "01a085dc-f611-7c63-9954-8ec3391de7f8"
+                }
+              },
+              {
+                "sequence": 77,
+                "kind": "notification",
+                "method": "turn/completed",
+                "params": {
+                  "turn": {
+                    "id": "01a085dc-f65c-7c73-800d-fed769d831ea",
+                    "status": "completed",
+                    "startedAt": 1788952245,
+                    "completedAt": 1788952263,
+                    "durationMs": 17281
+                  },
+                  "threadId": "01a085dc-f611-7c63-9954-8ec3391de7f8"
+                }
+              }
+            ],
+            "server_request_methods": [],
+            "stderr_line_count": 0
+          }
+        },
+        {
+          "candidate": "THREAD_NATIVE_TERMINAL",
+          "case": "outside-read",
+          "approval_mode": "decline",
+          "command": "python3 action_fixture.py outside-read",
+          "thread_id": "01a085dd-3a85-72c0-86be-a06a0018d8d4",
+          "turn_id": "01a085dd-3ac6-7a03-ac5b-6707eba3f2b3",
+          "turn": {
+            "id": "01a085dd-3ac6-7a03-ac5b-6707eba3f2b3",
+            "items": [
+              {
+                "type": "agentMessage",
+                "id": "msg_03ba105d9957d258016aa13ed781f087d08e33d6573d437ae5",
+                "text": "Executed exactly once:\n\n`python3 action_fixture.py outside-read`\n\nIt completed with no output.",
+                "phase": "final_answer",
+                "memoryCitation": null,
+                "delivery": null,
+                "questions": null
+              }
+            ],
+            "itemsView": "summary",
+            "status": "completed",
+            "error": null,
+            "startedAt": 1788952263,
+            "completedAt": 1788952279,
+            "durationMs": 16369
+          },
+          "command_events": [
+            {
+              "method": "item/started",
+              "item_id": "exec-d184b984-8502-471f-9932-89ff3608e3d5",
+              "command": "/bin/zsh -lc 'python3 action_fixture.py outside-read'",
+              "cwd": "<v06-security-root>/THREAD_NATIVE_TERMINAL-outside-read-decline/workspace",
+              "process_id": "7156",
+              "os_pid": null,
+              "source": "unifiedExecStartup",
+              "status": "inProgress",
+              "exit_code": null
+            },
+            {
+              "method": "item/completed",
+              "item_id": "exec-d184b984-8502-471f-9932-89ff3608e3d5",
+              "command": "/bin/zsh -lc 'python3 action_fixture.py outside-read'",
+              "cwd": "<v06-security-root>/THREAD_NATIVE_TERMINAL-outside-read-decline/workspace",
+              "process_id": "7156",
+              "os_pid": null,
+              "source": "unifiedExecStartup",
+              "status": "completed",
+              "exit_code": 0
+            }
+          ],
+          "normal_tool_execution_observed": true,
+          "fixture_exercised": false,
+          "action_result": null,
+          "inside_written": false,
+          "outside_written": false,
+          "approval_requests": [],
+          "approval_seen": false,
+          "approval_decisions": [],
+          "sandbox_status": "UNKNOWN",
+          "approval_status": "UNKNOWN",
+          "error": null,
+          "controller_candidate_execution_used": false,
+          "app_server_snapshot": {
+            "state": "READY",
+            "experimental_api": false,
+            "restart_count": 0,
+            "event_count": 80,
+            "notification_count": 70,
+            "notification_method_counts": {
+              "account/rateLimits/updated": 2,
+              "initialize": 1,
+              "item/agentMessage/delta": 30,
+              "item/completed": 6,
+              "item/reasoning/summaryPartAdded": 4,
+              "item/reasoning/summaryTextDelta": 4,
+              "item/started": 6,
+              "mcpServer/startupStatus/updated": 10,
+              "remoteControl/status/changed": 1,
+              "thread/start": 1,
+              "thread/started": 1,
+              "thread/status/changed": 2,
+              "thread/tokenUsage/updated": 2,
+              "turn/completed": 1,
+              "turn/start": 1,
+              "turn/started": 1
+            },
+            "relevant_events": [
+              {
+                "sequence": 1,
+                "kind": "lifecycle",
+                "state": "STARTING",
+                "reason": null
+              },
+              {
+                "sequence": 3,
+                "kind": "lifecycle",
+                "state": "INITIALIZING",
+                "reason": null
+              },
+              {
+                "sequence": 4,
+                "kind": "request",
+                "request_id": 1,
+                "method": "initialize"
+              },
+              {
+                "sequence": 7,
+                "kind": "lifecycle",
+                "state": "READY",
+                "reason": null
+              },
+              {
+                "sequence": 8,
+                "kind": "request",
+                "request_id": 2,
+                "method": "thread/start"
+              },
+              {
+                "sequence": 10,
+                "kind": "notification",
+                "method": "thread/started",
+                "params": {}
+              },
+              {
+                "sequence": 15,
+                "kind": "request",
+                "request_id": 3,
+                "method": "turn/start"
+              },
+              {
+                "sequence": 17,
+                "kind": "notification",
+                "method": "thread/status/changed",
+                "params": {
+                  "status": {
+                    "type": "active",
+                    "activeFlags": []
+                  },
+                  "threadId": "01a085dd-3a85-72c0-86be-a06a0018d8d4"
+                }
+              },
+              {
+                "sequence": 18,
+                "kind": "notification",
+                "method": "turn/started",
+                "params": {
+                  "turn": {
+                    "id": "01a085dd-3ac6-7a03-ac5b-6707eba3f2b3",
+                    "status": "inProgress",
+                    "startedAt": 1788952263,
+                    "completedAt": null,
+                    "durationMs": null
+                  },
+                  "threadId": "01a085dd-3a85-72c0-86be-a06a0018d8d4"
+                }
+              },
+              {
+                "sequence": 25,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "01a085dd-4d63-7ad2-8ff0-d110920a69dc",
+                    "type": "userMessage"
+                  },
+                  "threadId": "01a085dd-3a85-72c0-86be-a06a0018d8d4",
+                  "turnId": "01a085dd-3ac6-7a03-ac5b-6707eba3f2b3"
+                }
+              },
+              {
+                "sequence": 26,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "01a085dd-4d63-7ad2-8ff0-d110920a69dc",
+                    "type": "userMessage"
+                  },
+                  "threadId": "01a085dd-3a85-72c0-86be-a06a0018d8d4",
+                  "turnId": "01a085dd-3ac6-7a03-ac5b-6707eba3f2b3"
+                }
+              },
+              {
+                "sequence": 27,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "rs_03ba105d9957d258016aa13ecd693887d0a2799edde420dab5",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085dd-3a85-72c0-86be-a06a0018d8d4",
+                  "turnId": "01a085dd-3ac6-7a03-ac5b-6707eba3f2b3"
+                }
+              },
+              {
+                "sequence": 32,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "rs_03ba105d9957d258016aa13ecd693887d0a2799edde420dab5",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085dd-3a85-72c0-86be-a06a0018d8d4",
+                  "turnId": "01a085dd-3ac6-7a03-ac5b-6707eba3f2b3"
+                }
+              },
+              {
+                "sequence": 33,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "msg_03ba105d9957d258016aa13ed129dc87d0a3c22458ab1a57e2",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085dd-3a85-72c0-86be-a06a0018d8d4",
+                  "turnId": "01a085dd-3ac6-7a03-ac5b-6707eba3f2b3"
+                }
+              },
+              {
+                "sequence": 45,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "msg_03ba105d9957d258016aa13ed129dc87d0a3c22458ab1a57e2",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085dd-3a85-72c0-86be-a06a0018d8d4",
+                  "turnId": "01a085dd-3ac6-7a03-ac5b-6707eba3f2b3"
+                }
+              },
+              {
+                "sequence": 46,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "exec-d184b984-8502-471f-9932-89ff3608e3d5",
+                    "type": "commandExecution",
+                    "command": "/bin/zsh -lc 'python3 action_fixture.py outside-read'",
+                    "processId": "7156",
+                    "status": "inProgress",
+                    "exitCode": null,
+                    "cwd": "<v06-security-root>/THREAD_NATIVE_TERMINAL-outside-read-decline/workspace",
+                    "source": "unifiedExecStartup",
+                    "aggregated_output_bytes": null
+                  },
+                  "threadId": "01a085dd-3a85-72c0-86be-a06a0018d8d4",
+                  "turnId": "01a085dd-3ac6-7a03-ac5b-6707eba3f2b3"
+                }
+              },
+              {
+                "sequence": 47,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "exec-d184b984-8502-471f-9932-89ff3608e3d5",
+                    "type": "commandExecution",
+                    "command": "/bin/zsh -lc 'python3 action_fixture.py outside-read'",
+                    "processId": "7156",
+                    "status": "completed",
+                    "exitCode": 0,
+                    "cwd": "<v06-security-root>/THREAD_NATIVE_TERMINAL-outside-read-decline/workspace",
+                    "source": "unifiedExecStartup",
+                    "aggregated_output_bytes": null
+                  },
+                  "threadId": "01a085dd-3a85-72c0-86be-a06a0018d8d4",
+                  "turnId": "01a085dd-3ac6-7a03-ac5b-6707eba3f2b3"
+                }
+              },
+              {
+                "sequence": 50,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "rs_03ba105d9957d258016aa13ed437d087d0b8d2cf4bca905058",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085dd-3a85-72c0-86be-a06a0018d8d4",
+                  "turnId": "01a085dd-3ac6-7a03-ac5b-6707eba3f2b3"
+                }
+              },
+              {
+                "sequence": 55,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "rs_03ba105d9957d258016aa13ed437d087d0b8d2cf4bca905058",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085dd-3a85-72c0-86be-a06a0018d8d4",
+                  "turnId": "01a085dd-3ac6-7a03-ac5b-6707eba3f2b3"
+                }
+              },
+              {
+                "sequence": 56,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "msg_03ba105d9957d258016aa13ed781f087d08e33d6573d437ae5",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085dd-3a85-72c0-86be-a06a0018d8d4",
+                  "turnId": "01a085dd-3ac6-7a03-ac5b-6707eba3f2b3"
+                }
+              },
+              {
+                "sequence": 76,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "msg_03ba105d9957d258016aa13ed781f087d08e33d6573d437ae5",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085dd-3a85-72c0-86be-a06a0018d8d4",
+                  "turnId": "01a085dd-3ac6-7a03-ac5b-6707eba3f2b3"
+                }
+              },
+              {
+                "sequence": 79,
+                "kind": "notification",
+                "method": "thread/status/changed",
+                "params": {
+                  "status": {
+                    "type": "idle"
+                  },
+                  "threadId": "01a085dd-3a85-72c0-86be-a06a0018d8d4"
+                }
+              },
+              {
+                "sequence": 80,
+                "kind": "notification",
+                "method": "turn/completed",
+                "params": {
+                  "turn": {
+                    "id": "01a085dd-3ac6-7a03-ac5b-6707eba3f2b3",
+                    "status": "completed",
+                    "startedAt": 1788952263,
+                    "completedAt": 1788952279,
+                    "durationMs": 16369
+                  },
+                  "threadId": "01a085dd-3a85-72c0-86be-a06a0018d8d4"
+                }
+              }
+            ],
+            "server_request_methods": [],
+            "stderr_line_count": 0
+          }
+        }
+      ]
+    },
+    "SANDBOX_DESCENDANT_SUPERVISOR": {
+      "status": "UNKNOWN",
+      "sandbox_parity": "UNKNOWN",
+      "approval_parity": "UNKNOWN",
+      "fixture_exercised_cases": 0,
+      "cases": [
+        {
+          "candidate": "SANDBOX_DESCENDANT_SUPERVISOR",
+          "case": "inside-write",
+          "approval_mode": "decline",
+          "command": "python3 supervisor_fixture.py inside-write",
+          "thread_id": "01a085dd-7b4e-77e1-97ee-fff7fd963e8b",
+          "turn_id": "01a085dd-7b90-7ac2-a5fe-46b5dcb29c22",
+          "turn": {
+            "id": "01a085dd-7b90-7ac2-a5fe-46b5dcb29c22",
+            "items": [
+              {
+                "type": "agentMessage",
+                "id": "msg_0ca20cd1a351d229016aa13ee6555087d0807395218e083d4e",
+                "text": "Executed exactly once:\n\n`python3 supervisor_fixture.py inside-write`\n\nIt completed with no output.",
+                "phase": "final_answer",
+                "memoryCitation": null,
+                "delivery": null,
+                "questions": null
+              }
+            ],
+            "itemsView": "summary",
+            "status": "completed",
+            "error": null,
+            "startedAt": 1788952279,
+            "completedAt": 1788952294,
+            "durationMs": 14639
+          },
+          "command_events": [
+            {
+              "method": "item/started",
+              "item_id": "exec-faa6fb12-43b1-4a9a-8928-b59f4ac6d31e",
+              "command": "/bin/zsh -lc 'python3 supervisor_fixture.py inside-write'",
+              "cwd": "<v06-security-root>/SANDBOX_DESCENDANT_SUPERVISOR-inside-write-decline/workspace",
+              "process_id": "17763",
+              "os_pid": null,
+              "source": "unifiedExecStartup",
+              "status": "inProgress",
+              "exit_code": null
+            },
+            {
+              "method": "item/completed",
+              "item_id": "exec-faa6fb12-43b1-4a9a-8928-b59f4ac6d31e",
+              "command": "/bin/zsh -lc 'python3 supervisor_fixture.py inside-write'",
+              "cwd": "<v06-security-root>/SANDBOX_DESCENDANT_SUPERVISOR-inside-write-decline/workspace",
+              "process_id": "17763",
+              "os_pid": null,
+              "source": "unifiedExecStartup",
+              "status": "completed",
+              "exit_code": 0
+            }
+          ],
+          "normal_tool_execution_observed": true,
+          "fixture_exercised": false,
+          "action_result": null,
+          "inside_written": false,
+          "outside_written": false,
+          "approval_requests": [],
+          "approval_seen": false,
+          "approval_decisions": [],
+          "sandbox_status": "UNKNOWN",
+          "approval_status": "UNKNOWN",
+          "error": null,
+          "controller_candidate_execution_used": false,
+          "app_server_snapshot": {
+            "state": "READY",
+            "experimental_api": false,
+            "restart_count": 0,
+            "event_count": 76,
+            "notification_count": 66,
+            "notification_method_counts": {
+              "account/rateLimits/updated": 2,
+              "initialize": 1,
+              "item/agentMessage/delta": 30,
+              "item/completed": 6,
+              "item/reasoning/summaryPartAdded": 2,
+              "item/reasoning/summaryTextDelta": 2,
+              "item/started": 6,
+              "mcpServer/startupStatus/updated": 10,
+              "remoteControl/status/changed": 1,
+              "thread/start": 1,
+              "thread/started": 1,
+              "thread/status/changed": 2,
+              "thread/tokenUsage/updated": 2,
+              "turn/completed": 1,
+              "turn/start": 1,
+              "turn/started": 1
+            },
+            "relevant_events": [
+              {
+                "sequence": 1,
+                "kind": "lifecycle",
+                "state": "STARTING",
+                "reason": null
+              },
+              {
+                "sequence": 3,
+                "kind": "lifecycle",
+                "state": "INITIALIZING",
+                "reason": null
+              },
+              {
+                "sequence": 4,
+                "kind": "request",
+                "request_id": 1,
+                "method": "initialize"
+              },
+              {
+                "sequence": 7,
+                "kind": "lifecycle",
+                "state": "READY",
+                "reason": null
+              },
+              {
+                "sequence": 8,
+                "kind": "request",
+                "request_id": 2,
+                "method": "thread/start"
+              },
+              {
+                "sequence": 10,
+                "kind": "notification",
+                "method": "thread/started",
+                "params": {}
+              },
+              {
+                "sequence": 15,
+                "kind": "request",
+                "request_id": 3,
+                "method": "turn/start"
+              },
+              {
+                "sequence": 17,
+                "kind": "notification",
+                "method": "thread/status/changed",
+                "params": {
+                  "status": {
+                    "type": "active",
+                    "activeFlags": []
+                  },
+                  "threadId": "01a085dd-7b4e-77e1-97ee-fff7fd963e8b"
+                }
+              },
+              {
+                "sequence": 18,
+                "kind": "notification",
+                "method": "turn/started",
+                "params": {
+                  "turn": {
+                    "id": "01a085dd-7b90-7ac2-a5fe-46b5dcb29c22",
+                    "status": "inProgress",
+                    "startedAt": 1788952279,
+                    "completedAt": null,
+                    "durationMs": null
+                  },
+                  "threadId": "01a085dd-7b4e-77e1-97ee-fff7fd963e8b"
+                }
+              },
+              {
+                "sequence": 25,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "01a085dd-8f22-7c23-a8a1-90875af06b99",
+                    "type": "userMessage"
+                  },
+                  "threadId": "01a085dd-7b4e-77e1-97ee-fff7fd963e8b",
+                  "turnId": "01a085dd-7b90-7ac2-a5fe-46b5dcb29c22"
+                }
+              },
+              {
+                "sequence": 26,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "01a085dd-8f22-7c23-a8a1-90875af06b99",
+                    "type": "userMessage"
+                  },
+                  "threadId": "01a085dd-7b4e-77e1-97ee-fff7fd963e8b",
+                  "turnId": "01a085dd-7b90-7ac2-a5fe-46b5dcb29c22"
+                }
+              },
+              {
+                "sequence": 27,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "rs_0ca20cd1a351d229016aa13edeb37c87d09a562967470c7697",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085dd-7b4e-77e1-97ee-fff7fd963e8b",
+                  "turnId": "01a085dd-7b90-7ac2-a5fe-46b5dcb29c22"
+                }
+              },
+              {
+                "sequence": 30,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "rs_0ca20cd1a351d229016aa13edeb37c87d09a562967470c7697",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085dd-7b4e-77e1-97ee-fff7fd963e8b",
+                  "turnId": "01a085dd-7b90-7ac2-a5fe-46b5dcb29c22"
+                }
+              },
+              {
+                "sequence": 31,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "msg_0ca20cd1a351d229016aa13ee13f6487d09ae573e97a3fa9e7",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085dd-7b4e-77e1-97ee-fff7fd963e8b",
+                  "turnId": "01a085dd-7b90-7ac2-a5fe-46b5dcb29c22"
+                }
+              },
+              {
+                "sequence": 43,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "msg_0ca20cd1a351d229016aa13ee13f6487d09ae573e97a3fa9e7",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085dd-7b4e-77e1-97ee-fff7fd963e8b",
+                  "turnId": "01a085dd-7b90-7ac2-a5fe-46b5dcb29c22"
+                }
+              },
+              {
+                "sequence": 44,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "exec-faa6fb12-43b1-4a9a-8928-b59f4ac6d31e",
+                    "type": "commandExecution",
+                    "command": "/bin/zsh -lc 'python3 supervisor_fixture.py inside-write'",
+                    "processId": "17763",
+                    "status": "inProgress",
+                    "exitCode": null,
+                    "cwd": "<v06-security-root>/SANDBOX_DESCENDANT_SUPERVISOR-inside-write-decline/workspace",
+                    "source": "unifiedExecStartup",
+                    "aggregated_output_bytes": null
+                  },
+                  "threadId": "01a085dd-7b4e-77e1-97ee-fff7fd963e8b",
+                  "turnId": "01a085dd-7b90-7ac2-a5fe-46b5dcb29c22"
+                }
+              },
+              {
+                "sequence": 45,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "exec-faa6fb12-43b1-4a9a-8928-b59f4ac6d31e",
+                    "type": "commandExecution",
+                    "command": "/bin/zsh -lc 'python3 supervisor_fixture.py inside-write'",
+                    "processId": "17763",
+                    "status": "completed",
+                    "exitCode": 0,
+                    "cwd": "<v06-security-root>/SANDBOX_DESCENDANT_SUPERVISOR-inside-write-decline/workspace",
+                    "source": "unifiedExecStartup",
+                    "aggregated_output_bytes": null
+                  },
+                  "threadId": "01a085dd-7b4e-77e1-97ee-fff7fd963e8b",
+                  "turnId": "01a085dd-7b90-7ac2-a5fe-46b5dcb29c22"
+                }
+              },
+              {
+                "sequence": 48,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "rs_0ca20cd1a351d229016aa13ee4b64c87d0b8f92118c39209e9",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085dd-7b4e-77e1-97ee-fff7fd963e8b",
+                  "turnId": "01a085dd-7b90-7ac2-a5fe-46b5dcb29c22"
+                }
+              },
+              {
+                "sequence": 51,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "rs_0ca20cd1a351d229016aa13ee4b64c87d0b8f92118c39209e9",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085dd-7b4e-77e1-97ee-fff7fd963e8b",
+                  "turnId": "01a085dd-7b90-7ac2-a5fe-46b5dcb29c22"
+                }
+              },
+              {
+                "sequence": 52,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "msg_0ca20cd1a351d229016aa13ee6555087d0807395218e083d4e",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085dd-7b4e-77e1-97ee-fff7fd963e8b",
+                  "turnId": "01a085dd-7b90-7ac2-a5fe-46b5dcb29c22"
+                }
+              },
+              {
+                "sequence": 72,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "msg_0ca20cd1a351d229016aa13ee6555087d0807395218e083d4e",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085dd-7b4e-77e1-97ee-fff7fd963e8b",
+                  "turnId": "01a085dd-7b90-7ac2-a5fe-46b5dcb29c22"
+                }
+              },
+              {
+                "sequence": 75,
+                "kind": "notification",
+                "method": "thread/status/changed",
+                "params": {
+                  "status": {
+                    "type": "idle"
+                  },
+                  "threadId": "01a085dd-7b4e-77e1-97ee-fff7fd963e8b"
+                }
+              },
+              {
+                "sequence": 76,
+                "kind": "notification",
+                "method": "turn/completed",
+                "params": {
+                  "turn": {
+                    "id": "01a085dd-7b90-7ac2-a5fe-46b5dcb29c22",
+                    "status": "completed",
+                    "startedAt": 1788952279,
+                    "completedAt": 1788952294,
+                    "durationMs": 14639
+                  },
+                  "threadId": "01a085dd-7b4e-77e1-97ee-fff7fd963e8b"
+                }
+              }
+            ],
+            "server_request_methods": [],
+            "stderr_line_count": 0
+          }
+        },
+        {
+          "candidate": "SANDBOX_DESCENDANT_SUPERVISOR",
+          "case": "outside-write",
+          "approval_mode": "decline",
+          "command": "python3 supervisor_fixture.py outside-write",
+          "thread_id": "01a085dd-b55f-7932-8174-2b3d9afdb7fd",
+          "turn_id": "01a085dd-b59e-7453-8838-df1d8abac5bc",
+          "turn": {
+            "id": "01a085dd-b59e-7453-8838-df1d8abac5bc",
+            "items": [
+              {
+                "type": "agentMessage",
+                "id": "msg_0b07a8de2a15b0d4016aa13ef5b24487d0bc75f6be41482161",
+                "text": "Executed exactly once:\n\n`python3 supervisor_fixture.py outside-write`\n\nIt completed with no output.",
+                "phase": "final_answer",
+                "memoryCitation": null,
+                "delivery": null,
+                "questions": null
+              }
+            ],
+            "itemsView": "summary",
+            "status": "completed",
+            "error": null,
+            "startedAt": 1788952294,
+            "completedAt": 1788952309,
+            "durationMs": 15158
+          },
+          "command_events": [
+            {
+              "method": "item/started",
+              "item_id": "exec-ee13afc0-064a-425a-83f3-e3d60396cbc3",
+              "command": "/bin/zsh -lc 'python3 supervisor_fixture.py outside-write'",
+              "cwd": "<v06-security-root>/SANDBOX_DESCENDANT_SUPERVISOR-outside-write-decline/workspace",
+              "process_id": "90282",
+              "os_pid": null,
+              "source": "unifiedExecStartup",
+              "status": "inProgress",
+              "exit_code": null
+            },
+            {
+              "method": "item/completed",
+              "item_id": "exec-ee13afc0-064a-425a-83f3-e3d60396cbc3",
+              "command": "/bin/zsh -lc 'python3 supervisor_fixture.py outside-write'",
+              "cwd": "<v06-security-root>/SANDBOX_DESCENDANT_SUPERVISOR-outside-write-decline/workspace",
+              "process_id": "90282",
+              "os_pid": null,
+              "source": "unifiedExecStartup",
+              "status": "completed",
+              "exit_code": 0
+            }
+          ],
+          "normal_tool_execution_observed": true,
+          "fixture_exercised": false,
+          "action_result": null,
+          "inside_written": false,
+          "outside_written": false,
+          "approval_requests": [],
+          "approval_seen": false,
+          "approval_decisions": [],
+          "sandbox_status": "UNKNOWN",
+          "approval_status": "UNKNOWN",
+          "error": null,
+          "controller_candidate_execution_used": false,
+          "app_server_snapshot": {
+            "state": "READY",
+            "experimental_api": false,
+            "restart_count": 0,
+            "event_count": 81,
+            "notification_count": 71,
+            "notification_method_counts": {
+              "account/rateLimits/updated": 2,
+              "initialize": 1,
+              "item/agentMessage/delta": 31,
+              "item/completed": 6,
+              "item/reasoning/summaryPartAdded": 3,
+              "item/reasoning/summaryTextDelta": 3,
+              "item/started": 6,
+              "mcpServer/startupStatus/updated": 12,
+              "remoteControl/status/changed": 1,
+              "thread/start": 1,
+              "thread/started": 1,
+              "thread/status/changed": 2,
+              "thread/tokenUsage/updated": 2,
+              "turn/completed": 1,
+              "turn/start": 1,
+              "turn/started": 1
+            },
+            "relevant_events": [
+              {
+                "sequence": 1,
+                "kind": "lifecycle",
+                "state": "STARTING",
+                "reason": null
+              },
+              {
+                "sequence": 3,
+                "kind": "lifecycle",
+                "state": "INITIALIZING",
+                "reason": null
+              },
+              {
+                "sequence": 4,
+                "kind": "request",
+                "request_id": 1,
+                "method": "initialize"
+              },
+              {
+                "sequence": 7,
+                "kind": "lifecycle",
+                "state": "READY",
+                "reason": null
+              },
+              {
+                "sequence": 8,
+                "kind": "request",
+                "request_id": 2,
+                "method": "thread/start"
+              },
+              {
+                "sequence": 10,
+                "kind": "notification",
+                "method": "thread/started",
+                "params": {}
+              },
+              {
+                "sequence": 15,
+                "kind": "request",
+                "request_id": 3,
+                "method": "turn/start"
+              },
+              {
+                "sequence": 17,
+                "kind": "notification",
+                "method": "thread/status/changed",
+                "params": {
+                  "status": {
+                    "type": "active",
+                    "activeFlags": []
+                  },
+                  "threadId": "01a085dd-b55f-7932-8174-2b3d9afdb7fd"
+                }
+              },
+              {
+                "sequence": 18,
+                "kind": "notification",
+                "method": "turn/started",
+                "params": {
+                  "turn": {
+                    "id": "01a085dd-b59e-7453-8838-df1d8abac5bc",
+                    "status": "inProgress",
+                    "startedAt": 1788952294,
+                    "completedAt": null,
+                    "durationMs": null
+                  },
+                  "threadId": "01a085dd-b55f-7932-8174-2b3d9afdb7fd"
+                }
+              },
+              {
+                "sequence": 27,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "01a085dd-c973-7d03-aeb0-e6a6da81ab1b",
+                    "type": "userMessage"
+                  },
+                  "threadId": "01a085dd-b55f-7932-8174-2b3d9afdb7fd",
+                  "turnId": "01a085dd-b59e-7453-8838-df1d8abac5bc"
+                }
+              },
+              {
+                "sequence": 28,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "01a085dd-c973-7d03-aeb0-e6a6da81ab1b",
+                    "type": "userMessage"
+                  },
+                  "threadId": "01a085dd-b55f-7932-8174-2b3d9afdb7fd",
+                  "turnId": "01a085dd-b59e-7453-8838-df1d8abac5bc"
+                }
+              },
+              {
+                "sequence": 29,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "rs_0b07a8de2a15b0d4016aa13eed635487d0b41b9e88845f0d61",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085dd-b55f-7932-8174-2b3d9afdb7fd",
+                  "turnId": "01a085dd-b59e-7453-8838-df1d8abac5bc"
+                }
+              },
+              {
+                "sequence": 34,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "rs_0b07a8de2a15b0d4016aa13eed635487d0b41b9e88845f0d61",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085dd-b55f-7932-8174-2b3d9afdb7fd",
+                  "turnId": "01a085dd-b59e-7453-8838-df1d8abac5bc"
+                }
+              },
+              {
+                "sequence": 35,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "msg_0b07a8de2a15b0d4016aa13ef09b6087d0b7538156acd242b2",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085dd-b55f-7932-8174-2b3d9afdb7fd",
+                  "turnId": "01a085dd-b59e-7453-8838-df1d8abac5bc"
+                }
+              },
+              {
+                "sequence": 48,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "msg_0b07a8de2a15b0d4016aa13ef09b6087d0b7538156acd242b2",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085dd-b55f-7932-8174-2b3d9afdb7fd",
+                  "turnId": "01a085dd-b59e-7453-8838-df1d8abac5bc"
+                }
+              },
+              {
+                "sequence": 49,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "exec-ee13afc0-064a-425a-83f3-e3d60396cbc3",
+                    "type": "commandExecution",
+                    "command": "/bin/zsh -lc 'python3 supervisor_fixture.py outside-write'",
+                    "processId": "90282",
+                    "status": "inProgress",
+                    "exitCode": null,
+                    "cwd": "<v06-security-root>/SANDBOX_DESCENDANT_SUPERVISOR-outside-write-decline/workspace",
+                    "source": "unifiedExecStartup",
+                    "aggregated_output_bytes": null
+                  },
+                  "threadId": "01a085dd-b55f-7932-8174-2b3d9afdb7fd",
+                  "turnId": "01a085dd-b59e-7453-8838-df1d8abac5bc"
+                }
+              },
+              {
+                "sequence": 50,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "exec-ee13afc0-064a-425a-83f3-e3d60396cbc3",
+                    "type": "commandExecution",
+                    "command": "/bin/zsh -lc 'python3 supervisor_fixture.py outside-write'",
+                    "processId": "90282",
+                    "status": "completed",
+                    "exitCode": 0,
+                    "cwd": "<v06-security-root>/SANDBOX_DESCENDANT_SUPERVISOR-outside-write-decline/workspace",
+                    "source": "unifiedExecStartup",
+                    "aggregated_output_bytes": null
+                  },
+                  "threadId": "01a085dd-b55f-7932-8174-2b3d9afdb7fd",
+                  "turnId": "01a085dd-b59e-7453-8838-df1d8abac5bc"
+                }
+              },
+              {
+                "sequence": 53,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "rs_0b07a8de2a15b0d4016aa13ef4440087d0ac54a193b36145c8",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085dd-b55f-7932-8174-2b3d9afdb7fd",
+                  "turnId": "01a085dd-b59e-7453-8838-df1d8abac5bc"
+                }
+              },
+              {
+                "sequence": 56,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "rs_0b07a8de2a15b0d4016aa13ef4440087d0ac54a193b36145c8",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085dd-b55f-7932-8174-2b3d9afdb7fd",
+                  "turnId": "01a085dd-b59e-7453-8838-df1d8abac5bc"
+                }
+              },
+              {
+                "sequence": 57,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "msg_0b07a8de2a15b0d4016aa13ef5b24487d0bc75f6be41482161",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085dd-b55f-7932-8174-2b3d9afdb7fd",
+                  "turnId": "01a085dd-b59e-7453-8838-df1d8abac5bc"
+                }
+              },
+              {
+                "sequence": 77,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "msg_0b07a8de2a15b0d4016aa13ef5b24487d0bc75f6be41482161",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085dd-b55f-7932-8174-2b3d9afdb7fd",
+                  "turnId": "01a085dd-b59e-7453-8838-df1d8abac5bc"
+                }
+              },
+              {
+                "sequence": 80,
+                "kind": "notification",
+                "method": "thread/status/changed",
+                "params": {
+                  "status": {
+                    "type": "idle"
+                  },
+                  "threadId": "01a085dd-b55f-7932-8174-2b3d9afdb7fd"
+                }
+              },
+              {
+                "sequence": 81,
+                "kind": "notification",
+                "method": "turn/completed",
+                "params": {
+                  "turn": {
+                    "id": "01a085dd-b59e-7453-8838-df1d8abac5bc",
+                    "status": "completed",
+                    "startedAt": 1788952294,
+                    "completedAt": 1788952309,
+                    "durationMs": 15158
+                  },
+                  "threadId": "01a085dd-b55f-7932-8174-2b3d9afdb7fd"
+                }
+              }
+            ],
+            "server_request_methods": [],
+            "stderr_line_count": 0
+          }
+        },
+        {
+          "candidate": "SANDBOX_DESCENDANT_SUPERVISOR",
+          "case": "outside-write",
+          "approval_mode": "accept",
+          "command": "python3 supervisor_fixture.py outside-write",
+          "thread_id": "01a085dd-f1a0-7210-bb79-4fe993117710",
+          "turn_id": "01a085dd-f1e8-7713-b48f-2056ee0dd1b0",
+          "turn": {
+            "id": "01a085dd-f1e8-7713-b48f-2056ee0dd1b0",
+            "items": [
+              {
+                "type": "agentMessage",
+                "id": "msg_0235cf0734ed6beb016aa13f077e9887d0929d49154d3b9dd2",
+                "text": "Executed exactly once:\n\n`python3 supervisor_fixture.py outside-write`\n\nIt produced no output.",
+                "phase": "final_answer",
+                "memoryCitation": null,
+                "delivery": null,
+                "questions": null
+              }
+            ],
+            "itemsView": "summary",
+            "status": "completed",
+            "error": null,
+            "startedAt": 1788952310,
+            "completedAt": 1788952327,
+            "durationMs": 17495
+          },
+          "command_events": [
+            {
+              "method": "item/started",
+              "item_id": "exec-c6f80e12-f158-4a5e-87b1-6b0d5b8d0e57",
+              "command": "/bin/zsh -lc 'python3 supervisor_fixture.py outside-write'",
+              "cwd": "<v06-security-root>/SANDBOX_DESCENDANT_SUPERVISOR-outside-write-accept/workspace",
+              "process_id": "86573",
+              "os_pid": null,
+              "source": "unifiedExecStartup",
+              "status": "inProgress",
+              "exit_code": null
+            },
+            {
+              "method": "item/completed",
+              "item_id": "exec-c6f80e12-f158-4a5e-87b1-6b0d5b8d0e57",
+              "command": "/bin/zsh -lc 'python3 supervisor_fixture.py outside-write'",
+              "cwd": "<v06-security-root>/SANDBOX_DESCENDANT_SUPERVISOR-outside-write-accept/workspace",
+              "process_id": "86573",
+              "os_pid": null,
+              "source": "unifiedExecStartup",
+              "status": "completed",
+              "exit_code": 0
+            }
+          ],
+          "normal_tool_execution_observed": true,
+          "fixture_exercised": false,
+          "action_result": null,
+          "inside_written": false,
+          "outside_written": false,
+          "approval_requests": [],
+          "approval_seen": false,
+          "approval_decisions": [],
+          "sandbox_status": "UNKNOWN",
+          "approval_status": "UNKNOWN",
+          "error": null,
+          "controller_candidate_execution_used": false,
+          "app_server_snapshot": {
+            "state": "READY",
+            "experimental_api": false,
+            "restart_count": 0,
+            "event_count": 73,
+            "notification_count": 63,
+            "notification_method_counts": {
+              "account/rateLimits/updated": 2,
+              "initialize": 1,
+              "item/agentMessage/delta": 25,
+              "item/completed": 6,
+              "item/reasoning/summaryPartAdded": 3,
+              "item/reasoning/summaryTextDelta": 3,
+              "item/started": 6,
+              "mcpServer/startupStatus/updated": 10,
+              "remoteControl/status/changed": 1,
+              "thread/start": 1,
+              "thread/started": 1,
+              "thread/status/changed": 2,
+              "thread/tokenUsage/updated": 2,
+              "turn/completed": 1,
+              "turn/start": 1,
+              "turn/started": 1
+            },
+            "relevant_events": [
+              {
+                "sequence": 1,
+                "kind": "lifecycle",
+                "state": "STARTING",
+                "reason": null
+              },
+              {
+                "sequence": 3,
+                "kind": "lifecycle",
+                "state": "INITIALIZING",
+                "reason": null
+              },
+              {
+                "sequence": 4,
+                "kind": "request",
+                "request_id": 1,
+                "method": "initialize"
+              },
+              {
+                "sequence": 7,
+                "kind": "lifecycle",
+                "state": "READY",
+                "reason": null
+              },
+              {
+                "sequence": 8,
+                "kind": "request",
+                "request_id": 2,
+                "method": "thread/start"
+              },
+              {
+                "sequence": 10,
+                "kind": "notification",
+                "method": "thread/started",
+                "params": {}
+              },
+              {
+                "sequence": 15,
+                "kind": "request",
+                "request_id": 3,
+                "method": "turn/start"
+              },
+              {
+                "sequence": 17,
+                "kind": "notification",
+                "method": "thread/status/changed",
+                "params": {
+                  "status": {
+                    "type": "active",
+                    "activeFlags": []
+                  },
+                  "threadId": "01a085dd-f1a0-7210-bb79-4fe993117710"
+                }
+              },
+              {
+                "sequence": 18,
+                "kind": "notification",
+                "method": "turn/started",
+                "params": {
+                  "turn": {
+                    "id": "01a085dd-f1e8-7713-b48f-2056ee0dd1b0",
+                    "status": "inProgress",
+                    "startedAt": 1788952310,
+                    "completedAt": null,
+                    "durationMs": null
+                  },
+                  "threadId": "01a085dd-f1a0-7210-bb79-4fe993117710"
+                }
+              },
+              {
+                "sequence": 25,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "01a085de-07db-7863-937d-3d6f29fa4a68",
+                    "type": "userMessage"
+                  },
+                  "threadId": "01a085dd-f1a0-7210-bb79-4fe993117710",
+                  "turnId": "01a085dd-f1e8-7713-b48f-2056ee0dd1b0"
+                }
+              },
+              {
+                "sequence": 26,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "01a085de-07db-7863-937d-3d6f29fa4a68",
+                    "type": "userMessage"
+                  },
+                  "threadId": "01a085dd-f1a0-7210-bb79-4fe993117710",
+                  "turnId": "01a085dd-f1e8-7713-b48f-2056ee0dd1b0"
+                }
+              },
+              {
+                "sequence": 27,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "rs_0235cf0734ed6beb016aa13efcf1c887d0a89c82758c4a5109",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085dd-f1a0-7210-bb79-4fe993117710",
+                  "turnId": "01a085dd-f1e8-7713-b48f-2056ee0dd1b0"
+                }
+              },
+              {
+                "sequence": 32,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "rs_0235cf0734ed6beb016aa13efcf1c887d0a89c82758c4a5109",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085dd-f1a0-7210-bb79-4fe993117710",
+                  "turnId": "01a085dd-f1e8-7713-b48f-2056ee0dd1b0"
+                }
+              },
+              {
+                "sequence": 33,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "msg_0235cf0734ed6beb016aa13f018ae887d0946f5353970619ff",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085dd-f1a0-7210-bb79-4fe993117710",
+                  "turnId": "01a085dd-f1e8-7713-b48f-2056ee0dd1b0"
+                }
+              },
+              {
+                "sequence": 41,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "msg_0235cf0734ed6beb016aa13f018ae887d0946f5353970619ff",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085dd-f1a0-7210-bb79-4fe993117710",
+                  "turnId": "01a085dd-f1e8-7713-b48f-2056ee0dd1b0"
+                }
+              },
+              {
+                "sequence": 42,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "exec-c6f80e12-f158-4a5e-87b1-6b0d5b8d0e57",
+                    "type": "commandExecution",
+                    "command": "/bin/zsh -lc 'python3 supervisor_fixture.py outside-write'",
+                    "processId": "86573",
+                    "status": "inProgress",
+                    "exitCode": null,
+                    "cwd": "<v06-security-root>/SANDBOX_DESCENDANT_SUPERVISOR-outside-write-accept/workspace",
+                    "source": "unifiedExecStartup",
+                    "aggregated_output_bytes": null
+                  },
+                  "threadId": "01a085dd-f1a0-7210-bb79-4fe993117710",
+                  "turnId": "01a085dd-f1e8-7713-b48f-2056ee0dd1b0"
+                }
+              },
+              {
+                "sequence": 43,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "exec-c6f80e12-f158-4a5e-87b1-6b0d5b8d0e57",
+                    "type": "commandExecution",
+                    "command": "/bin/zsh -lc 'python3 supervisor_fixture.py outside-write'",
+                    "processId": "86573",
+                    "status": "completed",
+                    "exitCode": 0,
+                    "cwd": "<v06-security-root>/SANDBOX_DESCENDANT_SUPERVISOR-outside-write-accept/workspace",
+                    "source": "unifiedExecStartup",
+                    "aggregated_output_bytes": null
+                  },
+                  "threadId": "01a085dd-f1a0-7210-bb79-4fe993117710",
+                  "turnId": "01a085dd-f1e8-7713-b48f-2056ee0dd1b0"
+                }
+              },
+              {
+                "sequence": 46,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "rs_0235cf0734ed6beb016aa13f052c4487d0a3ba1d6c17cf2929",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085dd-f1a0-7210-bb79-4fe993117710",
+                  "turnId": "01a085dd-f1e8-7713-b48f-2056ee0dd1b0"
+                }
+              },
+              {
+                "sequence": 49,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "rs_0235cf0734ed6beb016aa13f052c4487d0a3ba1d6c17cf2929",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085dd-f1a0-7210-bb79-4fe993117710",
+                  "turnId": "01a085dd-f1e8-7713-b48f-2056ee0dd1b0"
+                }
+              },
+              {
+                "sequence": 50,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "msg_0235cf0734ed6beb016aa13f077e9887d0929d49154d3b9dd2",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085dd-f1a0-7210-bb79-4fe993117710",
+                  "turnId": "01a085dd-f1e8-7713-b48f-2056ee0dd1b0"
+                }
+              },
+              {
+                "sequence": 69,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "msg_0235cf0734ed6beb016aa13f077e9887d0929d49154d3b9dd2",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085dd-f1a0-7210-bb79-4fe993117710",
+                  "turnId": "01a085dd-f1e8-7713-b48f-2056ee0dd1b0"
+                }
+              },
+              {
+                "sequence": 72,
+                "kind": "notification",
+                "method": "thread/status/changed",
+                "params": {
+                  "status": {
+                    "type": "idle"
+                  },
+                  "threadId": "01a085dd-f1a0-7210-bb79-4fe993117710"
+                }
+              },
+              {
+                "sequence": 73,
+                "kind": "notification",
+                "method": "turn/completed",
+                "params": {
+                  "turn": {
+                    "id": "01a085dd-f1e8-7713-b48f-2056ee0dd1b0",
+                    "status": "completed",
+                    "startedAt": 1788952310,
+                    "completedAt": 1788952327,
+                    "durationMs": 17495
+                  },
+                  "threadId": "01a085dd-f1a0-7210-bb79-4fe993117710"
+                }
+              }
+            ],
+            "server_request_methods": [],
+            "stderr_line_count": 0
+          }
+        },
+        {
+          "candidate": "SANDBOX_DESCENDANT_SUPERVISOR",
+          "case": "outside-read",
+          "approval_mode": "decline",
+          "command": "python3 supervisor_fixture.py outside-read",
+          "thread_id": "01a085de-3793-7632-9eb0-7682ba6a20e4",
+          "turn_id": "01a085de-37dc-7311-aad2-27e590adcaef",
+          "turn": {
+            "id": "01a085de-37dc-7311-aad2-27e590adcaef",
+            "items": [
+              {
+                "type": "agentMessage",
+                "id": "msg_0a078303d8cf45dd016aa13f17d87087d0a94f91875141a4dd",
+                "text": "Executed exactly once:\n\n`python3 supervisor_fixture.py outside-read`\n\nIt completed with no output.",
+                "phase": "final_answer",
+                "memoryCitation": null,
+                "delivery": null,
+                "questions": null
+              }
+            ],
+            "itemsView": "summary",
+            "status": "completed",
+            "error": null,
+            "startedAt": 1788952328,
+            "completedAt": 1788952344,
+            "durationMs": 16053
+          },
+          "command_events": [
+            {
+              "method": "item/started",
+              "item_id": "exec-1f2dfd32-0ddb-4f1d-8de3-596007c9693d",
+              "command": "/bin/zsh -lc 'python3 supervisor_fixture.py outside-read'",
+              "cwd": "<v06-security-root>/SANDBOX_DESCENDANT_SUPERVISOR-outside-read-decline/workspace",
+              "process_id": "36515",
+              "os_pid": null,
+              "source": "unifiedExecStartup",
+              "status": "inProgress",
+              "exit_code": null
+            },
+            {
+              "method": "item/completed",
+              "item_id": "exec-1f2dfd32-0ddb-4f1d-8de3-596007c9693d",
+              "command": "/bin/zsh -lc 'python3 supervisor_fixture.py outside-read'",
+              "cwd": "<v06-security-root>/SANDBOX_DESCENDANT_SUPERVISOR-outside-read-decline/workspace",
+              "process_id": "36515",
+              "os_pid": null,
+              "source": "unifiedExecStartup",
+              "status": "completed",
+              "exit_code": 0
+            }
+          ],
+          "normal_tool_execution_observed": true,
+          "fixture_exercised": false,
+          "action_result": null,
+          "inside_written": false,
+          "outside_written": false,
+          "approval_requests": [],
+          "approval_seen": false,
+          "approval_decisions": [],
+          "sandbox_status": "UNKNOWN",
+          "approval_status": "UNKNOWN",
+          "error": null,
+          "controller_candidate_execution_used": false,
+          "app_server_snapshot": {
+            "state": "READY",
+            "experimental_api": false,
+            "restart_count": 0,
+            "event_count": 76,
+            "notification_count": 66,
+            "notification_method_counts": {
+              "account/rateLimits/updated": 2,
+              "initialize": 1,
+              "item/agentMessage/delta": 30,
+              "item/completed": 6,
+              "item/reasoning/summaryPartAdded": 2,
+              "item/reasoning/summaryTextDelta": 2,
+              "item/started": 6,
+              "mcpServer/startupStatus/updated": 10,
+              "remoteControl/status/changed": 1,
+              "thread/start": 1,
+              "thread/started": 1,
+              "thread/status/changed": 2,
+              "thread/tokenUsage/updated": 2,
+              "turn/completed": 1,
+              "turn/start": 1,
+              "turn/started": 1
+            },
+            "relevant_events": [
+              {
+                "sequence": 1,
+                "kind": "lifecycle",
+                "state": "STARTING",
+                "reason": null
+              },
+              {
+                "sequence": 3,
+                "kind": "lifecycle",
+                "state": "INITIALIZING",
+                "reason": null
+              },
+              {
+                "sequence": 4,
+                "kind": "request",
+                "request_id": 1,
+                "method": "initialize"
+              },
+              {
+                "sequence": 7,
+                "kind": "lifecycle",
+                "state": "READY",
+                "reason": null
+              },
+              {
+                "sequence": 8,
+                "kind": "request",
+                "request_id": 2,
+                "method": "thread/start"
+              },
+              {
+                "sequence": 10,
+                "kind": "notification",
+                "method": "thread/started",
+                "params": {}
+              },
+              {
+                "sequence": 15,
+                "kind": "request",
+                "request_id": 3,
+                "method": "turn/start"
+              },
+              {
+                "sequence": 17,
+                "kind": "notification",
+                "method": "thread/status/changed",
+                "params": {
+                  "status": {
+                    "type": "active",
+                    "activeFlags": []
+                  },
+                  "threadId": "01a085de-3793-7632-9eb0-7682ba6a20e4"
+                }
+              },
+              {
+                "sequence": 18,
+                "kind": "notification",
+                "method": "turn/started",
+                "params": {
+                  "turn": {
+                    "id": "01a085de-37dc-7311-aad2-27e590adcaef",
+                    "status": "inProgress",
+                    "startedAt": 1788952328,
+                    "completedAt": null,
+                    "durationMs": null
+                  },
+                  "threadId": "01a085de-3793-7632-9eb0-7682ba6a20e4"
+                }
+              },
+              {
+                "sequence": 25,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "01a085de-4c52-78a3-b79d-f70cedb223d5",
+                    "type": "userMessage"
+                  },
+                  "threadId": "01a085de-3793-7632-9eb0-7682ba6a20e4",
+                  "turnId": "01a085de-37dc-7311-aad2-27e590adcaef"
+                }
+              },
+              {
+                "sequence": 26,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "01a085de-4c52-78a3-b79d-f70cedb223d5",
+                    "type": "userMessage"
+                  },
+                  "threadId": "01a085de-3793-7632-9eb0-7682ba6a20e4",
+                  "turnId": "01a085de-37dc-7311-aad2-27e590adcaef"
+                }
+              },
+              {
+                "sequence": 27,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "rs_0a078303d8cf45dd016aa13f10fa4887d09d86a9d925716a82",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085de-3793-7632-9eb0-7682ba6a20e4",
+                  "turnId": "01a085de-37dc-7311-aad2-27e590adcaef"
+                }
+              },
+              {
+                "sequence": 30,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "rs_0a078303d8cf45dd016aa13f10fa4887d09d86a9d925716a82",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085de-3793-7632-9eb0-7682ba6a20e4",
+                  "turnId": "01a085de-37dc-7311-aad2-27e590adcaef"
+                }
+              },
+              {
+                "sequence": 31,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "msg_0a078303d8cf45dd016aa13f13161887d09e521848ddb81329",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085de-3793-7632-9eb0-7682ba6a20e4",
+                  "turnId": "01a085de-37dc-7311-aad2-27e590adcaef"
+                }
+              },
+              {
+                "sequence": 43,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "msg_0a078303d8cf45dd016aa13f13161887d09e521848ddb81329",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085de-3793-7632-9eb0-7682ba6a20e4",
+                  "turnId": "01a085de-37dc-7311-aad2-27e590adcaef"
+                }
+              },
+              {
+                "sequence": 44,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "exec-1f2dfd32-0ddb-4f1d-8de3-596007c9693d",
+                    "type": "commandExecution",
+                    "command": "/bin/zsh -lc 'python3 supervisor_fixture.py outside-read'",
+                    "processId": "36515",
+                    "status": "inProgress",
+                    "exitCode": null,
+                    "cwd": "<v06-security-root>/SANDBOX_DESCENDANT_SUPERVISOR-outside-read-decline/workspace",
+                    "source": "unifiedExecStartup",
+                    "aggregated_output_bytes": null
+                  },
+                  "threadId": "01a085de-3793-7632-9eb0-7682ba6a20e4",
+                  "turnId": "01a085de-37dc-7311-aad2-27e590adcaef"
+                }
+              },
+              {
+                "sequence": 45,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "exec-1f2dfd32-0ddb-4f1d-8de3-596007c9693d",
+                    "type": "commandExecution",
+                    "command": "/bin/zsh -lc 'python3 supervisor_fixture.py outside-read'",
+                    "processId": "36515",
+                    "status": "completed",
+                    "exitCode": 0,
+                    "cwd": "<v06-security-root>/SANDBOX_DESCENDANT_SUPERVISOR-outside-read-decline/workspace",
+                    "source": "unifiedExecStartup",
+                    "aggregated_output_bytes": null
+                  },
+                  "threadId": "01a085de-3793-7632-9eb0-7682ba6a20e4",
+                  "turnId": "01a085de-37dc-7311-aad2-27e590adcaef"
+                }
+              },
+              {
+                "sequence": 48,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "rs_0a078303d8cf45dd016aa13f16a22887d08bacd3e75933976e",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085de-3793-7632-9eb0-7682ba6a20e4",
+                  "turnId": "01a085de-37dc-7311-aad2-27e590adcaef"
+                }
+              },
+              {
+                "sequence": 51,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "rs_0a078303d8cf45dd016aa13f16a22887d08bacd3e75933976e",
+                    "type": "reasoning"
+                  },
+                  "threadId": "01a085de-3793-7632-9eb0-7682ba6a20e4",
+                  "turnId": "01a085de-37dc-7311-aad2-27e590adcaef"
+                }
+              },
+              {
+                "sequence": 52,
+                "kind": "notification",
+                "method": "item/started",
+                "params": {
+                  "item": {
+                    "id": "msg_0a078303d8cf45dd016aa13f17d87087d0a94f91875141a4dd",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085de-3793-7632-9eb0-7682ba6a20e4",
+                  "turnId": "01a085de-37dc-7311-aad2-27e590adcaef"
+                }
+              },
+              {
+                "sequence": 72,
+                "kind": "notification",
+                "method": "item/completed",
+                "params": {
+                  "item": {
+                    "id": "msg_0a078303d8cf45dd016aa13f17d87087d0a94f91875141a4dd",
+                    "type": "agentMessage"
+                  },
+                  "threadId": "01a085de-3793-7632-9eb0-7682ba6a20e4",
+                  "turnId": "01a085de-37dc-7311-aad2-27e590adcaef"
+                }
+              },
+              {
+                "sequence": 75,
+                "kind": "notification",
+                "method": "thread/status/changed",
+                "params": {
+                  "status": {
+                    "type": "idle"
+                  },
+                  "threadId": "01a085de-3793-7632-9eb0-7682ba6a20e4"
+                }
+              },
+              {
+                "sequence": 76,
+                "kind": "notification",
+                "method": "turn/completed",
+                "params": {
+                  "turn": {
+                    "id": "01a085de-37dc-7311-aad2-27e590adcaef",
+                    "status": "completed",
+                    "startedAt": 1788952328,
+                    "completedAt": 1788952344,
+                    "durationMs": 16053
+                  },
+                  "threadId": "01a085de-3793-7632-9eb0-7682ba6a20e4"
+                }
+              }
+            ],
+            "server_request_methods": [],
+            "stderr_line_count": 0
+          }
+        }
+      ]
+    },
+    "CONTROLLER_COMMAND_EXEC": {
+      "status": "FAIL",
+      "source": "results/v0.4/security-parity.json",
+      "production_candidate": false
+    }
+  },
+  "sandbox_parity": "UNKNOWN",
+  "approval_parity": "UNKNOWN",
+  "approval_policy": "on-request",
+  "automatic_approval": "DISABLED",
+  "controller_candidate_execution_used": false,
+  "notes": [
+    "All candidate actions were requested through normal Codex thread turns.",
+    "Backend B's supervisor was created only by the requested normal command fixture.",
+    "A missing fixture side effect or missing approval request is UNKNOWN.",
+    "C is retained as a negative control and is never used as candidate evidence."
+  ]
+}

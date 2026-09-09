@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T11:17:10.729821Z",
+  "status": "UNKNOWN",
+  "promotion": "BLOCKED_UNTIL_SECURITY_AND_LIFECYCLE_GATES_PASS",
+  "model_events_during_wait": "UNKNOWN",
+  "token_savings": "NOT_CLAIMED",
+  "telemetry_observed": true
+}

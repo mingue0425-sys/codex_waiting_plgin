@@ -1,5 +1,43 @@
 # Codex Snooze
 
+## v0.6 native ownership proof
+
+v0.6 independently tests whether a normal Codex thread execution can transfer
+background ownership to Snooze without command re-execution. The live probes
+observed normal `commandExecution` items and `processId` values for both
+candidate prompts, but the temporary fixture side effects were absent and
+`thread/backgroundTerminals/list` remained empty. Process correlation,
+sandbox parity, approval parity, process survival and continuation therefore
+remain UNKNOWN.
+
+```text
+THREAD_NATIVE_TERMINAL = UNKNOWN
+DESCENDANT_SUPERVISOR = UNKNOWN
+CONTROLLER_COMMAND_EXEC = FAIL
+
+NATIVE_SANDBOX_PARITY = UNKNOWN
+NATIVE_APPROVAL_PARITY = UNKNOWN
+COMMAND_INTEGRITY = UNKNOWN
+PROCESS_IDENTITY = UNKNOWN
+
+10S_HANDOFF = UNKNOWN
+JOB_SURVIVAL = UNKNOWN
+MODEL_IDLE_DURING_WAIT = UNKNOWN
+COMPLETION_DETECTION = UNKNOWN
+AUTO_CONTINUATION = UNKNOWN
+
+SAFE_AUTOMATIC_HANDOFF = NOT_SUPPORTED
+PRODUCTION_PATH = CLI_RESUME_FALLBACK
+FALLBACK_PATH = CLI_RESUME_FALLBACK
+```
+
+The v0.6 controller never calls `command/exec`, `process/spawn` or
+`thread/shellCommand` for A/B. C remains a negative control only. Evidence is
+in [results/v0.6/capabilities.md](results/v0.6/capabilities.md), with details
+in [V0.6_NATIVE_OWNERSHIP_REPORT.md](V0.6_NATIVE_OWNERSHIP_REPORT.md),
+[V0.6_SECURITY_PARITY_REPORT.md](V0.6_SECURITY_PARITY_REPORT.md), and
+[V0.6_HANDOFF_E2E_REPORT.md](V0.6_HANDOFF_E2E_REPORT.md).
+
 Codex Snooze keeps an explicitly selected, non-interactive terminal command
 under a detached supervisor. The supervisor owns the child process, waits for
 the real operating-system exit status, stores bounded logs and a durable result,

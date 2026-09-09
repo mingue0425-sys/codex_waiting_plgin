@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T11:17:11.048847Z",
+  "status": "UNKNOWN",
+  "cases": [
+    {
+      "case": "controller_crash_before_ownership_cas",
+      "durable_state": "HANDOFF_PENDING",
+      "expected_recovery": "requires fresh evidence before a claim",
+      "status": "PASS",
+      "duplicate_owner": false,
+      "lost_job": "UNKNOWN",
+      "wrong_thread_continuation": "UNKNOWN"
+    },
+    {
+      "case": "controller_crash_after_ownership_cas",
+      "durable_state": "NATIVE_BACKGROUND_OR_SUPERVISOR_BACKGROUND",
+      "expected_recovery": "retain one recorded owner; do not create a second owner",
+      "status": "PASS",
+      "duplicate_owner": false,
+      "lost_job": "UNKNOWN",
+      "wrong_thread_continuation": "UNKNOWN"
+    },
+    {
+      "case": "controller_crash_while_process_running",
+      "durable_state": "BACKGROUND",
+      "expected_recovery": "process identity and completion evidence must be re-observed",
+      "status": "UNKNOWN",
+      "duplicate_owner": "UNKNOWN",
+      "lost_job": "UNKNOWN",
+      "wrong_thread_continuation": "UNKNOWN"
+    },
+    {
+      "case": "app_server_reconnect",
+      "durable_state": "THREAD_CONNECTION_CHANGED",
+      "expected_recovery": "native process survival contract not established",
+      "status": "UNKNOWN",
+      "duplicate_owner": "UNKNOWN",
+      "lost_job": "UNKNOWN",
+      "wrong_thread_continuation": "UNKNOWN"
+    },
+    {
+      "case": "completion_during_controller_downtime",
+      "durable_state": "BACKGROUND",
+      "expected_recovery": "completion must bind to the same item/process identity before continuation",
+      "status": "UNKNOWN",
+      "duplicate_owner": "UNKNOWN",
+      "lost_job": "UNKNOWN",
+      "wrong_thread_continuation": "UNKNOWN"
+    }
+  ],
+  "app_server_crash_recovery_reference": "PASS from v0.4 artifact; not new native ownership proof",
+  "controller_crash_recovery_reference": "PASS from v0.4 artifact; not new native ownership proof",
+  "notes": [
+    "Durable CAS behavior is tested locally; live candidate process survival after reconnect was not observed.",
+    "No approval-pending crash case is claimed because no live approval request was observed."
+  ]
+}

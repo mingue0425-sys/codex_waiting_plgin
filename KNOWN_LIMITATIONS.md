@@ -1,5 +1,23 @@
 # Known limitations
 
+v0.6 native ownership limitations:
+
+- The normal Codex runtime emits command item events and process identifiers,
+  but the probe process cannot observe the disposable fixture side effects or
+  an experimental background-terminal record. A and B remain UNKNOWN.
+- `processId` without matching `itemId`, cwd, canonical command and bounded OS
+  process identity is not accepted as ownership correlation.
+- The runtime command is exposed as a normal shell wrapper in the observed
+  item. That wrapper is recorded but does not prove semantic command integrity.
+- No approval request was observed, so approval parity remains UNKNOWN. The
+  scoped handler never blanket-approves and never changes global configuration.
+- The 30-run p100 handoff sample was not met. No 10-second handoff, survival,
+  completion or same-thread continuation claim is made.
+- The crash matrix proves local durable CAS boundaries only. Native process
+  survival across App Server reconnect or controller downtime remains UNKNOWN.
+- The benchmark is blocked until security and lifecycle gates pass; telemetry
+  observation does not produce a token-savings claim.
+
 v0.5 native backend limitations:
 
 - `THREAD_NATIVE_TERMINAL` is UNKNOWN. The installed schema exposes normal

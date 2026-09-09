@@ -3,6 +3,29 @@
 The authoritative generated evidence is [results/capabilities.json](results/capabilities.json)
 and [results/capabilities.md](results/capabilities.md).
 
+## v0.6 native ownership proof
+
+The authoritative aggregate is [results/v0.6/capabilities.json](results/v0.6/capabilities.json)
+and [results/v0.6/capabilities.md](results/v0.6/capabilities.md).
+
+| Capability | Result | Production consequence |
+|---|---|---|
+| `THREAD_NATIVE_TERMINAL` | UNKNOWN | Normal command item observed, but no correlated native background record or fixture identity. |
+| `SANDBOX_DESCENDANT_SUPERVISOR` | UNKNOWN | Normal descendant command item observed, but no Codex-visible descendant or sandbox inheritance evidence. |
+| `CONTROLLER_COMMAND_EXEC` | FAIL | Immutable v0.4 sibling-write negative control; never selected. |
+| Native sandbox parity | UNKNOWN | Fixture side effects were not visible for either candidate. |
+| Native approval parity | UNKNOWN | No approval request or decision was observed. |
+| Command integrity | UNKNOWN | Normal runtime wrapper was observed; exact semantic command/process evidence was incomplete. |
+| Process identity | UNKNOWN | `osPid`/background record correlation was unavailable. |
+| 10-second handoff | UNKNOWN | No ownership transfer or 30-run p100 sample. |
+| Job survival/completion | UNKNOWN | Native background lifecycle was not established. |
+| Ownership races | PASS | 100/100 local durable single-owner CAS races; exactly-once remains unclaimed. |
+| Crash matrix | UNKNOWN | Durable CAS boundary passes; live native reconnect/survival is unproven. |
+| Safe automatic handoff | NOT_SUPPORTED | Every candidate gate must be PASS before selection. |
+| Production path | CLI_RESUME_FALLBACK | Native automation remains disabled. |
+| Desktop attach | FAIL | Unchanged. |
+| Automatic PreToolUse interception | FAIL | Unchanged. |
+
 ## v0.5 security-gated native backends
 
 The authoritative aggregate is [results/v0.5/capabilities.json](results/v0.5/capabilities.json)

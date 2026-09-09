@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T11:17:10.728067Z",
+  "status": "UNKNOWN",
+  "backend_matrix": {
+    "THREAD_NATIVE_TERMINAL": {
+      "status": "UNKNOWN",
+      "requested_command_evidence": "process-correlation.json",
+      "approval_semantics_proven": false,
+      "mutation_policy": "FAIL"
+    },
+    "SANDBOX_DESCENDANT_SUPERVISOR": {
+      "status": "UNKNOWN",
+      "requested_command_evidence": "process-correlation.json",
+      "approval_semantics_proven": false,
+      "mutation_policy": "FAIL"
+    },
+    "CONTROLLER_COMMAND_EXEC": {
+      "status": "FAIL",
+      "requested_command_evidence": "process-correlation.json",
+      "approval_semantics_proven": false,
+      "mutation_policy": "FAIL"
+    }
+  },
+  "attempts": {
+    "THREAD_NATIVE_TERMINAL": [
+      {
+        "requested_command_sha256": "d1875209a0c71774f068101ea33eebfffdf5a9f5466199e35b96fc474ece05b4",
+        "event_command_sha256": "67ba7d553afdde2343a63982789d897c752322ccd57075fa9a06af129c52500b",
+        "background_command_sha256": null,
+        "executed_command_sha256": null,
+        "requested_cwd": "<v06-fixture-root>/workspace",
+        "event_cwd": "<v06-fixture-root>/workspace",
+        "background_cwd": null,
+        "executed_cwd": null,
+        "event_command_wrapper": "NORMAL_CODEX_RUNTIME_WRAPPER",
+        "approval_semantics_proven": false,
+        "status": "UNKNOWN",
+        "reason": "normal Codex runtime wrapper was observed; semantic command was not exposed exactly"
+      }
+    ],
+    "SANDBOX_DESCENDANT_SUPERVISOR": [
+      {
+        "requested_command_sha256": "53e740aa30cc4cea0e47942188b6a16c8e027db183edea0f3be6fdc10e6e7e8c",
+        "event_command_sha256": "53a19f14958c9dcb760dc88c3e083d76a987a5cbd5bcbb7fb67d0a8430e10430",
+        "background_command_sha256": null,
+        "executed_command_sha256": null,
+        "requested_cwd": "<v06-fixture-root>/workspace",
+        "event_cwd": "<v06-fixture-root>/workspace",
+        "background_cwd": null,
+        "executed_cwd": null,
+        "event_command_wrapper": "NORMAL_CODEX_RUNTIME_WRAPPER",
+        "approval_semantics_proven": false,
+        "status": "UNKNOWN",
+        "reason": "normal Codex runtime wrapper was observed; semantic command was not exposed exactly"
+      }
+    ]
+  },
+  "notes": [
+    "Exact equality is required for requested, event, background and executed command/cwd values.",
+    "A normal Codex shell wrapper remains UNKNOWN when semantic command text is not separately exposed.",
+    "Hash equality is not approval semantics."
+  ]
+}

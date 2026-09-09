@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T11:17:10.728699Z",
+  "status": "UNKNOWN",
+  "candidates": {
+    "THREAD_NATIVE_TERMINAL": {
+      "status": "UNKNOWN",
+      "runs": 1,
+      "reason": "model inactivity is accepted only after process identity and background ownership are proven"
+    },
+    "SANDBOX_DESCENDANT_SUPERVISOR": {
+      "status": "UNKNOWN",
+      "runs": 1,
+      "reason": "model inactivity is accepted only after process identity and background ownership are proven"
+    }
+  },
+  "token_savings_claim": "NOT_CLAIMED"
+}
