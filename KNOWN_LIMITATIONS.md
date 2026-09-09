@@ -2,6 +2,14 @@
 
 v0.7 native yield limitations:
 
+- The installed runtime currently omits the required turn-level model
+  telemetry. `LUNA_MODEL_ATTESTATION=FAIL` and `EXPERIMENT_VALID=false`, so no
+  candidate fixture, handoff, sandbox, approval, latency or benchmark claim
+  is valid from this run. The controller does not substitute another model.
+- All v0.7 model-facing paths require `gpt-5.6-luna` and
+  `model_reasoning_effort="medium"`; `auto_review`, delegated models and
+  automatic fallback are disabled. Historical live artifacts without this
+  metadata are not v0.7 evidence.
 - The installed runtime is authoritative. Current upstream source is not a
   substitute for a matching installed binary revision.
 - Normal-thread output, logical process identity, native yield, turn survival,

@@ -20,6 +20,16 @@ if str(ROOT) not in sys.path:
 
 from snooze_controller.agent import AgentController, AgentControllerError
 from snooze_controller.app_server_process import AppServerProcess
+from snooze_controller.model_policy import (
+    LUNA_MODEL,
+    REASONING_EFFORT,
+    attach_model_metadata,
+    attest_model,
+    emit_model_policy_log,
+    ensure_luna_exec_command,
+    run_luna_exec_attestation,
+    write_model_attestation,
+)
 from snooze_controller.thread_registry import ThreadRegistry
 from tools.app_server_probe import redact, utc_now, write_trace
 
@@ -48,13 +58,7 @@ def _token_payload(item: Any) -> Any:
     return None
 
 
-def _normal(root: Path, workspace: Path) -> Dict[str, Any]:
-    marker = workspace / "baseline-marker.json"
-    prompt = (
-        "Use the terminal tool exactly once to run this command and wait for it to finish: "
-        f"python3 fixtures/long_job.py --duration 2 --marker {marker.name} --exit-code 0. "
-        "Do not simulate the output."
-    )
+def _preflight(workspace: Path) -> tuple[Any, Dict[str, Any]]:
     command = [
         "codex",
         "exec",
@@ -67,8 +71,39 @@ def _normal(root: Path, workspace: Path) -> Dict[str, Any]:
         'approval_policy="never"',
         "--cd",
         str(workspace),
-        prompt,
+        "Do not use tools or delegate. Reply exactly MODEL_ATTESTATION_READY.",
     ]
+    completed, events, attestation = run_luna_exec_attestation(command, cwd=ROOT, env=os.environ.copy(), timeout=150)
+    emit_model_policy_log(attestation)
+    return attestation, {
+        "returncode": completed.returncode,
+        "event_types": sorted({str(item.get("type")) for item in events}),
+        "stdout_tail": completed.stdout[-3000:],
+        "stderr_tail": completed.stderr[-3000:],
+    }
+
+
+def _normal(root: Path, workspace: Path) -> Dict[str, Any]:
+    marker = workspace / "baseline-marker.json"
+    prompt = (
+        "Use the terminal tool exactly once to run this command and wait for it to finish: "
+        f"python3 fixtures/long_job.py --duration 2 --marker {marker.name} --exit-code 0. "
+        "Do not simulate the output."
+    )
+    command = ensure_luna_exec_command([
+        "codex",
+        "exec",
+        "--json",
+        "--ephemeral",
+        "--skip-git-repo-check",
+        "--sandbox",
+        "workspace-write",
+        "--config",
+        'approval_policy="never"',
+        "--cd",
+        str(workspace),
+        prompt,
+    ])
     started = time.monotonic()
     try:
         result = subprocess.run(command, cwd=ROOT, capture_output=True, text=True, timeout=150, check=False, env=os.environ.copy())
@@ -125,6 +160,7 @@ def _owned(root: Path, workspace: Path) -> Dict[str, Any]:
             "notification_methods": sorted(set(method_names)),
             "token_telemetry": token_events,
             "server_requests": [item.method for item in process.server_requests],
+            "model_attestation": controller.model_attestation().as_dict(),
         }
     except (OSError, RuntimeError, AgentControllerError) as exc:
         return {
@@ -135,6 +171,7 @@ def _owned(root: Path, workspace: Path) -> Dict[str, Any]:
             "model_request_count": sum(1 for item in process.events if item.get("kind") == "request" and item.get("method") == "turn/start"),
             "tool_call_count": sum(1 for item in process.notifications if item.get("method") in {"item/started", "item/completed"}),
             "token_telemetry": [item for item in process.notifications if item.get("method") == "thread/tokenUsage/updated"],
+            "model_attestation": controller.model_attestation().as_dict(),
         }
     finally:
         process.stop()
@@ -151,12 +188,45 @@ def main() -> int:
             # Keep the prompt's stable fixture name without copying a package.
             (workspace / "fixtures").mkdir()
             shutil.copy2(FIXTURE, workspace / "fixtures" / "long_job.py")
-        baseline = _normal(root, baseline_workspace)
-        owned = _owned(root, owned_workspace)
+        try:
+            preflight_attestation, preflight = _preflight(baseline_workspace)
+        except (OSError, subprocess.TimeoutExpired, RuntimeError, ValueError) as exc:
+            preflight_attestation = attest_model(
+                requested_model=LUNA_MODEL,
+                runtime_reported_model=None,
+                thread_model=None,
+                turn_model=None,
+                reasoning_effort=REASONING_EFFORT,
+            )
+            preflight = {"error": f"{type(exc).__name__}: {exc}"}
+            emit_model_policy_log(preflight_attestation)
+        if not preflight_attestation.verified:
+            baseline = {"status": "NOT_RUN", "reason": "MODEL_ATTESTATION=FAIL; baseline candidate was not started"}
+            owned = {"status": "NOT_RUN", "reason": "MODEL_ATTESTATION=FAIL; Snooze candidate was not started"}
+        else:
+            baseline = _normal(root, baseline_workspace)
+            owned = _owned(root, owned_workspace)
+        owned_attestation = owned.get("model_attestation") or {}
+        model_parity = bool(
+            preflight_attestation.verified
+            and owned_attestation.get("model_attestation") == "PASS"
+            and owned_attestation.get("observed_model") == LUNA_MODEL
+            and owned_attestation.get("reasoning_effort") == REASONING_EFFORT
+        )
         telemetry_available = bool(baseline.get("token_telemetry") or owned.get("token_telemetry"))
         value = {
             "schema_version": 1,
             "generated_at": utc_now(),
+            "model_policy": "LUNA_ONLY",
+            "requested_model": LUNA_MODEL,
+            "observed_model": preflight_attestation.observed_model,
+            "reasoning_effort": REASONING_EFFORT,
+            "model_attestation": "PASS" if model_parity else "FAIL",
+            "experiment_valid": model_parity,
+            "baseline_model_attestation": preflight_attestation.as_dict(experiment_valid=model_parity),
+            "snooze_model_attestation": owned_attestation,
+            "preflight": preflight,
+            "non_luna_model_calls": preflight_attestation.non_luna_model_calls + int(owned_attestation.get("non_luna_model_calls") or 0),
             "baseline": _scrub(redact(baseline), root),
             "snooze_owned_app_server": _scrub(redact(owned), root),
             "telemetry_available": telemetry_available,
@@ -176,18 +246,34 @@ def main() -> int:
                 "poll_operations": {"baseline": "not observed", "snooze": 0},
                 "wall_time_seconds": {"baseline": baseline.get("wall_seconds"), "snooze": owned.get("wall_seconds")},
             },
-            "status": "PASS" if baseline.get("marker_written") and owned.get("marker_written") else "UNKNOWN",
+            "status": "PASS" if model_parity and baseline.get("marker_written") and owned.get("marker_written") else "UNKNOWN",
             "token_savings_claim": "NOT_CLAIMED" if not telemetry_available else "NOT_INFERRED",
         }
+        value = attach_model_metadata(value, preflight_attestation, experiment_valid=model_parity and value["status"] == "PASS")
+        if not model_parity:
+            value["model_attestation"] = "FAIL"
+            value["experiment_valid"] = False
+            reasons = list(value.get("attestation_reasons") or [])
+            if "baseline_snooze_model_mismatch" not in reasons:
+                reasons.append("baseline_snooze_model_mismatch")
+            value["attestation_reasons"] = reasons
     OUT.mkdir(parents=True, exist_ok=True)
     write_trace(OUT / "token-benchmark.json", value)
+    write_model_attestation(
+        OUT / "model-attestation.json",
+        preflight_attestation,
+        experiment="v0.3_token_benchmark",
+        experiment_valid=bool(value.get("experiment_valid")),
+        extra={"baseline_snooze_model_parity": value.get("experiment_valid", False)},
+    )
     (OUT / "token-benchmark.md").write_text(
         "# v0.3 token/model request benchmark\n\n"
         f"Status: **{value['status']}**\n\n"
+        f"Model policy: **{value['model_policy']}**; attestation: **{value['model_attestation']}**; experiment valid: **{value['experiment_valid']}**.\n\n"
         "The benchmark runs the same benign two-second fixture through normal `codex exec` "
         "and a Snooze-owned App Server thread. Turn/request/tool counts come from protocol "
         "events where available. Token telemetry is reported only when the runtime exposes it; "
-        "no token savings are inferred from wall time.\n",
+        "no token savings are inferred from wall time. A failed preflight attestation aborts both candidate runs.\n",
         encoding="utf-8",
     )
     print(json.dumps(value, ensure_ascii=False, indent=2))

@@ -1,18 +1,37 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-09T11:52:01.509330Z",
-  "status": "PASS",
+  "generated_at": "2026-09-09T12:42:39.949224Z",
+  "status": "UNKNOWN",
+  "attestation_reasons": [
+    "missing_turn_model"
+  ],
+  "thread_model": "gpt-5.6-luna",
+  "turn_model": null,
+  "experiment_valid": false,
+  "non_luna_model_calls": 0,
+  "reasoning_effort": "medium",
+  "model_policy": "LUNA_ONLY",
+  "runtime_reported_model": "gpt-5.6-luna",
+  "fallback_detected": false,
+  "model_attestation": "FAIL",
+  "subagent_policy": "DISABLED",
+  "subagent_calls": [],
+  "requested_model": "gpt-5.6-luna",
+  "delegated_model": null,
+  "auto_review_model_override": null,
+  "review_model": "user",
+  "observed_model": "gpt-5.6-luna",
   "short_identity_fixture": {
-    "status": "PASS",
+    "status": "UNKNOWN",
     "namespace": {
-      "controller_workspace": "<project-root>/runtime_probe_runs/identity-0758c6042bbe779c",
-      "app_server_cwd": "<project-root>/runtime_probe_runs/identity-0758c6042bbe779c",
+      "controller_workspace": "<project-root>/runtime_probe_runs/identity-f4a78f8736bb690e",
+      "app_server_cwd": "<project-root>/runtime_probe_runs/identity-f4a78f8736bb690e",
       "same_absolute_namespace": true,
-      "marker_observed": true,
-      "result_observed": true
+      "marker_observed": false,
+      "result_observed": false
     },
     "provenance": {
-      "status": "PASS",
+      "status": "FAIL",
       "required_evidence": [
         "ITEM_NONCE_MATCH",
         "STDOUT_NONCE_MATCH",
@@ -21,34 +40,34 @@
         "CWD_MATCH"
       ],
       "evidence": {
-        "ITEM_NONCE_MATCH": "PASS",
-        "STDOUT_NONCE_MATCH": "PASS",
-        "WORKSPACE_MARKER_MATCH": "PASS",
-        "SELF_REPORTED_PID_OBSERVED": "PASS",
+        "ITEM_NONCE_MATCH": "UNKNOWN",
+        "STDOUT_NONCE_MATCH": "FAIL",
+        "WORKSPACE_MARKER_MATCH": "UNKNOWN",
+        "SELF_REPORTED_PID_OBSERVED": "UNKNOWN",
         "OS_COMMAND_MATCH": "UNKNOWN",
         "OS_START_TIME_MATCH": "UNKNOWN",
-        "CWD_MATCH": "PASS"
+        "CWD_MATCH": "UNKNOWN"
       },
       "evidence_values": {
-        "ITEM_NONCE_MATCH": true,
-        "STDOUT_NONCE_MATCH": true,
-        "WORKSPACE_MARKER_MATCH": true,
-        "SELF_REPORTED_PID_OBSERVED": true,
+        "ITEM_NONCE_MATCH": null,
+        "STDOUT_NONCE_MATCH": false,
+        "WORKSPACE_MARKER_MATCH": null,
+        "SELF_REPORTED_PID_OBSERVED": null,
         "OS_COMMAND_MATCH": null,
         "OS_START_TIME_MATCH": null,
-        "CWD_MATCH": true
+        "CWD_MATCH": null
       },
       "command_match": "UNKNOWN",
-      "observed_pid_match": "PASS",
-      "process_id_kind": "LOGICAL_HANDLE",
-      "logical_process_id": "81827",
-      "self_reported_os_pid": 79473,
-      "observed_os_pid": 79473,
-      "reason": "all required independent evidence matched"
+      "observed_pid_match": "UNKNOWN",
+      "process_id_kind": "UNKNOWN",
+      "logical_process_id": null,
+      "self_reported_os_pid": null,
+      "observed_os_pid": null,
+      "reason": "contradictory command or identity evidence"
     }
   },
   "long_native_fixture": {
-    "status": "PASS",
+    "status": "UNKNOWN",
     "candidate_side_effect": "UNKNOWN",
     "observation": null
   }

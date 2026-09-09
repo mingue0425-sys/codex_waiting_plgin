@@ -16,6 +16,7 @@ import shutil
 import shlex
 import signal
 import subprocess
+import sys
 import tempfile
 import threading
 import time
@@ -24,9 +25,25 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Tuple
 
-
 ROOT = Path(__file__).resolve().parents[1]
 RESULTS = ROOT / "results"
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from snooze_controller.model_policy import (
+    LUNA_MODEL,
+    MODEL_POLICY,
+    REASONING_EFFORT,
+    attest_model,
+    emit_model_policy_log,
+    ensure_luna_app_server_command,
+    ensure_luna_exec_command,
+    first_model,
+    luna_thread_params,
+    luna_turn_params,
+    models_from_events,
+    subagent_events,
+)
 
 
 STATUS_ORDER = {"PASS": 0, "PARTIAL": 1, "FAIL": 2, "UNKNOWN": 3}
@@ -49,6 +66,8 @@ class Capability:
 
 
 def run_command(command: List[str], cwd: Optional[Path] = None, timeout: float = 20.0) -> Tuple[int, str, str]:
+    if command and Path(command[0]).name == "codex" and "exec" in command:
+        command = ensure_luna_exec_command(command)
     try:
         completed = subprocess.run(
             command,
@@ -69,7 +88,7 @@ def run_command(command: List[str], cwd: Optional[Path] = None, timeout: float =
 class AppServerClient:
     def __init__(self, env: Optional[Dict[str, str]] = None):
         self.process = subprocess.Popen(
-            ["codex", "app-server", "--stdio"],
+            ensure_luna_app_server_command(["codex", "app-server", "--stdio"]),
             stdin=subprocess.PIPE,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
@@ -133,6 +152,10 @@ class AppServerClient:
         raise TimeoutError(f"timed out waiting for response id {request_id}")
 
     def request(self, method: str, params: Any, timeout: float = 10.0) -> Dict[str, Any]:
+        if method == "thread/start" and isinstance(params, dict):
+            params = luna_thread_params(params)
+        elif method == "turn/start" and isinstance(params, dict):
+            params = luna_turn_params(params)
         return self.wait_response(self.send(method, params), timeout)
 
     def initialize(self) -> Dict[str, Any]:
@@ -164,6 +187,111 @@ class AppServerClient:
         except subprocess.TimeoutExpired:
             self.process.kill()
             self.process.wait(timeout=5)
+
+
+def run_luna_app_server_attestation() -> Dict[str, Any]:
+    """Run the required no-tool App Server turn before live capabilities."""
+
+    client = AppServerClient()
+    thread_id: Optional[str] = None
+    try:
+        initialized = client.initialize()
+        started = client.request(
+            "thread/start",
+            {
+                "cwd": str(ROOT.resolve()),
+                "ephemeral": True,
+                "approvalPolicy": "never",
+            },
+            timeout=40,
+        )
+        thread_result = (started.get("result") or {})
+        thread = thread_result.get("thread") or {}
+        thread_id = thread.get("id")
+        if not thread_id:
+            raise RuntimeError("attestation thread/start did not return a thread id")
+        turn_response = client.request(
+            "turn/start",
+            {
+                "threadId": thread_id,
+                "input": [{"type": "text", "text": "Do not use tools or delegate. Reply exactly MODEL_ATTESTATION_READY.", "text_elements": []}],
+            },
+            timeout=40,
+        )
+        turn = ((turn_response.get("result") or {}).get("turn") or {})
+        turn_id = turn.get("id")
+        if not turn_id:
+            raise RuntimeError("attestation turn/start did not return a turn id")
+        deadline = time.monotonic() + 120.0
+        while time.monotonic() < deadline:
+            if any(
+                item.get("method") == "turn/completed"
+                and ((item.get("params") or {}).get("turn") or {}).get("id") == turn_id
+                for item in client.notifications
+            ):
+                break
+            try:
+                kind, value = client.messages.get(timeout=0.25)
+            except queue.Empty:
+                continue
+            if kind == "json" and isinstance(value, dict) and value.get("method"):
+                client.notifications.append(value)
+        event_values: List[Dict[str, Any]] = [initialized, started, turn_response, *client.notifications]
+        turn_notifications = [
+            item for item in client.notifications
+            if item.get("method") in {"turn/started", "turn/completed"}
+        ]
+        runtime_model = first_model(initialized, started, turn_response, *client.notifications)
+        thread_model = first_model(thread, thread_result)
+        turn_model = first_model(turn, turn_response, *turn_notifications)
+        effort_values = []
+        for item in turn_notifications:
+            params = item.get("params") or {}
+            if isinstance(params, dict):
+                raw = params.get("effort") or ((params.get("turn") or {}).get("effort") if isinstance(params.get("turn"), dict) else None)
+                if raw is not None:
+                    effort_values.append(str(raw))
+        fallback = any(
+            any(term in json.dumps(event, ensure_ascii=False).lower() for term in ("model.rerouted", "model_rerouted", "model fallback", "fallback_model"))
+            for event in event_values
+        )
+        delegation = subagent_events(event_values)
+        models = models_from_events(event_values)
+        attestation = attest_model(
+            requested_model=LUNA_MODEL,
+            runtime_reported_model=runtime_model,
+            thread_model=thread_model,
+            turn_model=turn_model,
+            reasoning_effort=effort_values[0] if effort_values else REASONING_EFFORT,
+            fallback_detected=fallback,
+            non_luna_model_calls=sum(1 for model in models if model != LUNA_MODEL),
+            subagent_calls=[item.get("method") or item.get("type") or "unknown" for item in delegation],
+        )
+        emit_model_policy_log(attestation)
+        return {
+            **attestation.as_dict(),
+            "event_count": len(event_values),
+            "turn_completed": any(item.get("method") == "turn/completed" for item in client.notifications),
+        }
+    except (OSError, RuntimeError, TimeoutError, ValueError) as exc:
+        attestation = attest_model(
+            requested_model=LUNA_MODEL,
+            runtime_reported_model=None,
+            thread_model=None,
+            turn_model=None,
+            reasoning_effort=REASONING_EFFORT,
+        )
+        emit_model_policy_log(attestation)
+        result = attestation.as_dict()
+        result.update({"error": f"{type(exc).__name__}: {exc}", "event_count": len(client.notifications), "turn_completed": False})
+        return result
+    finally:
+        if thread_id:
+            try:
+                client.request("thread/delete", {"threadId": thread_id}, timeout=10)
+            except (OSError, RuntimeError, TimeoutError, ValueError):
+                pass
+        client.close()
 
 
 def response_error(response: Dict[str, Any]) -> Optional[str]:
@@ -868,7 +996,7 @@ def overall_status(capabilities: Iterable[Capability]) -> str:
     return "UNKNOWN"
 
 
-def write_results(capabilities: List[Capability], live: bool) -> None:
+def write_results(capabilities: List[Capability], live: bool, model_attestation: Optional[Dict[str, Any]] = None) -> None:
     RESULTS.mkdir(parents=True, exist_ok=True)
     payload = {
         "schema_version": 1,
@@ -878,6 +1006,14 @@ def write_results(capabilities: List[Capability], live: bool) -> None:
         "machine": os.uname().machine,
         "shell": os.environ.get("SHELL", "UNKNOWN"),
         "live_model_probes_requested": live,
+        "model_policy": MODEL_POLICY,
+        "requested_model": LUNA_MODEL,
+        "observed_model": (model_attestation or {}).get("observed_model"),
+        "reasoning_effort": REASONING_EFFORT,
+        "model_attestation": (model_attestation or {}).get("model_attestation", "NOT_APPLICABLE" if not live else "FAIL"),
+        "experiment_valid": bool((model_attestation or {}).get("model_attestation") == "PASS") if live else False,
+        "non_luna_model_calls": int((model_attestation or {}).get("non_luna_model_calls") or 0),
+        "luna_attestation": model_attestation,
         "overall": overall_status(capabilities),
         "capabilities": [capability.as_dict() for capability in capabilities],
     }
@@ -935,13 +1071,26 @@ def main(argv: Optional[List[str]] = None) -> int:
     parser.add_argument("--live", action="store_true", help="run model-backed probes")
     args = parser.parse_args(argv)
     capabilities = run_static_cli_probe()
+    model_attestation: Optional[Dict[str, Any]] = None
+    live_allowed = False
+    if args.live:
+        model_attestation = run_luna_app_server_attestation()
+        live_allowed = model_attestation.get("model_attestation") == "PASS"
+        capabilities.append(
+            Capability(
+                "luna_model_attestation",
+                "PASS" if live_allowed else "FAIL",
+                ["explicit Luna App Server no-tool attestation before live probes"],
+                model_attestation,
+            )
+        )
     capabilities.extend(run_protocol_inventory_probe())
     capabilities.extend(run_app_server_probe())
     capabilities.extend(run_thread_lifecycle_probe())
-    capabilities.extend(run_cli_resume_probe(args.live))
-    capabilities.extend(run_turn_interrupt_probe(args.live))
-    capabilities.extend(run_snooze_handoff_probe(args.live))
-    write_results(capabilities, args.live)
+    capabilities.extend(run_cli_resume_probe(live_allowed))
+    capabilities.extend(run_turn_interrupt_probe(live_allowed))
+    capabilities.extend(run_snooze_handoff_probe(live_allowed))
+    write_results(capabilities, args.live, model_attestation)
     print(json.dumps({"overall": overall_status(capabilities), "count": len(capabilities)}))
     return 0
 

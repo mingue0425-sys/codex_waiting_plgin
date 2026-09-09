@@ -23,6 +23,7 @@ from pathlib import Path
 from typing import Any, Callable, Deque, Dict, Iterable, List, Optional, Sequence
 
 from tools.app_server_probe import redact, utc_now, write_trace
+from .model_policy import ensure_luna_app_server_command
 
 
 class AppServerLifecycle(str, Enum):
@@ -72,7 +73,7 @@ class AppServerProcess:
             raise ValueError("App Server command cannot be empty")
         if max_events <= 0 or max_stderr <= 0:
             raise ValueError("event bounds must be positive")
-        self.command = list(command)
+        self.command = ensure_luna_app_server_command(command)
         self.cwd = Path(cwd).resolve() if cwd is not None else None
         self.env = dict(env) if env is not None else None
         self.client_name = client_name
@@ -105,6 +106,7 @@ class AppServerProcess:
         self._instance_id: Optional[str] = None
         self._started_at: Optional[str] = None
         self._last_exit: Optional[Dict[str, Any]] = None
+        self._initialize_response: Optional[Dict[str, Any]] = None
 
     @property
     def state(self) -> AppServerLifecycle:
@@ -242,6 +244,7 @@ class AppServerProcess:
                 self._set_state(AppServerLifecycle.FAILED, reason="initialize rejected")
                 self.stop()
                 raise AppServerProcessError(f"initialize failed: {redact(response)}")
+            self._initialize_response = dict(response)
         except BaseException:
             if self.state not in {AppServerLifecycle.FAILED, AppServerLifecycle.STOPPED}:
                 self._set_state(AppServerLifecycle.FAILED, reason="initialize exception")
@@ -590,6 +593,7 @@ class AppServerProcess:
             "started_at": self._started_at,
             "restart_count": self._restart_count,
             "experimental_api": self.experimental_api,
+            "initialize_response": self._initialize_response,
             "last_exit": self._last_exit,
             "events": self.events,
             "notifications": self.notifications,

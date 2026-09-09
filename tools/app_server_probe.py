@@ -19,6 +19,12 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Callable, Deque, Dict, Iterable, List, Optional, Sequence
 
+from snooze_controller.model_policy import (
+    ensure_luna_app_server_command,
+    luna_thread_params,
+    luna_turn_params,
+)
+
 
 _SENSITIVE_KEY = re.compile(
     r"(?:api[_-]?key|authorization|credential|cookie|password|secret|token|bearer|private[_-]?key)$",
@@ -89,7 +95,7 @@ class AppServerClient:
         env: Optional[Dict[str, str]] = None,
         stderr_tail_limit: int = 100,
     ) -> None:
-        self.command = list(command)
+        self.command = ensure_luna_app_server_command(command)
         self.cwd = str(cwd) if cwd is not None else None
         self.process = subprocess.Popen(
             self.command,
@@ -210,6 +216,10 @@ class AppServerClient:
     def request(self, method: str, params: Any, timeout: float = 15.0) -> Dict[str, Any]:
         if timeout <= 0:
             raise ValueError("timeout must be positive")
+        if method == "thread/start" and isinstance(params, dict):
+            params = luna_thread_params(params)
+        elif method == "turn/start" and isinstance(params, dict):
+            params = luna_turn_params(params)
         with self._request_lock:
             request_id = self._next_request_id
             self._next_request_id += 1

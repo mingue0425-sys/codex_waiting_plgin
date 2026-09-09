@@ -2,6 +2,14 @@
 
 ## v0.7 provenance and native yield boundary
 
+The v0.7 control plane is `LUNA_ONLY`: real Codex launches explicitly request
+`gpt-5.6-luna` with medium reasoning effort, approval review stays with the
+user, and subagent/auto-review/fallback paths are rejected. Runtime, thread
+and turn model telemetry is required before a candidate command is eligible.
+The installed runtime omitted `turn_model`, so the live sample is
+`MODEL_ATTESTATION=FAIL` / `EXPERIMENT_VALID=false`; the candidate command did
+not start and no security result from that sample is promoted.
+
 The v0.7 path treats App Server `processId` as a logical or opaque handle
 unless independent evidence proves an OS PID identity. The required evidence
 set links the command item, nonce in runtime output, atomic workspace marker,

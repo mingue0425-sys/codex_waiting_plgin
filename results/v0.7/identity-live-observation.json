@@ -1,154 +1,30 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-09T11:44:15.746401Z",
+  "generated_at": "2026-09-09T12:37:56.985899Z",
   "fixture": {
     "kind": "short_identity",
-    "nonce": "SNOOZE_PROBE_8d9d2fd44413f57f6a766fad3c49296c",
-    "command": "python3 <project-root>/fixtures/runtime_identity_probe.py --nonce SNOOZE_PROBE_8d9d2fd44413f57f6a766fad3c49296c --marker <project-root>/runtime_probe_runs/identity-0758c6042bbe779c/markers/SNOOZE_PROBE_8d9d2fd44413f57f6a766fad3c49296c.json --result <project-root>/runtime_probe_runs/identity-0758c6042bbe779c/result.json",
-    "command_sha256": "9cff7100e407b17ab89181bffb87f7d30cfd6e180d41b48e5e5bf77af39ecd14"
+    "nonce": "SNOOZE_PROBE_8c058e6fa1e37a115eba735d385bda83",
+    "command": "python3 <project-root>/fixtures/runtime_identity_probe.py --nonce SNOOZE_PROBE_8c058e6fa1e37a115eba735d385bda83 --marker <project-root>/runtime_probe_runs/identity-f4a78f8736bb690e/markers/SNOOZE_PROBE_8c058e6fa1e37a115eba735d385bda83.json --result <project-root>/runtime_probe_runs/identity-f4a78f8736bb690e/result.json",
+    "command_sha256": "9d742e3710c2b8efb1da7153ee664138d1a0f9755ba6e18f348449fcd628850a"
   },
   "execution_namespace": {
-    "controller_workspace": "<project-root>/runtime_probe_runs/identity-0758c6042bbe779c",
-    "app_server_cwd": "<project-root>/runtime_probe_runs/identity-0758c6042bbe779c",
+    "controller_workspace": "<project-root>/runtime_probe_runs/identity-f4a78f8736bb690e",
+    "app_server_cwd": "<project-root>/runtime_probe_runs/identity-f4a78f8736bb690e",
     "same_absolute_namespace": true,
-    "marker_observed": true,
-    "result_observed": true
+    "marker_observed": false,
+    "result_observed": false
   },
-  "command_records": [
-    {
-      "method": "item/started",
-      "item": {
-        "item_id": "exec-5815e788-831a-4818-84fa-46aefd84e4a7",
-        "type": "commandExecution",
-        "command": "/bin/zsh -c 'python3 <project-root>/fixtures/runtime_identity_probe.py --nonce SNOOZE_PROBE_8d9d2fd44413f57f6a766fad3c49296c --marker <project-root>/runtime_probe_runs/identity-0758c6042bbe779c/markers/SNOOZE_PROBE_8d9d2fd44413f57f6a766fad3c49296c.json --result <project-root>/runtime_probe_runs/identity-0758c6042bbe779c/result.json'",
-        "cwd": "<project-root>/runtime_probe_runs/identity-0758c6042bbe779c",
-        "process_id": "81827",
-        "os_pid": null,
-        "exit_code": null,
-        "status": "inProgress",
-        "process_id_source": "thread/backgroundTerminals"
-      },
-      "params": {
-        "item": {
-          "type": "commandExecution",
-          "id": "exec-5815e788-831a-4818-84fa-46aefd84e4a7",
-          "pluginId": null,
-          "scriptPath": null,
-          "command": "/bin/zsh -c 'python3 <project-root>/fixtures/runtime_identity_probe.py --nonce SNOOZE_PROBE_8d9d2fd44413f57f6a766fad3c49296c --marker <project-root>/runtime_probe_runs/identity-0758c6042bbe779c/markers/SNOOZE_PROBE_8d9d2fd44413f57f6a766fad3c49296c.json --result <project-root>/runtime_probe_runs/identity-0758c6042bbe779c/result.json'",
-          "cwd": "<project-root>/runtime_probe_runs/identity-0758c6042bbe779c",
-          "processId": "81827",
-          "source": "unifiedExecStartup",
-          "status": "inProgress",
-          "commandActions": [
-            {
-              "type": "unknown",
-              "command": "python3 <project-root>/fixtures/runtime_identity_probe.py --nonce SNOOZE_PROBE_8d9d2fd44413f57f6a766fad3c49296c --marker <project-root>/runtime_probe_runs/identity-0758c6042bbe779c/markers/SNOOZE_PROBE_8d9d2fd44413f57f6a766fad3c49296c.json --result <project-root>/runtime_probe_runs/identity-0758c6042bbe779c/result.json"
-            }
-          ],
-          "aggregatedOutput": null,
-          "exitCode": null,
-          "durationMs": null
-        },
-        "threadId": "01a085fb-457c-7cc3-b12d-1902925d7ab5",
-        "turnId": "01a085fb-4609-7851-90e1-26fc8791cf14",
-        "startedAtMs": 1788954252356
-      }
-    },
-    {
-      "method": "item/completed",
-      "item": {
-        "item_id": "exec-5815e788-831a-4818-84fa-46aefd84e4a7",
-        "type": "commandExecution",
-        "command": "/bin/zsh -c 'python3 <project-root>/fixtures/runtime_identity_probe.py --nonce SNOOZE_PROBE_8d9d2fd44413f57f6a766fad3c49296c --marker <project-root>/runtime_probe_runs/identity-0758c6042bbe779c/markers/SNOOZE_PROBE_8d9d2fd44413f57f6a766fad3c49296c.json --result <project-root>/runtime_probe_runs/identity-0758c6042bbe779c/result.json'",
-        "cwd": "<project-root>/runtime_probe_runs/identity-0758c6042bbe779c",
-        "process_id": "81827",
-        "os_pid": null,
-        "exit_code": 0,
-        "status": "completed",
-        "process_id_source": "thread/backgroundTerminals"
-      },
-      "params": {
-        "item": {
-          "type": "commandExecution",
-          "id": "exec-5815e788-831a-4818-84fa-46aefd84e4a7",
-          "pluginId": null,
-          "scriptPath": null,
-          "command": "/bin/zsh -c 'python3 <project-root>/fixtures/runtime_identity_probe.py --nonce SNOOZE_PROBE_8d9d2fd44413f57f6a766fad3c49296c --marker <project-root>/runtime_probe_runs/identity-0758c6042bbe779c/markers/SNOOZE_PROBE_8d9d2fd44413f57f6a766fad3c49296c.json --result <project-root>/runtime_probe_runs/identity-0758c6042bbe779c/result.json'",
-          "cwd": "<project-root>/runtime_probe_runs/identity-0758c6042bbe779c",
-          "processId": "81827",
-          "source": "unifiedExecStartup",
-          "status": "completed",
-          "commandActions": [
-            {
-              "type": "unknown",
-              "command": "python3 <project-root>/fixtures/runtime_identity_probe.py --nonce SNOOZE_PROBE_8d9d2fd44413f57f6a766fad3c49296c --marker <project-root>/runtime_probe_runs/identity-0758c6042bbe779c/markers/SNOOZE_PROBE_8d9d2fd44413f57f6a766fad3c49296c.json --result <project-root>/runtime_probe_runs/identity-0758c6042bbe779c/result.json"
-            }
-          ],
-          "aggregatedOutput": "{\"argv\": [\"<project-root>/fixtures/runtime_identity_probe.py\", \"--nonce\", \"SNOOZE_PROBE_8d9d2fd44413f57f6a766fad3c49296c\", \"--marker\", \"<project-root>/runtime_probe_runs/identity-0758c6042bbe779c/markers/SNOOZE_PROBE_8d9d2fd44413f57f6a766fad3c49296c.json\", \"--result\", \"<project-root>/runtime_probe_runs/identity-0758c6042bbe779c/result.json\"], \"cwd\": \"<project-root>/runtime_probe_runs/identity-0758c6042bbe779c\", \"executable\": \"/opt/homebrew/opt/python@3.14/bin/python3.14\", \"marker_path\": \"<project-root>/runtime_probe_runs/identity-0758c6042bbe779c/markers/SNOOZE_PROBE_8d9d2fd44413f57f6a766fad3c49296c.json\", \"nonce\": \"SNOOZE_PROBE_8d9d2fd44413f57f6a766fad3c49296c\", \"pid\": 79473, \"ppid\": 79420, \"probe_version\": 1, \"start_identity_ns\": 537372413729541, \"start_monotonic_ns\": 537372413729416}\n",
-          "exitCode": 0,
-          "durationMs": 0
-        },
-        "threadId": "01a085fb-457c-7cc3-b12d-1902925d7ab5",
-        "turnId": "01a085fb-4609-7851-90e1-26fc8791cf14",
-        "completedAtMs": 1788954252356
-      }
-    }
-  ],
-  "stdout_evidence": "**Clarifying allowed execution method**\n**Planning precise command execution via exec_command**\n**Configuring exec_command with login false**\nI\n’ll\n run\n the\n exact\n command\n once\n using\n the\n terminal\n tool\n.\n{\"argv\": [\"<project-root>/fixtures/runtime_identity_probe.py\", \"--nonce\", \"SNOOZE_PROBE_8d9d2fd44413f57f6a766fad3c49296c\", \"--marker\", \"<project-root>/runtime_probe_runs/identity-0758c6042bbe779c/markers/SNOOZE_PROBE_8d9d2fd44413f57f6a766fad3c49296c.json\", \"--result\", \"<project-root>/runtime_probe_runs/identity-0758c6042bbe779c/result.json\"], \"cwd\": \"<project-root>/runtime_probe_runs/identity-0758c6042bbe779c\", \"executable\": \"/opt/homebrew/opt/python@3.14/bin/python3.14\", \"marker_path\": \"<project-root>/runtime_probe_runs/identity-0758c6042bbe779c/markers/SNOOZE_PROBE_8d9d2fd44413f57f6a766fad3c49296c.json\", \"nonce\": \"SNOOZE_PROBE_8d9d2fd44413f57f6a766fad3c49296c\", \"pid\": 79473, \"ppid\": 79420, \"probe_version\": 1, \"start_identity_ns\": 537372413729541, \"start_monotonic_ns\": 537372413729416}\n\n**Confirming command execution completion**\nCommand\n executed\n once\n successfully\n.",
-  "self_report": {
-    "argv": [
-      "<project-root>/fixtures/runtime_identity_probe.py",
-      "--nonce",
-      "SNOOZE_PROBE_8d9d2fd44413f57f6a766fad3c49296c",
-      "--marker",
-      "<project-root>/runtime_probe_runs/identity-0758c6042bbe779c/markers/SNOOZE_PROBE_8d9d2fd44413f57f6a766fad3c49296c.json",
-      "--result",
-      "<project-root>/runtime_probe_runs/identity-0758c6042bbe779c/result.json"
-    ],
-    "cwd": "<project-root>/runtime_probe_runs/identity-0758c6042bbe779c",
-    "executable": "/opt/homebrew/opt/python@3.14/bin/python3.14",
-    "marker_path": "<project-root>/runtime_probe_runs/identity-0758c6042bbe779c/markers/SNOOZE_PROBE_8d9d2fd44413f57f6a766fad3c49296c.json",
-    "nonce": "SNOOZE_PROBE_8d9d2fd44413f57f6a766fad3c49296c",
-    "pid": 79473,
-    "ppid": 79420,
-    "probe_version": 1,
-    "start_identity_ns": 537372413729541,
-    "start_monotonic_ns": 537372413729416
-  },
-  "marker_record": {
-    "argv": [
-      "<project-root>/fixtures/runtime_identity_probe.py",
-      "--nonce",
-      "SNOOZE_PROBE_8d9d2fd44413f57f6a766fad3c49296c",
-      "--marker",
-      "<project-root>/runtime_probe_runs/identity-0758c6042bbe779c/markers/SNOOZE_PROBE_8d9d2fd44413f57f6a766fad3c49296c.json",
-      "--result",
-      "<project-root>/runtime_probe_runs/identity-0758c6042bbe779c/result.json"
-    ],
-    "cwd": "<project-root>/runtime_probe_runs/identity-0758c6042bbe779c",
-    "executable": "/opt/homebrew/opt/python@3.14/bin/python3.14",
-    "marker_path": "<project-root>/runtime_probe_runs/identity-0758c6042bbe779c/markers/SNOOZE_PROBE_8d9d2fd44413f57f6a766fad3c49296c.json",
-    "nonce": "SNOOZE_PROBE_8d9d2fd44413f57f6a766fad3c49296c",
-    "pid": 79473,
-    "ppid": 79420,
-    "probe_version": 1,
-    "start_identity_ns": 537372413729541,
-    "start_monotonic_ns": 537372413729416,
-    "timestamp": 1788954252328188000
-  },
-  "result_record": {
-    "exit_code": 0,
-    "nonce": "SNOOZE_PROBE_8d9d2fd44413f57f6a766fad3c49296c",
-    "result_token": "<redacted>"
-  },
+  "command_records": [],
+  "stdout_evidence": "MODEL\n_AT\nTEST\nATION\n_READY",
+  "self_report": null,
+  "marker_record": null,
+  "result_record": null,
   "os_observation": {
     "status": "UNKNOWN",
-    "pid": 79473,
-    "alive": false,
-    "returncode": 1
+    "reason": "pid unavailable"
   },
   "provenance": {
-    "status": "PASS",
+    "status": "FAIL",
     "required_evidence": [
       "ITEM_NONCE_MATCH",
       "STDOUT_NONCE_MATCH",
@@ -157,42 +33,52 @@
       "CWD_MATCH"
     ],
     "evidence": {
-      "ITEM_NONCE_MATCH": "PASS",
-      "STDOUT_NONCE_MATCH": "PASS",
-      "WORKSPACE_MARKER_MATCH": "PASS",
-      "SELF_REPORTED_PID_OBSERVED": "PASS",
+      "ITEM_NONCE_MATCH": "UNKNOWN",
+      "STDOUT_NONCE_MATCH": "FAIL",
+      "WORKSPACE_MARKER_MATCH": "UNKNOWN",
+      "SELF_REPORTED_PID_OBSERVED": "UNKNOWN",
       "OS_COMMAND_MATCH": "UNKNOWN",
       "OS_START_TIME_MATCH": "UNKNOWN",
-      "CWD_MATCH": "PASS"
+      "CWD_MATCH": "UNKNOWN"
     },
     "evidence_values": {
-      "ITEM_NONCE_MATCH": true,
-      "STDOUT_NONCE_MATCH": true,
-      "WORKSPACE_MARKER_MATCH": true,
-      "SELF_REPORTED_PID_OBSERVED": true,
+      "ITEM_NONCE_MATCH": null,
+      "STDOUT_NONCE_MATCH": false,
+      "WORKSPACE_MARKER_MATCH": null,
+      "SELF_REPORTED_PID_OBSERVED": null,
       "OS_COMMAND_MATCH": null,
       "OS_START_TIME_MATCH": null,
-      "CWD_MATCH": true
+      "CWD_MATCH": null
     },
     "command_match": "UNKNOWN",
-    "observed_pid_match": "PASS",
-    "process_id_kind": "LOGICAL_HANDLE",
-    "logical_process_id": "81827",
-    "self_reported_os_pid": 79473,
-    "observed_os_pid": 79473,
-    "reason": "all required independent evidence matched"
+    "observed_pid_match": "UNKNOWN",
+    "process_id_kind": "UNKNOWN",
+    "logical_process_id": null,
+    "self_reported_os_pid": null,
+    "observed_os_pid": null,
+    "reason": "contradictory command or identity evidence"
   },
-  "turn": {
-    "id": "01a085fb-4609-7851-90e1-26fc8791cf14",
-    "items": [],
-    "itemsView": "notLoaded",
-    "status": "inProgress",
-    "error": null,
-    "startedAt": null,
-    "completedAt": null,
-    "durationMs": null
-  },
-  "error": null,
+  "turn": {},
+  "error": "ModelPolicyError: MODEL_ATTESTATION=FAIL: missing_turn_model",
   "controller_candidate_execution_used": false,
-  "status": "PASS"
+  "status": "UNKNOWN",
+  "model_policy": "LUNA_ONLY",
+  "requested_model": "gpt-5.6-luna",
+  "runtime_reported_model": "gpt-5.6-luna",
+  "thread_model": "gpt-5.6-luna",
+  "turn_model": null,
+  "observed_model": "gpt-5.6-luna",
+  "reasoning_effort": "medium",
+  "model_attestation": "FAIL",
+  "experiment_valid": false,
+  "fallback_detected": false,
+  "auto_review_model_override": null,
+  "review_model": "user",
+  "delegated_model": null,
+  "subagent_policy": "DISABLED",
+  "subagent_calls": [],
+  "non_luna_model_calls": 0,
+  "attestation_reasons": [
+    "missing_turn_model"
+  ]
 }

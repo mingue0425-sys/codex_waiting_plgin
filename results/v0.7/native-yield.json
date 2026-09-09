@@ -1,22 +1,32 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-09T11:41:22.161618Z",
-  "status": "FAIL",
+  "generated_at": "2026-09-09T12:38:08.301134Z",
+  "model_policy": "LUNA_ONLY",
+  "requested_model": "gpt-5.6-luna",
+  "runtime_reported_model": "gpt-5.6-luna",
+  "thread_model": "gpt-5.6-luna",
+  "turn_model": null,
+  "observed_model": "gpt-5.6-luna",
+  "reasoning_effort": "medium",
+  "model_attestation": "FAIL",
+  "experiment_valid": false,
+  "fallback_detected": false,
+  "auto_review_model_override": null,
+  "review_model": "user",
+  "delegated_model": null,
+  "subagent_policy": "DISABLED",
+  "subagent_calls": [],
+  "non_luna_model_calls": 0,
+  "attestation_reasons": [
+    "missing_turn_model"
+  ],
+  "status": "UNKNOWN",
   "job_survival": "UNKNOWN",
   "background_registry": {
-    "before": {
-      "data": [],
-      "nextCursor": null
-    },
-    "threshold": {
-      "data": [],
-      "nextCursor": null
-    },
-    "after": {
-      "data": [],
-      "nextCursor": null
-    }
+    "before": {},
+    "threshold": {},
+    "after": {}
   },
   "interrupt_requested": false,
-  "reason": "live normal-thread observation"
+  "reason": "ModelPolicyError: MODEL_ATTESTATION=FAIL: missing_turn_model"
 }

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-09T11:52:01.508797Z",
+  "generated_at": "2026-09-09T12:42:39.948390Z",
   "status": "UNKNOWN",
   "e2e_cases": {
     "E2E-NATIVE-01-exit-0": {
@@ -33,5 +33,24 @@
     "status": "NOT_RUN",
     "reason": "continuation is forbidden until native yield, survival, completion and exit-code correlation are all PASS"
   },
-  "production_selection": "CLI_RESUME_FALLBACK"
+  "production_selection": "CLI_RESUME_FALLBACK",
+  "attestation_reasons": [
+    "missing_turn_model"
+  ],
+  "thread_model": "gpt-5.6-luna",
+  "turn_model": null,
+  "experiment_valid": false,
+  "non_luna_model_calls": 0,
+  "reasoning_effort": "medium",
+  "model_policy": "LUNA_ONLY",
+  "runtime_reported_model": "gpt-5.6-luna",
+  "fallback_detected": false,
+  "model_attestation": "FAIL",
+  "subagent_policy": "DISABLED",
+  "subagent_calls": [],
+  "requested_model": "gpt-5.6-luna",
+  "delegated_model": null,
+  "auto_review_model_override": null,
+  "review_model": "user",
+  "observed_model": "gpt-5.6-luna"
 }

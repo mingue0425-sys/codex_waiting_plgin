@@ -758,6 +758,134 @@
     "osPid": true,
     "exitCode": true
   },
+  "model_policy_schema": {
+    "thread/start": [
+      {
+        "channel": "stable",
+        "file": "stable/v2/ThreadStartParams.json",
+        "fields": [
+          "approvalPolicy",
+          "approvalsReviewer",
+          "baseInstructions",
+          "config",
+          "cwd",
+          "developerInstructions",
+          "ephemeral",
+          "model",
+          "modelProvider",
+          "personality",
+          "sandbox",
+          "serviceName",
+          "serviceTier",
+          "sessionStartSource",
+          "threadSource"
+        ],
+        "required": [],
+        "title": "ThreadStartParams"
+      },
+      {
+        "channel": "experimental",
+        "file": "experimental/v2/ThreadStartParams.json",
+        "fields": [
+          "allowProviderModelFallback",
+          "approvalPolicy",
+          "approvalsReviewer",
+          "baseInstructions",
+          "config",
+          "cwd",
+          "developerInstructions",
+          "dynamicTools",
+          "environments",
+          "ephemeral",
+          "experimentalRawEvents",
+          "historyMode",
+          "mockExperimentalField",
+          "model",
+          "modelProvider",
+          "multiAgentMode",
+          "permissions",
+          "personality",
+          "projectId",
+          "runtimeWorkspaceRoots",
+          "sandbox",
+          "selectedCapabilityRoots",
+          "serviceName",
+          "serviceTier",
+          "sessionStartSource",
+          "threadSource"
+        ],
+        "required": [],
+        "title": "ThreadStartParams"
+      }
+    ],
+    "turn/start": [
+      {
+        "channel": "stable",
+        "file": "stable/v2/TurnStartParams.json",
+        "fields": [
+          "approvalPolicy",
+          "approvalsReviewer",
+          "clientUserMessageId",
+          "cwd",
+          "effort",
+          "input",
+          "model",
+          "outputSchema",
+          "personality",
+          "sandboxPolicy",
+          "serviceTier",
+          "serviceTierForTurn",
+          "summary",
+          "threadId",
+          "toolOutput",
+          "turnTrigger"
+        ],
+        "required": [
+          "input",
+          "threadId"
+        ],
+        "title": "TurnStartParams"
+      },
+      {
+        "channel": "experimental",
+        "file": "experimental/v2/TurnStartParams.json",
+        "fields": [
+          "additionalContext",
+          "approvalPolicy",
+          "approvalsReviewer",
+          "clientUserMessageId",
+          "collaborationMode",
+          "cwd",
+          "cyberAccessProgram",
+          "effort",
+          "environments",
+          "input",
+          "model",
+          "multiAgentMode",
+          "outputSchema",
+          "permissions",
+          "personality",
+          "responsesapiClientMetadata",
+          "runtimeWorkspaceRoots",
+          "sandboxPolicy",
+          "serviceTier",
+          "serviceTierForTurn",
+          "summary",
+          "threadId",
+          "toolOutput",
+          "turnTrigger"
+        ],
+        "required": [
+          "input",
+          "threadId"
+        ],
+        "title": "TurnStartParams"
+      }
+    ]
+  },
+  "model_policy": "LUNA_ONLY",
+  "requested_model": "gpt-5.6-luna",
+  "reasoning_effort": "medium",
   "authoritative_for_capability": true,
   "source_revision_match": "NOT_ESTABLISHED"
 }

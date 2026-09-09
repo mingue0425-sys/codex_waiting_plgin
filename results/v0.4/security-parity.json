@@ -1,105 +1,53 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-09T10:45:26.678606Z",
-  "status": "FAIL",
-  "sandbox_parity": "FAIL",
-  "approval_parity": "FAIL",
-  "normal_codex": {
+  "generated_at": "2026-09-09T12:37:42.927989Z",
+  "model_policy": "LUNA_ONLY",
+  "requested_model": "gpt-5.6-luna",
+  "observed_model": null,
+  "reasoning_effort": "medium",
+  "model_attestation": "FAIL",
+  "experiment_valid": false,
+  "preflight": {
     "returncode": 0,
-    "inside_written": false,
-    "outside_written": false,
     "event_types": [
       "item.completed",
-      "item.started",
       "thread.started",
       "turn.completed",
       "turn.started"
     ],
-    "stdout_tail": "{\"type\":\"thread.started\",\"thread_id\":\"01a085c5-5c32-70d1-b6dd-fc4001d9db36\"}\n{\"type\":\"turn.started\"}\n{\"type\":\"item.completed\",\"item\":{\"id\":\"item_0\",\"type\":\"reasoning\",\"text\":\"**Executing exact command with exec_command**\"}}\n{\"type\":\"item.completed\",\"item\":{\"id\":\"item_1\",\"type\":\"agent_message\",\"text\":\"I’m running the exact command once in the workspace terminal.\"}}\n{\"type\":\"item.started\",\"item\":{\"id\":\"item_2\",\"type\":\"command_execution\",\"command\":\"/bin/zsh -lc 'python3 security_fixture.py --inside inside.txt --outside <v04-security-root>/sibling/outside.txt'\",\"aggregated_output\":\"\",\"exit_code\":null,\"status\":\"in_progress\"}}\n{\"type\":\"item.completed\",\"item\":{\"id\":\"item_2\",\"type\":\"command_execution\",\"command\":\"/bin/zsh -lc 'python3 security_fixture.py --inside inside.txt --outside <v04-security-root>/sibling/outside.txt'\",\"aggregated_output\":\"\",\"exit_code\":0,\"status\":\"completed\"}}\n{\"type\":\"item.completed\",\"item\":{\"id\":\"item_3\",\"type\":\"reasoning\",\"text\":\"**Analyzing missing JSON output**\\n**Confirming no JSON output present**\"}}\n{\"type\":\"item.completed\",\"item\":{\"id\":\"item_4\",\"type\":\"agent_message\",\"text\":\"The command exited successfully (`0`) and produced no JSON output on stdout.\"}}\n{\"type\":\"turn.completed\",\"usage\":{\"input_tokens\":33736,\"cached_input_tokens\":16128,\"cache_write_input_tokens\":0,\"output_tokens\":645,\"reasoning_output_tokens\":434}}\n",
-    "stderr_tail": "Reading additional input from stdin...\n",
-    "fixture_exercised": false
+    "stdout_tail": "{\"type\":\"thread.started\",\"thread_id\":\"01a0862c-7298-7703-b804-528c59522613\"}\n{\"type\":\"turn.started\"}\n{\"type\":\"item.completed\",\"item\":{\"id\":\"item_0\",\"type\":\"agent_message\",\"text\":\"MODEL_ATTESTATION_READY\"}}\n{\"type\":\"turn.completed\",\"usage\":{\"input_tokens\":16649,\"cached_input_tokens\":14080,\"cache_write_input_tokens\":0,\"output_tokens\":9,\"reasoning_output_tokens\":0}}\n",
+    "stderr_tail": ""
+  },
+  "non_luna_model_calls": 0,
+  "status": "UNKNOWN",
+  "sandbox_parity": "UNKNOWN",
+  "approval_parity": "PARTIAL",
+  "normal_codex": {
+    "status": "NOT_RUN",
+    "reason": "MODEL_ATTESTATION=FAIL; normal candidate was not started"
   },
   "snooze_owned_app_server": {
-    "thread_start": {
-      "thread": {
-        "id": "01a085c5-c6ce-7ba3-b443-f6bb25a88cdd",
-        "extra": null,
-        "sessionId": "01a085c5-c6ce-7ba3-b443-f6bb25a88cdd",
-        "forkedFromId": null,
-        "parentThreadId": null,
-        "preview": "<redacted-runtime-content>",
-        "ephemeral": false,
-        "section": null,
-        "sectionEnteredAt": null,
-        "projectId": null,
-        "historyMode": "paginated",
-        "modelProvider": "openai",
-        "model": "gpt-5.6-luna",
-        "reasoningEffort": "max",
-        "createdAt": 1788950726,
-        "updatedAt": 1788950726,
-        "recencyAt": 1788950726,
-        "status": {
-          "type": "idle"
-        },
-        "path": "<redacted-runtime-content>",
-        "cwd": "<v04-security-root>/owned-workspace",
-        "cliVersion": "0.153.4",
-        "source": "vscode",
-        "canAcceptDirectInput": true,
-        "threadSource": null,
-        "agentNickname": null,
-        "agentRole": null,
-        "gitInfo": null,
-        "name": null,
-        "turns": []
-      },
-      "model": "gpt-5.6-luna",
-      "modelProvider": "openai",
-      "serviceTier": "default",
-      "cwd": "<v04-security-root>/owned-workspace",
-      "runtimeWorkspaceRoots": [
-        "<v04-security-root>/owned-workspace"
-      ],
-      "instructionSources": [],
-      "approvalPolicy": "on-request",
-      "approvalsReviewer": "user",
-      "sandbox": {
-        "type": "workspaceWrite",
-        "writableRoots": [],
-        "networkAccess": false,
-        "excludeTmpdirEnvVar": false,
-        "excludeSlashTmp": false
-      },
-      "activePermissionProfile": null,
-      "reasoningEffort": "max",
-      "multiAgentMode": "explicitRequestOnly"
-    },
-    "command_response": {
-      "id": 3,
-      "result": {
-        "exitCode": 0,
-        "stdout": "{\"inside\": {\"error\": null, \"ok\": true}, \"outside\": {\"error\": null, \"ok\": true}}\n",
-        "stderr": ""
-      }
-    },
-    "inside_written": true,
-    "outside_written": true,
-    "environment_marker": "V04_BENIGN_ENV",
-    "server_requests": [],
-    "approval_rejected_explicitly": false,
-    "sandbox_policy_sent": {
-      "type": "workspaceWrite",
-      "writableRoots": [
-        "<v04-security-root>/owned-workspace"
-      ],
-      "networkAccess": false
-    }
+    "status": "NOT_RUN",
+    "reason": "MODEL_ATTESTATION=FAIL; owned candidate was not started"
   },
-  "environment_marker": "V04_BENIGN_ENV",
+  "environment_marker": "UNKNOWN",
   "automatic_approval": "DISABLED",
   "production_automation": "DISABLED_SECURITY_GATE",
-  "owned_path_wider_than_workspace": true,
+  "owned_path_wider_than_workspace": false,
   "normal_fixture_exercised": false,
-  "scope": "temporary workspace, sibling, and benign environment marker only"
+  "scope": "temporary workspace, sibling, and benign environment marker only",
+  "runtime_reported_model": null,
+  "thread_model": null,
+  "turn_model": null,
+  "fallback_detected": false,
+  "auto_review_model_override": null,
+  "review_model": null,
+  "delegated_model": null,
+  "subagent_policy": "DISABLED",
+  "subagent_calls": [],
+  "attestation_reasons": [
+    "missing_runtime_reported_model",
+    "missing_thread_model",
+    "missing_turn_model"
+  ]
 }

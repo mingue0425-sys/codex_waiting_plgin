@@ -8,6 +8,8 @@ from snooze_core.models import DeliveryState, result_hash_matches, utc_now
 from snooze_core.persistence import atomic_write_json
 from snooze_core.store import JobStore
 
+from .model_policy import ensure_luna_exec_command
+
 
 class DeliveryControllerError(RuntimeError):
     pass
@@ -158,7 +160,7 @@ class DeliveryController:
         spec = self.store.read_spec(job_id)
         try:
             completed = subprocess.run(
-                [
+                ensure_luna_exec_command([
                     "codex",
                     "exec",
                     "resume",
@@ -166,7 +168,7 @@ class DeliveryController:
                     "--skip-git-repo-check",
                     session_id,
                     prompt,
-                ],
+                ]),
                 cwd=spec.cwd,
                 capture_output=True,
                 text=True,

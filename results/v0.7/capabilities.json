@@ -1,21 +1,21 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-09T11:52:01.508939Z",
+  "generated_at": "2026-09-09T12:42:39.948801Z",
   "baseline": "2e7f865a399ef797eecfd43a86cde4dc36f42ab7",
   "control_plane": "SNOOZE_APP_SERVER_EXPERIMENTAL",
   "integration_flags": {
-    "PROCESS_ID_KIND": "OPAQUE",
-    "NATIVE_EXECUTION_PROVENANCE": "FAIL",
-    "NATIVE_YIELD": "FAIL",
-    "BACKGROUND_TERMINAL_REGISTRY_VISIBLE": "PARTIAL",
-    "THREAD_NATIVE_TERMINAL": "FAIL",
+    "PROCESS_ID_KIND": "UNKNOWN",
+    "NATIVE_EXECUTION_PROVENANCE": "UNKNOWN",
+    "NATIVE_YIELD": "UNKNOWN",
+    "BACKGROUND_TERMINAL_REGISTRY_VISIBLE": "UNKNOWN",
+    "THREAD_NATIVE_TERMINAL": "UNKNOWN",
     "DESCENDANT_SUPERVISOR": "NOT_RUN",
     "CONTROLLER_COMMAND_EXEC": "FAIL",
     "NATIVE_SANDBOX_PARITY": "UNKNOWN",
     "NATIVE_APPROVAL_PARITY": "UNKNOWN",
     "COMMAND_INTEGRITY": "UNKNOWN",
-    "PROCESS_IDENTITY": "FAIL",
-    "10S_HANDOFF": "FAIL",
+    "PROCESS_IDENTITY": "UNKNOWN",
+    "10S_HANDOFF": "UNKNOWN",
     "JOB_SURVIVAL": "UNKNOWN",
     "MODEL_IDLE_DURING_WAIT": "UNKNOWN",
     "COMPLETION_DETECTION": "UNKNOWN",
@@ -23,13 +23,17 @@
     "WAIT_FAMILY_CALLS_DURING_WAIT": 0,
     "OWNERSHIP_RACES": "PASS",
     "DESKTOP_ATTACH": "FAIL",
-    "AUTO_PRETOOL_INTERCEPTION": "FAIL"
+    "AUTO_PRETOOL_INTERCEPTION": "FAIL",
+    "LUNA_AVAILABLE": "UNKNOWN",
+    "LUNA_MODEL_ATTESTATION": "FAIL",
+    "LUNA_ONLY_ENFORCEMENT": "PASS",
+    "NON_LUNA_MODEL_CALLS": 0
   },
   "backend_matrix": {
     "THREAD_NATIVE_TERMINAL": {
-      "status": "FAIL",
-      "provenance": "FAIL",
-      "native_yield": "FAIL",
+      "status": "UNKNOWN",
+      "provenance": "UNKNOWN",
+      "native_yield": "UNKNOWN",
       "survival": "UNKNOWN",
       "completion": "UNKNOWN"
     },
@@ -48,16 +52,16 @@
   "fallback_path": "CLI_RESUME_FALLBACK",
   "production_automation": "DISABLED_SECURITY_GATE",
   "source_trace_status": "PASS",
-  "execution_namespace_status": "PASS",
+  "execution_namespace_status": "UNKNOWN",
   "short_identity_fixture": {
-    "status": "PASS",
-    "namespace": "PASS",
-    "provenance": "PASS",
-    "process_id_kind": "LOGICAL_HANDLE"
+    "status": "UNKNOWN",
+    "namespace": "UNKNOWN",
+    "provenance": "UNKNOWN",
+    "process_id_kind": "UNKNOWN"
   },
   "e2e": {
     "schema_version": 1,
-    "generated_at": "2026-09-09T11:52:01.508797Z",
+    "generated_at": "2026-09-09T12:42:39.948390Z",
     "status": "UNKNOWN",
     "e2e_cases": {
       "E2E-NATIVE-01-exit-0": {
@@ -94,9 +98,9 @@
   },
   "security": {
     "schema_version": 1,
-    "generated_at": "2026-09-09T11:52:01.508929Z",
+    "generated_at": "2026-09-09T12:42:39.948792Z",
     "status": "UNKNOWN",
-    "namespace_prerequisite": "PASS",
+    "namespace_prerequisite": "UNKNOWN",
     "normal_baseline": {
       "status": "UNKNOWN",
       "operations": [
@@ -132,7 +136,7 @@
   },
   "polling": {
     "schema_version": 1,
-    "generated_at": "2026-09-09T11:52:01.508934Z",
+    "generated_at": "2026-09-09T12:42:39.948796Z",
     "status": "UNKNOWN",
     "metric": "WAIT_FAMILY_CALL_COUNT",
     "wait_family": [
@@ -150,7 +154,7 @@
       "wait_family_calls": [],
       "measurement": "controller-side observation only; no model turn after threshold"
     },
-    "model_events_after_threshold": 39,
+    "model_events_after_threshold": 5,
     "reduction": "NOT_CLAIMED",
     "reason": "zero observed calls is recorded, but a native wait interval was not established, so no savings claim is made"
   },
@@ -168,6 +172,7 @@
   "evidence_files": [
     "runtime-version.json",
     "runtime-source-trace.json",
+    "model-attestation.json",
     "identity-live-observation.json",
     "native-live-observation.json",
     "execution-namespace.json",
@@ -182,5 +187,24 @@
     "Normal-thread candidate execution only; no controller candidate command was used.",
     "Unknown and not-run evidence is never promoted to PASS.",
     "The v0.4 controller command/exec sibling-write failure remains immutable."
-  ]
+  ],
+  "attestation_reasons": [
+    "missing_turn_model"
+  ],
+  "thread_model": "gpt-5.6-luna",
+  "turn_model": null,
+  "experiment_valid": false,
+  "non_luna_model_calls": 0,
+  "reasoning_effort": "medium",
+  "model_policy": "LUNA_ONLY",
+  "runtime_reported_model": "gpt-5.6-luna",
+  "fallback_detected": false,
+  "model_attestation": "FAIL",
+  "subagent_policy": "DISABLED",
+  "subagent_calls": [],
+  "requested_model": "gpt-5.6-luna",
+  "delegated_model": null,
+  "auto_review_model_override": null,
+  "review_model": "user",
+  "observed_model": "gpt-5.6-luna"
 }

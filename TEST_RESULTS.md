@@ -8,10 +8,19 @@ installed Codex schema, normal-thread namespace, native-yield timeline, E2E
 gates, security parity and wait-family benchmark. A missing live gate remains
 UNKNOWN and does not enable production automation.
 
+The Luna-only policy is covered by explicit command pinning, installed
+`thread/start.model`/`turn/start.model`/`turn/start.effort` field handling,
+no-tool pre-probe attestation, user-owned approval review, disabled delegation,
+fallback detection and metadata propagation. The installed runtime reported
+`gpt-5.6-luna` for runtime/thread but omitted `turn_model`, so the live sample
+records `MODEL_ATTESTATION=FAIL`, `EXPERIMENT_VALID=false`, and aborts before
+candidate fixture execution. Earlier live artifacts without policy metadata are
+historical only and are not combined with v0.7 evidence.
+
 The full suite after v0.7 additions is **62 tests**. The installed 0.153.4
-normal-thread run exposed a command item and logical processId but no fixture
-side effect or native yield; the native candidate is therefore FAIL and the
-production route remains `CLI_RESUME_FALLBACK`.
+attestation stopped before the normal-thread candidate, so native lifecycle
+and security evidence are invalid/UNKNOWN and the production route remains
+`CLI_RESUME_FALLBACK`.
 
 ## v0.6 validation
 

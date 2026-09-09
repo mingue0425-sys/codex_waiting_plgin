@@ -25,6 +25,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from tools.app_server_probe import redact, utc_now, write_trace
+from snooze_controller.model_policy import LUNA_MODEL, MODEL_POLICY, REASONING_EFFORT
 
 
 def run(argv: list[str]) -> Dict[str, Any]:
@@ -66,6 +67,30 @@ def schema_fields() -> Dict[str, Any]:
     return {term: text_has(term) for term in terms}
 
 
+def model_schema_fields() -> Dict[str, Any]:
+    """Read the installed v2 request schemas before constructing requests."""
+
+    result: Dict[str, Any] = {}
+    for surface, filename in (("thread/start", "ThreadStartParams.json"), ("turn/start", "TurnStartParams.json")):
+        records: list[Dict[str, Any]] = []
+        for channel in ("stable", "experimental"):
+            path = SCHEMA / channel / "v2" / filename
+            try:
+                parsed = json.loads(path.read_text(encoding="utf-8"))
+            except (OSError, ValueError):
+                continue
+            properties = parsed.get("properties", {}) if isinstance(parsed, dict) else {}
+            records.append({
+                "channel": channel,
+                "file": str(path.relative_to(SCHEMA)),
+                "fields": sorted(properties),
+                "required": parsed.get("required", []),
+                "title": parsed.get("title"),
+            })
+        result[surface] = records
+    return result
+
+
 def json_file_summary() -> Dict[str, Any]:
     values = files()
     definition_count = 0
@@ -90,6 +115,10 @@ def build() -> tuple[Dict[str, Any], Dict[str, Any]]:
         "app_server_help": help_output,
         "schema": json_file_summary(),
         "protocol_terms": schema_fields(),
+        "model_policy_schema": model_schema_fields(),
+        "model_policy": MODEL_POLICY,
+        "requested_model": LUNA_MODEL,
+        "reasoning_effort": REASONING_EFFORT,
         "authoritative_for_capability": True,
         "source_revision_match": "NOT_ESTABLISHED",
     }
@@ -132,6 +161,13 @@ def build() -> tuple[Dict[str, Any], Dict[str, Any]]:
             "self-reported pid/ppid -> bounded ps observer",
             "completion item -> exitCode when the same item can be correlated",
         ],
+        "model_policy": {
+            "policy": MODEL_POLICY,
+            "requested_model": LUNA_MODEL,
+            "reasoning_effort": REASONING_EFFORT,
+            "schema_fields": installed["model_policy_schema"],
+            "enforcement": "Every real Codex App Server/exec command is explicitly pinned; runtime, thread and turn telemetry are attested and missing values fail closed.",
+        },
         "answers": {
             "processId_generation": "Installed schema alone does not disclose the allocator; current source identifies a manager-local logical process key.",
             "processId_os_pid": "Not assumed. App Server logical processId and host osPid are separate fields in the documented background terminal surface.",
@@ -167,6 +203,8 @@ def write_doc(value: Dict[str, Any]) -> None:
         f"- Version command: `{value['installed_runtime']['version_command']['stdout']}`.",
         f"- Generated schema files: `{value['installed_runtime']['schema']['json_file_count']}`.",
         f"- Protocol terms: `{value['installed_runtime']['protocol_terms']}`.",
+        f"- Model policy: `{value['installed_runtime']['model_policy']}`, requested `{value['installed_runtime']['requested_model']}`, effort `{value['installed_runtime']['reasoning_effort']}`.",
+        f"- Installed request fields: `{value['installed_runtime']['model_policy_schema']}`.",
         f"- Installed source revision match: `{value['installed_runtime']['source_revision_match']}`.",
         "",
         "## Source trace",
@@ -175,6 +213,10 @@ def write_doc(value: Dict[str, Any]) -> None:
     for source in upstream["sources"]:
         lines.extend([f"- [{source['name']}]({source['url']}): {source['finding']}", ""])
     lines.extend([
+        "## Luna-only model policy",
+        "",
+        f"The installed schemas expose `model` on both `thread/start` and `turn/start`, and expose `effort` on `turn/start`. The probe sends `{LUNA_MODEL}` and `{REASONING_EFFORT}` explicitly. Runtime, thread and turn model telemetry is still required; configuration alone is not attestation.",
+        "",
         "The key identity result is that `processId` must be modeled as a logical or opaque App Server identity unless runtime evidence proves otherwise. A nullable `osPid` is host metadata and cannot be substituted for the logical handle.",
         "",
         "## Installed versus upstream",

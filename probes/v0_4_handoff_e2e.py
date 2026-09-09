@@ -31,6 +31,15 @@ if str(ROOT) not in sys.path:
 from snooze_controller.agent import AgentController, AgentControllerError
 from snooze_controller.app_server_process import AppServerProcess
 from snooze_controller.handoff import DynamicHandoffTool, HandoffController, HandoffControllerError
+from snooze_controller.model_policy import (
+    LUNA_MODEL,
+    REASONING_EFFORT,
+    ModelPolicyError,
+    attach_model_metadata,
+    attest_model,
+    emit_model_policy_log,
+    write_model_attestation,
+)
 from snooze_controller.thread_registry import ThreadRegistry
 from snooze_core.models import utc_now
 from snooze_core.store import JobStore
@@ -156,6 +165,13 @@ def _run_once(
         mapping_item_ok = False
         threshold_ok = False
         detached = False
+        attestation = attest_model(
+            requested_model=LUNA_MODEL,
+            runtime_reported_model=None,
+            thread_model=None,
+            turn_model=None,
+            reasoning_effort=REASONING_EFFORT,
+        )
         try:
             controller.start(timeout=30)
             controller.create_thread(
@@ -166,6 +182,10 @@ def _run_once(
                 dynamic_tools=[DynamicHandoffTool.spec()],
                 timeout=30,
             )
+            attestation = controller.attest_luna_model(timeout=60, wait_timeout=120)
+            emit_model_policy_log(attestation)
+            if not attestation.verified:
+                raise ModelPolicyError("MODEL_ATTESTATION=FAIL: " + ",".join(attestation.reasons))
             command_args = [
                 "python3",
                 f"fixtures/{fixture_name}",
@@ -361,6 +381,10 @@ def _run_once(
             "error": error,
             "duration_seconds": round(time.monotonic() - started, 3),
         }
+        value = attach_model_metadata(value, attestation, experiment_valid=attestation.verified and value["status"] == "PASS")
+        if not attestation.verified:
+            value["status"] = "UNKNOWN"
+            value["experiment_valid"] = False
         return _scrub(redact(value), root)
 
 
@@ -403,10 +427,25 @@ def run_live(
         required.append("final_contains_stale_status")
     passed = sum(item.get("status") == "PASS" for item in results)
     aggregate = "PASS" if passed == runs else "FAIL" if any(item.get("status") == "FAIL" for item in results) else "UNKNOWN"
+    model_valid = bool(results) and all(item.get("model_attestation") == "PASS" for item in results)
+    if not model_valid:
+        aggregate = "UNKNOWN"
+    latest_model = (results[-1] if results else {})
     return {
         "schema_version": 1,
         "generated_at": utc_now(),
         "status": aggregate,
+        "model_policy": "LUNA_ONLY",
+        "requested_model": LUNA_MODEL,
+        "runtime_reported_model": latest_model.get("runtime_reported_model"),
+        "thread_model": latest_model.get("thread_model"),
+        "turn_model": latest_model.get("turn_model"),
+        "observed_model": latest_model.get("observed_model"),
+        "reasoning_effort": REASONING_EFFORT,
+        "model_attestation": "PASS" if model_valid else "FAIL",
+        "experiment_valid": model_valid and aggregate == "PASS",
+        "non_luna_model_calls": sum(int(item.get("non_luna_model_calls") or 0) for item in results),
+        "attestation_reasons": latest_model.get("attestation_reasons", []),
         "runs": runs,
         "passed_runs": passed,
         "threshold_seconds": threshold,
@@ -480,6 +519,28 @@ def main() -> int:
         )
     OUT.mkdir(parents=True, exist_ok=True)
     write_trace(OUT / f"{args.output_stem}.json", value)
+    if args.live:
+        latest = (value.get("results") or [{}])[-1]
+        aggregate_attestation = attest_model(
+            requested_model=LUNA_MODEL,
+            runtime_reported_model=latest.get("runtime_reported_model"),
+            thread_model=latest.get("thread_model"),
+            turn_model=latest.get("turn_model"),
+            reasoning_effort=latest.get("reasoning_effort") or REASONING_EFFORT,
+            fallback_detected=bool(latest.get("fallback_detected")),
+            non_luna_model_calls=int(latest.get("non_luna_model_calls") or 0),
+            auto_review_model_override=latest.get("auto_review_model_override"),
+            review_model=latest.get("review_model"),
+            delegated_model=latest.get("delegated_model"),
+            subagent_calls=latest.get("subagent_calls") or [],
+        )
+        write_model_attestation(
+            OUT / "model-attestation.json",
+            aggregate_attestation,
+            experiment="v0.4_handoff_e2e",
+            experiment_valid=bool(value.get("experiment_valid")),
+            extra={"output_stem": args.output_stem},
+        )
     (OUT / f"{args.output_stem}.md").write_text(markdown(value), encoding="utf-8")
     print(json.dumps(value, ensure_ascii=False, indent=2))
     return 0 if value.get("status") == "PASS" else 1 if args.live and value.get("status") == "FAIL" else 2 if args.live else 0

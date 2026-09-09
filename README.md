@@ -7,6 +7,16 @@ requires independent nonce, marker, self-reported PID and cwd evidence before
 an ownership transition is eligible. The installed Codex runtime is
 authoritative; current upstream source is recorded only as a comparison.
 
+All v0.7 live probes are Luna-only: `gpt-5.6-luna` with
+`model_reasoning_effort="medium"`. The App Server and direct CLI launchers pin
+those values explicitly. A no-tool attestation turn must report the requested,
+runtime, thread and turn model before a candidate command can start. The
+installed runtime reported the Luna runtime and thread values but omitted the
+turn model field, so `LUNA_MODEL_ATTESTATION=FAIL` and
+`EXPERIMENT_VALID=false`; no candidate fixture command was started. See
+[V0.7_MODEL_POLICY_REPORT.md](V0.7_MODEL_POLICY_REPORT.md) and
+[results/v0.7/model-attestation.json](results/v0.7/model-attestation.json).
+
 The v0.7 artifacts are [results/v0.7/capabilities.md](results/v0.7/capabilities.md),
 [V0.7_RUNTIME_SOURCE_TRACE.md](V0.7_RUNTIME_SOURCE_TRACE.md),
 [V0.7_PROCESS_PROVENANCE_REPORT.md](V0.7_PROCESS_PROVENANCE_REPORT.md), and
@@ -21,11 +31,15 @@ are not production candidates.
 The installed-runtime live result is:
 
 ```text
-PROCESS_ID_KIND = OPAQUE
-NATIVE_EXECUTION_PROVENANCE = FAIL
-NATIVE_YIELD = FAIL
-BACKGROUND_TERMINAL_REGISTRY = PARTIAL
-THREAD_NATIVE_TERMINAL = FAIL
+PROCESS_ID_KIND = UNKNOWN
+NATIVE_EXECUTION_PROVENANCE = UNKNOWN
+NATIVE_YIELD = UNKNOWN
+BACKGROUND_TERMINAL_REGISTRY = UNKNOWN
+THREAD_NATIVE_TERMINAL = UNKNOWN
+LUNA_AVAILABLE = UNKNOWN
+LUNA_MODEL_ATTESTATION = FAIL
+LUNA_ONLY_ENFORCEMENT = PASS
+NON_LUNA_MODEL_CALLS = 0
 DESCENDANT_SUPERVISOR = NOT_RUN
 NATIVE_SANDBOX_PARITY = UNKNOWN
 NATIVE_APPROVAL_PARITY = UNKNOWN
@@ -33,12 +47,16 @@ SAFE_AUTOMATIC_HANDOFF = NOT_SUPPORTED
 PRODUCTION_PATH = CLI_RESUME_FALLBACK
 ```
 
-The short identity fixture exposed a logical-looking `processId`, exact cwd,
-stdout nonce, marker, self PID and result in the controller-visible workspace.
-The long fixture exposed an item and cwd but produced no marker, stdout nonce,
-result, or run count. Its turn completed without a native yield, so the long
-side effect is recorded as a failed execution proof rather than sandbox parity
-evidence.
+Because the Luna attestation failed before the candidate turn, live native
+gates are treated as invalid/unknown in the v0.7 aggregate; they are not
+handoff, sandbox, approval, latency or benchmark evidence. The controller
+never falls back to another model, enables auto-review, or delegates to a
+subagent.
+
+The current attestation gate prevented both candidate fixtures from starting.
+Earlier pre-policy observations are retained only as historical context and
+are excluded from v0.7 evidence; they cannot establish namespace, provenance,
+native yield or sandbox parity under the Luna-only policy.
 
 ## v0.6 native ownership proof
 

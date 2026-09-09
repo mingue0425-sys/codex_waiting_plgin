@@ -11,6 +11,19 @@ runtime/schema trace is [V0.7_RUNTIME_SOURCE_TRACE.md](V0.7_RUNTIME_SOURCE_TRACE
 Logical process identity is evaluated independently from host OS PID identity.
 Unknown, failed and not-run gates select `CLI_RESUME_FALLBACK`.
 
+The v0.7 model policy is [V0.7_MODEL_POLICY_REPORT.md](V0.7_MODEL_POLICY_REPORT.md).
+Every live sample is pinned to `gpt-5.6-luna` with medium effort and must pass
+runtime, thread and turn attestation. The installed runtime omitted the turn
+model field, so the live sample is invalid and its native results are not
+promoted to capability evidence.
+
+| Luna policy capability | Result | Production consequence |
+|---|---|---|
+| `LUNA_AVAILABLE` | UNKNOWN | Runtime/thread reported Luna, but required turn telemetry was missing. |
+| `LUNA_MODEL_ATTESTATION` | FAIL | Candidate capability execution is aborted before the fixture command. |
+| `LUNA_ONLY_ENFORCEMENT` | PASS | Explicit CLI/App Server pinning, no fallback, user review and disabled delegation are enforced. |
+| `NON_LUNA_MODEL_CALLS` | 0 | No non-Luna call or delegated model was observed. |
+
 ## v0.6 native ownership proof
 
 The authoritative aggregate is [results/v0.6/capabilities.json](results/v0.6/capabilities.json)

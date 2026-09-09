@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-09-09T11:52:01.508929Z",
+  "generated_at": "2026-09-09T12:42:39.948792Z",
   "status": "UNKNOWN",
-  "namespace_prerequisite": "PASS",
+  "namespace_prerequisite": "UNKNOWN",
   "normal_baseline": {
     "status": "UNKNOWN",
     "operations": [
@@ -34,5 +34,24 @@
   "notes": [
     "Security parity is evaluated only after the fixture namespace is proven and native ownership is established.",
     "A/B are independent; descendant supervisor was not started by the controller."
-  ]
+  ],
+  "attestation_reasons": [
+    "missing_turn_model"
+  ],
+  "thread_model": "gpt-5.6-luna",
+  "turn_model": null,
+  "experiment_valid": false,
+  "non_luna_model_calls": 0,
+  "reasoning_effort": "medium",
+  "model_policy": "LUNA_ONLY",
+  "runtime_reported_model": "gpt-5.6-luna",
+  "fallback_detected": false,
+  "model_attestation": "FAIL",
+  "subagent_policy": "DISABLED",
+  "subagent_calls": [],
+  "requested_model": "gpt-5.6-luna",
+  "delegated_model": null,
+  "auto_review_model_override": null,
+  "review_model": "user",
+  "observed_model": "gpt-5.6-luna"
 }

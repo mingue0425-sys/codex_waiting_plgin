@@ -9,15 +9,23 @@ provenance. The harness requests candidate execution only through a normal
 Codex thread. It never uses `command/exec`, `process/spawn`,
 `thread/shellCommand`, or a controller-started supervisor for the candidate.
 
+The model policy is strict `LUNA_ONLY`: every real CLI/App Server launch is
+explicitly pinned to `gpt-5.6-luna` and `model_reasoning_effort="medium"`;
+thread and turn requests carry the installed schema's `model`/`effort` fields;
+approval review is `user`; and multi-agent delegation is disabled. A no-tool
+attestation runs before any candidate turn. The installed runtime reported
+Luna for the runtime and thread but omitted `turn_model`, so
+`MODEL_ATTESTATION=FAIL` and `EXPERIMENT_VALID=false`; the candidate fixture
+was not started. Historical pre-policy live results are not used as v0.7
+evidence. See [V0.7_MODEL_POLICY_REPORT.md](V0.7_MODEL_POLICY_REPORT.md).
+
 The production selector remains `CLI_RESUME_FALLBACK` unless every native
 handoff and security gate passes.
 
-The live 0.153.4 run exposed a normal `commandExecution` item, logical
-processId and matching App Server cwd, but the absolute fixture's marker,
-stdout nonce, result and run count were absent. The turn completed without an
-observable native yield or interrupt handoff. The resulting native path is
-`FAIL`; sandbox and approval parity remain `UNKNOWN` and the descendant path
-was not started.
+The live 0.153.4 attestation stopped before the candidate fixture because the
+turn model field was absent. The resulting native path is invalid/`UNKNOWN`;
+sandbox and approval parity remain `UNKNOWN` and the descendant path was not
+started. No native handoff or security claim is derived from this sample.
 
 ## v0.6 native ownership proof
 

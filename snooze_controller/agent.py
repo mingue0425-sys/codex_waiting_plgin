@@ -4,9 +4,21 @@ from __future__ import annotations
 
 import uuid
 from pathlib import Path
-from typing import Any, Dict, Optional, Sequence
+from typing import Any, Dict, List, Optional, Sequence
 
 from .app_server_process import AppServerLifecycle, AppServerProcess, AppServerProcessError
+from .model_policy import (
+    LUNA_MODEL,
+    REASONING_EFFORT,
+    ModelAttestation,
+    ModelPolicyError,
+    attest_model,
+    first_model,
+    luna_thread_params,
+    luna_turn_params,
+    models_from_events,
+    subagent_events,
+)
 from .thread_registry import ThreadRegistry
 
 
@@ -31,6 +43,13 @@ class AgentController:
         self.process = process or AppServerProcess(command, cwd=cwd)
         self.thread_id: Optional[str] = None
         self.last_turn_id: Optional[str] = None
+        self.requested_model = LUNA_MODEL
+        self.reasoning_effort = REASONING_EFFORT
+        self.runtime_reported_model: Optional[str] = None
+        self.thread_model: Optional[str] = None
+        self.turn_model: Optional[str] = None
+        self._attestation_complete = False
+        self._attestation_in_progress = False
 
     def start(self, *, timeout: float = 20.0) -> Dict[str, Any]:
         return self.process.start(timeout=timeout)
@@ -48,6 +67,11 @@ class AgentController:
     ) -> Dict[str, Any]:
         if self.process.state != AppServerLifecycle.READY:
             self.start(timeout=timeout)
+        requested_model = model or self.requested_model
+        if requested_model != LUNA_MODEL:
+            raise ModelPolicyError(f"Codex Snooze only permits {LUNA_MODEL}; got {requested_model}")
+        self.requested_model = requested_model
+        self._attestation_complete = False
         params: Dict[str, Any] = {"cwd": str(Path(cwd).resolve()), "ephemeral": False}
         if sandbox is not None:
             params["sandbox"] = sandbox
@@ -59,6 +83,7 @@ class AgentController:
             params["developerInstructions"] = developer_instructions
         if dynamic_tools is not None:
             params["dynamicTools"] = dynamic_tools
+        params = luna_thread_params(params)
         response = self.process.request("thread/start", params, timeout=timeout)
         if response.get("error") is not None:
             raise AgentControllerError(f"thread/start failed: {response.get('error')}")
@@ -68,13 +93,15 @@ class AgentController:
         if not thread_id:
             raise AgentControllerError("thread/start did not return a thread id")
         self.thread_id = str(thread_id)
+        self.thread_model = first_model(thread, result)
+        self.runtime_reported_model = first_model(result)
         self.registry.register(
             self.thread_id,
             app_server_instance=self.process.instance_id or "unknown",
             cwd=Path(cwd),
             sandbox=sandbox,
             approval_policy=approval_policy,
-            model=result.get("model") or model,
+            model=self.thread_model or requested_model,
         )
         return result
 
@@ -90,10 +117,13 @@ class AgentController:
         response = self.process.request("thread/resume", params, timeout=timeout)
         if response.get("error") is not None:
             raise AgentControllerError(f"thread/resume failed: {response.get('error')}")
+        resumed_result = response.get("result") or {}
+        self.thread_model = first_model(resumed_result)
+        self.runtime_reported_model = first_model(resumed_result)
         self.thread_id = thread_id
         if record is not None:
             self.registry.mark_state(thread_id, "LIVE", app_server_instance=self.process.instance_id)
-        return response.get("result") or {}
+        return resumed_result
 
     def start_turn(
         self,
@@ -110,6 +140,11 @@ class AgentController:
             raise AgentControllerError("thread id is not set")
         if not text:
             raise AgentControllerError("turn text cannot be empty")
+        real_codex = bool(self.process.command and Path(self.process.command[0]).name == "codex")
+        if real_codex and not self._attestation_complete and not self._attestation_in_progress:
+            attestation = self.attest_luna_model(timeout=timeout, wait_timeout=max(timeout, 60.0))
+            if not attestation.verified:
+                raise ModelPolicyError("MODEL_ATTESTATION=FAIL: " + ",".join(attestation.reasons))
         params: Dict[str, Any] = {
             "threadId": target,
             "input": [{"type": "text", "text": text, "text_elements": []}],
@@ -121,6 +156,7 @@ class AgentController:
             params["approvalPolicy"] = approval_policy
         if sandbox_policy is not None:
             params["sandboxPolicy"] = sandbox_policy
+        params = luna_turn_params(params)
         response = self.process.request("turn/start", params, timeout=timeout)
         if response.get("error") is not None:
             raise AgentControllerError(f"turn/start failed: {response.get('error')}")
@@ -130,9 +166,65 @@ class AgentController:
             raise AgentControllerError("turn/start did not return a turn id")
         self.thread_id = target
         self.last_turn_id = str(turn_id)
+        self.turn_model = first_model(turn, response.get("result"))
+        if self.turn_model is None:
+            self.turn_model = first_model(
+                *(
+                    notification.get("params")
+                    for notification in self.process.notifications
+                    if notification.get("method") in {"turn/started", "turn/completed"}
+                )
+            )
         if self.registry.get(target) is not None:
             self.registry.append_turn(target, self.last_turn_id)
         return turn
+
+    def model_attestation(self) -> ModelAttestation:
+        """Return strict model evidence accumulated by this App Server run."""
+
+        observed_models = models_from_events(
+            event
+            for event in self.process.events
+            if event.get("kind") in {"response", "notification"}
+        )
+        non_luna = sum(1 for value in observed_models if value != LUNA_MODEL)
+        delegation = subagent_events(self.process.events)
+        delegation_names = [str(item.get("method") or item.get("kind") or "unknown") for item in delegation]
+        review_values: List[str] = []
+        for event in self.process.events:
+            text = str(event.get("params", ""))
+            if "auto_review" in text or "guardian_subagent" in text:
+                review_values.append("auto_review")
+        return attest_model(
+            requested_model=self.requested_model,
+            runtime_reported_model=self.runtime_reported_model,
+            thread_model=self.thread_model,
+            turn_model=self.turn_model,
+            reasoning_effort=self.reasoning_effort,
+            fallback_detected=False,
+            non_luna_model_calls=non_luna,
+            auto_review_model_override=review_values[0] if review_values else None,
+            review_model="user" if not review_values else review_values[0],
+            subagent_calls=delegation_names,
+        )
+
+    def attest_luna_model(self, *, timeout: float = 30.0, wait_timeout: float = 60.0) -> ModelAttestation:
+        """Run a no-tool attestation turn before any capability task."""
+
+        if not self.thread_id:
+            raise AgentControllerError("thread id is not set")
+        self._attestation_in_progress = True
+        try:
+            attestation_turn = self.start_turn(
+                "Model attestation only. Do not use tools or delegate. Reply exactly MODEL_ATTESTATION_READY.",
+                timeout=timeout,
+            )
+            self.wait_turn(str(attestation_turn["id"]), timeout=wait_timeout)
+            attestation = self.model_attestation()
+            self._attestation_complete = attestation.verified
+            return attestation
+        finally:
+            self._attestation_in_progress = False
 
     def wait_turn(self, turn_id: Optional[str] = None, *, timeout: float = 300.0) -> Dict[str, Any]:
         target = turn_id or self.last_turn_id
@@ -146,6 +238,11 @@ class AgentController:
         if notification is None:
             raise AgentControllerError(f"turn did not complete before timeout: {target}")
         turn = ((notification.get("params") or {}).get("turn") or {})
+        # Some runtimes expose the selected model only on the terminal turn
+        # notification. Retain that evidence before evaluating the mandatory
+        # attestation; a missing field still fails closed in attest_model.
+        self.turn_model = first_model(turn, notification) or self.turn_model
+        self.runtime_reported_model = first_model(notification) or self.runtime_reported_model
         if self.thread_id and self.registry.get(self.thread_id) is not None:
             self.registry.update_turn(self.thread_id, target, status=turn.get("status"), completed_at=notification.get("received_at"))
         return turn
@@ -194,6 +291,7 @@ class AgentController:
             "last_turn_id": self.last_turn_id,
             "registry": self.registry.get(self.thread_id) if self.thread_id else None,
             "app_server": self.process.snapshot(),
+            "model_attestation": self.model_attestation().as_dict(),
         }
 
     def run(
@@ -218,6 +316,9 @@ class AgentController:
                 model=model,
                 timeout=request_timeout,
             )
+            attestation = self.attest_luna_model(timeout=request_timeout, wait_timeout=turn_timeout)
+            if not attestation.verified:
+                raise ModelPolicyError("MODEL_ATTESTATION=FAIL: " + ",".join(attestation.reasons))
             first_turn = self.start_turn(task, timeout=request_timeout)
             first_done = self.wait_turn(first_turn.get("id"), timeout=turn_timeout)
             continuation_done: Optional[Dict[str, Any]] = None
@@ -238,6 +339,7 @@ class AgentController:
                     item for item in self.process.notifications if item.get("method") == "thread/tokenUsage/updated"
                 ],
                 "app_server_state": self.process.state.value,
+                "model_attestation": attestation.as_dict(experiment_valid=True),
             }
         finally:
             self.process.stop()
@@ -259,6 +361,9 @@ class AgentController:
         try:
             self.start(timeout=start_timeout)
             self.resume_thread(thread_id, timeout=request_timeout, cwd=cwd)
+            attestation = self.attest_luna_model(timeout=request_timeout, wait_timeout=turn_timeout)
+            if not attestation.verified:
+                raise ModelPolicyError("MODEL_ATTESTATION=FAIL: " + ",".join(attestation.reasons))
             first_turn = self.start_turn(task, timeout=request_timeout)
             first_done = self.wait_turn(first_turn.get("id"), timeout=turn_timeout)
             continuation_done: Optional[Dict[str, Any]] = None
@@ -280,6 +385,7 @@ class AgentController:
                     item for item in self.process.notifications if item.get("method") == "thread/tokenUsage/updated"
                 ],
                 "app_server_state": self.process.state.value,
+                "model_attestation": attestation.as_dict(experiment_valid=True),
             }
         finally:
             self.process.stop()

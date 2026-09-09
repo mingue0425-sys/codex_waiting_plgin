@@ -18,6 +18,16 @@ if str(ROOT) not in sys.path:
 
 from snooze_controller.agent import AgentController, AgentControllerError
 from snooze_controller.app_server_process import AppServerProcess
+from snooze_controller.model_policy import (
+    LUNA_MODEL,
+    REASONING_EFFORT,
+    attach_model_metadata,
+    attest_model,
+    emit_model_policy_log,
+    ensure_luna_exec_command,
+    run_luna_exec_attestation,
+    write_model_attestation,
+)
 from snooze_controller.thread_registry import ThreadRegistry
 from tools.app_server_probe import redact, utc_now, write_trace
 
@@ -39,11 +49,7 @@ def scrub(value: Any, root: Path) -> Any:
     return value
 
 
-def normal_codex(workspace: Path, outside: Path, env: Dict[str, str]) -> Dict[str, Any]:
-    prompt = (
-        "Execute exactly this benign command once using the terminal tool and report its JSON output; do not "
-        f"simulate it: python3 security_fixture.py --inside inside.txt --outside {outside}."
-    )
+def preflight(workspace: Path, env: Dict[str, str]) -> tuple[Any, Dict[str, Any]]:
     command = [
         "codex",
         "exec",
@@ -56,8 +62,32 @@ def normal_codex(workspace: Path, outside: Path, env: Dict[str, str]) -> Dict[st
         'approval_policy="never"',
         "--cd",
         str(workspace),
-        prompt,
+        "Do not use tools or delegate. Reply exactly MODEL_ATTESTATION_READY.",
     ]
+    completed, events, attestation = run_luna_exec_attestation(command, cwd=ROOT, env=env, timeout=150)
+    emit_model_policy_log(attestation)
+    return attestation, {"returncode": completed.returncode, "event_types": sorted({str(item.get("type")) for item in events}), "stdout_tail": completed.stdout[-2000:], "stderr_tail": completed.stderr[-2000:]}
+
+
+def normal_codex(workspace: Path, outside: Path, env: Dict[str, str]) -> Dict[str, Any]:
+    prompt = (
+        "Execute exactly this benign command once using the terminal tool and report its JSON output; do not "
+        f"simulate it: python3 security_fixture.py --inside inside.txt --outside {outside}."
+    )
+    command = ensure_luna_exec_command([
+        "codex",
+        "exec",
+        "--json",
+        "--ephemeral",
+        "--skip-git-repo-check",
+        "--sandbox",
+        "workspace-write",
+        "--config",
+        'approval_policy="never"',
+        "--cd",
+        str(workspace),
+        prompt,
+    ])
     try:
         completed = subprocess.run(command, cwd=ROOT, env=env, capture_output=True, text=True, timeout=150, check=False)
         events = []
@@ -160,14 +190,24 @@ def main() -> int:
         outside = sibling / "outside.txt"
         env = os.environ.copy()
         env["CODEX_SNOOZE_BENIGN_MARKER"] = "V04_BENIGN_ENV"
-        normal = normal_codex(workspace, outside, env)
         owned_workspace = root / "owned-workspace"
         owned_sibling = root / "owned-sibling"
         owned_workspace.mkdir()
         owned_sibling.mkdir()
         (owned_workspace / "security_fixture.py").write_bytes(FIXTURE.read_bytes())
         owned_outside = owned_sibling / "outside.txt"
-        owned = owned_server(owned_workspace, owned_outside, env)
+        try:
+            attestation, preflight_result = preflight(workspace, env)
+        except (OSError, subprocess.TimeoutExpired, RuntimeError, ValueError) as exc:
+            attestation = attest_model(requested_model=LUNA_MODEL, runtime_reported_model=None, thread_model=None, turn_model=None, reasoning_effort=REASONING_EFFORT)
+            preflight_result = {"error": f"{type(exc).__name__}: {exc}"}
+            emit_model_policy_log(attestation)
+        if attestation.verified:
+            normal = normal_codex(workspace, outside, env)
+            owned = owned_server(owned_workspace, owned_outside, env)
+        else:
+            normal = {"status": "NOT_RUN", "reason": "MODEL_ATTESTATION=FAIL; normal candidate was not started"}
+            owned = {"status": "NOT_RUN", "reason": "MODEL_ATTESTATION=FAIL; owned candidate was not started"}
         owned_boundary = owned.get("inside_written") is True and owned.get("outside_written") is False
         normal_exercised = normal.get("fixture_exercised") is True
         normal_boundary = normal.get("inside_written") is True and normal.get("outside_written") is False
@@ -186,7 +226,15 @@ def main() -> int:
         value = {
             "schema_version": 1,
             "generated_at": utc_now(),
-            "status": "PASS" if sandbox_parity == "PASS" and approval_parity == "PASS" else "PARTIAL" if sandbox_parity in {"PASS", "PARTIAL"} else "UNKNOWN",
+            "model_policy": "LUNA_ONLY",
+            "requested_model": LUNA_MODEL,
+            "observed_model": attestation.observed_model,
+            "reasoning_effort": REASONING_EFFORT,
+            "model_attestation": attestation.status,
+            "experiment_valid": False,
+            "preflight": preflight_result,
+            "non_luna_model_calls": attestation.non_luna_model_calls,
+            "status": "PASS" if attestation.verified and sandbox_parity == "PASS" and approval_parity == "PASS" else "PARTIAL" if attestation.verified and sandbox_parity in {"PASS", "PARTIAL"} else "UNKNOWN",
             "sandbox_parity": sandbox_parity,
             "approval_parity": approval_parity,
             "normal_codex": normal,
@@ -198,11 +246,13 @@ def main() -> int:
             "normal_fixture_exercised": normal_exercised,
             "scope": "temporary workspace, sibling, and benign environment marker only",
         }
+        value = attach_model_metadata(value, attestation, experiment_valid=False)
         value = scrub(redact(value), root)
     OUT.mkdir(parents=True, exist_ok=True)
     if value["sandbox_parity"] == "FAIL":
         value["status"] = "FAIL"
     write_trace(OUT / "security-parity.json", value)
+    write_model_attestation(OUT / "model-attestation.json", attestation, experiment="v0.4_security_parity", experiment_valid=False)
     (OUT / "security-parity.md").write_text(
         "# v0.4 sandbox and approval parity\n\n"
         f"Status: **{value['status']}**\n\n"

@@ -30,6 +30,15 @@ if str(ROOT) not in sys.path:
 from probes.v0_6_support import ScopedApprovalRecorder
 from snooze_controller.agent import AgentController, AgentControllerError
 from snooze_controller.app_server_process import AppServerProcess
+from snooze_controller.model_policy import (
+    LUNA_MODEL,
+    REASONING_EFFORT,
+    ModelPolicyError,
+    attach_model_metadata,
+    attest_model,
+    emit_model_policy_log,
+    write_model_attestation,
+)
 from snooze_controller.v07_provenance import (
     NativeState,
     NativeStateMachine,
@@ -180,6 +189,13 @@ def run_once(*, duration: float = 20.0, exit_code: int = 0, interrupt_at: float 
     after_background: Dict[str, Any] = {}
     interrupt_response: Optional[Dict[str, Any]] = None
     error: Optional[str] = None
+    attestation = attest_model(
+        requested_model=LUNA_MODEL,
+        runtime_reported_model=None,
+        thread_model=None,
+        turn_model=None,
+        reasoning_effort=REASONING_EFFORT,
+    )
     turn_completed_before_threshold = False
     interrupt_requested = False
     provenance: Dict[str, Any] = {"status": "UNKNOWN", "reason": "not evaluated"}
@@ -187,6 +203,10 @@ def run_once(*, duration: float = 20.0, exit_code: int = 0, interrupt_at: float 
         mark("turn_started")
         controller.start(timeout=40)
         controller.create_thread(cwd=run_root, sandbox="workspace-write", approval_policy="on-request", timeout=40)
+        attestation = controller.attest_luna_model(timeout=40, wait_timeout=60)
+        emit_model_policy_log(attestation)
+        if not attestation.verified:
+            raise ModelPolicyError("MODEL_ATTESTATION=FAIL: " + ",".join(attestation.reasons))
         before_background = _background(controller)
         prompt = (
             "Use the normal terminal execution tool and execute exactly this raw command once.\n"
@@ -300,9 +320,9 @@ def run_once(*, duration: float = 20.0, exit_code: int = 0, interrupt_at: float 
             expected_command=None,
             logical_process_id=final_item.get("process_id"),
         )
-    native_yield = "PASS" if interrupt_requested and any(item["name"] == "background_observation_started" for item in timeline) else "FAIL" if (turn_payload.get("status") == "completed" and not interrupt_requested) or error is not None else "UNKNOWN"
-    survival = "PASS" if interrupt_requested and heartbeat_record is not None and result_record is not None else "UNKNOWN"
-    completion = "PASS" if result_record is not None and completed_item.get("exit_code") in {0, exit_code} and provenance.get("status") == "PASS" else "UNKNOWN"
+    native_yield = "UNKNOWN" if not attestation.verified else "PASS" if interrupt_requested and any(item["name"] == "background_observation_started" for item in timeline) else "FAIL" if (turn_payload.get("status") == "completed" and not interrupt_requested) or error is not None else "UNKNOWN"
+    survival = "UNKNOWN" if not attestation.verified else "PASS" if interrupt_requested and heartbeat_record is not None and result_record is not None else "UNKNOWN"
+    completion = "UNKNOWN" if not attestation.verified else "PASS" if result_record is not None and completed_item.get("exit_code") in {0, exit_code} and provenance.get("status") == "PASS" else "UNKNOWN"
     model_events_after_threshold = [
         {"method": event.get("method"), "monotonic_ns": event.get("monotonic_ns")}
         for event in snapshot.get("events", [])
@@ -371,6 +391,14 @@ def run_once(*, duration: float = 20.0, exit_code: int = 0, interrupt_at: float 
         "status": "PASS" if native_yield == "PASS" and survival == "PASS" and completion == "PASS" and not forbidden else "UNKNOWN",
         "production_selection": "CLI_RESUME_FALLBACK",
     }
+    value = attach_model_metadata(value, attestation, experiment_valid=attestation.verified and value["status"] == "PASS")
+    write_model_attestation(
+        OUT / "model-attestation.json",
+        attestation,
+        experiment="v0.7_native_thread",
+        experiment_valid=attestation.verified and value["status"] == "PASS",
+        extra={"capability_probe_started": attestation.verified},
+    )
     value = redact_identity(redact(value), project_root=ROOT)
     # The run directory is disposable. It is removed only after the App
     # Server connection has been closed and all evidence has been read.
@@ -387,11 +415,34 @@ def main() -> int:
     value = run_once(duration=args.duration, exit_code=args.exit_code, interrupt_at=args.interrupt_at)
     OUT.mkdir(parents=True, exist_ok=True)
     write_trace(OUT / "native-live-observation.json", value)
+    model_fields = {
+        key: value[key]
+        for key in (
+            "model_policy",
+            "requested_model",
+            "runtime_reported_model",
+            "thread_model",
+            "turn_model",
+            "observed_model",
+            "reasoning_effort",
+            "model_attestation",
+            "experiment_valid",
+            "fallback_detected",
+            "auto_review_model_override",
+            "review_model",
+            "delegated_model",
+            "subagent_policy",
+            "subagent_calls",
+            "non_luna_model_calls",
+            "attestation_reasons",
+        )
+        if key in value
+    }
     namespace_observation = value["execution_namespace"]
-    write_trace(OUT / "execution-namespace.json", {"schema_version": 1, "generated_at": utc_now(), "observation": namespace_observation, "status": "PASS" if namespace_observation["same_absolute_namespace"] and namespace_observation["marker_observed"] and namespace_observation["result_observed"] else "UNKNOWN", "candidate_side_effect": "PASS" if namespace_observation["marker_observed"] else "FAIL"})
-    write_trace(OUT / "process-provenance.json", {"schema_version": 1, "generated_at": utc_now(), "status": value["provenance"]["status"], "observation": value["provenance"], "self_report": value["self_report"], "marker": value["marker_record"], "os_observation": value["os_observation"]})
-    write_trace(OUT / "native-yield.json", {"schema_version": 1, "generated_at": utc_now(), "status": value["native_yield"], "job_survival": value["job_survival"], "background_registry": value["background_registry"], "interrupt_requested": value["interrupt_requested"], "reason": value["error"] or "live normal-thread observation"})
-    write_trace(OUT / "native-timeline.json", {"schema_version": 1, "generated_at": utc_now(), "status": value["status"], "timeline": value["timeline"], "state_machine": value["state_machine"], "wait_family_calls_during_wait": value["wait_family_calls_during_wait"], "model_events_after_threshold": value["model_events_after_threshold"]})
+    write_trace(OUT / "execution-namespace.json", {"schema_version": 1, "generated_at": utc_now(), **model_fields, "observation": namespace_observation, "status": "PASS" if namespace_observation["same_absolute_namespace"] and namespace_observation["marker_observed"] and namespace_observation["result_observed"] else "UNKNOWN", "candidate_side_effect": "PASS" if namespace_observation["marker_observed"] else "FAIL"})
+    write_trace(OUT / "process-provenance.json", {"schema_version": 1, "generated_at": utc_now(), **model_fields, "status": value["provenance"]["status"], "observation": value["provenance"], "self_report": value["self_report"], "marker": value["marker_record"], "os_observation": value["os_observation"]})
+    write_trace(OUT / "native-yield.json", {"schema_version": 1, "generated_at": utc_now(), **model_fields, "status": value["native_yield"], "job_survival": value["job_survival"], "background_registry": value["background_registry"], "interrupt_requested": value["interrupt_requested"], "reason": value["error"] or "live normal-thread observation"})
+    write_trace(OUT / "native-timeline.json", {"schema_version": 1, "generated_at": utc_now(), **model_fields, "status": value["status"], "timeline": value["timeline"], "state_machine": value["state_machine"], "wait_family_calls_during_wait": value["wait_family_calls_during_wait"], "model_events_after_threshold": value["model_events_after_threshold"]})
     print(json.dumps(value, ensure_ascii=False, indent=2))
     return 0
 

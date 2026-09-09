@@ -23,6 +23,15 @@ from probes.v0_7_native_thread import _first_probe_record, _json, _output_string
 from snooze_controller.agent import AgentController, AgentControllerError
 from snooze_controller.app_server_process import AppServerProcess
 from snooze_controller.thread_registry import ThreadRegistry
+from snooze_controller.model_policy import (
+    LUNA_MODEL,
+    REASONING_EFFORT,
+    ModelPolicyError,
+    attach_model_metadata,
+    attest_model,
+    emit_model_policy_log,
+    write_model_attestation,
+)
 from snooze_controller.v07_provenance import correlate_probe_evidence, redact_identity
 from snooze_core.models import utc_now
 from tools.app_server_probe import redact, write_trace
@@ -40,9 +49,20 @@ def run_once() -> Dict[str, Any]:
     controller = AgentController(process=process, registry=ThreadRegistry(run_root / "thread-registry.json"), cwd=run_root)
     error = None
     turn: Dict[str, Any] = {}
+    attestation = attest_model(
+        requested_model=LUNA_MODEL,
+        runtime_reported_model=None,
+        thread_model=None,
+        turn_model=None,
+        reasoning_effort=REASONING_EFFORT,
+    )
     try:
         controller.start(timeout=40)
         controller.create_thread(cwd=run_root, sandbox="workspace-write", approval_policy="on-request", timeout=40)
+        attestation = controller.attest_luna_model(timeout=40, wait_timeout=60)
+        emit_model_policy_log(attestation)
+        if not attestation.verified:
+            raise ModelPolicyError("MODEL_ATTESTATION=FAIL: " + ",".join(attestation.reasons))
         turn = controller.start_turn(
             "Use the normal terminal execution tool and execute exactly this command once. "
             f"Do not replace or wrap it and do not run any other command: {command}. "
@@ -89,8 +109,16 @@ def run_once() -> Dict[str, Any]:
         "turn": turn,
         "error": error,
         "controller_candidate_execution_used": False,
-        "status": evidence.get("status", "UNKNOWN"),
+        "status": evidence.get("status", "UNKNOWN") if attestation.verified else "UNKNOWN",
     }
+    value = attach_model_metadata(value, attestation, experiment_valid=attestation.verified and evidence.get("status") == "PASS")
+    write_model_attestation(
+        OUT / "model-attestation.json",
+        attestation,
+        experiment="v0.7_identity_probe",
+        experiment_valid=attestation.verified and evidence.get("status") == "PASS",
+        extra={"capability_probe_started": attestation.verified},
+    )
     value = redact_identity(redact(value), project_root=ROOT)
     shutil.rmtree(run_root, ignore_errors=True)
     return value
