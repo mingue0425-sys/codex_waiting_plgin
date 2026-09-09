@@ -188,6 +188,22 @@ class JobStore:
     def read_delivery(self, job_id: str) -> Dict[str, Any]:
         return load_json(self.job_dir(job_id) / "delivery.json")
 
+    def write_handoff_marker(self, job_id: str, marker: Dict[str, Any]) -> None:
+        """Persist the foreground handoff result before printing it.
+
+        The marker is an outbox-style fact.  A controller can recover it from
+        the job directory even when the command stdout is hidden by a tool
+        adapter or the launcher process exits immediately after printing.
+        """
+        with self._lock(job_id, ".handoff.lock"):
+            atomic_write_json(self.job_dir(job_id) / "handoff.json", dict(marker))
+
+    def read_handoff_marker(self, job_id: str) -> Optional[Dict[str, Any]]:
+        path = self.job_dir(job_id) / "handoff.json"
+        if not path.exists():
+            return None
+        return load_json(path)
+
     def update_delivery(self, job_id: str, **changes: Any) -> Dict[str, Any]:
         with self._lock(job_id, ".delivery.lock"):
             value = self.read_delivery(job_id)

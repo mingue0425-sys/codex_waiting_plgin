@@ -29,6 +29,22 @@
 - The token benchmark cannot access Codex billing or turn-token telemetry from
   this local CLI, so token and model-turn fields are `null` rather than inferred.
 
+v0.4 explicit handoff limitations:
+
+- The owned App Server `command/exec` probe allowed a temporary sibling write
+  despite an explicit workspace-only policy. Sandbox and approval parity are
+  FAIL, so automatic production handoff is disabled.
+- v0.4 continuation is proven only for threads created and owned by Snooze.
+  Desktop attach remains FAIL and is not inferred from the owned-thread run.
+- Completion routing remains at-least-once-compatible. The installed protocol
+  has no client idempotency key, so exactly-once delivery is not claimed.
+- The native process/spawn backend preserves exit and logging in the
+  differential probe but has no demonstrated Codex sandbox and remains
+  experimental only.
+- The normal side of the latest security comparison did not exercise its
+  fixture. The owned-side boundary violation still independently fails the
+  security gate.
+
 v0.2 control-plane limitations:
 
 - The installed App Server accepts several active-turn candidate operations,

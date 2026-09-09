@@ -118,17 +118,33 @@ def submit(args: argparse.Namespace) -> int:
         while supervisor.poll() is None and time.monotonic() < deadline:
             time.sleep(min(0.2, max(0.01, deadline - time.monotonic())))
         if supervisor.poll() is None:
-            print(
-                json.dumps(
-                    {
-                        "job_id": spec.job_id,
-                        "supervisor_pid": supervisor.pid,
-                        "handoff": True,
-                        "handoff_after_seconds": args.handoff_after,
-                    },
-                    ensure_ascii=False,
+            marker = {
+                "codex_snooze": True,
+                "state": "DETACHED",
+                "event_version": 1,
+                "job_id": spec.job_id,
+                "supervisor_pid": supervisor.pid,
+                "threshold_seconds": args.handoff_after,
+                "handoff_requested_at": time.time(),
+            }
+            store.write_handoff_marker(spec.job_id, marker)
+            if getattr(args, "handoff_contract", False):
+                print(json.dumps(marker, ensure_ascii=False))
+            else:
+                print(
+                    json.dumps(
+                        {
+                            "job_id": spec.job_id,
+                            "supervisor_pid": supervisor.pid,
+                            "handoff": True,
+                            "handoff_after_seconds": args.handoff_after,
+                            "codex_snooze": True,
+                            "state": "DETACHED",
+                            "event_version": 1,
+                        },
+                        ensure_ascii=False,
+                    )
                 )
-            )
             return 0
     returncode = supervisor.wait()
     result = store.read_result(spec.job_id)
@@ -144,19 +160,25 @@ def submit(args: argparse.Namespace) -> int:
             file=sys.stderr,
         )
         return 125
-    print(
-        json.dumps(
+    output = {
+        "job_id": spec.job_id,
+        "execution_state": result.get("execution_state"),
+        "result_state": result.get("result_state"),
+        "exit_code": result.get("exit_code"),
+        "termination_signal": result.get("termination_signal"),
+        "completion_event_id": result.get("completion_event_id"),
+    }
+    if getattr(args, "handoff_contract", False):
+        output.update(
             {
-                "job_id": spec.job_id,
-                "execution_state": result.get("execution_state"),
-                "result_state": result.get("result_state"),
-                "exit_code": result.get("exit_code"),
-                "termination_signal": result.get("termination_signal"),
-                "completion_event_id": result.get("completion_event_id"),
-            },
-            ensure_ascii=False,
+                "codex_snooze": True,
+                "state": "COMPLETED",
+                "event_version": 1,
+                "detached": False,
+                "threshold_seconds": args.handoff_after,
+            }
         )
-    )
+    print(json.dumps(output, ensure_ascii=False))
     if result.get("exit_code") is not None:
         return int(result["exit_code"])
     signal_number = result.get("termination_signal")
@@ -337,7 +359,26 @@ def build_parser() -> argparse.ArgumentParser:
     )
     submit_parser.add_argument("--log-limits", type=json.loads)
     submit_parser.add_argument("remainder", nargs=argparse.REMAINDER)
-    submit_parser.set_defaults(function=submit)
+    submit_parser.set_defaults(function=submit, handoff_contract=False)
+
+    handoff_parser = subparsers.add_parser(
+        "handoff",
+        help="run an explicit command and detach it after the foreground threshold",
+    )
+    handoff_parser.add_argument("--command", help="exact shell command string")
+    handoff_parser.add_argument("--cwd")
+    handoff_parser.add_argument("--shell")
+    handoff_parser.add_argument(
+        "--threshold",
+        "--handoff-after",
+        dest="handoff_after",
+        type=float,
+        default=10.0,
+        help="foreground wait threshold; this is not a command timeout",
+    )
+    handoff_parser.add_argument("--log-limits", type=json.loads)
+    handoff_parser.add_argument("remainder", nargs=argparse.REMAINDER)
+    handoff_parser.set_defaults(function=submit, handoff_contract=True, detach=False)
 
     status_parser = subparsers.add_parser("status")
     status_parser.add_argument("job_id")

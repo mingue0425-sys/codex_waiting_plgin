@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T09:35:15.048051Z",
+  "status": "PASS",
+  "app_server_crash_detected": true,
+  "app_server_state_after_kill": "CRASHED",
+  "job_survived_app_server_crash": true,
+  "durable_thread_resume": "PASS",
+  "completion_after_reconnect": "PASS",
+  "thread_id": "01a08584-fc21-72d3-a517-741d69c1a712",
+  "first_turn": {
+    "id": "01a08584-fca3-7a43-82e5-0b007d1d9a92"
+  },
+  "handoff": {
+    "phase": "CONTINUATION_COMPLETED",
+    "thread_id": "01a08584-fc21-72d3-a517-741d69c1a712",
+    "turn_id": "01a08584-fca3-7a43-82e5-0b007d1d9a92",
+    "marker": {
+      "codex_snooze": true,
+      "state": "DETACHED",
+      "event_version": 1,
+      "job_id": "b31398d9-77b1-4246-8607-171086d68c50",
+      "supervisor_pid": 62387,
+      "threshold_seconds": 0.5,
+      "handoff_requested_at": 1788946495.0386
+    },
+    "item_id": "exec-cb813f92-d688-446f-bdbb-9a5f358f405b",
+    "result": {
+      "completed_at": "2026-09-09T09:34:57.650310Z",
+      "completion_event_id": "eb199971-3c1e-4104-9546-d8156fe9707b",
+      "duration_seconds": 3.053625,
+      "error_code": null,
+      "error_message": null,
+      "execution_state": "COMPLETED",
+      "exit_code": 0,
+      "job_id": "b31398d9-77b1-4246-8607-171086d68c50",
+      "log_preview": "HANDOFF_FIXTURE_START run_count=1\nHANDOFF_HEARTBEAT elapsed=0.00\nHANDOFF_DIAGNOSTIC elapsed=0.00\nHANDOFF_HEARTBEAT elapsed=1.03\nHANDOFF_DIAGNOSTIC elapsed=1.03\nHANDOFF_HEARTBEAT elapsed=2.02\nHANDOFF_DIAGNOSTIC elapsed=2.02\nHANDOFF_FIXTURE_COMPLETE RESULT_TOKEN=SNOOZE_V04_APP_CRASH_1788946479783341000 run_count=1\n",
+      "logging": {
+        "combined_bytes": 805,
+        "combined_truncated": false,
+        "preview_truncated": false,
+        "state": "OK",
+        "stderr_bytes": 96,
+        "stderr_truncated": false,
+        "stdout_bytes": 218,
+        "stdout_truncated": false
+      },
+      "process_identity": {
+        "command_fingerprint": null,
+        "executable": null,
+        "pgid": 62392,
+        "pid": 62392,
+        "start_time": null
+      },
+      "project_fingerprint_end": {
+        "branch": null,
+        "head": null,
+        "index_diff_hash": null,
+        "kind": "NOT_A_GIT_REPO",
+        "root": null,
+        "status_porcelain_v2_hash": null,
+        "untracked_files_manifest_hash": null,
+        "working_tree_diff_hash": null
+      },
+      "project_fingerprint_start": {
+        "branch": null,
+        "head": null,
+        "index_diff_hash": null,
+        "kind": "NOT_A_GIT_REPO",
+        "root": null,
+        "status_porcelain_v2_hash": null,
+        "untracked_files_manifest_hash": null,
+        "working_tree_diff_hash": null
+      },
+      "result_sha256": "783b0c0f66b5d286c96e227293a39c796515f01269b50fe970da89bbbe8554dc",
+      "result_state": "SUCCESS",
+      "schema_version": 1,
+      "source_state_changed": false,
+      "spec_sha256": "0e74d6776930e1c1fb55bf250c9dd016f36717926895465ab852669b322a50ec",
+      "started_at": "2026-09-09T09:34:54.596685Z",
+      "termination_signal": null
+    },
+    "turn": {
+      "id": "01a08585-4151-7ea0-b931-f78029b73131",
+      "items": [
+        {
+          "type": "agentMessage",
+          "id": "msg_002676f51c61d2b9016aa12852adb087d087f23617245e47f5",
+          "text": "RESULT_TOKEN=SNOOZE_V04_APP_CRASH_1788946479783341000",
+          "phase": "final_answer",
+          "memoryCitation": null,
+          "delivery": null,
+          "questions": null
+        }
+      ],
+      "itemsView": "summary",
+      "status": "completed",
+      "error": null,
+      "startedAt": 1788946497,
+      "completedAt": 1788946514,
+      "durationMs": 17118
+    },
+    "handoff_monotonic_ns": 530720537416458,
+    "job_completed_monotonic_ns": 530723125451958,
+    "error": null
+  },
+  "job_result": {
+    "completed_at": "2026-09-09T09:34:57.650310Z",
+    "completion_event_id": "eb199971-3c1e-4104-9546-d8156fe9707b",
+    "duration_seconds": 3.053625,
+    "error_code": null,
+    "error_message": null,
+    "execution_state": "COMPLETED",
+    "exit_code": 0,
+    "job_id": "b31398d9-77b1-4246-8607-171086d68c50",
+    "log_preview": "HANDOFF_FIXTURE_START run_count=1\nHANDOFF_HEARTBEAT elapsed=0.00\nHANDOFF_DIAGNOSTIC elapsed=0.00\nHANDOFF_HEARTBEAT elapsed=1.03\nHANDOFF_DIAGNOSTIC elapsed=1.03\nHANDOFF_HEARTBEAT elapsed=2.02\nHANDOFF_DIAGNOSTIC elapsed=2.02\nHANDOFF_FIXTURE_COMPLETE RESULT_TOKEN=SNOOZE_V04_APP_CRASH_1788946479783341000 run_count=1\n",
+    "logging": {
+      "combined_bytes": 805,
+      "combined_truncated": false,
+      "preview_truncated": false,
+      "state": "OK",
+      "stderr_bytes": 96,
+      "stderr_truncated": false,
+      "stdout_bytes": 218,
+      "stdout_truncated": false
+    },
+    "process_identity": {
+      "command_fingerprint": null,
+      "executable": null,
+      "pgid": 62392,
+      "pid": 62392,
+      "start_time": null
+    },
+    "project_fingerprint_end": {
+      "branch": null,
+      "head": null,
+      "index_diff_hash": null,
+      "kind": "NOT_A_GIT_REPO",
+      "root": null,
+      "status_porcelain_v2_hash": null,
+      "untracked_files_manifest_hash": null,
+      "working_tree_diff_hash": null
+    },
+    "project_fingerprint_start": {
+      "branch": null,
+      "head": null,
+      "index_diff_hash": null,
+      "kind": "NOT_A_GIT_REPO",
+      "root": null,
+      "status_porcelain_v2_hash": null,
+      "untracked_files_manifest_hash": null,
+      "working_tree_diff_hash": null
+    },
+    "result_sha256": "783b0c0f66b5d286c96e227293a39c796515f01269b50fe970da89bbbe8554dc",
+    "result_state": "SUCCESS",
+    "schema_version": 1,
+    "source_state_changed": false,
+    "spec_sha256": "0e74d6776930e1c1fb55bf250c9dd016f36717926895465ab852669b322a50ec",
+    "started_at": "2026-09-09T09:34:54.596685Z",
+    "termination_signal": null
+  },
+  "continuation_turn": {
+    "id": "01a08585-4151-7ea0-b931-f78029b73131",
+    "items": [
+      {
+        "type": "agentMessage",
+        "id": "msg_002676f51c61d2b9016aa12852adb087d087f23617245e47f5",
+        "text": "RESULT_TOKEN=SNOOZE_V04_APP_CRASH_1788946479783341000",
+        "phase": "final_answer",
+        "memoryCitation": null,
+        "delivery": null,
+        "questions": null
+      }
+    ],
+    "itemsView": "summary",
+    "status": "completed",
+    "error": null,
+    "startedAt": 1788946497,
+    "completedAt": 1788946514,
+    "durationMs": 17118
+  },
+  "error": null,
+  "exactly_once": "NOT_CLAIMED",
+  "duration_seconds": 35.266
+}

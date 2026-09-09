@@ -59,6 +59,7 @@ class ThreadRegistry:
             "source": source,
             "state": "LIVE",
             "turns": [],
+            "handoffs": [],
         }
         with self._lock:
             value = self._read()
@@ -109,6 +110,72 @@ class ThreadRegistry:
         if app_server_instance is not None:
             fields["app_server_instance"] = app_server_instance
         return self.update(thread_id, **fields)
+
+    def record_handoff(
+        self,
+        thread_id: str,
+        *,
+        turn_id: str,
+        item_id: Optional[str],
+        job_id: str,
+        marker: Dict[str, Any],
+        state: str = "HANDOFF_REQUESTED",
+    ) -> Dict[str, Any]:
+        """Atomically bind a detached job to its live thread and turn."""
+        with self._lock:
+            value = self._read()
+            current = value.get("threads", {}).get(thread_id)
+            if current is None:
+                raise KeyError(thread_id)
+            handoffs = list(current.get("handoffs", []))
+            for existing in handoffs:
+                if existing.get("job_id") == job_id:
+                    if existing.get("turn_id") != turn_id or existing.get("thread_id") != thread_id:
+                        raise ValueError("job is already mapped to another thread or turn")
+                    return dict(existing)
+            entry = {
+                "thread_id": thread_id,
+                "turn_id": turn_id,
+                "item_id": item_id,
+                "job_id": job_id,
+                "event_id": marker.get("completion_event_id"),
+                "marker": dict(marker),
+                "state": state,
+                "created_at": utc_now(),
+                "updated_at": utc_now(),
+            }
+            handoffs.append(entry)
+            current["handoffs"] = handoffs
+            current["updated_at"] = utc_now()
+            value["threads"][thread_id] = current
+            self._write(value)
+            return dict(entry)
+
+    def update_handoff(self, thread_id: str, job_id: str, **fields: Any) -> Dict[str, Any]:
+        with self._lock:
+            value = self._read()
+            current = value.get("threads", {}).get(thread_id)
+            if current is None:
+                raise KeyError(thread_id)
+            for entry in current.setdefault("handoffs", []):
+                if entry.get("job_id") == job_id:
+                    entry.update(fields)
+                    entry["updated_at"] = utc_now()
+                    current["updated_at"] = utc_now()
+                    value["threads"][thread_id] = current
+                    self._write(value)
+                    return dict(entry)
+            raise KeyError(f"handoff {thread_id}/{job_id}")
+
+    def find_handoff(self, *, thread_id: Optional[str] = None, job_id: Optional[str] = None) -> Optional[Dict[str, Any]]:
+        with self._lock:
+            for record in self._read().get("threads", {}).values():
+                if thread_id is not None and record.get("thread_id") != thread_id:
+                    continue
+                for entry in record.get("handoffs", []):
+                    if job_id is None or entry.get("job_id") == job_id:
+                        return dict(entry)
+        return None
 
     def list(self) -> List[Dict[str, Any]]:
         with self._lock:

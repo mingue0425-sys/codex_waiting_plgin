@@ -42,6 +42,23 @@ general sandbox preservation were not promoted from assumptions. The optional
 hook therefore remains an inert `PASS_THROUGH`; the v0.2 aggregate marks
 automatic PreToolUse rewrite/interception FAIL and keeps it disabled.
 
+## v0.4 handoff boundary
+
+The explicit dynamic handoff tool is bound to a Snooze-owned App Server and
+passes `workspaceWrite`, `writableRoots` and `networkAccess=false` through the
+server's `command/exec` request. The latest boundary fixture nevertheless
+wrote both an inside file and a temporary sibling file. No approval request was
+observed for the sibling write. The measured result is therefore
+`SANDBOX_PARITY=FAIL` and `APPROVAL_PARITY=FAIL`; automatic handoff remains
+disabled by `DISABLED_SECURITY_GATE`.
+
+The implementation does not repair this by running a local subprocess in the
+production path, by installing a blanket approval handler or by enabling a
+dangerous bypass. The local fallback is opt-in for isolated tests only. The
+normal comparison did not exercise its fixture in the latest run, so the
+owned-side violation is the decisive evidence. Details are in
+[V0.4_SECURITY_PARITY_REPORT.md](V0.4_SECURITY_PARITY_REPORT.md).
+
 ## v0.3 App Server boundary
 
 `AppServerProcess` owns only the subprocess it starts and treats stdout and

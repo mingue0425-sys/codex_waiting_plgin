@@ -1,5 +1,36 @@
 # Implementation report
 
+## v0.4 explicit handoff
+
+v0.4 adds an explicit model-selected `codex_snooze_handoff` dynamic tool for
+Snooze-owned App Server threads. The handler validates the command argv,
+workspace and foreground threshold, then invokes the ordinary nested
+`command/exec` path with an explicit workspace-write policy. The JSONL reader
+dispatches server request handlers on a background thread so that nested
+requests can be read without a protocol deadlock.
+
+The CLI persists a structured `DETACHED` marker in the job store. The
+`HandoffController` records the thread/turn/job mapping, interrupts only the
+current turn, waits on the supervisor result, and routes a continuation through
+the same owned thread. The completion router rejects concurrent claims and
+keeps `SENT_UNCONFIRMED` duplicate permission explicit. App Server and
+controller crash probes recover the job/checkpoint; exactly-once delivery is
+not claimed.
+
+The primary live run passed the ten-second threshold, turn closure, 12-second
+job completion, zero model activity during the wait, same-thread continuation,
+result-token delivery and one-run guard. Failure exit status, Git stale-state
+propagation, 20 repetitions, 100 continuation races, zsh/bash behavior and
+both crash cases also passed their stated probes.
+
+The security probe failed independently: the installed `command/exec` path
+allowed a temporary sibling write despite the workspace policy and did not
+produce an approval request. `SANDBOX_PARITY` and `APPROVAL_PARITY` therefore
+remain FAIL, and automatic production use is disabled. Desktop attach and
+automatic PreToolUse interception remain unavailable. See
+[V0.4_FAILURE_ANALYSIS.md](V0.4_FAILURE_ANALYSIS.md) and
+[V0.4_SECURITY_PARITY_REPORT.md](V0.4_SECURITY_PARITY_REPORT.md).
+
 ## v0.2 control-plane extension
 
 The v0.2 work adds evidence collection around the existing supervisor without

@@ -1,0 +1,4591 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T10:03:49.242731Z",
+  "status": "PASS",
+  "runs": 1,
+  "passed_runs": 1,
+  "threshold_seconds": 0.2,
+  "fixture_duration_seconds": 0.7,
+  "approval_policy": "never",
+  "fixture_name": "handoff_long_job.py",
+  "expected_exit_code": 0,
+  "stale_mutation": false,
+  "required_conditions": [
+    "explicit_handoff",
+    "ten_second_handoff",
+    "job_survives_turn_end",
+    "no_model_activity_during_wait",
+    "same_thread_continuation",
+    "final_contains_result_token",
+    "rerun_guard"
+  ],
+  "results": [
+    {
+      "schema_version": 1,
+      "generated_at": "2026-09-09T10:03:49.142669Z",
+      "status": "PASS",
+      "live_requested": true,
+      "run_number": 1,
+      "thread_id": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+      "first_turn_id": "01a0859f-356f-72e3-92b0-d738549e0f23",
+      "first_turn_status": "interrupted",
+      "first_turn": {
+        "id": "01a0859f-356f-72e3-92b0-d738549e0f23",
+        "items": [],
+        "itemsView": "notLoaded",
+        "status": "interrupted",
+        "error": null,
+        "startedAt": 1788948198,
+        "completedAt": 1788948212,
+        "durationMs": 13647
+      },
+      "handoff": {
+        "phase": "CONTINUATION_COMPLETED",
+        "thread_id": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+        "turn_id": "01a0859f-356f-72e3-92b0-d738549e0f23",
+        "marker": {
+          "codex_snooze": true,
+          "state": "DETACHED",
+          "event_version": 1,
+          "job_id": "1064e07d-d555-45ce-adbe-c6549effafae",
+          "supervisor_pid": 63670,
+          "threshold_seconds": 0.2,
+          "handoff_requested_at": 1788948212.37484
+        },
+        "item_id": "exec-f3b6dcc9-0343-4c59-bedb-daaa397fd498",
+        "result": {
+          "completed_at": "2026-09-09T10:03:32.989951Z",
+          "completion_event_id": "5684fd2c-f127-43f3-a957-2200d49e1cf8",
+          "duration_seconds": 0.764166,
+          "error_code": null,
+          "error_message": null,
+          "execution_state": "COMPLETED",
+          "exit_code": 0,
+          "job_id": "1064e07d-d555-45ce-adbe-c6549effafae",
+          "log_preview": "HANDOFF_FIXTURE_START run_count=1\nHANDOFF_HEARTBEAT elapsed=0.00\nHANDOFF_DIAGNOSTIC elapsed=0.00\nHANDOFF_FIXTURE_COMPLETE RESULT_TOKEN=<redacted-token> run_count=1\n",
+          "logging": {
+            "combined_bytes": 465,
+            "combined_truncated": false,
+            "preview_truncated": false,
+            "state": "OK",
+            "stderr_bytes": 32,
+            "stderr_truncated": false,
+            "stdout_bytes": 153,
+            "stdout_truncated": false
+          },
+          "process_identity": {
+            "command_fingerprint": null,
+            "executable": null,
+            "pgid": 63675,
+            "pid": 63675,
+            "start_time": null
+          },
+          "project_fingerprint_end": {
+            "branch": null,
+            "head": null,
+            "index_diff_hash": null,
+            "kind": "NOT_A_GIT_REPO",
+            "root": null,
+            "status_porcelain_v2_hash": null,
+            "untracked_files_manifest_hash": null,
+            "working_tree_diff_hash": null
+          },
+          "project_fingerprint_start": {
+            "branch": null,
+            "head": null,
+            "index_diff_hash": null,
+            "kind": "NOT_A_GIT_REPO",
+            "root": null,
+            "status_porcelain_v2_hash": null,
+            "untracked_files_manifest_hash": null,
+            "working_tree_diff_hash": null
+          },
+          "result_sha256": "1ccb2614af3cc50bab95d8ce7d6a54a5476a6a575509af6dad0672f1dc5faea0",
+          "result_state": "SUCCESS",
+          "schema_version": 1,
+          "source_state_changed": false,
+          "spec_sha256": "a906be2b8460558c7d21504b0aa80f959536b985ad722e9f68d09e7226a62f58",
+          "started_at": "2026-09-09T10:03:32.225785Z",
+          "termination_signal": null
+        },
+        "turn": {
+          "id": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+          "items": [
+            {
+              "type": "agentMessage",
+              "id": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+              "text": "Handoff completed successfully with exit code 0.\n\nRESULT_TOKEN=<redacted-token>",
+              "phase": "final_answer",
+              "memoryCitation": null,
+              "delivery": null,
+              "questions": null
+            }
+          ],
+          "itemsView": "summary",
+          "status": "completed",
+          "error": null,
+          "startedAt": 1788948213,
+          "completedAt": 1788948229,
+          "durationMs": 16057
+        },
+        "handoff_monotonic_ns": 531332514282125,
+        "job_completed_monotonic_ns": 531333114209000,
+        "error": null
+      },
+      "handoff_mapping": {
+        "completion_event_id": "5684fd2c-f127-43f3-a957-2200d49e1cf8",
+        "created_at": "2026-09-09T10:03:32.417321Z",
+        "event_id": null,
+        "item_id": "exec-f3b6dcc9-0343-4c59-bedb-daaa397fd498",
+        "job_id": "1064e07d-d555-45ce-adbe-c6549effafae",
+        "marker": {
+          "codex_snooze": true,
+          "event_version": 1,
+          "handoff_requested_at": 1788948212.37484,
+          "job_id": "1064e07d-d555-45ce-adbe-c6549effafae",
+          "state": "DETACHED",
+          "supervisor_pid": 63670,
+          "threshold_seconds": 0.2
+        },
+        "result_sha256": "1ccb2614af3cc50bab95d8ce7d6a54a5476a6a575509af6dad0672f1dc5faea0",
+        "state": "JOB_COMPLETED",
+        "thread_id": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+        "turn_id": "01a0859f-356f-72e3-92b0-d738549e0f23",
+        "turn_status": "interrupted",
+        "updated_at": "2026-09-09T10:03:33.017099Z"
+      },
+      "job_result": {
+        "completed_at": "2026-09-09T10:03:32.989951Z",
+        "completion_event_id": "5684fd2c-f127-43f3-a957-2200d49e1cf8",
+        "duration_seconds": 0.764166,
+        "error_code": null,
+        "error_message": null,
+        "execution_state": "COMPLETED",
+        "exit_code": 0,
+        "job_id": "1064e07d-d555-45ce-adbe-c6549effafae",
+        "log_preview": "HANDOFF_FIXTURE_START run_count=1\nHANDOFF_HEARTBEAT elapsed=0.00\nHANDOFF_DIAGNOSTIC elapsed=0.00\nHANDOFF_FIXTURE_COMPLETE RESULT_TOKEN=<redacted-token> run_count=1\n",
+        "logging": {
+          "combined_bytes": 465,
+          "combined_truncated": false,
+          "preview_truncated": false,
+          "state": "OK",
+          "stderr_bytes": 32,
+          "stderr_truncated": false,
+          "stdout_bytes": 153,
+          "stdout_truncated": false
+        },
+        "process_identity": {
+          "command_fingerprint": null,
+          "executable": null,
+          "pgid": 63675,
+          "pid": 63675,
+          "start_time": null
+        },
+        "project_fingerprint_end": {
+          "branch": null,
+          "head": null,
+          "index_diff_hash": null,
+          "kind": "NOT_A_GIT_REPO",
+          "root": null,
+          "status_porcelain_v2_hash": null,
+          "untracked_files_manifest_hash": null,
+          "working_tree_diff_hash": null
+        },
+        "project_fingerprint_start": {
+          "branch": null,
+          "head": null,
+          "index_diff_hash": null,
+          "kind": "NOT_A_GIT_REPO",
+          "root": null,
+          "status_porcelain_v2_hash": null,
+          "untracked_files_manifest_hash": null,
+          "working_tree_diff_hash": null
+        },
+        "result_sha256": "1ccb2614af3cc50bab95d8ce7d6a54a5476a6a575509af6dad0672f1dc5faea0",
+        "result_state": "SUCCESS",
+        "schema_version": 1,
+        "source_state_changed": false,
+        "spec_sha256": "a906be2b8460558c7d21504b0aa80f959536b985ad722e9f68d09e7226a62f58",
+        "started_at": "2026-09-09T10:03:32.225785Z",
+        "termination_signal": null
+      },
+      "marker_seen_elapsed_seconds": 13.657438624999486,
+      "explicit_handoff": true,
+      "ten_second_handoff": true,
+      "job_survives_turn_end": true,
+      "model_activity_during_wait": [],
+      "model_events_during_long_wait": 0,
+      "no_model_activity_during_wait": true,
+      "token_usage_notifications_during_wait": 0,
+      "same_thread_continuation": true,
+      "continuation_turn": {
+        "id": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+        "items": [
+          {
+            "type": "agentMessage",
+            "id": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+            "text": "Handoff completed successfully with exit code 0.\n\nRESULT_TOKEN=<redacted-token>",
+            "phase": "final_answer",
+            "memoryCitation": null,
+            "delivery": null,
+            "questions": null
+          }
+        ],
+        "itemsView": "summary",
+        "status": "completed",
+        "error": null,
+        "startedAt": 1788948213,
+        "completedAt": 1788948229,
+        "durationMs": 16057
+      },
+      "final_contains_result_token": true,
+      "final_contains_failure_status": true,
+      "final_contains_stale_status": true,
+      "result_token": "<redacted>",
+      "run_count": 1,
+      "rerun_guard": true,
+      "expected_exit_code": 0,
+      "expected_fixture_state": "COMPLETED",
+      "stale_mutation": false,
+      "event_to_job_mapping": true,
+      "dynamic_tool_calls": [
+        {
+          "request_id": 0,
+          "command": [
+            "python3",
+            "fixtures/handoff_long_job.py",
+            "--duration",
+            "0.7",
+            "--run-count",
+            "run_count.txt",
+            "--result-token",
+            "result_token.txt",
+            "--result-json",
+            "fixture_result.json",
+            "--token",
+            "<redacted-token>",
+            "--exit-code",
+            "0"
+          ],
+          "threshold_seconds": 0.2,
+          "cwd": "<v04-fixture-root>/workspace"
+        }
+      ],
+      "app_server_snapshot": {
+        "thread_id": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+        "last_turn_id": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+        "registry": {
+          "app_server_instance": "6030e42d-4e01-4ac3-96af-afa9da974432",
+          "approval_policy": "never",
+          "created_at": "2026-09-09T10:03:18.764535Z",
+          "cwd": "<v04-fixture-root>/workspace",
+          "handoffs": [
+            {
+              "completion_event_id": "5684fd2c-f127-43f3-a957-2200d49e1cf8",
+              "continuation_turn_id": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+              "created_at": "2026-09-09T10:03:32.417321Z",
+              "delivery_state": "SENT_UNCONFIRMED",
+              "event_id": null,
+              "item_id": "exec-f3b6dcc9-0343-4c59-bedb-daaa397fd498",
+              "job_id": "1064e07d-d555-45ce-adbe-c6549effafae",
+              "marker": {
+                "codex_snooze": true,
+                "event_version": 1,
+                "handoff_requested_at": 1788948212.37484,
+                "job_id": "1064e07d-d555-45ce-adbe-c6549effafae",
+                "state": "DETACHED",
+                "supervisor_pid": 63670,
+                "threshold_seconds": 0.2
+              },
+              "result_sha256": "1ccb2614af3cc50bab95d8ce7d6a54a5476a6a575509af6dad0672f1dc5faea0",
+              "state": "CONTINUATION_COMPLETED",
+              "thread_id": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+              "turn_id": "01a0859f-356f-72e3-92b0-d738549e0f23",
+              "turn_status": "interrupted",
+              "updated_at": "2026-09-09T10:03:49.099608Z"
+            }
+          ],
+          "model": "gpt-5.6-luna",
+          "owner": "codex-snooze",
+          "sandbox": "workspace-write",
+          "source": "codex-app-server",
+          "state": "LIVE",
+          "thread_id": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+          "turns": [
+            {
+              "completed_at": "2026-09-09T10:03:32.421880Z",
+              "started_at": "2026-09-09T10:03:18.773427Z",
+              "status": "interrupted",
+              "turn_id": "01a0859f-356f-72e3-92b0-d738549e0f23",
+              "updated_at": "2026-09-09T10:03:32.422052Z"
+            },
+            {
+              "completed_at": "2026-09-09T10:03:49.097114Z",
+              "started_at": "2026-09-09T10:03:33.037862Z",
+              "status": "completed",
+              "turn_id": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+              "updated_at": "2026-09-09T10:03:49.097959Z"
+            }
+          ],
+          "updated_at": "2026-09-09T10:03:49.099615Z"
+        },
+        "app_server": {
+          "state": "READY",
+          "command": [
+            "codex",
+            "app-server",
+            "--stdio"
+          ],
+          "cwd": null,
+          "pid": 63654,
+          "returncode": null,
+          "instance_id": "6030e42d-4e01-4ac3-96af-afa9da974432",
+          "started_at": "2026-09-09T10:03:18.384656Z",
+          "restart_count": 0,
+          "experimental_api": true,
+          "last_exit": null,
+          "events": [
+            {
+              "sequence": 1,
+              "timestamp": "2026-09-09T10:03:18.381835Z",
+              "monotonic_ns": 531318479851541,
+              "kind": "lifecycle",
+              "state": "STARTING"
+            },
+            {
+              "sequence": 2,
+              "timestamp": "2026-09-09T10:03:18.384677Z",
+              "monotonic_ns": 531318482243375,
+              "kind": "process_started",
+              "pid": 63654,
+              "instance_id": "6030e42d-4e01-4ac3-96af-afa9da974432",
+              "command": [
+                "codex",
+                "app-server",
+                "--stdio"
+              ]
+            },
+            {
+              "sequence": 3,
+              "timestamp": "2026-09-09T10:03:18.384905Z",
+              "monotonic_ns": 531318482457375,
+              "kind": "lifecycle",
+              "state": "INITIALIZING",
+              "reason": null
+            },
+            {
+              "sequence": 4,
+              "timestamp": "2026-09-09T10:03:18.384964Z",
+              "monotonic_ns": 531318482515708,
+              "kind": "request",
+              "request_id": 1,
+              "method": "initialize",
+              "params": {
+                "clientInfo": {
+                  "name": "codex_snooze",
+                  "title": "Codex Snooze",
+                  "version": "0.3.0"
+                },
+                "capabilities": {
+                  "experimentalApi": true
+                }
+              },
+              "result": null,
+              "error": null
+            },
+            {
+              "sequence": 5,
+              "timestamp": "2026-09-09T10:03:18.663270Z",
+              "monotonic_ns": 531318760843375,
+              "kind": "response",
+              "request_id": 1,
+              "result": {
+                "userAgent": "codex_snooze/0.153.4 (Mac OS 26.6.2; arm64) Apple_Terminal/470.2 (codex_snooze; 0.3.0)",
+                "codexHome": "<redacted-home>/.codex",
+                "platformFamily": "unix",
+                "platformOs": "macos"
+              },
+              "error": null
+            },
+            {
+              "sequence": 6,
+              "timestamp": "2026-09-09T10:03:18.663407Z",
+              "monotonic_ns": 531318760955791,
+              "kind": "lifecycle",
+              "state": "READY",
+              "reason": null
+            },
+            {
+              "sequence": 7,
+              "timestamp": "2026-09-09T10:03:18.663551Z",
+              "monotonic_ns": 531318761097458,
+              "kind": "notification",
+              "method": "remoteControl/status/changed",
+              "params": {
+                "status": "disabled",
+                "serverName": "GRT.local",
+                "installationId": "4cec6ef4-4daa-4776-87db-7866453c4821",
+                "environmentId": null
+              }
+            },
+            {
+              "sequence": 8,
+              "timestamp": "2026-09-09T10:03:18.663686Z",
+              "monotonic_ns": 531318761233000,
+              "kind": "request",
+              "request_id": 2,
+              "method": "thread/start",
+              "params": {
+                "cwd": "<v04-fixture-root>/workspace",
+                "ephemeral": false,
+                "sandbox": "workspace-write",
+                "approvalPolicy": "never",
+                "developerInstructions": "Codex Snooze integration contract:\nWhen explicitly instructed to run a long non-interactive command through Codex\nSnooze, use the provided `codex-snooze handoff` command exactly once. When it\nreports a structured DETACHED marker, do not rerun the command and do not poll\nthe job manually. The controller will close this turn and create a continuation\nturn after the saved result is available. Continue the original task only from\nthat completion event.\n",
+                "dynamicTools": [
+                  {
+                    "type": "function",
+                    "name": "codex_snooze_handoff",
+                    "description": "Run one explicit non-interactive command through Codex Snooze. The command may detach after the requested foreground threshold. Never use this tool more than once for the same command.",
+                    "inputSchema": {
+                      "type": "object",
+                      "properties": {
+                        "command": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          },
+                          "description": "argv vector for the command"
+                        },
+                        "threshold_seconds": {
+                          "type": "number",
+                          "minimum": 0
+                        },
+                        "cwd": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "command",
+                        "threshold_seconds"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                ]
+              },
+              "result": null,
+              "error": null
+            },
+            {
+              "sequence": 9,
+              "timestamp": "2026-09-09T10:03:18.764194Z",
+              "monotonic_ns": 531318861759458,
+              "kind": "response",
+              "request_id": 2,
+              "result": {
+                "thread": {
+                  "id": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                  "extra": null,
+                  "sessionId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                  "forkedFromId": null,
+                  "parentThreadId": null,
+                  "preview": "<redacted-runtime-content>",
+                  "ephemeral": false,
+                  "section": null,
+                  "sectionEnteredAt": null,
+                  "projectId": null,
+                  "historyMode": "paginated",
+                  "modelProvider": "openai",
+                  "model": "gpt-5.6-luna",
+                  "reasoningEffort": "max",
+                  "createdAt": 1788948198,
+                  "updatedAt": 1788948198,
+                  "recencyAt": 1788948198,
+                  "status": {
+                    "type": "idle"
+                  },
+                  "path": "<redacted-runtime-content>",
+                  "cwd": "<v04-fixture-root>/workspace",
+                  "cliVersion": "0.153.4",
+                  "source": "vscode",
+                  "canAcceptDirectInput": true,
+                  "threadSource": null,
+                  "agentNickname": null,
+                  "agentRole": null,
+                  "gitInfo": null,
+                  "name": null,
+                  "turns": []
+                },
+                "model": "gpt-5.6-luna",
+                "modelProvider": "openai",
+                "serviceTier": "default",
+                "cwd": "<v04-fixture-root>/workspace",
+                "runtimeWorkspaceRoots": [
+                  "<v04-fixture-root>/workspace"
+                ],
+                "instructionSources": [],
+                "approvalPolicy": "never",
+                "approvalsReviewer": "user",
+                "sandbox": {
+                  "type": "workspaceWrite",
+                  "writableRoots": [],
+                  "networkAccess": false,
+                  "excludeTmpdirEnvVar": false,
+                  "excludeSlashTmp": false
+                },
+                "activePermissionProfile": null,
+                "reasoningEffort": "max",
+                "multiAgentMode": "explicitRequestOnly"
+              },
+              "error": null
+            },
+            {
+              "sequence": 10,
+              "timestamp": "2026-09-09T10:03:18.764396Z",
+              "monotonic_ns": 531318861939958,
+              "kind": "notification",
+              "method": "thread/started",
+              "params": {
+                "thread": {
+                  "id": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                  "extra": null,
+                  "sessionId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                  "forkedFromId": null,
+                  "parentThreadId": null,
+                  "preview": "<redacted-runtime-content>",
+                  "ephemeral": false,
+                  "section": null,
+                  "sectionEnteredAt": null,
+                  "projectId": null,
+                  "historyMode": "paginated",
+                  "modelProvider": "openai",
+                  "model": "gpt-5.6-luna",
+                  "reasoningEffort": "max",
+                  "createdAt": 1788948198,
+                  "updatedAt": 1788948198,
+                  "recencyAt": 1788948198,
+                  "status": {
+                    "type": "idle"
+                  },
+                  "path": "<redacted-runtime-content>",
+                  "cwd": "<v04-fixture-root>/workspace",
+                  "cliVersion": "0.153.4",
+                  "source": "vscode",
+                  "canAcceptDirectInput": true,
+                  "threadSource": null,
+                  "agentNickname": null,
+                  "agentRole": null,
+                  "gitInfo": null,
+                  "name": null,
+                  "turns": []
+                }
+              }
+            },
+            {
+              "sequence": 11,
+              "timestamp": "2026-09-09T10:03:18.764439Z",
+              "monotonic_ns": 531318861981958,
+              "kind": "notification",
+              "method": "mcpServer/startupStatus/updated",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "name": "node_repl",
+                "status": "starting",
+                "error": null,
+                "failureReason": null
+              }
+            },
+            {
+              "sequence": 12,
+              "timestamp": "2026-09-09T10:03:18.764457Z",
+              "monotonic_ns": 531318862000125,
+              "kind": "notification",
+              "method": "mcpServer/startupStatus/updated",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "name": "browser-use",
+                "status": "starting",
+                "error": null,
+                "failureReason": null
+              }
+            },
+            {
+              "sequence": 13,
+              "timestamp": "2026-09-09T10:03:18.764469Z",
+              "monotonic_ns": 531318862012666,
+              "kind": "notification",
+              "method": "mcpServer/startupStatus/updated",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "name": "codex_apps",
+                "status": "starting",
+                "error": null,
+                "failureReason": null
+              }
+            },
+            {
+              "sequence": 14,
+              "timestamp": "2026-09-09T10:03:18.764482Z",
+              "monotonic_ns": 531318862024875,
+              "kind": "notification",
+              "method": "mcpServer/startupStatus/updated",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "name": "cua_repl",
+                "status": "starting",
+                "error": null,
+                "failureReason": null
+              }
+            },
+            {
+              "sequence": 15,
+              "timestamp": "2026-09-09T10:03:18.765289Z",
+              "monotonic_ns": 531318862836083,
+              "kind": "request",
+              "request_id": 3,
+              "method": "turn/start",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "input": [
+                  {
+                    "type": "text",
+                    "text": "Use the named dynamic tool `codex_snooze_handoff` exactly once. Do not use the terminal tool for this step. Pass this exact argv vector as its command argument:\n[\"python3\", \"fixtures/handoff_long_job.py\", \"--duration\", \"0.7\", \"--run-count\", \"run_count.txt\", \"--result-token\", \"result_token.txt\", \"--result-json\", \"fixture_result.json\", \"--token\", \"<redacted-token>\", \"--exit-code\", \"0\"]\nwith threshold_seconds=0.2 and cwd=<v04-fixture-root>/workspace. The equivalent explicit command is: <project-root>/scripts/codex-snooze --store <v04-fixture-root>/store handoff --threshold 0.2 --cwd <v04-fixture-root>/workspace -- python3 fixtures/handoff_long_job.py --duration 0.7 --run-count run_count.txt --result-token result_token.txt --result-json fixture_result.json --token <redacted-token> --exit-code 0\nDo not replace it with another command, do not simulate output, and do not run a second command. When the tool returns the structured DETACHED marker, stop this turn; the controller will continue the task after the job result is durable.",
+                    "text_elements": []
+                  }
+                ],
+                "clientUserMessageId": "18412f31-7c94-48af-91e2-f97b3f4f786f",
+                "cwd": "<v04-fixture-root>/workspace",
+                "approvalPolicy": "never"
+              },
+              "result": null,
+              "error": null
+            },
+            {
+              "sequence": 16,
+              "timestamp": "2026-09-09T10:03:18.773219Z",
+              "monotonic_ns": 531318870768833,
+              "kind": "response",
+              "request_id": 3,
+              "result": {
+                "turn": {
+                  "id": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                  "items": [],
+                  "itemsView": "notLoaded",
+                  "status": "inProgress",
+                  "error": null,
+                  "startedAt": null,
+                  "completedAt": null,
+                  "durationMs": null
+                }
+              },
+              "error": null
+            },
+            {
+              "sequence": 17,
+              "timestamp": "2026-09-09T10:03:18.781517Z",
+              "monotonic_ns": 531318879060625,
+              "kind": "notification",
+              "method": "thread/status/changed",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "status": {
+                  "type": "active",
+                  "activeFlags": []
+                }
+              }
+            },
+            {
+              "sequence": 18,
+              "timestamp": "2026-09-09T10:03:18.781549Z",
+              "monotonic_ns": 531318879091833,
+              "kind": "notification",
+              "method": "turn/started",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turn": {
+                  "id": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                  "items": [],
+                  "itemsView": "notLoaded",
+                  "status": "inProgress",
+                  "error": null,
+                  "startedAt": 1788948198,
+                  "completedAt": null,
+                  "durationMs": null
+                }
+              }
+            },
+            {
+              "sequence": 19,
+              "timestamp": "2026-09-09T10:03:18.918054Z",
+              "monotonic_ns": 531319015595166,
+              "kind": "notification",
+              "method": "mcpServer/startupStatus/updated",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "name": "node_repl",
+                "status": "ready",
+                "error": null,
+                "failureReason": null
+              }
+            },
+            {
+              "sequence": 20,
+              "timestamp": "2026-09-09T10:03:18.950370Z",
+              "monotonic_ns": 531319047910666,
+              "kind": "notification",
+              "method": "mcpServer/startupStatus/updated",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "name": "cua_repl",
+                "status": "ready",
+                "error": null,
+                "failureReason": null
+              }
+            },
+            {
+              "sequence": 21,
+              "timestamp": "2026-09-09T10:03:19.627328Z",
+              "monotonic_ns": 531319724854333,
+              "kind": "notification",
+              "method": "mcpServer/startupStatus/updated",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "name": "browser-use",
+                "status": "ready",
+                "error": null,
+                "failureReason": null
+              }
+            },
+            {
+              "sequence": 22,
+              "timestamp": "2026-09-09T10:03:19.794284Z",
+              "monotonic_ns": 531319891806875,
+              "kind": "notification",
+              "method": "mcpServer/startupStatus/updated",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "name": "node_repl",
+                "status": "ready",
+                "error": null,
+                "failureReason": null
+              }
+            },
+            {
+              "sequence": 23,
+              "timestamp": "2026-09-09T10:03:19.794322Z",
+              "monotonic_ns": 531319891844041,
+              "kind": "notification",
+              "method": "mcpServer/startupStatus/updated",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "name": "cua_repl",
+                "status": "ready",
+                "error": null,
+                "failureReason": null
+              }
+            },
+            {
+              "sequence": 24,
+              "timestamp": "2026-09-09T10:03:19.794337Z",
+              "monotonic_ns": 531319891858750,
+              "kind": "notification",
+              "method": "mcpServer/startupStatus/updated",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "name": "codex_apps",
+                "status": "ready",
+                "error": null,
+                "failureReason": null
+              }
+            },
+            {
+              "sequence": 25,
+              "timestamp": "2026-09-09T10:03:24.525367Z",
+              "monotonic_ns": 531324622789708,
+              "kind": "notification",
+              "method": "item/started",
+              "params": {
+                "item": {
+                  "type": "userMessage",
+                  "id": "01a0859f-4bec-7213-a5f4-a80c70b38384",
+                  "clientId": "18412f31-7c94-48af-91e2-f97b3f4f786f",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Use the named dynamic tool `codex_snooze_handoff` exactly once. Do not use the terminal tool for this step. Pass this exact argv vector as its command argument:\n[\"python3\", \"fixtures/handoff_long_job.py\", \"--duration\", \"0.7\", \"--run-count\", \"run_count.txt\", \"--result-token\", \"result_token.txt\", \"--result-json\", \"fixture_result.json\", \"--token\", \"<redacted-token>\", \"--exit-code\", \"0\"]\nwith threshold_seconds=0.2 and cwd=<v04-fixture-root>/workspace. The equivalent explicit command is: <project-root>/scripts/codex-snooze --store <v04-fixture-root>/store handoff --threshold 0.2 --cwd <v04-fixture-root>/workspace -- python3 fixtures/handoff_long_job.py --duration 0.7 --run-count run_count.txt --result-token result_token.txt --result-json fixture_result.json --token <redacted-token> --exit-code 0\nDo not replace it with another command, do not simulate output, and do not run a second command. When the tool returns the structured DETACHED marker, stop this turn; the controller will continue the task after the job result is durable.",
+                      "text_elements": []
+                    }
+                  ]
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "startedAtMs": 1788948204524
+              }
+            },
+            {
+              "sequence": 26,
+              "timestamp": "2026-09-09T10:03:24.527612Z",
+              "monotonic_ns": 531324625034875,
+              "kind": "notification",
+              "method": "item/completed",
+              "params": {
+                "item": {
+                  "type": "userMessage",
+                  "id": "01a0859f-4bec-7213-a5f4-a80c70b38384",
+                  "clientId": "18412f31-7c94-48af-91e2-f97b3f4f786f",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Use the named dynamic tool `codex_snooze_handoff` exactly once. Do not use the terminal tool for this step. Pass this exact argv vector as its command argument:\n[\"python3\", \"fixtures/handoff_long_job.py\", \"--duration\", \"0.7\", \"--run-count\", \"run_count.txt\", \"--result-token\", \"result_token.txt\", \"--result-json\", \"fixture_result.json\", \"--token\", \"<redacted-token>\", \"--exit-code\", \"0\"]\nwith threshold_seconds=0.2 and cwd=<v04-fixture-root>/workspace. The equivalent explicit command is: <project-root>/scripts/codex-snooze --store <v04-fixture-root>/store handoff --threshold 0.2 --cwd <v04-fixture-root>/workspace -- python3 fixtures/handoff_long_job.py --duration 0.7 --run-count run_count.txt --result-token result_token.txt --result-json fixture_result.json --token <redacted-token> --exit-code 0\nDo not replace it with another command, do not simulate output, and do not run a second command. When the tool returns the structured DETACHED marker, stop this turn; the controller will continue the task after the job result is durable.",
+                      "text_elements": []
+                    }
+                  ]
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "completedAtMs": 1788948204524
+              }
+            },
+            {
+              "sequence": 27,
+              "timestamp": "2026-09-09T10:03:25.907478Z",
+              "monotonic_ns": 531326004873000,
+              "kind": "notification",
+              "method": "item/started",
+              "params": {
+                "item": {
+                  "type": "reasoning",
+                  "id": "rs_094532bdf932fb7b016aa12eedc9b487d08d5b00ee42ef5c51",
+                  "summary": [],
+                  "content": []
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "startedAtMs": 1788948205907
+              }
+            },
+            {
+              "sequence": 28,
+              "timestamp": "2026-09-09T10:03:28.940351Z",
+              "monotonic_ns": 531329037684291,
+              "kind": "notification",
+              "method": "item/reasoning/summaryPartAdded",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "rs_094532bdf932fb7b016aa12eedc9b487d08d5b00ee42ef5c51",
+                "summaryIndex": 0
+              }
+            },
+            {
+              "sequence": 29,
+              "timestamp": "2026-09-09T10:03:28.940437Z",
+              "monotonic_ns": 531329037768083,
+              "kind": "notification",
+              "method": "item/reasoning/summaryTextDelta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "rs_094532bdf932fb7b016aa12eedc9b487d08d5b00ee42ef5c51",
+                "delta": "**Preparing single exec call with exact cwd**",
+                "summaryIndex": 0
+              }
+            },
+            {
+              "sequence": 30,
+              "timestamp": "2026-09-09T10:03:28.964303Z",
+              "monotonic_ns": 531329061633291,
+              "kind": "notification",
+              "method": "item/completed",
+              "params": {
+                "item": {
+                  "type": "reasoning",
+                  "id": "rs_094532bdf932fb7b016aa12eedc9b487d08d5b00ee42ef5c51",
+                  "summary": [
+                    "**Preparing single exec call with exact cwd**"
+                  ],
+                  "content": []
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "completedAtMs": 1788948208960
+              }
+            },
+            {
+              "sequence": 31,
+              "timestamp": "2026-09-09T10:03:28.965370Z",
+              "monotonic_ns": 531329062700375,
+              "kind": "notification",
+              "method": "item/started",
+              "params": {
+                "item": {
+                  "type": "agentMessage",
+                  "id": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                  "text": "",
+                  "phase": "commentary",
+                  "memoryCitation": null,
+                  "delivery": null,
+                  "questions": null
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "startedAtMs": 1788948208965
+              }
+            },
+            {
+              "sequence": 32,
+              "timestamp": "2026-09-09T10:03:28.965431Z",
+              "monotonic_ns": 531329062760916,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                "delta": "I"
+              }
+            },
+            {
+              "sequence": 33,
+              "timestamp": "2026-09-09T10:03:28.965466Z",
+              "monotonic_ns": 531329062795041,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                "delta": "’m"
+              }
+            },
+            {
+              "sequence": 34,
+              "timestamp": "2026-09-09T10:03:28.965494Z",
+              "monotonic_ns": 531329062823250,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                "delta": " handing"
+              }
+            },
+            {
+              "sequence": 35,
+              "timestamp": "2026-09-09T10:03:28.965522Z",
+              "monotonic_ns": 531329062851041,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                "delta": " off"
+              }
+            },
+            {
+              "sequence": 36,
+              "timestamp": "2026-09-09T10:03:28.965578Z",
+              "monotonic_ns": 531329062918666,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                "delta": " the"
+              }
+            },
+            {
+              "sequence": 37,
+              "timestamp": "2026-09-09T10:03:28.965617Z",
+              "monotonic_ns": 531329062946208,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                "delta": " specified"
+              }
+            },
+            {
+              "sequence": 38,
+              "timestamp": "2026-09-09T10:03:28.965670Z",
+              "monotonic_ns": 531329062999250,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                "delta": " long"
+              }
+            },
+            {
+              "sequence": 39,
+              "timestamp": "2026-09-09T10:03:28.965706Z",
+              "monotonic_ns": 531329063034791,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                "delta": "-running"
+              }
+            },
+            {
+              "sequence": 40,
+              "timestamp": "2026-09-09T10:03:28.965733Z",
+              "monotonic_ns": 531329063062125,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                "delta": " job"
+              }
+            },
+            {
+              "sequence": 41,
+              "timestamp": "2026-09-09T10:03:29.139240Z",
+              "monotonic_ns": 531329236565916,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                "delta": " through"
+              }
+            },
+            {
+              "sequence": 42,
+              "timestamp": "2026-09-09T10:03:29.139305Z",
+              "monotonic_ns": 531329236630833,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                "delta": " the"
+              }
+            },
+            {
+              "sequence": 43,
+              "timestamp": "2026-09-09T10:03:29.139336Z",
+              "monotonic_ns": 531329236662041,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                "delta": " named"
+              }
+            },
+            {
+              "sequence": 44,
+              "timestamp": "2026-09-09T10:03:29.139366Z",
+              "monotonic_ns": 531329236691791,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                "delta": " Sno"
+              }
+            },
+            {
+              "sequence": 45,
+              "timestamp": "2026-09-09T10:03:29.139393Z",
+              "monotonic_ns": 531329236719083,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                "delta": "oze"
+              }
+            },
+            {
+              "sequence": 46,
+              "timestamp": "2026-09-09T10:03:29.139420Z",
+              "monotonic_ns": 531329236745375,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                "delta": " tool"
+              }
+            },
+            {
+              "sequence": 47,
+              "timestamp": "2026-09-09T10:03:29.139446Z",
+              "monotonic_ns": 531329236771666,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                "delta": " now"
+              }
+            },
+            {
+              "sequence": 48,
+              "timestamp": "2026-09-09T10:03:29.139472Z",
+              "monotonic_ns": 531329236797916,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                "delta": "."
+              }
+            },
+            {
+              "sequence": 49,
+              "timestamp": "2026-09-09T10:03:29.141251Z",
+              "monotonic_ns": 531329238576958,
+              "kind": "notification",
+              "method": "item/completed",
+              "params": {
+                "item": {
+                  "type": "agentMessage",
+                  "id": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                  "text": "I’m handing off the specified long-running job through the named Snooze tool now.",
+                  "phase": "commentary",
+                  "memoryCitation": null,
+                  "delivery": null,
+                  "questions": null
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "completedAtMs": 1788948209139
+              }
+            },
+            {
+              "sequence": 50,
+              "timestamp": "2026-09-09T10:03:32.065499Z",
+              "monotonic_ns": 531332162762875,
+              "kind": "notification",
+              "method": "item/started",
+              "params": {
+                "item": {
+                  "type": "dynamicToolCall",
+                  "id": "exec-f3b6dcc9-0343-4c59-bedb-daaa397fd498",
+                  "namespace": null,
+                  "tool": "codex_snooze_handoff",
+                  "arguments": {
+                    "command": [
+                      "python3",
+                      "fixtures/handoff_long_job.py",
+                      "--duration",
+                      "0.7",
+                      "--run-count",
+                      "run_count.txt",
+                      "--result-token",
+                      "result_token.txt",
+                      "--result-json",
+                      "fixture_result.json",
+                      "--token",
+                      "<redacted-token>",
+                      "--exit-code",
+                      "0"
+                    ],
+                    "threshold_seconds": 0.2,
+                    "cwd": "<v04-fixture-root>/workspace"
+                  },
+                  "status": "inProgress",
+                  "contentItems": null,
+                  "success": null,
+                  "durationMs": null
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "startedAtMs": 1788948212065
+              }
+            },
+            {
+              "sequence": 51,
+              "timestamp": "2026-09-09T10:03:32.065745Z",
+              "monotonic_ns": 531332163009375,
+              "kind": "server_request",
+              "request_id": 0,
+              "method": "item/tool/call",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "callId": "exec-f3b6dcc9-0343-4c59-bedb-daaa397fd498",
+                "namespace": null,
+                "tool": "codex_snooze_handoff",
+                "arguments": {
+                  "command": [
+                    "python3",
+                    "fixtures/handoff_long_job.py",
+                    "--duration",
+                    "0.7",
+                    "--run-count",
+                    "run_count.txt",
+                    "--result-token",
+                    "result_token.txt",
+                    "--result-json",
+                    "fixture_result.json",
+                    "--token",
+                    "<redacted-token>",
+                    "--exit-code",
+                    "0"
+                  ],
+                  "threshold_seconds": 0.2,
+                  "cwd": "<v04-fixture-root>/workspace"
+                }
+              }
+            },
+            {
+              "sequence": 52,
+              "timestamp": "2026-09-09T10:03:32.066030Z",
+              "monotonic_ns": 531332163294833,
+              "kind": "request",
+              "request_id": 4,
+              "method": "command/exec",
+              "params": {
+                "command": [
+                  "<project-root>/scripts/codex-snooze",
+                  "--store",
+                  "<v04-fixture-root>/store",
+                  "handoff",
+                  "--threshold",
+                  "0.2",
+                  "--cwd",
+                  "<v04-fixture-root>/workspace",
+                  "--",
+                  "python3",
+                  "fixtures/handoff_long_job.py",
+                  "--duration",
+                  "0.7",
+                  "--run-count",
+                  "run_count.txt",
+                  "--result-token",
+                  "result_token.txt",
+                  "--result-json",
+                  "fixture_result.json",
+                  "--token",
+                  "<redacted-token>",
+                  "--exit-code",
+                  "0"
+                ],
+                "cwd": "<v04-fixture-root>/workspace",
+                "disableTimeout": true,
+                "sandboxPolicy": {
+                  "type": "workspaceWrite",
+                  "writableRoots": [
+                    "<v04-fixture-root>/workspace"
+                  ]
+                }
+              },
+              "result": null,
+              "error": null
+            },
+            {
+              "sequence": 53,
+              "timestamp": "2026-09-09T10:03:32.387868Z",
+              "monotonic_ns": 531332485133083,
+              "kind": "response",
+              "request_id": 4,
+              "result": {
+                "exitCode": 0,
+                "stdout": "{\"codex_snooze\": true, \"state\": \"DETACHED\", \"event_version\": 1, \"job_id\": \"1064e07d-d555-45ce-adbe-c6549effafae\", \"supervisor_pid\": 63670, \"threshold_seconds\": 0.2, \"handoff_requested_at\": 1788948212.37484}\n",
+                "stderr": ""
+              },
+              "error": null
+            },
+            {
+              "sequence": 54,
+              "timestamp": "2026-09-09T10:03:32.387986Z",
+              "monotonic_ns": 531332485244666,
+              "kind": "server_response",
+              "request_id": 0,
+              "method": null,
+              "params": null,
+              "result": {
+                "success": true,
+                "contentItems": [
+                  {
+                    "type": "inputText",
+                    "text": "{\"codex_snooze\": true, \"state\": \"DETACHED\", \"event_version\": 1, \"job_id\": \"1064e07d-d555-45ce-adbe-c6549effafae\", \"supervisor_pid\": 63670, \"threshold_seconds\": 0.2, \"handoff_requested_at\": 1788948212.37484}"
+                  }
+                ]
+              },
+              "error": null
+            },
+            {
+              "sequence": 55,
+              "timestamp": "2026-09-09T10:03:32.393810Z",
+              "monotonic_ns": 531332491067333,
+              "kind": "notification",
+              "method": "item/completed",
+              "params": {
+                "item": {
+                  "type": "dynamicToolCall",
+                  "id": "exec-f3b6dcc9-0343-4c59-bedb-daaa397fd498",
+                  "namespace": null,
+                  "tool": "codex_snooze_handoff",
+                  "arguments": {
+                    "command": [
+                      "python3",
+                      "fixtures/handoff_long_job.py",
+                      "--duration",
+                      "0.7",
+                      "--run-count",
+                      "run_count.txt",
+                      "--result-token",
+                      "result_token.txt",
+                      "--result-json",
+                      "fixture_result.json",
+                      "--token",
+                      "<redacted-token>",
+                      "--exit-code",
+                      "0"
+                    ],
+                    "threshold_seconds": 0.2,
+                    "cwd": "<v04-fixture-root>/workspace"
+                  },
+                  "status": "completed",
+                  "contentItems": [
+                    {
+                      "type": "inputText",
+                      "text": "{\"codex_snooze\": true, \"state\": \"DETACHED\", \"event_version\": 1, \"job_id\": \"1064e07d-d555-45ce-adbe-c6549effafae\", \"supervisor_pid\": 63670, \"threshold_seconds\": 0.2, \"handoff_requested_at\": 1788948212.37484}"
+                    }
+                  ],
+                  "success": true,
+                  "durationMs": 325
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "completedAtMs": 1788948212391
+              }
+            },
+            {
+              "sequence": 56,
+              "timestamp": "2026-09-09T10:03:32.397549Z",
+              "monotonic_ns": 531332494805958,
+              "kind": "notification",
+              "method": "thread/tokenUsage/updated",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "tokenUsage": {
+                  "total": {
+                    "totalTokens": 18154,
+                    "inputTokens": 17815,
+                    "cachedInputTokens": 0,
+                    "cacheWriteInputTokens": 0,
+                    "outputTokens": 339,
+                    "reasoningOutputTokens": 146
+                  },
+                  "last": {
+                    "totalTokens": 18154,
+                    "inputTokens": 17815,
+                    "cachedInputTokens": 0,
+                    "cacheWriteInputTokens": 0,
+                    "outputTokens": 339,
+                    "reasoningOutputTokens": 146
+                  },
+                  "modelContextWindow": 258400
+                }
+              }
+            },
+            {
+              "sequence": 57,
+              "timestamp": "2026-09-09T10:03:32.398278Z",
+              "monotonic_ns": 531332495535083,
+              "kind": "notification",
+              "method": "account/rateLimits/updated",
+              "params": {
+                "rateLimits": {
+                  "limitId": "codex",
+                  "limitName": null,
+                  "primary": {
+                    "usedPercent": 67,
+                    "windowDurationMins": 300,
+                    "resetsAt": 1788954476
+                  },
+                  "secondary": {
+                    "usedPercent": 18,
+                    "windowDurationMins": 10080,
+                    "resetsAt": 1789462266
+                  },
+                  "credits": {
+                    "hasCredits": false,
+                    "unlimited": false,
+                    "balance": "0"
+                  },
+                  "individualLimit": null,
+                  "spendControlReached": null,
+                  "planType": "plus",
+                  "rateLimitReachedType": null
+                }
+              }
+            },
+            {
+              "sequence": 58,
+              "timestamp": "2026-09-09T10:03:32.417863Z",
+              "monotonic_ns": 531332515120791,
+              "kind": "request",
+              "request_id": 5,
+              "method": "turn/interrupt",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23"
+              },
+              "result": null,
+              "error": null
+            },
+            {
+              "sequence": 59,
+              "timestamp": "2026-09-09T10:03:32.421810Z",
+              "monotonic_ns": 531332519068000,
+              "kind": "response",
+              "request_id": 5,
+              "result": {},
+              "error": null
+            },
+            {
+              "sequence": 60,
+              "timestamp": "2026-09-09T10:03:32.421847Z",
+              "monotonic_ns": 531332519102333,
+              "kind": "notification",
+              "method": "thread/status/changed",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "status": {
+                  "type": "idle"
+                }
+              }
+            },
+            {
+              "sequence": 61,
+              "timestamp": "2026-09-09T10:03:32.421884Z",
+              "monotonic_ns": 531332519139500,
+              "kind": "notification",
+              "method": "turn/completed",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turn": {
+                  "id": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                  "items": [],
+                  "itemsView": "notLoaded",
+                  "status": "interrupted",
+                  "error": null,
+                  "startedAt": 1788948198,
+                  "completedAt": 1788948212,
+                  "durationMs": 13647
+                }
+              }
+            },
+            {
+              "sequence": 62,
+              "timestamp": "2026-09-09T10:03:33.019545Z",
+              "monotonic_ns": 531333116791666,
+              "kind": "request",
+              "request_id": 6,
+              "method": "turn/start",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "input": [
+                  {
+                    "type": "text",
+                    "text": "Codex Snooze completion event 5684fd2c-f127-43f3-a957-2200d49e1cf8.\njob_id=1064e07d-d555-45ce-adbe-c6549effafae\nresult_sha256=1ccb2614af3cc50bab95d8ce7d6a54a5476a6a575509af6dad0672f1dc5faea0\nDo not rerun the completed command.\nContinue the original handoff task from the completion event. Do not execute the completed command again. Read the saved result token file with the terminal exactly once if needed and include the exact text RESULT_TOKEN=<redacted-token> in your final response. The completion event id is 5684fd2c-f127-43f3-a957-2200d49e1cf8; recorded exit_code=0 execution_state=COMPLETED.",
+                    "text_elements": []
+                  }
+                ],
+                "clientUserMessageId": "faf774a4-b7e0-4a48-9da5-fbf27357eff2"
+              },
+              "result": null,
+              "error": null
+            },
+            {
+              "sequence": 63,
+              "timestamp": "2026-09-09T10:03:33.037679Z",
+              "monotonic_ns": 531333134927791,
+              "kind": "response",
+              "request_id": 6,
+              "result": {
+                "turn": {
+                  "id": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                  "items": [],
+                  "itemsView": "notLoaded",
+                  "status": "inProgress",
+                  "error": null,
+                  "startedAt": null,
+                  "completedAt": null,
+                  "durationMs": null
+                }
+              },
+              "error": null
+            },
+            {
+              "sequence": 64,
+              "timestamp": "2026-09-09T10:03:33.039975Z",
+              "monotonic_ns": 531333137218166,
+              "kind": "notification",
+              "method": "thread/status/changed",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "status": {
+                  "type": "active",
+                  "activeFlags": []
+                }
+              }
+            },
+            {
+              "sequence": 65,
+              "timestamp": "2026-09-09T10:03:33.040013Z",
+              "monotonic_ns": 531333137255500,
+              "kind": "notification",
+              "method": "turn/started",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turn": {
+                  "id": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                  "items": [],
+                  "itemsView": "notLoaded",
+                  "status": "inProgress",
+                  "error": null,
+                  "startedAt": 1788948213,
+                  "completedAt": null,
+                  "durationMs": null
+                }
+              }
+            },
+            {
+              "sequence": 66,
+              "timestamp": "2026-09-09T10:03:33.074615Z",
+              "monotonic_ns": 531333171857916,
+              "kind": "notification",
+              "method": "item/started",
+              "params": {
+                "item": {
+                  "type": "userMessage",
+                  "id": "01a0859f-6d52-7553-a9c9-2e5b3729ae38",
+                  "clientId": "faf774a4-b7e0-4a48-9da5-fbf27357eff2",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Codex Snooze completion event 5684fd2c-f127-43f3-a957-2200d49e1cf8.\njob_id=1064e07d-d555-45ce-adbe-c6549effafae\nresult_sha256=1ccb2614af3cc50bab95d8ce7d6a54a5476a6a575509af6dad0672f1dc5faea0\nDo not rerun the completed command.\nContinue the original handoff task from the completion event. Do not execute the completed command again. Read the saved result token file with the terminal exactly once if needed and include the exact text RESULT_TOKEN=<redacted-token> in your final response. The completion event id is 5684fd2c-f127-43f3-a957-2200d49e1cf8; recorded exit_code=0 execution_state=COMPLETED.",
+                      "text_elements": []
+                    }
+                  ]
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "startedAtMs": 1788948213074
+              }
+            },
+            {
+              "sequence": 67,
+              "timestamp": "2026-09-09T10:03:33.076028Z",
+              "monotonic_ns": 531333173270791,
+              "kind": "notification",
+              "method": "item/completed",
+              "params": {
+                "item": {
+                  "type": "userMessage",
+                  "id": "01a0859f-6d52-7553-a9c9-2e5b3729ae38",
+                  "clientId": "faf774a4-b7e0-4a48-9da5-fbf27357eff2",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Codex Snooze completion event 5684fd2c-f127-43f3-a957-2200d49e1cf8.\njob_id=1064e07d-d555-45ce-adbe-c6549effafae\nresult_sha256=1ccb2614af3cc50bab95d8ce7d6a54a5476a6a575509af6dad0672f1dc5faea0\nDo not rerun the completed command.\nContinue the original handoff task from the completion event. Do not execute the completed command again. Read the saved result token file with the terminal exactly once if needed and include the exact text RESULT_TOKEN=<redacted-token> in your final response. The completion event id is 5684fd2c-f127-43f3-a957-2200d49e1cf8; recorded exit_code=0 execution_state=COMPLETED.",
+                      "text_elements": []
+                    }
+                  ]
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "completedAtMs": 1788948213074
+              }
+            },
+            {
+              "sequence": 68,
+              "timestamp": "2026-09-09T10:03:36.129866Z",
+              "monotonic_ns": 531336227048083,
+              "kind": "notification",
+              "method": "item/started",
+              "params": {
+                "item": {
+                  "type": "reasoning",
+                  "id": "rs_094532bdf932fb7b016aa12ef7f44487d0a869da5ac21173ed",
+                  "summary": [],
+                  "content": []
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "startedAtMs": 1788948216129
+              }
+            },
+            {
+              "sequence": 69,
+              "timestamp": "2026-09-09T10:03:38.689577Z",
+              "monotonic_ns": 531338786706541,
+              "kind": "notification",
+              "method": "item/reasoning/summaryPartAdded",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "rs_094532bdf932fb7b016aa12ef7f44487d0a869da5ac21173ed",
+                "summaryIndex": 0
+              }
+            },
+            {
+              "sequence": 70,
+              "timestamp": "2026-09-09T10:03:38.689725Z",
+              "monotonic_ns": 531338786851125,
+              "kind": "notification",
+              "method": "item/reasoning/summaryTextDelta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "rs_094532bdf932fb7b016aa12ef7f44487d0a869da5ac21173ed",
+                "delta": "**Planning single terminal file read**",
+                "summaryIndex": 0
+              }
+            },
+            {
+              "sequence": 71,
+              "timestamp": "2026-09-09T10:03:42.276845Z",
+              "monotonic_ns": 531342373901958,
+              "kind": "notification",
+              "method": "item/reasoning/summaryPartAdded",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "rs_094532bdf932fb7b016aa12ef7f44487d0a869da5ac21173ed",
+                "summaryIndex": 1
+              }
+            },
+            {
+              "sequence": 72,
+              "timestamp": "2026-09-09T10:03:42.277061Z",
+              "monotonic_ns": 531342374115875,
+              "kind": "notification",
+              "method": "item/reasoning/summaryTextDelta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "rs_094532bdf932fb7b016aa12ef7f44487d0a869da5ac21173ed",
+                "delta": "**Preparing single exec_command to read token file**",
+                "summaryIndex": 1
+              }
+            },
+            {
+              "sequence": 73,
+              "timestamp": "2026-09-09T10:03:42.284876Z",
+              "monotonic_ns": 531342381927916,
+              "kind": "notification",
+              "method": "item/completed",
+              "params": {
+                "item": {
+                  "type": "reasoning",
+                  "id": "rs_094532bdf932fb7b016aa12ef7f44487d0a869da5ac21173ed",
+                  "summary": [
+                    "**Planning single terminal file read**",
+                    "**Preparing single exec_command to read token file**"
+                  ],
+                  "content": []
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "completedAtMs": 1788948222276
+              }
+            },
+            {
+              "sequence": 74,
+              "timestamp": "2026-09-09T10:03:42.286527Z",
+              "monotonic_ns": 531342383576750,
+              "kind": "notification",
+              "method": "item/started",
+              "params": {
+                "item": {
+                  "type": "agentMessage",
+                  "id": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                  "text": "",
+                  "phase": "commentary",
+                  "memoryCitation": null,
+                  "delivery": null,
+                  "questions": null
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "startedAtMs": 1788948222286
+              }
+            },
+            {
+              "sequence": 75,
+              "timestamp": "2026-09-09T10:03:42.286656Z",
+              "monotonic_ns": 531342383706125,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": "The"
+              }
+            },
+            {
+              "sequence": 76,
+              "timestamp": "2026-09-09T10:03:42.286706Z",
+              "monotonic_ns": 531342383754833,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " hand"
+              }
+            },
+            {
+              "sequence": 77,
+              "timestamp": "2026-09-09T10:03:42.286750Z",
+              "monotonic_ns": 531342383800041,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": "off"
+              }
+            },
+            {
+              "sequence": 78,
+              "timestamp": "2026-09-09T10:03:42.286792Z",
+              "monotonic_ns": 531342383841625,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " completed"
+              }
+            },
+            {
+              "sequence": 79,
+              "timestamp": "2026-09-09T10:03:42.286829Z",
+              "monotonic_ns": 531342383878583,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " successfully"
+              }
+            },
+            {
+              "sequence": 80,
+              "timestamp": "2026-09-09T10:03:42.286873Z",
+              "monotonic_ns": 531342383922291,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " with"
+              }
+            },
+            {
+              "sequence": 81,
+              "timestamp": "2026-09-09T10:03:42.286910Z",
+              "monotonic_ns": 531342383959458,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " exit"
+              }
+            },
+            {
+              "sequence": 82,
+              "timestamp": "2026-09-09T10:03:42.286948Z",
+              "monotonic_ns": 531342383997208,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " code"
+              }
+            },
+            {
+              "sequence": 83,
+              "timestamp": "2026-09-09T10:03:42.286986Z",
+              "monotonic_ns": 531342384035166,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " "
+              }
+            },
+            {
+              "sequence": 84,
+              "timestamp": "2026-09-09T10:03:42.391426Z",
+              "monotonic_ns": 531342488477125,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": "0"
+              }
+            },
+            {
+              "sequence": 85,
+              "timestamp": "2026-09-09T10:03:42.391567Z",
+              "monotonic_ns": 531342488615041,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": "."
+              }
+            },
+            {
+              "sequence": 86,
+              "timestamp": "2026-09-09T10:03:42.391613Z",
+              "monotonic_ns": 531342488659958,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " I"
+              }
+            },
+            {
+              "sequence": 87,
+              "timestamp": "2026-09-09T10:03:42.391714Z",
+              "monotonic_ns": 531342488762125,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": "’m"
+              }
+            },
+            {
+              "sequence": 88,
+              "timestamp": "2026-09-09T10:03:42.391760Z",
+              "monotonic_ns": 531342488806458,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " reading"
+              }
+            },
+            {
+              "sequence": 89,
+              "timestamp": "2026-09-09T10:03:42.391794Z",
+              "monotonic_ns": 531342488842125,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " the"
+              }
+            },
+            {
+              "sequence": 90,
+              "timestamp": "2026-09-09T10:03:42.391881Z",
+              "monotonic_ns": 531342488928083,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " saved"
+              }
+            },
+            {
+              "sequence": 91,
+              "timestamp": "2026-09-09T10:03:42.391924Z",
+              "monotonic_ns": 531342488970458,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " result"
+              }
+            },
+            {
+              "sequence": 92,
+              "timestamp": "2026-09-09T10:03:42.391958Z",
+              "monotonic_ns": 531342489004666,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " token"
+              }
+            },
+            {
+              "sequence": 93,
+              "timestamp": "2026-09-09T10:03:42.391991Z",
+              "monotonic_ns": 531342489038791,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " once"
+              }
+            },
+            {
+              "sequence": 94,
+              "timestamp": "2026-09-09T10:03:42.392031Z",
+              "monotonic_ns": 531342489078541,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " to"
+              }
+            },
+            {
+              "sequence": 95,
+              "timestamp": "2026-09-09T10:03:42.392073Z",
+              "monotonic_ns": 531342489120458,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " finish"
+              }
+            },
+            {
+              "sequence": 96,
+              "timestamp": "2026-09-09T10:03:42.392107Z",
+              "monotonic_ns": 531342489153083,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " the"
+              }
+            },
+            {
+              "sequence": 97,
+              "timestamp": "2026-09-09T10:03:42.392250Z",
+              "monotonic_ns": 531342489299083,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " verification"
+              }
+            },
+            {
+              "sequence": 98,
+              "timestamp": "2026-09-09T10:03:42.392312Z",
+              "monotonic_ns": 531342489358625,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": "."
+              }
+            },
+            {
+              "sequence": 99,
+              "timestamp": "2026-09-09T10:03:42.395497Z",
+              "monotonic_ns": 531342492545625,
+              "kind": "notification",
+              "method": "item/completed",
+              "params": {
+                "item": {
+                  "type": "agentMessage",
+                  "id": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                  "text": "The handoff completed successfully with exit code 0. I’m reading the saved result token once to finish the verification.",
+                  "phase": "commentary",
+                  "memoryCitation": null,
+                  "delivery": null,
+                  "questions": null
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "completedAtMs": 1788948222391
+              }
+            },
+            {
+              "sequence": 100,
+              "timestamp": "2026-09-09T10:03:44.078639Z",
+              "monotonic_ns": 531344175650000,
+              "kind": "notification",
+              "method": "item/started",
+              "params": {
+                "item": {
+                  "type": "commandExecution",
+                  "id": "exec-93b04a76-6540-4205-88c3-e806f9e60f45",
+                  "pluginId": null,
+                  "scriptPath": null,
+                  "command": "/bin/zsh -lc 'cat result_token.txt'",
+                  "cwd": "<v04-fixture-root>/workspace",
+                  "processId": "12071",
+                  "source": "unifiedExecStartup",
+                  "status": "inProgress",
+                  "commandActions": [
+                    {
+                      "type": "read",
+                      "command": "cat result_token.txt",
+                      "name": "result_token.txt",
+                      "path": "<redacted-runtime-content>"
+                    }
+                  ],
+                  "aggregatedOutput": null,
+                  "exitCode": null,
+                  "durationMs": null
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "startedAtMs": 1788948224077
+              }
+            },
+            {
+              "sequence": 101,
+              "timestamp": "2026-09-09T10:03:44.079474Z",
+              "monotonic_ns": 531344176484625,
+              "kind": "notification",
+              "method": "item/completed",
+              "params": {
+                "item": {
+                  "type": "commandExecution",
+                  "id": "exec-93b04a76-6540-4205-88c3-e806f9e60f45",
+                  "pluginId": null,
+                  "scriptPath": null,
+                  "command": "/bin/zsh -lc 'cat result_token.txt'",
+                  "cwd": "<v04-fixture-root>/workspace",
+                  "processId": "12071",
+                  "source": "unifiedExecStartup",
+                  "status": "completed",
+                  "commandActions": [
+                    {
+                      "type": "read",
+                      "command": "cat result_token.txt",
+                      "name": "result_token.txt",
+                      "path": "<redacted-runtime-content>"
+                    }
+                  ],
+                  "aggregatedOutput": null,
+                  "exitCode": 0,
+                  "durationMs": 0
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "completedAtMs": 1788948224077
+              }
+            },
+            {
+              "sequence": 102,
+              "timestamp": "2026-09-09T10:03:44.083528Z",
+              "monotonic_ns": 531344180538625,
+              "kind": "notification",
+              "method": "thread/tokenUsage/updated",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "tokenUsage": {
+                  "total": {
+                    "totalTokens": 39549,
+                    "inputTokens": 38773,
+                    "cachedInputTokens": 17152,
+                    "cacheWriteInputTokens": 0,
+                    "outputTokens": 776,
+                    "reasoningOutputTokens": 449
+                  },
+                  "last": {
+                    "totalTokens": 21395,
+                    "inputTokens": 20958,
+                    "cachedInputTokens": 17152,
+                    "cacheWriteInputTokens": 0,
+                    "outputTokens": 437,
+                    "reasoningOutputTokens": 303
+                  },
+                  "modelContextWindow": 258400
+                }
+              }
+            },
+            {
+              "sequence": 103,
+              "timestamp": "2026-09-09T10:03:44.083590Z",
+              "monotonic_ns": 531344180599916,
+              "kind": "notification",
+              "method": "account/rateLimits/updated",
+              "params": {
+                "rateLimits": {
+                  "limitId": "codex",
+                  "limitName": null,
+                  "primary": {
+                    "usedPercent": 68,
+                    "windowDurationMins": 300,
+                    "resetsAt": 1788954476
+                  },
+                  "secondary": {
+                    "usedPercent": 18,
+                    "windowDurationMins": 10080,
+                    "resetsAt": 1789462266
+                  },
+                  "credits": {
+                    "hasCredits": false,
+                    "unlimited": false,
+                    "balance": "0"
+                  },
+                  "individualLimit": null,
+                  "spendControlReached": null,
+                  "planType": "plus",
+                  "rateLimitReachedType": null
+                }
+              }
+            },
+            {
+              "sequence": 104,
+              "timestamp": "2026-09-09T10:03:45.518526Z",
+              "monotonic_ns": 531345615517791,
+              "kind": "notification",
+              "method": "item/started",
+              "params": {
+                "item": {
+                  "type": "reasoning",
+                  "id": "rs_094532bdf932fb7b016aa12f01649c87d08dbeebb0a4c5c5d9",
+                  "summary": [],
+                  "content": []
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "startedAtMs": 1788948225517
+              }
+            },
+            {
+              "sequence": 105,
+              "timestamp": "2026-09-09T10:03:48.315634Z",
+              "monotonic_ns": 531348412560375,
+              "kind": "notification",
+              "method": "item/reasoning/summaryPartAdded",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "rs_094532bdf932fb7b016aa12f01649c87d08dbeebb0a4c5c5d9",
+                "summaryIndex": 0
+              }
+            },
+            {
+              "sequence": 106,
+              "timestamp": "2026-09-09T10:03:48.315810Z",
+              "monotonic_ns": 531348412732666,
+              "kind": "notification",
+              "method": "item/reasoning/summaryTextDelta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "rs_094532bdf932fb7b016aa12f01649c87d08dbeebb0a4c5c5d9",
+                "delta": "**Verifying token file content for final output**",
+                "summaryIndex": 0
+              }
+            },
+            {
+              "sequence": 107,
+              "timestamp": "2026-09-09T10:03:48.829626Z",
+              "monotonic_ns": 531348926540708,
+              "kind": "notification",
+              "method": "item/reasoning/summaryPartAdded",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "rs_094532bdf932fb7b016aa12f01649c87d08dbeebb0a4c5c5d9",
+                "summaryIndex": 1
+              }
+            },
+            {
+              "sequence": 108,
+              "timestamp": "2026-09-09T10:03:48.829748Z",
+              "monotonic_ns": 531348926660166,
+              "kind": "notification",
+              "method": "item/reasoning/summaryTextDelta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "rs_094532bdf932fb7b016aa12f01649c87d08dbeebb0a4c5c5d9",
+                "delta": "**Confirming exact token inclusion**",
+                "summaryIndex": 1
+              }
+            },
+            {
+              "sequence": 109,
+              "timestamp": "2026-09-09T10:03:48.881501Z",
+              "monotonic_ns": 531348978414291,
+              "kind": "notification",
+              "method": "item/completed",
+              "params": {
+                "item": {
+                  "type": "reasoning",
+                  "id": "rs_094532bdf932fb7b016aa12f01649c87d08dbeebb0a4c5c5d9",
+                  "summary": [
+                    "**Verifying token file content for final output**",
+                    "**Confirming exact token inclusion**"
+                  ],
+                  "content": []
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "completedAtMs": 1788948228876
+              }
+            },
+            {
+              "sequence": 110,
+              "timestamp": "2026-09-09T10:03:48.882981Z",
+              "monotonic_ns": 531348979893583,
+              "kind": "notification",
+              "method": "item/started",
+              "params": {
+                "item": {
+                  "type": "agentMessage",
+                  "id": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                  "text": "",
+                  "phase": "final_answer",
+                  "memoryCitation": null,
+                  "delivery": null,
+                  "questions": null
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "startedAtMs": 1788948228882
+              }
+            },
+            {
+              "sequence": 111,
+              "timestamp": "2026-09-09T10:03:48.883097Z",
+              "monotonic_ns": 531348980008666,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "H"
+              }
+            },
+            {
+              "sequence": 112,
+              "timestamp": "2026-09-09T10:03:48.883145Z",
+              "monotonic_ns": 531348980056875,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "andoff"
+              }
+            },
+            {
+              "sequence": 113,
+              "timestamp": "2026-09-09T10:03:48.886780Z",
+              "monotonic_ns": 531348983692458,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": " completed"
+              }
+            },
+            {
+              "sequence": 114,
+              "timestamp": "2026-09-09T10:03:48.886866Z",
+              "monotonic_ns": 531348983777250,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": " successfully"
+              }
+            },
+            {
+              "sequence": 115,
+              "timestamp": "2026-09-09T10:03:48.886938Z",
+              "monotonic_ns": 531348983848750,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": " with"
+              }
+            },
+            {
+              "sequence": 116,
+              "timestamp": "2026-09-09T10:03:48.886984Z",
+              "monotonic_ns": 531348983894833,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": " exit"
+              }
+            },
+            {
+              "sequence": 117,
+              "timestamp": "2026-09-09T10:03:48.887039Z",
+              "monotonic_ns": 531348983949916,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": " code"
+              }
+            },
+            {
+              "sequence": 118,
+              "timestamp": "2026-09-09T10:03:48.887090Z",
+              "monotonic_ns": 531348984001916,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": " "
+              }
+            },
+            {
+              "sequence": 119,
+              "timestamp": "2026-09-09T10:03:48.968989Z",
+              "monotonic_ns": 531349065907125,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "0"
+              }
+            },
+            {
+              "sequence": 120,
+              "timestamp": "2026-09-09T10:03:48.969235Z",
+              "monotonic_ns": 531349066148041,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": ".\n\n"
+              }
+            },
+            {
+              "sequence": 121,
+              "timestamp": "2026-09-09T10:03:48.969331Z",
+              "monotonic_ns": 531349066242958,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "RESULT"
+              }
+            },
+            {
+              "sequence": 122,
+              "timestamp": "2026-09-09T10:03:48.969417Z",
+              "monotonic_ns": 531349066330000,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "_TOKEN"
+              }
+            },
+            {
+              "sequence": 123,
+              "timestamp": "2026-09-09T10:03:48.969500Z",
+              "monotonic_ns": 531349066412375,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "=S"
+              }
+            },
+            {
+              "sequence": 124,
+              "timestamp": "2026-09-09T10:03:48.969821Z",
+              "monotonic_ns": 531349066732541,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "NO"
+              }
+            },
+            {
+              "sequence": 125,
+              "timestamp": "2026-09-09T10:03:48.969989Z",
+              "monotonic_ns": 531349066900958,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "O"
+              }
+            },
+            {
+              "sequence": 126,
+              "timestamp": "2026-09-09T10:03:48.970073Z",
+              "monotonic_ns": 531349066986958,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "ZE"
+              }
+            },
+            {
+              "sequence": 127,
+              "timestamp": "2026-09-09T10:03:48.970158Z",
+              "monotonic_ns": 531349067069583,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "_E"
+              }
+            },
+            {
+              "sequence": 128,
+              "timestamp": "2026-09-09T10:03:48.970237Z",
+              "monotonic_ns": 531349067149541,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "2"
+              }
+            },
+            {
+              "sequence": 129,
+              "timestamp": "2026-09-09T10:03:48.970321Z",
+              "monotonic_ns": 531349067234250,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "E"
+              }
+            },
+            {
+              "sequence": 130,
+              "timestamp": "2026-09-09T10:03:48.970483Z",
+              "monotonic_ns": 531349067393041,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "_V"
+              }
+            },
+            {
+              "sequence": 131,
+              "timestamp": "2026-09-09T10:03:48.970536Z",
+              "monotonic_ns": 531349067445291,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "04"
+              }
+            },
+            {
+              "sequence": 132,
+              "timestamp": "2026-09-09T10:03:48.970588Z",
+              "monotonic_ns": 531349067502833,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "_"
+              }
+            },
+            {
+              "sequence": 133,
+              "timestamp": "2026-09-09T10:03:48.970638Z",
+              "monotonic_ns": 531349067547083,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "01"
+              }
+            },
+            {
+              "sequence": 134,
+              "timestamp": "2026-09-09T10:03:48.970682Z",
+              "monotonic_ns": 531349067590708,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "_"
+              }
+            },
+            {
+              "sequence": 135,
+              "timestamp": "2026-09-09T10:03:48.970726Z",
+              "monotonic_ns": 531349067635958,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "178"
+              }
+            },
+            {
+              "sequence": 136,
+              "timestamp": "2026-09-09T10:03:48.970775Z",
+              "monotonic_ns": 531349067684416,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "894"
+              }
+            },
+            {
+              "sequence": 137,
+              "timestamp": "2026-09-09T10:03:48.970824Z",
+              "monotonic_ns": 531349067733583,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "819"
+              }
+            },
+            {
+              "sequence": 138,
+              "timestamp": "2026-09-09T10:03:48.970882Z",
+              "monotonic_ns": 531349067791166,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "838"
+              }
+            },
+            {
+              "sequence": 139,
+              "timestamp": "2026-09-09T10:03:48.970927Z",
+              "monotonic_ns": 531349067836416,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "042"
+              }
+            },
+            {
+              "sequence": 140,
+              "timestamp": "2026-09-09T10:03:48.970970Z",
+              "monotonic_ns": 531349067878833,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "900"
+              }
+            },
+            {
+              "sequence": 141,
+              "timestamp": "2026-09-09T10:03:48.971012Z",
+              "monotonic_ns": 531349067921166,
+              "kind": "notification",
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "0"
+              }
+            },
+            {
+              "sequence": 142,
+              "timestamp": "2026-09-09T10:03:48.978398Z",
+              "monotonic_ns": 531349075307875,
+              "kind": "notification",
+              "method": "item/completed",
+              "params": {
+                "item": {
+                  "type": "agentMessage",
+                  "id": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                  "text": "Handoff completed successfully with exit code 0.\n\nRESULT_TOKEN=<redacted-token>",
+                  "phase": "final_answer",
+                  "memoryCitation": null,
+                  "delivery": null,
+                  "questions": null
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "completedAtMs": 1788948228974
+              }
+            },
+            {
+              "sequence": 143,
+              "timestamp": "2026-09-09T10:03:49.088337Z",
+              "monotonic_ns": 531349185246291,
+              "kind": "notification",
+              "method": "thread/tokenUsage/updated",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "tokenUsage": {
+                  "total": {
+                    "totalTokens": 61151,
+                    "inputTokens": 60191,
+                    "cachedInputTokens": 37376,
+                    "cacheWriteInputTokens": 0,
+                    "outputTokens": 960,
+                    "reasoningOutputTokens": 596
+                  },
+                  "last": {
+                    "totalTokens": 21602,
+                    "inputTokens": 21418,
+                    "cachedInputTokens": 20224,
+                    "cacheWriteInputTokens": 0,
+                    "outputTokens": 184,
+                    "reasoningOutputTokens": 147
+                  },
+                  "modelContextWindow": 258400
+                }
+              }
+            },
+            {
+              "sequence": 144,
+              "timestamp": "2026-09-09T10:03:49.088557Z",
+              "monotonic_ns": 531349185463500,
+              "kind": "notification",
+              "method": "account/rateLimits/updated",
+              "params": {
+                "rateLimits": {
+                  "limitId": "codex",
+                  "limitName": null,
+                  "primary": {
+                    "usedPercent": 68,
+                    "windowDurationMins": 300,
+                    "resetsAt": 1788954476
+                  },
+                  "secondary": {
+                    "usedPercent": 18,
+                    "windowDurationMins": 10080,
+                    "resetsAt": 1789462266
+                  },
+                  "credits": {
+                    "hasCredits": false,
+                    "unlimited": false,
+                    "balance": "0"
+                  },
+                  "individualLimit": null,
+                  "spendControlReached": null,
+                  "planType": "plus",
+                  "rateLimitReachedType": null
+                }
+              }
+            },
+            {
+              "sequence": 145,
+              "timestamp": "2026-09-09T10:03:49.097008Z",
+              "monotonic_ns": 531349193915583,
+              "kind": "notification",
+              "method": "thread/status/changed",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "status": {
+                  "type": "idle"
+                }
+              }
+            },
+            {
+              "sequence": 146,
+              "timestamp": "2026-09-09T10:03:49.097121Z",
+              "monotonic_ns": 531349194028000,
+              "kind": "notification",
+              "method": "turn/completed",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turn": {
+                  "id": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                  "items": [
+                    {
+                      "type": "agentMessage",
+                      "id": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                      "text": "Handoff completed successfully with exit code 0.\n\nRESULT_TOKEN=<redacted-token>",
+                      "phase": "final_answer",
+                      "memoryCitation": null,
+                      "delivery": null,
+                      "questions": null
+                    }
+                  ],
+                  "itemsView": "summary",
+                  "status": "completed",
+                  "error": null,
+                  "startedAt": 1788948213,
+                  "completedAt": 1788948229,
+                  "durationMs": 16057
+                }
+              }
+            }
+          ],
+          "notifications": [
+            {
+              "method": "remoteControl/status/changed",
+              "params": {
+                "status": "disabled",
+                "serverName": "GRT.local",
+                "installationId": "4cec6ef4-4daa-4776-87db-7866453c4821",
+                "environmentId": null
+              },
+              "received_at": "2026-09-09T10:03:18.663545Z"
+            },
+            {
+              "method": "thread/started",
+              "params": {
+                "thread": {
+                  "id": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                  "extra": null,
+                  "sessionId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                  "forkedFromId": null,
+                  "parentThreadId": null,
+                  "preview": "<redacted-runtime-content>",
+                  "ephemeral": false,
+                  "section": null,
+                  "sectionEnteredAt": null,
+                  "projectId": null,
+                  "historyMode": "paginated",
+                  "modelProvider": "openai",
+                  "model": "gpt-5.6-luna",
+                  "reasoningEffort": "max",
+                  "createdAt": 1788948198,
+                  "updatedAt": 1788948198,
+                  "recencyAt": 1788948198,
+                  "status": {
+                    "type": "idle"
+                  },
+                  "path": "<redacted-runtime-content>",
+                  "cwd": "<v04-fixture-root>/workspace",
+                  "cliVersion": "0.153.4",
+                  "source": "vscode",
+                  "canAcceptDirectInput": true,
+                  "threadSource": null,
+                  "agentNickname": null,
+                  "agentRole": null,
+                  "gitInfo": null,
+                  "name": null,
+                  "turns": []
+                }
+              },
+              "received_at": "2026-09-09T10:03:18.764386Z"
+            },
+            {
+              "method": "mcpServer/startupStatus/updated",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "name": "node_repl",
+                "status": "starting",
+                "error": null,
+                "failureReason": null
+              },
+              "received_at": "2026-09-09T10:03:18.764436Z"
+            },
+            {
+              "method": "mcpServer/startupStatus/updated",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "name": "browser-use",
+                "status": "starting",
+                "error": null,
+                "failureReason": null
+              },
+              "received_at": "2026-09-09T10:03:18.764455Z"
+            },
+            {
+              "method": "mcpServer/startupStatus/updated",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "name": "codex_apps",
+                "status": "starting",
+                "error": null,
+                "failureReason": null
+              },
+              "received_at": "2026-09-09T10:03:18.764468Z"
+            },
+            {
+              "method": "mcpServer/startupStatus/updated",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "name": "cua_repl",
+                "status": "starting",
+                "error": null,
+                "failureReason": null
+              },
+              "received_at": "2026-09-09T10:03:18.764480Z"
+            },
+            {
+              "method": "thread/status/changed",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "status": {
+                  "type": "active",
+                  "activeFlags": []
+                }
+              },
+              "received_at": "2026-09-09T10:03:18.781509Z"
+            },
+            {
+              "method": "turn/started",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turn": {
+                  "id": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                  "items": [],
+                  "itemsView": "notLoaded",
+                  "status": "inProgress",
+                  "error": null,
+                  "startedAt": 1788948198,
+                  "completedAt": null,
+                  "durationMs": null
+                }
+              },
+              "received_at": "2026-09-09T10:03:18.781546Z"
+            },
+            {
+              "method": "mcpServer/startupStatus/updated",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "name": "node_repl",
+                "status": "ready",
+                "error": null,
+                "failureReason": null
+              },
+              "received_at": "2026-09-09T10:03:18.918035Z"
+            },
+            {
+              "method": "mcpServer/startupStatus/updated",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "name": "cua_repl",
+                "status": "ready",
+                "error": null,
+                "failureReason": null
+              },
+              "received_at": "2026-09-09T10:03:18.950360Z"
+            },
+            {
+              "method": "mcpServer/startupStatus/updated",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "name": "browser-use",
+                "status": "ready",
+                "error": null,
+                "failureReason": null
+              },
+              "received_at": "2026-09-09T10:03:19.627316Z"
+            },
+            {
+              "method": "mcpServer/startupStatus/updated",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "name": "node_repl",
+                "status": "ready",
+                "error": null,
+                "failureReason": null
+              },
+              "received_at": "2026-09-09T10:03:19.794269Z"
+            },
+            {
+              "method": "mcpServer/startupStatus/updated",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "name": "cua_repl",
+                "status": "ready",
+                "error": null,
+                "failureReason": null
+              },
+              "received_at": "2026-09-09T10:03:19.794320Z"
+            },
+            {
+              "method": "mcpServer/startupStatus/updated",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "name": "codex_apps",
+                "status": "ready",
+                "error": null,
+                "failureReason": null
+              },
+              "received_at": "2026-09-09T10:03:19.794335Z"
+            },
+            {
+              "method": "item/started",
+              "params": {
+                "item": {
+                  "type": "userMessage",
+                  "id": "01a0859f-4bec-7213-a5f4-a80c70b38384",
+                  "clientId": "18412f31-7c94-48af-91e2-f97b3f4f786f",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Use the named dynamic tool `codex_snooze_handoff` exactly once. Do not use the terminal tool for this step. Pass this exact argv vector as its command argument:\n[\"python3\", \"fixtures/handoff_long_job.py\", \"--duration\", \"0.7\", \"--run-count\", \"run_count.txt\", \"--result-token\", \"result_token.txt\", \"--result-json\", \"fixture_result.json\", \"--token\", \"<redacted-token>\", \"--exit-code\", \"0\"]\nwith threshold_seconds=0.2 and cwd=<v04-fixture-root>/workspace. The equivalent explicit command is: <project-root>/scripts/codex-snooze --store <v04-fixture-root>/store handoff --threshold 0.2 --cwd <v04-fixture-root>/workspace -- python3 fixtures/handoff_long_job.py --duration 0.7 --run-count run_count.txt --result-token result_token.txt --result-json fixture_result.json --token <redacted-token> --exit-code 0\nDo not replace it with another command, do not simulate output, and do not run a second command. When the tool returns the structured DETACHED marker, stop this turn; the controller will continue the task after the job result is durable.",
+                      "text_elements": []
+                    }
+                  ]
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "startedAtMs": 1788948204524
+              },
+              "received_at": "2026-09-09T10:03:24.525349Z"
+            },
+            {
+              "method": "item/completed",
+              "params": {
+                "item": {
+                  "type": "userMessage",
+                  "id": "01a0859f-4bec-7213-a5f4-a80c70b38384",
+                  "clientId": "18412f31-7c94-48af-91e2-f97b3f4f786f",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Use the named dynamic tool `codex_snooze_handoff` exactly once. Do not use the terminal tool for this step. Pass this exact argv vector as its command argument:\n[\"python3\", \"fixtures/handoff_long_job.py\", \"--duration\", \"0.7\", \"--run-count\", \"run_count.txt\", \"--result-token\", \"result_token.txt\", \"--result-json\", \"fixture_result.json\", \"--token\", \"<redacted-token>\", \"--exit-code\", \"0\"]\nwith threshold_seconds=0.2 and cwd=<v04-fixture-root>/workspace. The equivalent explicit command is: <project-root>/scripts/codex-snooze --store <v04-fixture-root>/store handoff --threshold 0.2 --cwd <v04-fixture-root>/workspace -- python3 fixtures/handoff_long_job.py --duration 0.7 --run-count run_count.txt --result-token result_token.txt --result-json fixture_result.json --token <redacted-token> --exit-code 0\nDo not replace it with another command, do not simulate output, and do not run a second command. When the tool returns the structured DETACHED marker, stop this turn; the controller will continue the task after the job result is durable.",
+                      "text_elements": []
+                    }
+                  ]
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "completedAtMs": 1788948204524
+              },
+              "received_at": "2026-09-09T10:03:24.527600Z"
+            },
+            {
+              "method": "item/started",
+              "params": {
+                "item": {
+                  "type": "reasoning",
+                  "id": "rs_094532bdf932fb7b016aa12eedc9b487d08d5b00ee42ef5c51",
+                  "summary": [],
+                  "content": []
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "startedAtMs": 1788948205907
+              },
+              "received_at": "2026-09-09T10:03:25.907459Z"
+            },
+            {
+              "method": "item/reasoning/summaryPartAdded",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "rs_094532bdf932fb7b016aa12eedc9b487d08d5b00ee42ef5c51",
+                "summaryIndex": 0
+              },
+              "received_at": "2026-09-09T10:03:28.940322Z"
+            },
+            {
+              "method": "item/reasoning/summaryTextDelta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "rs_094532bdf932fb7b016aa12eedc9b487d08d5b00ee42ef5c51",
+                "delta": "**Preparing single exec call with exact cwd**",
+                "summaryIndex": 0
+              },
+              "received_at": "2026-09-09T10:03:28.940431Z"
+            },
+            {
+              "method": "item/completed",
+              "params": {
+                "item": {
+                  "type": "reasoning",
+                  "id": "rs_094532bdf932fb7b016aa12eedc9b487d08d5b00ee42ef5c51",
+                  "summary": [
+                    "**Preparing single exec call with exact cwd**"
+                  ],
+                  "content": []
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "completedAtMs": 1788948208960
+              },
+              "received_at": "2026-09-09T10:03:28.964287Z"
+            },
+            {
+              "method": "item/started",
+              "params": {
+                "item": {
+                  "type": "agentMessage",
+                  "id": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                  "text": "",
+                  "phase": "commentary",
+                  "memoryCitation": null,
+                  "delivery": null,
+                  "questions": null
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "startedAtMs": 1788948208965
+              },
+              "received_at": "2026-09-09T10:03:28.965358Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                "delta": "I"
+              },
+              "received_at": "2026-09-09T10:03:28.965427Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                "delta": "’m"
+              },
+              "received_at": "2026-09-09T10:03:28.965462Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                "delta": " handing"
+              },
+              "received_at": "2026-09-09T10:03:28.965491Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                "delta": " off"
+              },
+              "received_at": "2026-09-09T10:03:28.965518Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                "delta": " the"
+              },
+              "received_at": "2026-09-09T10:03:28.965574Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                "delta": " specified"
+              },
+              "received_at": "2026-09-09T10:03:28.965614Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                "delta": " long"
+              },
+              "received_at": "2026-09-09T10:03:28.965663Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                "delta": "-running"
+              },
+              "received_at": "2026-09-09T10:03:28.965702Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                "delta": " job"
+              },
+              "received_at": "2026-09-09T10:03:28.965730Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                "delta": " through"
+              },
+              "received_at": "2026-09-09T10:03:29.139220Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                "delta": " the"
+              },
+              "received_at": "2026-09-09T10:03:29.139300Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                "delta": " named"
+              },
+              "received_at": "2026-09-09T10:03:29.139332Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                "delta": " Sno"
+              },
+              "received_at": "2026-09-09T10:03:29.139363Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                "delta": "oze"
+              },
+              "received_at": "2026-09-09T10:03:29.139390Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                "delta": " tool"
+              },
+              "received_at": "2026-09-09T10:03:29.139416Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                "delta": " now"
+              },
+              "received_at": "2026-09-09T10:03:29.139443Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "itemId": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                "delta": "."
+              },
+              "received_at": "2026-09-09T10:03:29.139469Z"
+            },
+            {
+              "method": "item/completed",
+              "params": {
+                "item": {
+                  "type": "agentMessage",
+                  "id": "msg_094532bdf932fb7b016aa12ef0d5b487d09ae7d5f094df0b11",
+                  "text": "I’m handing off the specified long-running job through the named Snooze tool now.",
+                  "phase": "commentary",
+                  "memoryCitation": null,
+                  "delivery": null,
+                  "questions": null
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "completedAtMs": 1788948209139
+              },
+              "received_at": "2026-09-09T10:03:29.141243Z"
+            },
+            {
+              "method": "item/started",
+              "params": {
+                "item": {
+                  "type": "dynamicToolCall",
+                  "id": "exec-f3b6dcc9-0343-4c59-bedb-daaa397fd498",
+                  "namespace": null,
+                  "tool": "codex_snooze_handoff",
+                  "arguments": {
+                    "command": [
+                      "python3",
+                      "fixtures/handoff_long_job.py",
+                      "--duration",
+                      "0.7",
+                      "--run-count",
+                      "run_count.txt",
+                      "--result-token",
+                      "result_token.txt",
+                      "--result-json",
+                      "fixture_result.json",
+                      "--token",
+                      "<redacted-token>",
+                      "--exit-code",
+                      "0"
+                    ],
+                    "threshold_seconds": 0.2,
+                    "cwd": "<v04-fixture-root>/workspace"
+                  },
+                  "status": "inProgress",
+                  "contentItems": null,
+                  "success": null,
+                  "durationMs": null
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "startedAtMs": 1788948212065
+              },
+              "received_at": "2026-09-09T10:03:32.065486Z"
+            },
+            {
+              "method": "item/completed",
+              "params": {
+                "item": {
+                  "type": "dynamicToolCall",
+                  "id": "exec-f3b6dcc9-0343-4c59-bedb-daaa397fd498",
+                  "namespace": null,
+                  "tool": "codex_snooze_handoff",
+                  "arguments": {
+                    "command": [
+                      "python3",
+                      "fixtures/handoff_long_job.py",
+                      "--duration",
+                      "0.7",
+                      "--run-count",
+                      "run_count.txt",
+                      "--result-token",
+                      "result_token.txt",
+                      "--result-json",
+                      "fixture_result.json",
+                      "--token",
+                      "<redacted-token>",
+                      "--exit-code",
+                      "0"
+                    ],
+                    "threshold_seconds": 0.2,
+                    "cwd": "<v04-fixture-root>/workspace"
+                  },
+                  "status": "completed",
+                  "contentItems": [
+                    {
+                      "type": "inputText",
+                      "text": "{\"codex_snooze\": true, \"state\": \"DETACHED\", \"event_version\": 1, \"job_id\": \"1064e07d-d555-45ce-adbe-c6549effafae\", \"supervisor_pid\": 63670, \"threshold_seconds\": 0.2, \"handoff_requested_at\": 1788948212.37484}"
+                    }
+                  ],
+                  "success": true,
+                  "durationMs": 325
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "completedAtMs": 1788948212391
+              },
+              "received_at": "2026-09-09T10:03:32.393804Z"
+            },
+            {
+              "method": "thread/tokenUsage/updated",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "tokenUsage": {
+                  "total": {
+                    "totalTokens": 18154,
+                    "inputTokens": 17815,
+                    "cachedInputTokens": 0,
+                    "cacheWriteInputTokens": 0,
+                    "outputTokens": 339,
+                    "reasoningOutputTokens": 146
+                  },
+                  "last": {
+                    "totalTokens": 18154,
+                    "inputTokens": 17815,
+                    "cachedInputTokens": 0,
+                    "cacheWriteInputTokens": 0,
+                    "outputTokens": 339,
+                    "reasoningOutputTokens": 146
+                  },
+                  "modelContextWindow": 258400
+                }
+              },
+              "received_at": "2026-09-09T10:03:32.397546Z"
+            },
+            {
+              "method": "account/rateLimits/updated",
+              "params": {
+                "rateLimits": {
+                  "limitId": "codex",
+                  "limitName": null,
+                  "primary": {
+                    "usedPercent": 67,
+                    "windowDurationMins": 300,
+                    "resetsAt": 1788954476
+                  },
+                  "secondary": {
+                    "usedPercent": 18,
+                    "windowDurationMins": 10080,
+                    "resetsAt": 1789462266
+                  },
+                  "credits": {
+                    "hasCredits": false,
+                    "unlimited": false,
+                    "balance": "0"
+                  },
+                  "individualLimit": null,
+                  "spendControlReached": null,
+                  "planType": "plus",
+                  "rateLimitReachedType": null
+                }
+              },
+              "received_at": "2026-09-09T10:03:32.398271Z"
+            },
+            {
+              "method": "thread/status/changed",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "status": {
+                  "type": "idle"
+                }
+              },
+              "received_at": "2026-09-09T10:03:32.421844Z"
+            },
+            {
+              "method": "turn/completed",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turn": {
+                  "id": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                  "items": [],
+                  "itemsView": "notLoaded",
+                  "status": "interrupted",
+                  "error": null,
+                  "startedAt": 1788948198,
+                  "completedAt": 1788948212,
+                  "durationMs": 13647
+                }
+              },
+              "received_at": "2026-09-09T10:03:32.421880Z"
+            },
+            {
+              "method": "thread/status/changed",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "status": {
+                  "type": "active",
+                  "activeFlags": []
+                }
+              },
+              "received_at": "2026-09-09T10:03:33.039970Z"
+            },
+            {
+              "method": "turn/started",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turn": {
+                  "id": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                  "items": [],
+                  "itemsView": "notLoaded",
+                  "status": "inProgress",
+                  "error": null,
+                  "startedAt": 1788948213,
+                  "completedAt": null,
+                  "durationMs": null
+                }
+              },
+              "received_at": "2026-09-09T10:03:33.040010Z"
+            },
+            {
+              "method": "item/started",
+              "params": {
+                "item": {
+                  "type": "userMessage",
+                  "id": "01a0859f-6d52-7553-a9c9-2e5b3729ae38",
+                  "clientId": "faf774a4-b7e0-4a48-9da5-fbf27357eff2",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Codex Snooze completion event 5684fd2c-f127-43f3-a957-2200d49e1cf8.\njob_id=1064e07d-d555-45ce-adbe-c6549effafae\nresult_sha256=1ccb2614af3cc50bab95d8ce7d6a54a5476a6a575509af6dad0672f1dc5faea0\nDo not rerun the completed command.\nContinue the original handoff task from the completion event. Do not execute the completed command again. Read the saved result token file with the terminal exactly once if needed and include the exact text RESULT_TOKEN=<redacted-token> in your final response. The completion event id is 5684fd2c-f127-43f3-a957-2200d49e1cf8; recorded exit_code=0 execution_state=COMPLETED.",
+                      "text_elements": []
+                    }
+                  ]
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "startedAtMs": 1788948213074
+              },
+              "received_at": "2026-09-09T10:03:33.074606Z"
+            },
+            {
+              "method": "item/completed",
+              "params": {
+                "item": {
+                  "type": "userMessage",
+                  "id": "01a0859f-6d52-7553-a9c9-2e5b3729ae38",
+                  "clientId": "faf774a4-b7e0-4a48-9da5-fbf27357eff2",
+                  "content": [
+                    {
+                      "type": "text",
+                      "text": "Codex Snooze completion event 5684fd2c-f127-43f3-a957-2200d49e1cf8.\njob_id=1064e07d-d555-45ce-adbe-c6549effafae\nresult_sha256=1ccb2614af3cc50bab95d8ce7d6a54a5476a6a575509af6dad0672f1dc5faea0\nDo not rerun the completed command.\nContinue the original handoff task from the completion event. Do not execute the completed command again. Read the saved result token file with the terminal exactly once if needed and include the exact text RESULT_TOKEN=<redacted-token> in your final response. The completion event id is 5684fd2c-f127-43f3-a957-2200d49e1cf8; recorded exit_code=0 execution_state=COMPLETED.",
+                      "text_elements": []
+                    }
+                  ]
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "completedAtMs": 1788948213074
+              },
+              "received_at": "2026-09-09T10:03:33.076022Z"
+            },
+            {
+              "method": "item/started",
+              "params": {
+                "item": {
+                  "type": "reasoning",
+                  "id": "rs_094532bdf932fb7b016aa12ef7f44487d0a869da5ac21173ed",
+                  "summary": [],
+                  "content": []
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "startedAtMs": 1788948216129
+              },
+              "received_at": "2026-09-09T10:03:36.129812Z"
+            },
+            {
+              "method": "item/reasoning/summaryPartAdded",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "rs_094532bdf932fb7b016aa12ef7f44487d0a869da5ac21173ed",
+                "summaryIndex": 0
+              },
+              "received_at": "2026-09-09T10:03:38.689526Z"
+            },
+            {
+              "method": "item/reasoning/summaryTextDelta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "rs_094532bdf932fb7b016aa12ef7f44487d0a869da5ac21173ed",
+                "delta": "**Planning single terminal file read**",
+                "summaryIndex": 0
+              },
+              "received_at": "2026-09-09T10:03:38.689715Z"
+            },
+            {
+              "method": "item/reasoning/summaryPartAdded",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "rs_094532bdf932fb7b016aa12ef7f44487d0a869da5ac21173ed",
+                "summaryIndex": 1
+              },
+              "received_at": "2026-09-09T10:03:42.276775Z"
+            },
+            {
+              "method": "item/reasoning/summaryTextDelta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "rs_094532bdf932fb7b016aa12ef7f44487d0a869da5ac21173ed",
+                "delta": "**Preparing single exec_command to read token file**",
+                "summaryIndex": 1
+              },
+              "received_at": "2026-09-09T10:03:42.277042Z"
+            },
+            {
+              "method": "item/completed",
+              "params": {
+                "item": {
+                  "type": "reasoning",
+                  "id": "rs_094532bdf932fb7b016aa12ef7f44487d0a869da5ac21173ed",
+                  "summary": [
+                    "**Planning single terminal file read**",
+                    "**Preparing single exec_command to read token file**"
+                  ],
+                  "content": []
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "completedAtMs": 1788948222276
+              },
+              "received_at": "2026-09-09T10:03:42.284833Z"
+            },
+            {
+              "method": "item/started",
+              "params": {
+                "item": {
+                  "type": "agentMessage",
+                  "id": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                  "text": "",
+                  "phase": "commentary",
+                  "memoryCitation": null,
+                  "delivery": null,
+                  "questions": null
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "startedAtMs": 1788948222286
+              },
+              "received_at": "2026-09-09T10:03:42.286508Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": "The"
+              },
+              "received_at": "2026-09-09T10:03:42.286650Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " hand"
+              },
+              "received_at": "2026-09-09T10:03:42.286699Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": "off"
+              },
+              "received_at": "2026-09-09T10:03:42.286744Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " completed"
+              },
+              "received_at": "2026-09-09T10:03:42.286786Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " successfully"
+              },
+              "received_at": "2026-09-09T10:03:42.286824Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " with"
+              },
+              "received_at": "2026-09-09T10:03:42.286868Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " exit"
+              },
+              "received_at": "2026-09-09T10:03:42.286906Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " code"
+              },
+              "received_at": "2026-09-09T10:03:42.286942Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " "
+              },
+              "received_at": "2026-09-09T10:03:42.286981Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": "0"
+              },
+              "received_at": "2026-09-09T10:03:42.391376Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": "."
+              },
+              "received_at": "2026-09-09T10:03:42.391558Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " I"
+              },
+              "received_at": "2026-09-09T10:03:42.391608Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": "’m"
+              },
+              "received_at": "2026-09-09T10:03:42.391702Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " reading"
+              },
+              "received_at": "2026-09-09T10:03:42.391754Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " the"
+              },
+              "received_at": "2026-09-09T10:03:42.391790Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " saved"
+              },
+              "received_at": "2026-09-09T10:03:42.391874Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " result"
+              },
+              "received_at": "2026-09-09T10:03:42.391919Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " token"
+              },
+              "received_at": "2026-09-09T10:03:42.391953Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " once"
+              },
+              "received_at": "2026-09-09T10:03:42.391987Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " to"
+              },
+              "received_at": "2026-09-09T10:03:42.392026Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " finish"
+              },
+              "received_at": "2026-09-09T10:03:42.392069Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " the"
+              },
+              "received_at": "2026-09-09T10:03:42.392102Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": " verification"
+              },
+              "received_at": "2026-09-09T10:03:42.392240Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                "delta": "."
+              },
+              "received_at": "2026-09-09T10:03:42.392305Z"
+            },
+            {
+              "method": "item/completed",
+              "params": {
+                "item": {
+                  "type": "agentMessage",
+                  "id": "msg_094532bdf932fb7b016aa12efe12dc87d0b321ce84d5eae621",
+                  "text": "The handoff completed successfully with exit code 0. I’m reading the saved result token once to finish the verification.",
+                  "phase": "commentary",
+                  "memoryCitation": null,
+                  "delivery": null,
+                  "questions": null
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "completedAtMs": 1788948222391
+              },
+              "received_at": "2026-09-09T10:03:42.395473Z"
+            },
+            {
+              "method": "item/started",
+              "params": {
+                "item": {
+                  "type": "commandExecution",
+                  "id": "exec-93b04a76-6540-4205-88c3-e806f9e60f45",
+                  "pluginId": null,
+                  "scriptPath": null,
+                  "command": "/bin/zsh -lc 'cat result_token.txt'",
+                  "cwd": "<v04-fixture-root>/workspace",
+                  "processId": "12071",
+                  "source": "unifiedExecStartup",
+                  "status": "inProgress",
+                  "commandActions": [
+                    {
+                      "type": "read",
+                      "command": "cat result_token.txt",
+                      "name": "result_token.txt",
+                      "path": "<redacted-runtime-content>"
+                    }
+                  ],
+                  "aggregatedOutput": null,
+                  "exitCode": null,
+                  "durationMs": null
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "startedAtMs": 1788948224077
+              },
+              "received_at": "2026-09-09T10:03:44.078622Z"
+            },
+            {
+              "method": "item/completed",
+              "params": {
+                "item": {
+                  "type": "commandExecution",
+                  "id": "exec-93b04a76-6540-4205-88c3-e806f9e60f45",
+                  "pluginId": null,
+                  "scriptPath": null,
+                  "command": "/bin/zsh -lc 'cat result_token.txt'",
+                  "cwd": "<v04-fixture-root>/workspace",
+                  "processId": "12071",
+                  "source": "unifiedExecStartup",
+                  "status": "completed",
+                  "commandActions": [
+                    {
+                      "type": "read",
+                      "command": "cat result_token.txt",
+                      "name": "result_token.txt",
+                      "path": "<redacted-runtime-content>"
+                    }
+                  ],
+                  "aggregatedOutput": null,
+                  "exitCode": 0,
+                  "durationMs": 0
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "completedAtMs": 1788948224077
+              },
+              "received_at": "2026-09-09T10:03:44.079469Z"
+            },
+            {
+              "method": "thread/tokenUsage/updated",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "tokenUsage": {
+                  "total": {
+                    "totalTokens": 39549,
+                    "inputTokens": 38773,
+                    "cachedInputTokens": 17152,
+                    "cacheWriteInputTokens": 0,
+                    "outputTokens": 776,
+                    "reasoningOutputTokens": 449
+                  },
+                  "last": {
+                    "totalTokens": 21395,
+                    "inputTokens": 20958,
+                    "cachedInputTokens": 17152,
+                    "cacheWriteInputTokens": 0,
+                    "outputTokens": 437,
+                    "reasoningOutputTokens": 303
+                  },
+                  "modelContextWindow": 258400
+                }
+              },
+              "received_at": "2026-09-09T10:03:44.083520Z"
+            },
+            {
+              "method": "account/rateLimits/updated",
+              "params": {
+                "rateLimits": {
+                  "limitId": "codex",
+                  "limitName": null,
+                  "primary": {
+                    "usedPercent": 68,
+                    "windowDurationMins": 300,
+                    "resetsAt": 1788954476
+                  },
+                  "secondary": {
+                    "usedPercent": 18,
+                    "windowDurationMins": 10080,
+                    "resetsAt": 1789462266
+                  },
+                  "credits": {
+                    "hasCredits": false,
+                    "unlimited": false,
+                    "balance": "0"
+                  },
+                  "individualLimit": null,
+                  "spendControlReached": null,
+                  "planType": "plus",
+                  "rateLimitReachedType": null
+                }
+              },
+              "received_at": "2026-09-09T10:03:44.083587Z"
+            },
+            {
+              "method": "item/started",
+              "params": {
+                "item": {
+                  "type": "reasoning",
+                  "id": "rs_094532bdf932fb7b016aa12f01649c87d08dbeebb0a4c5c5d9",
+                  "summary": [],
+                  "content": []
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "startedAtMs": 1788948225517
+              },
+              "received_at": "2026-09-09T10:03:45.518422Z"
+            },
+            {
+              "method": "item/reasoning/summaryPartAdded",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "rs_094532bdf932fb7b016aa12f01649c87d08dbeebb0a4c5c5d9",
+                "summaryIndex": 0
+              },
+              "received_at": "2026-09-09T10:03:48.315575Z"
+            },
+            {
+              "method": "item/reasoning/summaryTextDelta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "rs_094532bdf932fb7b016aa12f01649c87d08dbeebb0a4c5c5d9",
+                "delta": "**Verifying token file content for final output**",
+                "summaryIndex": 0
+              },
+              "received_at": "2026-09-09T10:03:48.315802Z"
+            },
+            {
+              "method": "item/reasoning/summaryPartAdded",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "rs_094532bdf932fb7b016aa12f01649c87d08dbeebb0a4c5c5d9",
+                "summaryIndex": 1
+              },
+              "received_at": "2026-09-09T10:03:48.829590Z"
+            },
+            {
+              "method": "item/reasoning/summaryTextDelta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "rs_094532bdf932fb7b016aa12f01649c87d08dbeebb0a4c5c5d9",
+                "delta": "**Confirming exact token inclusion**",
+                "summaryIndex": 1
+              },
+              "received_at": "2026-09-09T10:03:48.829740Z"
+            },
+            {
+              "method": "item/completed",
+              "params": {
+                "item": {
+                  "type": "reasoning",
+                  "id": "rs_094532bdf932fb7b016aa12f01649c87d08dbeebb0a4c5c5d9",
+                  "summary": [
+                    "**Verifying token file content for final output**",
+                    "**Confirming exact token inclusion**"
+                  ],
+                  "content": []
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "completedAtMs": 1788948228876
+              },
+              "received_at": "2026-09-09T10:03:48.881444Z"
+            },
+            {
+              "method": "item/started",
+              "params": {
+                "item": {
+                  "type": "agentMessage",
+                  "id": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                  "text": "",
+                  "phase": "final_answer",
+                  "memoryCitation": null,
+                  "delivery": null,
+                  "questions": null
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "startedAtMs": 1788948228882
+              },
+              "received_at": "2026-09-09T10:03:48.882960Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "H"
+              },
+              "received_at": "2026-09-09T10:03:48.883090Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "andoff"
+              },
+              "received_at": "2026-09-09T10:03:48.883139Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": " completed"
+              },
+              "received_at": "2026-09-09T10:03:48.886764Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": " successfully"
+              },
+              "received_at": "2026-09-09T10:03:48.886858Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": " with"
+              },
+              "received_at": "2026-09-09T10:03:48.886928Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": " exit"
+              },
+              "received_at": "2026-09-09T10:03:48.886977Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": " code"
+              },
+              "received_at": "2026-09-09T10:03:48.887028Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": " "
+              },
+              "received_at": "2026-09-09T10:03:48.887084Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "0"
+              },
+              "received_at": "2026-09-09T10:03:48.968903Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": ".\n\n"
+              },
+              "received_at": "2026-09-09T10:03:48.969221Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "RESULT"
+              },
+              "received_at": "2026-09-09T10:03:48.969318Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "_TOKEN"
+              },
+              "received_at": "2026-09-09T10:03:48.969405Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "=S"
+              },
+              "received_at": "2026-09-09T10:03:48.969490Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "NO"
+              },
+              "received_at": "2026-09-09T10:03:48.969804Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "O"
+              },
+              "received_at": "2026-09-09T10:03:48.969977Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "ZE"
+              },
+              "received_at": "2026-09-09T10:03:48.970063Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "_E"
+              },
+              "received_at": "2026-09-09T10:03:48.970147Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "2"
+              },
+              "received_at": "2026-09-09T10:03:48.970227Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "E"
+              },
+              "received_at": "2026-09-09T10:03:48.970310Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "_V"
+              },
+              "received_at": "2026-09-09T10:03:48.970476Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "04"
+              },
+              "received_at": "2026-09-09T10:03:48.970530Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "_"
+              },
+              "received_at": "2026-09-09T10:03:48.970577Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "01"
+              },
+              "received_at": "2026-09-09T10:03:48.970632Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "_"
+              },
+              "received_at": "2026-09-09T10:03:48.970676Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "178"
+              },
+              "received_at": "2026-09-09T10:03:48.970720Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "894"
+              },
+              "received_at": "2026-09-09T10:03:48.970770Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "819"
+              },
+              "received_at": "2026-09-09T10:03:48.970813Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "838"
+              },
+              "received_at": "2026-09-09T10:03:48.970870Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "042"
+              },
+              "received_at": "2026-09-09T10:03:48.970921Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "900"
+              },
+              "received_at": "2026-09-09T10:03:48.970965Z"
+            },
+            {
+              "method": "item/agentMessage/delta",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "itemId": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                "delta": "0"
+              },
+              "received_at": "2026-09-09T10:03:48.971006Z"
+            },
+            {
+              "method": "item/completed",
+              "params": {
+                "item": {
+                  "type": "agentMessage",
+                  "id": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                  "text": "Handoff completed successfully with exit code 0.\n\nRESULT_TOKEN=<redacted-token>",
+                  "phase": "final_answer",
+                  "memoryCitation": null,
+                  "delivery": null,
+                  "questions": null
+                },
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "completedAtMs": 1788948228974
+              },
+              "received_at": "2026-09-09T10:03:48.978378Z"
+            },
+            {
+              "method": "thread/tokenUsage/updated",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                "tokenUsage": {
+                  "total": {
+                    "totalTokens": 61151,
+                    "inputTokens": 60191,
+                    "cachedInputTokens": 37376,
+                    "cacheWriteInputTokens": 0,
+                    "outputTokens": 960,
+                    "reasoningOutputTokens": 596
+                  },
+                  "last": {
+                    "totalTokens": 21602,
+                    "inputTokens": 21418,
+                    "cachedInputTokens": 20224,
+                    "cacheWriteInputTokens": 0,
+                    "outputTokens": 184,
+                    "reasoningOutputTokens": 147
+                  },
+                  "modelContextWindow": 258400
+                }
+              },
+              "received_at": "2026-09-09T10:03:49.088292Z"
+            },
+            {
+              "method": "account/rateLimits/updated",
+              "params": {
+                "rateLimits": {
+                  "limitId": "codex",
+                  "limitName": null,
+                  "primary": {
+                    "usedPercent": 68,
+                    "windowDurationMins": 300,
+                    "resetsAt": 1788954476
+                  },
+                  "secondary": {
+                    "usedPercent": 18,
+                    "windowDurationMins": 10080,
+                    "resetsAt": 1789462266
+                  },
+                  "credits": {
+                    "hasCredits": false,
+                    "unlimited": false,
+                    "balance": "0"
+                  },
+                  "individualLimit": null,
+                  "spendControlReached": null,
+                  "planType": "plus",
+                  "rateLimitReachedType": null
+                }
+              },
+              "received_at": "2026-09-09T10:03:49.088549Z"
+            },
+            {
+              "method": "thread/status/changed",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "status": {
+                  "type": "idle"
+                }
+              },
+              "received_at": "2026-09-09T10:03:49.096983Z"
+            },
+            {
+              "method": "turn/completed",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turn": {
+                  "id": "01a0859f-6d1c-7a50-8c20-049ef9e36e8b",
+                  "items": [
+                    {
+                      "type": "agentMessage",
+                      "id": "msg_094532bdf932fb7b016aa12f04c11887d086703f887cd7789b",
+                      "text": "Handoff completed successfully with exit code 0.\n\nRESULT_TOKEN=<redacted-token>",
+                      "phase": "final_answer",
+                      "memoryCitation": null,
+                      "delivery": null,
+                      "questions": null
+                    }
+                  ],
+                  "itemsView": "summary",
+                  "status": "completed",
+                  "error": null,
+                  "startedAt": 1788948213,
+                  "completedAt": 1788948229,
+                  "durationMs": 16057
+                }
+              },
+              "received_at": "2026-09-09T10:03:49.097114Z"
+            }
+          ],
+          "server_requests": [
+            {
+              "id": 0,
+              "method": "item/tool/call",
+              "params": {
+                "threadId": "01a0859f-351e-7652-ab60-50bdac5fe3ec",
+                "turnId": "01a0859f-356f-72e3-92b0-d738549e0f23",
+                "callId": "exec-f3b6dcc9-0343-4c59-bedb-daaa397fd498",
+                "namespace": null,
+                "tool": "codex_snooze_handoff",
+                "arguments": {
+                  "command": [
+                    "python3",
+                    "fixtures/handoff_long_job.py",
+                    "--duration",
+                    "0.7",
+                    "--run-count",
+                    "run_count.txt",
+                    "--result-token",
+                    "result_token.txt",
+                    "--result-json",
+                    "fixture_result.json",
+                    "--token",
+                    "<redacted-token>",
+                    "--exit-code",
+                    "0"
+                  ],
+                  "threshold_seconds": 0.2,
+                  "cwd": "<v04-fixture-root>/workspace"
+                }
+              },
+              "received_at": "2026-09-09T10:03:32.065718Z"
+            }
+          ],
+          "stderr_tail": []
+        }
+      },
+      "error": null,
+      "duration_seconds": 30.762
+    }
+  ],
+  "analysis": "All explicit handoff, turn-close, OS-only wait, completion and same-thread continuation conditions passed."
+}

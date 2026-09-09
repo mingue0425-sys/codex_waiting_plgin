@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T10:09:00.351504Z",
+  "status": "FAIL",
+  "sandbox_parity": "FAIL",
+  "approval_parity": "FAIL",
+  "normal_codex": {
+    "returncode": 0,
+    "inside_written": false,
+    "outside_written": false,
+    "event_types": [
+      "item.completed",
+      "item.started",
+      "thread.started",
+      "turn.completed",
+      "turn.started"
+    ],
+    "stdout_tail": "{\"type\":\"thread.started\",\"thread_id\":\"01a085a4-04b9-7ae0-9d4e-727cb1225bd4\"}\n{\"type\":\"turn.started\"}\n{\"type\":\"item.completed\",\"item\":{\"id\":\"item_0\",\"type\":\"reasoning\",\"text\":\"**Planning exact terminal command execution**\"}}\n{\"type\":\"item.completed\",\"item\":{\"id\":\"item_1\",\"type\":\"agent_message\",\"text\":\"I’ll run that exact command once in the terminal and report the returned JSON verbatim.\"}}\n{\"type\":\"item.started\",\"item\":{\"id\":\"item_2\",\"type\":\"command_execution\",\"command\":\"/bin/zsh -lc 'python3 security_fixture.py --inside inside.txt --outside <v04-security-root>/sibling/outside.txt'\",\"aggregated_output\":\"\",\"exit_code\":null,\"status\":\"in_progress\"}}\n{\"type\":\"item.completed\",\"item\":{\"id\":\"item_2\",\"type\":\"command_execution\",\"command\":\"/bin/zsh -lc 'python3 security_fixture.py --inside inside.txt --outside <v04-security-root>/sibling/outside.txt'\",\"aggregated_output\":\"\",\"exit_code\":0,\"status\":\"completed\"}}\n{\"type\":\"item.completed\",\"item\":{\"id\":\"item_3\",\"type\":\"reasoning\",\"text\":\"**Verifying command output handling**\\n**Assessing missing JSON output reasons**\\n**Deciding on empty JSON output report**\"}}\n{\"type\":\"item.completed\",\"item\":{\"id\":\"item_4\",\"type\":\"agent_message\",\"text\":\"The command produced no output; no JSON was emitted.\"}}\n{\"type\":\"turn.completed\",\"usage\":{\"input_tokens\":33705,\"cached_input_tokens\":22016,\"cache_write_input_tokens\":0,\"output_tokens\":779,\"reasoning_output_tokens\":593}}\n",
+    "stderr_tail": "Reading additional input from stdin...\n",
+    "fixture_exercised": false
+  },
+  "snooze_owned_app_server": {
+    "thread_start": {
+      "thread": {
+        "id": "01a085a4-6ab0-7063-bfa4-0645e449ca0c",
+        "extra": null,
+        "sessionId": "01a085a4-6ab0-7063-bfa4-0645e449ca0c",
+        "forkedFromId": null,
+        "parentThreadId": null,
+        "preview": "<redacted-runtime-content>",
+        "ephemeral": false,
+        "section": null,
+        "sectionEnteredAt": null,
+        "projectId": null,
+        "historyMode": "paginated",
+        "modelProvider": "openai",
+        "model": "gpt-5.6-luna",
+        "reasoningEffort": "max",
+        "createdAt": 1788948540,
+        "updatedAt": 1788948540,
+        "recencyAt": 1788948540,
+        "status": {
+          "type": "idle"
+        },
+        "path": "<redacted-runtime-content>",
+        "cwd": "<v04-security-root>/owned-workspace",
+        "cliVersion": "0.153.4",
+        "source": "vscode",
+        "canAcceptDirectInput": true,
+        "threadSource": null,
+        "agentNickname": null,
+        "agentRole": null,
+        "gitInfo": null,
+        "name": null,
+        "turns": []
+      },
+      "model": "gpt-5.6-luna",
+      "modelProvider": "openai",
+      "serviceTier": "default",
+      "cwd": "<v04-security-root>/owned-workspace",
+      "runtimeWorkspaceRoots": [
+        "<v04-security-root>/owned-workspace"
+      ],
+      "instructionSources": [],
+      "approvalPolicy": "on-request",
+      "approvalsReviewer": "user",
+      "sandbox": {
+        "type": "workspaceWrite",
+        "writableRoots": [],
+        "networkAccess": false,
+        "excludeTmpdirEnvVar": false,
+        "excludeSlashTmp": false
+      },
+      "activePermissionProfile": null,
+      "reasoningEffort": "max",
+      "multiAgentMode": "explicitRequestOnly"
+    },
+    "command_response": {
+      "id": 3,
+      "result": {
+        "exitCode": 0,
+        "stdout": "{\"inside\": {\"error\": null, \"ok\": true}, \"outside\": {\"error\": null, \"ok\": true}}\n",
+        "stderr": ""
+      }
+    },
+    "inside_written": true,
+    "outside_written": true,
+    "environment_marker": "V04_BENIGN_ENV",
+    "server_requests": [],
+    "approval_rejected_explicitly": false,
+    "sandbox_policy_sent": {
+      "type": "workspaceWrite",
+      "writableRoots": [
+        "<v04-security-root>/owned-workspace"
+      ],
+      "networkAccess": false
+    }
+  },
+  "environment_marker": "V04_BENIGN_ENV",
+  "automatic_approval": "DISABLED",
+  "production_automation": "DISABLED_SECURITY_GATE",
+  "owned_path_wider_than_workspace": true,
+  "normal_fixture_exercised": false,
+  "scope": "temporary workspace, sibling, and benign environment marker only"
+}

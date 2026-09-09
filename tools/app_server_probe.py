@@ -39,7 +39,7 @@ def utc_now() -> str:
 
 def redact(value: Any, key: str = "", *, max_string: int = 8000) -> Any:
     """Redact credential-shaped values and bound probe output size."""
-    if _SENSITIVE_KEY.search(key):
+    if _SENSITIVE_KEY.search(key) and isinstance(value, (str, bytes, bytearray, dict, list, tuple)):
         return "<redacted>"
     if _PRIVATE_CONTENT_KEY.search(key):
         return "<redacted-runtime-content>"

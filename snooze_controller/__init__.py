@@ -8,6 +8,10 @@ __all__ = [
     "AgentController",
     "CompletionRouter",
     "DeliveryController",
+    "DynamicHandoffTool",
+    "HandoffController",
+    "HandoffObservation",
+    "HandoffPhase",
     "NativeAppServerBackend",
     "ThreadRegistry",
 ]
@@ -26,6 +30,15 @@ def __getattr__(name: str):
         from .controller import DeliveryController
 
         return DeliveryController
+    if name in {"DynamicHandoffTool", "HandoffController", "HandoffObservation", "HandoffPhase"}:
+        from .handoff import DynamicHandoffTool, HandoffController, HandoffObservation, HandoffPhase
+
+        return {
+            "DynamicHandoffTool": DynamicHandoffTool,
+            "HandoffController": HandoffController,
+            "HandoffObservation": HandoffObservation,
+            "HandoffPhase": HandoffPhase,
+        }[name]
     if name == "NativeAppServerBackend":
         from .native_backend import NativeAppServerBackend
 

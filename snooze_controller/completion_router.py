@@ -63,6 +63,8 @@ class CompletionRouter:
                     raise CompletionRouterError("event id is already bound to another job or thread")
                 if existing.get("state") == "ACKED":
                     raise CompletionRouterError("completion event is already ACKED")
+                if existing.get("state") in {"CLAIMED", "STARTING", "SENDING"} and not allow_duplicate:
+                    raise CompletionRouterError("completion event is already in flight")
                 if existing.get("state") == "SENT_UNCONFIRMED" and not allow_duplicate:
                     raise CompletionRouterError("completion event is SENT_UNCONFIRMED; duplicate permission is required")
                 attempts = int(existing.get("attempts", 0)) + 1

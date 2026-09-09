@@ -336,25 +336,19 @@ class AppServerProcess:
                 method=request.method,
                 params=request.params,
             )
-            response: Optional[Dict[str, Any]] = None
-            if self.request_handler is not None:
-                try:
-                    response = self.request_handler(request)
-                except Exception as exc:  # handler failures must reject, never allow
-                    self._record("server_request_handler_error", error=f"{type(exc).__name__}: {exc}")
-            if response is None:
-                response = {
-                    "id": request.request_id,
-                    "error": {
-                        "code": -32001,
-                        "message": "Codex Snooze requires explicit handling of this server request",
-                    },
-                }
-            else:
-                response = dict(response)
-                response.setdefault("id", request.request_id)
-            self._send_raw(response, kind="server_response")
             self._messages.put(("server_request", request))
+            if self.request_handler is None:
+                self._reject_server_request(request)
+            else:
+                # A handler may issue a nested App Server request (for
+                # example command/exec under the server sandbox). Running it
+                # on the stdout reader would deadlock response dispatch.
+                threading.Thread(
+                    target=self._dispatch_server_request,
+                    args=(request,),
+                    name=f"app-server-request-{request.request_id}",
+                    daemon=True,
+                ).start()
             return
         if "method" in message:
             notification = {
@@ -369,6 +363,32 @@ class AppServerProcess:
                 self._notify_condition.notify_all()
             return
         self._record("json_message", value=message)
+
+    def _reject_server_request(self, request: ServerRequest) -> None:
+        self._send_raw(
+            {
+                "id": request.request_id,
+                "error": {
+                    "code": -32001,
+                    "message": "Codex Snooze requires explicit handling of this server request",
+                },
+            },
+            kind="server_response",
+        )
+
+    def _dispatch_server_request(self, request: ServerRequest) -> None:
+        response: Optional[Dict[str, Any]] = None
+        try:
+            if self.request_handler is not None:
+                response = self.request_handler(request)
+        except Exception as exc:  # handler failures must reject, never allow
+            self._record("server_request_handler_error", error=f"{type(exc).__name__}: {exc}")
+        if response is None:
+            self._reject_server_request(request)
+            return
+        response = dict(response)
+        response.setdefault("id", request.request_id)
+        self._send_raw(response, kind="server_response")
 
     def _send_raw(self, message: Dict[str, Any], *, kind: str) -> None:
         process = self._process

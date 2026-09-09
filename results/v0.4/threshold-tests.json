@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T10:04:49Z",
+  "scale": "0.15 scaled seconds per logical second; margin absorbs process spawn overhead",
+  "cases": [
+    {
+      "logical_threshold_seconds": 9.5,
+      "scaled_threshold_seconds": 1.425,
+      "fixture_duration_seconds": 0.2,
+      "returncode": 0,
+      "state": "COMPLETED",
+      "exit_code": 0,
+      "detached": false,
+      "expected": "COMPLETED",
+      "status": "PASS"
+    },
+    {
+      "logical_threshold_seconds": 10.0,
+      "scaled_threshold_seconds": 1.5,
+      "fixture_duration_seconds": 1.8,
+      "returncode": 0,
+      "state": "DETACHED",
+      "exit_code": null,
+      "detached": true,
+      "expected": "DETACHED",
+      "result_state": "COMPLETED",
+      "result_exit_code": 0,
+      "status": "PASS"
+    },
+    {
+      "logical_threshold_seconds": 10.5,
+      "scaled_threshold_seconds": 1.575,
+      "fixture_duration_seconds": 0.2,
+      "returncode": 0,
+      "state": "COMPLETED",
+      "exit_code": 0,
+      "detached": false,
+      "expected": "COMPLETED",
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS",
+  "semantics": "threshold_seconds is a foreground wait; it does not kill or time-limit the job"
+}

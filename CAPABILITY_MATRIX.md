@@ -35,6 +35,26 @@ and [results/v0.3/capabilities.md](results/v0.3/capabilities.md).
 | Token telemetry | PASS | Protocol usage events are recorded when exposed; no savings claim. |
 | PreToolUse interception | FAIL | Hook remains transparent and disabled. |
 
+## v0.4 explicit handoff
+
+The authoritative v0.4 aggregate is [results/v0.4/capabilities.json](results/v0.4/capabilities.json)
+and [results/v0.4/capabilities.md](results/v0.4/capabilities.md).
+
+| Capability | Result | Production consequence |
+|---|---|---|
+| Snooze-owned App Server handoff | PASS | Explicit experimental path only. |
+| Ten-second foreground handoff | PASS | The long job survives turn closure in the owned thread. |
+| Model idle during wait | PASS | No model events were observed during the primary job interval. |
+| Same-thread automatic continuation | PASS | Continuation uses the durable Snooze-owned registry mapping. |
+| Failure and stale propagation | PASS | Exit 7 and `COMPLETED_STALE` reach the continuation. |
+| App Server/controller crash recovery | PASS | Job and checkpoint survive; exactly-once remains unclaimed. |
+| Sandbox parity | FAIL | Automatic production handoff is disabled. |
+| Approval parity | FAIL | Automatic production handoff is disabled. |
+| Desktop attach | FAIL | v0.4 does not control Desktop-owned threads. |
+| Automatic PreToolUse interception | FAIL | The hook stays transparent. |
+| Native backend | PARTIAL | Exit/logging pass; host sandbox parity is unproven. |
+| Token savings | UNKNOWN | No savings claim is made. |
+
 ## v0.2 control-plane measurement
 
 The aggregate evidence is [results/v0.2/capabilities.json](results/v0.2/capabilities.json)

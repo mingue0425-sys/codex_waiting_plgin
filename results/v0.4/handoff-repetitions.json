@@ -1,0 +1,171 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T10:06:58Z",
+  "iterations": 20,
+  "passed": 20,
+  "status": "PASS",
+  "model_backed": false,
+  "results": [
+    {
+      "iteration": 1,
+      "status": "PASS",
+      "marker_state": "DETACHED",
+      "execution_state": "COMPLETED",
+      "exit_code": 0,
+      "run_count": 1
+    },
+    {
+      "iteration": 2,
+      "status": "PASS",
+      "marker_state": "DETACHED",
+      "execution_state": "COMPLETED",
+      "exit_code": 0,
+      "run_count": 1
+    },
+    {
+      "iteration": 3,
+      "status": "PASS",
+      "marker_state": "DETACHED",
+      "execution_state": "COMPLETED",
+      "exit_code": 0,
+      "run_count": 1
+    },
+    {
+      "iteration": 4,
+      "status": "PASS",
+      "marker_state": "DETACHED",
+      "execution_state": "COMPLETED",
+      "exit_code": 0,
+      "run_count": 1
+    },
+    {
+      "iteration": 5,
+      "status": "PASS",
+      "marker_state": "DETACHED",
+      "execution_state": "COMPLETED",
+      "exit_code": 0,
+      "run_count": 1
+    },
+    {
+      "iteration": 6,
+      "status": "PASS",
+      "marker_state": "DETACHED",
+      "execution_state": "COMPLETED",
+      "exit_code": 0,
+      "run_count": 1
+    },
+    {
+      "iteration": 7,
+      "status": "PASS",
+      "marker_state": "DETACHED",
+      "execution_state": "COMPLETED",
+      "exit_code": 0,
+      "run_count": 1
+    },
+    {
+      "iteration": 8,
+      "status": "PASS",
+      "marker_state": "DETACHED",
+      "execution_state": "COMPLETED",
+      "exit_code": 0,
+      "run_count": 1
+    },
+    {
+      "iteration": 9,
+      "status": "PASS",
+      "marker_state": "DETACHED",
+      "execution_state": "COMPLETED",
+      "exit_code": 0,
+      "run_count": 1
+    },
+    {
+      "iteration": 10,
+      "status": "PASS",
+      "marker_state": "DETACHED",
+      "execution_state": "COMPLETED",
+      "exit_code": 0,
+      "run_count": 1
+    },
+    {
+      "iteration": 11,
+      "status": "PASS",
+      "marker_state": "DETACHED",
+      "execution_state": "COMPLETED",
+      "exit_code": 0,
+      "run_count": 1
+    },
+    {
+      "iteration": 12,
+      "status": "PASS",
+      "marker_state": "DETACHED",
+      "execution_state": "COMPLETED",
+      "exit_code": 0,
+      "run_count": 1
+    },
+    {
+      "iteration": 13,
+      "status": "PASS",
+      "marker_state": "DETACHED",
+      "execution_state": "COMPLETED",
+      "exit_code": 0,
+      "run_count": 1
+    },
+    {
+      "iteration": 14,
+      "status": "PASS",
+      "marker_state": "DETACHED",
+      "execution_state": "COMPLETED",
+      "exit_code": 0,
+      "run_count": 1
+    },
+    {
+      "iteration": 15,
+      "status": "PASS",
+      "marker_state": "DETACHED",
+      "execution_state": "COMPLETED",
+      "exit_code": 0,
+      "run_count": 1
+    },
+    {
+      "iteration": 16,
+      "status": "PASS",
+      "marker_state": "DETACHED",
+      "execution_state": "COMPLETED",
+      "exit_code": 0,
+      "run_count": 1
+    },
+    {
+      "iteration": 17,
+      "status": "PASS",
+      "marker_state": "DETACHED",
+      "execution_state": "COMPLETED",
+      "exit_code": 0,
+      "run_count": 1
+    },
+    {
+      "iteration": 18,
+      "status": "PASS",
+      "marker_state": "DETACHED",
+      "execution_state": "COMPLETED",
+      "exit_code": 0,
+      "run_count": 1
+    },
+    {
+      "iteration": 19,
+      "status": "PASS",
+      "marker_state": "DETACHED",
+      "execution_state": "COMPLETED",
+      "exit_code": 0,
+      "run_count": 1
+    },
+    {
+      "iteration": 20,
+      "status": "PASS",
+      "marker_state": "DETACHED",
+      "execution_state": "COMPLETED",
+      "exit_code": 0,
+      "run_count": 1
+    }
+  ],
+  "duration_seconds": 21.773
+}

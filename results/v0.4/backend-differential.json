@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T09:58:08.348573Z",
+  "custom_supervisor": {
+    "supervisor_returncode": 0,
+    "execution_state": "COMPLETED",
+    "exit_code": 0,
+    "log_preview": "CUSTOM_STDERR\nCUSTOM_STDOUT\n",
+    "result_hash_present": true,
+    "handoff_suitable": true
+  },
+  "native_process_backend": {
+    "result": {
+      "process_handle": "snooze-a731388f-06dd-4dc5-a5a5-0ac4929b9242",
+      "exit_code": 0,
+      "stdout": "NATIVE_STDOUT\n",
+      "stderr": "NATIVE_STDERR\n",
+      "stdout_cap_reached": false,
+      "stderr_cap_reached": false
+    },
+    "exit_integrity": true,
+    "logging_observed": true,
+    "sandbox": "FAIL",
+    "approval": "UNKNOWN",
+    "handoff_suitable": false,
+    "reason": "installed process/spawn schema describes host execution without a Codex sandbox"
+  },
+  "custom_vs_native_exit_integrity": "PASS",
+  "custom_vs_native_logging": "PASS",
+  "native_sandbox": "FAIL",
+  "native_approval": "UNKNOWN",
+  "native_backend_mode": "EXPERIMENTAL_ONLY",
+  "status": "PARTIAL",
+  "exactly_once": "NOT_CLAIMED"
+}

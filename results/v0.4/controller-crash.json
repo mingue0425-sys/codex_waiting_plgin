@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T09:53:19.359404Z",
+  "status": "PASS",
+  "controller_crashed": true,
+  "checkpoint_persisted": true,
+  "job_survived_controller_crash": true,
+  "pending_completion_recovered": true,
+  "durable_thread_resume": "PASS",
+  "completion_after_controller_restart": "PASS",
+  "worker": {
+    "returncode": 73,
+    "stdout": "",
+    "stderr": ""
+  },
+  "checkpoint": {
+    "thread_id": "01a08595-46fd-7f01-9f31-883fd1075c6b",
+    "turn_id": "01a08595-4787-73b3-894b-631a6239f7e5",
+    "marker": {
+      "codex_snooze": true,
+      "event_version": 1,
+      "handoff_requested_at": 1788947564.781516,
+      "job_id": "374f4bc4-ca8e-4224-980d-17853be7457f",
+      "state": "DETACHED",
+      "supervisor_pid": 62720,
+      "threshold_seconds": 0.5
+    },
+    "item_id": "exec-fca6f06a-a0f3-41af-9f60-db25a30c2105",
+    "turn": {
+      "id": "01a08595-4787-73b3-894b-631a6239f7e5",
+      "items": [],
+      "itemsView": "notLoaded",
+      "status": "interrupted",
+      "error": null,
+      "startedAt": 1788947548,
+      "completedAt": 1788947564,
+      "durationMs": 16777
+    },
+    "app_server_pid": 62690
+  },
+  "job_result": {
+    "completed_at": "2026-09-09T09:52:47.451561Z",
+    "completion_event_id": "6c33d441-ed9d-4ec3-b786-a059aee577ce",
+    "duration_seconds": 3.112024,
+    "error_code": null,
+    "error_message": null,
+    "execution_state": "COMPLETED",
+    "exit_code": 0,
+    "job_id": "374f4bc4-ca8e-4224-980d-17853be7457f",
+    "log_preview": "HANDOFF_FIXTURE_START run_count=1\nHANDOFF_HEARTBEAT elapsed=0.00\nHANDOFF_DIAGNOSTIC elapsed=0.00\nHANDOFF_HEARTBEAT elapsed=1.03\nHANDOFF_DIAGNOSTIC elapsed=1.03\nHANDOFF_HEARTBEAT elapsed=2.01\nHANDOFF_DIAGNOSTIC elapsed=2.01\nHANDOFF_FIXTURE_COMPLETE RESULT_TOKEN=SNOOZE_V04_CONTROLLER_CRASH_1788947547338394000 run_count=1\n",
+    "logging": {
+      "combined_bytes": 881,
+      "combined_truncated": false,
+      "preview_truncated": false,
+      "state": "OK",
+      "stderr_bytes": 96,
+      "stderr_truncated": false,
+      "stdout_bytes": 225,
+      "stdout_truncated": false
+    },
+    "process_identity": {
+      "command_fingerprint": null,
+      "executable": null,
+      "pgid": 62725,
+      "pid": 62725,
+      "start_time": null
+    },
+    "project_fingerprint_end": {
+      "branch": null,
+      "head": null,
+      "index_diff_hash": null,
+      "kind": "NOT_A_GIT_REPO",
+      "root": null,
+      "status_porcelain_v2_hash": null,
+      "untracked_files_manifest_hash": null,
+      "working_tree_diff_hash": null
+    },
+    "project_fingerprint_start": {
+      "branch": null,
+      "head": null,
+      "index_diff_hash": null,
+      "kind": "NOT_A_GIT_REPO",
+      "root": null,
+      "status_porcelain_v2_hash": null,
+      "untracked_files_manifest_hash": null,
+      "working_tree_diff_hash": null
+    },
+    "result_sha256": "dbd6ba75e7e8dcea3d17dc63dafe8ebc7fae0e87c6c6d0cc33babfed2eb67db4",
+    "result_state": "SUCCESS",
+    "schema_version": 1,
+    "source_state_changed": false,
+    "spec_sha256": "eeb62e5d99d81d57f9cb9841fbb8a59db0b73b4ac5178d71d7d1e9981e5f9c67",
+    "started_at": "2026-09-09T09:52:44.339537Z",
+    "termination_signal": null
+  },
+  "continuation_turn": {
+    "id": "01a08595-95a3-7ec1-b261-33efe234eabc",
+    "items": [
+      {
+        "type": "agentMessage",
+        "id": "msg_0b3e7b8ae669f96d016aa12c8efe6887d0a92be82e60b69806",
+        "text": "RESULT_TOKEN=SNOOZE_V04_CONTROLLER_CRASH_1788947547338394000",
+        "phase": "final_answer",
+        "memoryCitation": null,
+        "delivery": null,
+        "questions": null
+      }
+    ],
+    "itemsView": "summary",
+    "status": "completed",
+    "error": null,
+    "startedAt": 1788947568,
+    "completedAt": 1788947599,
+    "durationMs": 31274
+  },
+  "error": null,
+  "exactly_once": "NOT_CLAIMED",
+  "duration_seconds": 52.021
+}

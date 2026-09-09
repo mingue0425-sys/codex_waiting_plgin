@@ -1,5 +1,27 @@
 # Test results
 
+## v0.4 validation
+
+The v0.4 standard-library suite contains **41 tests** and covers the prior
+supervisor/control-plane behavior plus structured marker parsing, nested
+`command/exec` policy forwarding, approval-request rejection, short-command
+transparency, detached nonzero exit propagation and model-activity filtering.
+
+The live evidence passed the primary explicit ten-second handoff, failure and
+stale propagation, 20 deterministic repetitions, 100 continuation races,
+threshold semantics, zsh/bash shell cases, App Server crash recovery,
+controller crash recovery and the directional agent benchmark. The security
+parity probe is intentionally recorded as **FAIL**: the owned command path
+allowed a sibling write under the supplied workspace policy and automatic
+approval behavior was not observed. Native backend differential status is
+**PARTIAL** and token savings are **UNKNOWN / not claimed**.
+
+Generated v0.4 evidence is under [results/v0.4/](results/v0.4/). The detailed
+reports are [V0.4_EXPLICIT_HANDOFF_REPORT.md](V0.4_EXPLICIT_HANDOFF_REPORT.md),
+[V0.4_CONTINUATION_REPORT.md](V0.4_CONTINUATION_REPORT.md),
+[V0.4_SECURITY_PARITY_REPORT.md](V0.4_SECURITY_PARITY_REPORT.md), and
+[V0.4_AGENT_BENCHMARK.md](V0.4_AGENT_BENCHMARK.md).
+
 The standard-library suite was run with:
 
 ```text

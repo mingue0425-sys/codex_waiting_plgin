@@ -42,6 +42,8 @@ class AgentController:
         sandbox: Optional[str] = "workspace-write",
         approval_policy: Optional[Any] = "on-request",
         model: Optional[str] = None,
+        developer_instructions: Optional[str] = None,
+        dynamic_tools: Optional[list[Dict[str, Any]]] = None,
         timeout: float = 30.0,
     ) -> Dict[str, Any]:
         if self.process.state != AppServerLifecycle.READY:
@@ -53,6 +55,10 @@ class AgentController:
             params["approvalPolicy"] = approval_policy
         if model:
             params["model"] = model
+        if developer_instructions is not None:
+            params["developerInstructions"] = developer_instructions
+        if dynamic_tools is not None:
+            params["dynamicTools"] = dynamic_tools
         response = self.process.request("thread/start", params, timeout=timeout)
         if response.get("error") is not None:
             raise AgentControllerError(f"thread/start failed: {response.get('error')}")
@@ -143,6 +149,29 @@ class AgentController:
         if self.thread_id and self.registry.get(self.thread_id) is not None:
             self.registry.update_turn(self.thread_id, target, status=turn.get("status"), completed_at=notification.get("received_at"))
         return turn
+
+    def completed_turn(self, turn_id: str) -> Optional[Dict[str, Any]]:
+        """Return the terminal turn payload already observed, if any."""
+        for item in reversed(self.process.notifications):
+            if item.get("method") != "turn/completed":
+                continue
+            turn = ((item.get("params") or {}).get("turn") or {})
+            if str(turn.get("id")) == str(turn_id):
+                return dict(turn)
+        return None
+
+    def interrupt_turn(self, turn_id: Optional[str] = None, *, timeout: float = 30.0) -> Dict[str, Any]:
+        target = turn_id or self.last_turn_id
+        if not target or not self.thread_id:
+            raise AgentControllerError("thread and turn ids are required to interrupt")
+        response = self.process.request(
+            "turn/interrupt",
+            {"threadId": self.thread_id, "turnId": target},
+            timeout=timeout,
+        )
+        if response.get("error") is not None:
+            raise AgentControllerError(f"turn/interrupt failed: {response.get('error')}")
+        return response.get("result") or {}
 
     def continue_turn(self, text: str, *, timeout: float = 30.0, wait_timeout: float = 300.0) -> Dict[str, Any]:
         self.start_turn(text, timeout=timeout)

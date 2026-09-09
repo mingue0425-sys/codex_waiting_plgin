@@ -5,7 +5,35 @@ under a detached supervisor. The supervisor owns the child process, waits for
 the real operating-system exit status, stores bounded logs and a durable result,
 and leaves a completion event in an outbox for explicit delivery.
 
-## Current gate
+## v0.4 current gate
+
+The v0.4 explicit handoff chain passes for a thread created and owned by
+Snooze:
+
+```text
+CONTROL PLANE = SNOOZE_APP_SERVER_EXPERIMENTAL
+SNOOZE-OWNED APP SERVER = PASS
+EXPLICIT HANDOFF = PASS
+10S HANDOFF = PASS
+MODEL IDLE DURING WAIT = PASS
+AUTO CONTINUATION = PASS
+SANDBOX PARITY = FAIL
+APPROVAL PARITY = FAIL
+DESKTOP ATTACH = FAIL
+AUTO PRETOOL INTERCEPTION = FAIL
+PRODUCTION PATH = CLI_RESUME_FALLBACK
+```
+
+The owned App Server probe supplied a workspace-only `command/exec` policy but
+the installed path still allowed a temporary sibling write. Automatic
+production handoff is therefore disabled by the security gate. The generated
+aggregate is [results/v0.4/capabilities.md](results/v0.4/capabilities.md), with
+the architecture and evidence in [V0.4_HANDOFF_ARCHITECTURE.md](V0.4_HANDOFF_ARCHITECTURE.md),
+[V0.4_EXPLICIT_HANDOFF_REPORT.md](V0.4_EXPLICIT_HANDOFF_REPORT.md),
+[V0.4_CONTINUATION_REPORT.md](V0.4_CONTINUATION_REPORT.md), and
+[V0.4_SECURITY_PARITY_REPORT.md](V0.4_SECURITY_PARITY_REPORT.md).
+
+## Historical v0.2 gate
 
 The v0.2 control-plane measurement is `APP_SERVER_PARTIAL`. The installed App
 Server responds to several disposable-thread operations, but Desktop identity,

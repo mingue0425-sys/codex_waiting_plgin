@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T09:22:14Z",
+  "results": [
+    {
+      "shell": "/bin/zsh",
+      "short_transparency": "PASS",
+      "short": {
+        "returncode": 0,
+        "stderr": "",
+        "state": "COMPLETED",
+        "exit_code": 0,
+        "result_state": "COMPLETED",
+        "pipeline": "ALPHA",
+        "quoted": [
+          "quoted value",
+          "PYTHON_OK"
+        ],
+        "python_marker": "PYTHON_OK"
+      },
+      "detached_handoff": "PASS",
+      "detached": {
+        "returncode": 0,
+        "stderr": "",
+        "state": "DETACHED",
+        "marker_persisted": true,
+        "execution_state": "COMPLETED",
+        "exit_code": 0,
+        "log_contains_long_ok": true
+      }
+    },
+    {
+      "shell": "/bin/bash",
+      "short_transparency": "PASS",
+      "short": {
+        "returncode": 0,
+        "stderr": "",
+        "state": "COMPLETED",
+        "exit_code": 0,
+        "result_state": "COMPLETED",
+        "pipeline": "ALPHA",
+        "quoted": [
+          "quoted value",
+          "PYTHON_OK"
+        ],
+        "python_marker": "PYTHON_OK"
+      },
+      "detached_handoff": "PASS",
+      "detached": {
+        "returncode": 0,
+        "stderr": "",
+        "state": "DETACHED",
+        "marker_persisted": true,
+        "execution_state": "COMPLETED",
+        "exit_code": 0,
+        "log_contains_long_ok": true
+      }
+    }
+  ],
+  "zsh_handoff": "PASS",
+  "bash_handoff": "PASS",
+  "status": "PASS",
+  "semantics": "threshold_seconds is a foreground handoff wait, not a command timeout or kill deadline"
+}
