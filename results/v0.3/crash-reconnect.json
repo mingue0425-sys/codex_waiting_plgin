@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T08:36:03.165972Z",
+  "app_server_crash": {
+    "status": "PASS",
+    "state_after_kill": "CRASHED",
+    "job_survives_app_server_loss": "PASS",
+    "job_error": null
+  },
+  "durable_thread_reconnect": {
+    "status": "PASS",
+    "thread_id": "01a0854f-3184-7282-a287-49df207e49b4",
+    "initial_turn": {
+      "id": "01a0854f-31de-7f73-b8f6-847823fbde00",
+      "items": [
+        {
+          "type": "agentMessage",
+          "id": "msg_081ee9a23e470027016aa11a72b44087d0934ad7e04d64aa97",
+          "text": "RECONNECT_READY",
+          "phase": "final_answer",
+          "memoryCitation": null,
+          "delivery": null,
+          "questions": null
+        }
+      ],
+      "itemsView": "summary",
+      "status": "completed",
+      "error": null,
+      "startedAt": 1788942954,
+      "completedAt": 1788942962,
+      "durationMs": 7938
+    },
+    "error": null,
+    "conversation_restored": true,
+    "live_tool_state_restored": "UNKNOWN",
+    "background_job_linkage_restored": "UNKNOWN"
+  },
+  "overall": "PASS",
+  "exactly_once": "NOT_CLAIMED"
+}

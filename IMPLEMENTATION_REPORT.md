@@ -30,6 +30,31 @@ The project stale probe passed tracked-file, untracked-file, branch and HEAD
 mutations in disposable repositories. Automatic resume, handoff, completion
 injection and PreToolUse interception remain disabled.
 
+## v0.3 owned App Server
+
+Track A inspected the live Desktop process tree and public App Server help. The
+Desktop-owned child used stdio and exposed no supported external attach or
+reconnect endpoint, so `DESKTOP_LIVE_ATTACH=FAIL` and the investigation stops.
+
+Track B adds `AppServerProcess`, `ThreadRegistry`, `AgentController`,
+`CompletionRouter` and an experimental `NativeAppServerBackend`. The owned
+process performs the installed initialize handshake, buffers partial JSONL,
+dispatches responses and notifications, records token usage, rejects approval
+server requests by default, and separates App Server crash state from job and
+thread state. `agent` is the explicit CLI mode; `submit` remains unchanged.
+
+The live disposable thread completed a simple turn and produced terminal and
+token events. A separate restart probe resumed a durable thread after the
+original owned App Server exited. The model-backed long-job handoff produced a
+terminal event but no durable Snooze result, so `E2E_LONG_JOB_HANDOFF` remains
+UNKNOWN. Sandbox and approval parity also remain UNKNOWN. The native process
+fixture passed for an explicit Python child, but that does not promote it above
+the parity gates.
+
+The v0.3 aggregate is `APP_SERVER_PARTIAL`, with `CLI_RESUME_FALLBACK` selected
+for production. No automatic features are enabled and
+`AUTO_PRETOOL_INTERCEPTION=FAIL` remains an architectural fact.
+
 Codex Snooze v0.1 implements the explicit supervisor milestone and the
 recoverable completion outbox. The design follows the capability probe rather
 than assuming that a Desktop thread can be controlled from an external process.

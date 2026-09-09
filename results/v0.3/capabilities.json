@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T08:14:12.667250Z",
+  "control_plane": "APP_SERVER_PARTIAL",
+  "selected_integration_mode": "CLI_RESUME_FALLBACK",
+  "owned_app_server_status": "PARTIAL",
+  "automatic_features_enabled": [],
+  "capabilities": [
+    {
+      "name": "DESKTOP_LIVE_ATTACH",
+      "status": "FAIL",
+      "evidence": "desktop-attach.json"
+    },
+    {
+      "name": "EXTERNAL_DESKTOP_ATTACH",
+      "status": "FAIL",
+      "evidence": "desktop-attach.json"
+    },
+    {
+      "name": "DESKTOP_UI_REFLECTION",
+      "status": "UNKNOWN",
+      "evidence": "No external UI acknowledgement surface."
+    },
+    {
+      "name": "DURABLE_THREAD_RESUME",
+      "status": "PASS",
+      "evidence": "crash-reconnect.json"
+    },
+    {
+      "name": "LIVE_THREAD_CONTINUATION",
+      "status": "UNKNOWN",
+      "evidence": "app-server-e2e.json"
+    },
+    {
+      "name": "SNOOZE_OWNED_APP_SERVER",
+      "status": "PARTIAL",
+      "evidence": "app-server-e2e.json, security-parity.json, crash-reconnect.json"
+    },
+    {
+      "name": "APP_SERVER_INITIALIZE",
+      "status": "PASS",
+      "evidence": "schema-probe.json and owned process trace"
+    },
+    {
+      "name": "NATIVE_PROCESS_SPAWN",
+      "status": "PASS",
+      "evidence": "native-backend.json"
+    },
+    {
+      "name": "TURN_HANDOFF",
+      "status": "UNKNOWN",
+      "evidence": "app-server-e2e.json"
+    },
+    {
+      "name": "LONG_JOB_SURVIVAL",
+      "status": "UNKNOWN",
+      "evidence": "native-backend.json and app-server-e2e.json"
+    },
+    {
+      "name": "COMPLETION_CONTINUATION",
+      "status": "PARTIAL",
+      "evidence": "app-server-e2e.json and handoff-races.json"
+    },
+    {
+      "name": "BUSY_THREAD_DELIVERY",
+      "status": "PARTIAL",
+      "evidence": "v0.2 concurrency-tests.json"
+    },
+    {
+      "name": "APP_SERVER_CRASH_DETECTION",
+      "status": "PASS",
+      "evidence": "crash-reconnect.json"
+    },
+    {
+      "name": "JOB_SURVIVES_APP_SERVER_LOSS",
+      "status": "PASS",
+      "evidence": "crash-reconnect.json"
+    },
+    {
+      "name": "SANDBOX_PARITY",
+      "status": "UNKNOWN",
+      "evidence": "security-parity.json"
+    },
+    {
+      "name": "APPROVAL_PARITY",
+      "status": "UNKNOWN",
+      "evidence": "security-parity.json"
+    },
+    {
+      "name": "TOKEN_TELEMETRY",
+      "status": "PASS",
+      "evidence": "token-benchmark.json/app-server-e2e.json"
+    },
+    {
+      "name": "TOKEN_SAVINGS",
+      "status": "UNKNOWN",
+      "evidence": "No savings inference."
+    },
+    {
+      "name": "AUTO_RESUME",
+      "status": "UNKNOWN",
+      "evidence": "Automatic Desktop resume is disabled."
+    },
+    {
+      "name": "AUTO_CONTINUATION",
+      "status": "UNKNOWN",
+      "evidence": "app-server-e2e.json"
+    },
+    {
+      "name": "AUTO_PRETOOL_INTERCEPTION",
+      "status": "FAIL",
+      "evidence": "The hook remains pass-through by design."
+    }
+  ],
+  "integration_flags": {
+    "DESKTOP_LIVE_ATTACH": "FAIL",
+    "DURABLE_THREAD_RESUME": "PASS",
+    "LIVE_THREAD_CONTINUATION": "UNKNOWN",
+    "SNOOZE_OWNED_APP_SERVER": "PARTIAL",
+    "TURN_HANDOFF": "UNKNOWN",
+    "LONG_JOB_SURVIVAL": "UNKNOWN",
+    "COMPLETION_CONTINUATION": "PARTIAL",
+    "BUSY_THREAD_DELIVERY": "PARTIAL",
+    "SANDBOX_PARITY": "UNKNOWN",
+    "APPROVAL_PARITY": "UNKNOWN",
+    "TOKEN_TELEMETRY": "PASS",
+    "AUTO_RESUME": "UNKNOWN",
+    "AUTO_CONTINUATION": "UNKNOWN",
+    "AUTO_PRETOOL_INTERCEPTION": "FAIL"
+  },
+  "evidence_files": [
+    "desktop-attach.json",
+    "schema-probe.json",
+    "app-server-e2e.json",
+    "native-backend.json",
+    "handoff-races.json",
+    "crash-reconnect.json",
+    "security-parity.json",
+    "token-benchmark.json"
+  ],
+  "notes": [
+    "Durable thread history, live core runtime, Desktop UI and owned App Server are separate objects.",
+    "The model-backed handoff fixture generated terminal events but no durable result, so automatic continuation remains disabled.",
+    "The experimental process/spawn fixture passed for an explicit Python process; sandbox and approval parity remain separate gates.",
+    "Exactly-once is not claimed because the installed protocol exposes no client idempotency key."
+  ]
+}

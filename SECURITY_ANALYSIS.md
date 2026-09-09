@@ -41,3 +41,23 @@ did not complete and remains UNKNOWN. Approval meaning, network boundary and
 general sandbox preservation were not promoted from assumptions. The optional
 hook therefore remains an inert `PASS_THROUGH`; the v0.2 aggregate marks
 automatic PreToolUse rewrite/interception FAIL and keeps it disabled.
+
+## v0.3 App Server boundary
+
+`AppServerProcess` owns only the subprocess it starts and treats stdout and
+stderr as separate channels. Its default response to an App Server approval or
+permission request is an explicit error requiring a caller decision. No
+Desktop process is attached, no fd is stolen and no credential is extracted.
+
+The thread registry records `owner=codex-snooze` and an App Server instance id,
+so a durable Desktop thread is not silently treated as an owned live thread.
+The completion router persists event ids and result hashes before continuation;
+`SENT_UNCONFIRMED` requires explicit duplicate permission and exactly-once is
+not claimed.
+
+The experimental `process/spawn` backend is feature-gated and was tested only
+with a temporary Python marker. The v0.3 differential model probe did not
+execute its workspace/sibling fixture in either normal or owned mode, leaving
+`SNOOZE_APP_SERVER_SANDBOX_PARITY=UNKNOWN` and
+`SNOOZE_APP_SERVER_APPROVAL_PARITY=UNKNOWN`. The native backend is therefore
+not the default execution route.

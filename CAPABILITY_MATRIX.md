@@ -17,6 +17,24 @@ and [results/capabilities.md](results/capabilities.md).
 | Manual completion outbox | PASS | `deliver`, `ack` and explicit duplicate-aware retry are enabled. |
 | Automatic completion injection | UNKNOWN | Feature gate keeps it disabled. |
 
+## v0.3 owned control plane
+
+The authoritative aggregate is [results/v0.3/capabilities.json](results/v0.3/capabilities.json)
+and [results/v0.3/capabilities.md](results/v0.3/capabilities.md).
+
+| Capability | Result | Production consequence |
+|---|---|---|
+| Desktop live attach | FAIL | Desktop attach research stops; no external injection is enabled. |
+| Snooze-owned App Server lifecycle | PARTIAL | Explicit `agent` mode is available, but handoff safety gates remain closed. |
+| Durable thread resume after owned-server restart | PASS | Conversation resume works in the disposable live probe; live tool state remains separate. |
+| Experimental native `process/spawn` fixture | PASS | Backend is opt-in only until parity is proven. |
+| Ten-second model handoff | UNKNOWN | Automatic completion continuation remains disabled. |
+| Completion router duplicate guard | PASS | Durable at-least-once marker and explicit ACK/retry are enabled. |
+| Sandbox parity | UNKNOWN | No automatic execution or wrapper rewrite. |
+| Approval parity | UNKNOWN | No blanket allow behavior. |
+| Token telemetry | PASS | Protocol usage events are recorded when exposed; no savings claim. |
+| PreToolUse interception | FAIL | Hook remains transparent and disabled. |
+
 ## v0.2 control-plane measurement
 
 The aggregate evidence is [results/v0.2/capabilities.json](results/v0.2/capabilities.json)

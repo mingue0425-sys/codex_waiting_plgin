@@ -40,6 +40,11 @@ class V02Tests(unittest.TestCase):
         bounded = redact({"long": "x" * 20}, max_string=8)
         self.assertTrue(bounded["long"].endswith("…<truncated>"))
 
+    def test_redaction_removes_local_home_prefix(self) -> None:
+        value = redact({"message": "/Users/gangmilan/.codex/runtime"})
+        self.assertNotIn("/Users/gangmilan", value["message"])
+        self.assertIn("<redacted-home>", value["message"])
+
     def test_extract_ids_accepts_protocol_casing(self) -> None:
         self.assertEqual(extract_ids({"threadId": "t", "turnId": "u"}), ("t", "u"))
         self.assertEqual(extract_ids({"thread_id": "t", "expectedTurnId": "u"}), ("t", "u"))

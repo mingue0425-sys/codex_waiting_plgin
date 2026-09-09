@@ -26,6 +26,11 @@ _SENSITIVE_KEY = re.compile(
 )
 _SENSITIVE_TEXT = re.compile(r"\b(?:sk|sess|tok|key)_[A-Za-z0-9._-]{12,}\b")
 _PRIVATE_CONTENT_KEY = re.compile(r"^(?:preview|path)$", re.IGNORECASE)
+_RUNTIME_PATH_PREFIXES = tuple(
+    prefix
+    for prefix in (str(Path.home()), os.environ.get("CODEX_HOME", ""))
+    if prefix
+)
 
 
 def utc_now() -> str:
@@ -46,6 +51,8 @@ def redact(value: Any, key: str = "", *, max_string: int = 8000) -> Any:
         return [redact(item, key, max_string=max_string) for item in value]
     if isinstance(value, str):
         value = _SENSITIVE_TEXT.sub("<redacted>", value)
+        for prefix in _RUNTIME_PATH_PREFIXES:
+            value = value.replace(prefix, "<redacted-home>")
         if len(value) > max_string:
             return value[:max_string] + "…<truncated>"
     return value

@@ -44,3 +44,23 @@ v0.2 control-plane limitations:
 - The Desktop-to-CLI and Desktop-to-App-Server identity relationship is not
   established. `APP_SERVER_PARTIAL` describes measured protocol reachability,
   not permission to control the user's Desktop turn.
+
+v0.3 control-plane limitations:
+
+- The Desktop attach probe found a Desktop-owned stdio App Server child and no
+  public external reconnect surface. Desktop live attach is FAIL.
+- The owned App Server model handoff generated terminal events but no durable
+  Snooze result in the temporary store. Ten-second handoff and same-thread
+  automatic continuation remain UNKNOWN.
+- The experimental native process API passed an explicit Python process, while
+  model tool, shell-login and long-job behavior were not promoted from that
+  fixture. Sandbox and approval parity remain UNKNOWN.
+- Durable thread resume after an owned App Server restart passed, but live tool
+  state and background job linkage were not restored or claimed.
+- App Server server requests are rejected by default. The controller does not
+  infer user approval and does not provide a blanket allow handler.
+- The completion router is at-least-once compatible. Exactly-once continuation
+  is unavailable without a protocol idempotency key and remains unclaimed.
+- The installed App Server exposed token usage notifications, but the workload
+  benchmark did not complete its marker in either compared path. Token savings
+  remain UNKNOWN.

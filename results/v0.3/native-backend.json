@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T08:35:09.591341Z",
+  "backend": "NativeAppServerBackend",
+  "experimental_api": true,
+  "status": "PASS",
+  "initialize_result_keys": [
+    "codexHome",
+    "platformFamily",
+    "platformOs",
+    "userAgent"
+  ],
+  "result": {
+    "process_handle": "snooze-4bb990af-1bd8-43ce-8807-09edd3fe392e",
+    "exit_code": 0,
+    "stdout": "",
+    "stderr": "",
+    "stdout_cap_reached": false,
+    "stderr_cap_reached": false
+  },
+  "marker_written": true,
+  "wall_seconds": 2.063,
+  "process_notifications": [
+    "process/exited"
+  ],
+  "approval_policy": "not_auto_allowed",
+  "sandbox_parity": "UNKNOWN",
+  "app_server_state_after_stop": "STOPPED"
+}

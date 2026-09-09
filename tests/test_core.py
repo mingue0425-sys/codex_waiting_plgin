@@ -294,9 +294,13 @@ class CoreTests(unittest.TestCase):
             self.assertEqual(completed.returncode, 0)
             handoff = json.loads(completed.stdout)
             self.assertTrue(handoff["handoff"])
-            time.sleep(0.45)
             store = JobStore(Path(temporary) / "store")
-            result = store.read_result(handoff["job_id"])
+            deadline = time.monotonic() + 3.0
+            result = None
+            while result is None and time.monotonic() < deadline:
+                result = store.read_result(handoff["job_id"])
+                if result is None:
+                    time.sleep(0.05)
             self.assertIsNotNone(result)
             self.assertEqual(result["exit_code"], 0)
 

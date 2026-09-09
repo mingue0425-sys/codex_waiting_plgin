@@ -16,6 +16,8 @@ from .recovery import recover_store
 from .store import JobStore
 from .supervisor import cancel_job
 from snooze_controller.controller import DeliveryController, DeliveryControllerError
+from snooze_controller.agent import AgentController, AgentControllerError
+from snooze_controller.thread_registry import ThreadRegistry
 
 
 def _project_root() -> Path:
@@ -273,6 +275,49 @@ def resume(args: argparse.Namespace) -> int:
     return 0
 
 
+def agent(args: argparse.Namespace) -> int:
+    """Run an explicit task through a Snooze-owned App Server thread."""
+    try:
+        cwd = Path(args.cwd or os.getcwd()).expanduser().resolve()
+        if not cwd.is_dir():
+            raise ValueError(f"cwd is not a directory: {cwd}")
+        registry_path = Path(args.registry) if args.registry else Path(args.store) / "threads.json"
+        trace_path = Path(args.event_trace) if args.event_trace else None
+        controller = AgentController(
+            ThreadRegistry(registry_path),
+            cwd=cwd,
+            event_trace=trace_path,
+        )
+        if args.resume_thread:
+            summary = controller.run_existing(
+                args.resume_thread,
+                args.task,
+                cwd=cwd,
+                continuation=args.continuation,
+                start_timeout=args.start_timeout,
+                request_timeout=args.request_timeout,
+                turn_timeout=args.turn_timeout,
+            )
+        else:
+            summary = controller.run(
+                args.task,
+                cwd=cwd,
+                sandbox=args.sandbox,
+                approval_policy=args.approval_policy,
+                model=args.model,
+                continuation=args.continuation,
+                start_timeout=args.start_timeout,
+                request_timeout=args.request_timeout,
+                turn_timeout=args.turn_timeout,
+            )
+    except (OSError, ValueError, KeyError, AgentControllerError, RuntimeError) as exc:
+        print(f"agent failed: {exc}", file=sys.stderr)
+        return 2
+    print(json.dumps(summary, ensure_ascii=False, indent=2))
+    turns = summary.get("turns", [])
+    return 0 if turns and all(item.get("status") == "completed" for item in turns) else 1
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="codex-snooze")
     parser.add_argument("--store", default=str(default_store()), help="job store directory")
@@ -342,6 +387,33 @@ def build_parser() -> argparse.ArgumentParser:
     resume_parser.add_argument("--timeout", type=float, default=300.0)
     resume_parser.add_argument("--allow-duplicate", action="store_true")
     resume_parser.set_defaults(function=resume)
+
+    agent_parser = subparsers.add_parser(
+        "agent",
+        help="run an explicit task through a Snooze-owned Codex App Server",
+    )
+    agent_parser.add_argument("--task", required=True, help="explicit user task for the owned thread")
+    agent_parser.add_argument("--resume-thread", help="resume a thread previously recorded by the Snooze registry")
+    agent_parser.add_argument("--cwd")
+    agent_parser.add_argument("--registry", help="durable Snooze thread registry JSON path")
+    agent_parser.add_argument("--event-trace", help="bounded redacted App Server event trace path")
+    agent_parser.add_argument("--model")
+    agent_parser.add_argument(
+        "--sandbox",
+        choices=("read-only", "workspace-write", "danger-full-access"),
+        default="workspace-write",
+    )
+    agent_parser.add_argument(
+        "--approval-policy",
+        choices=("untrusted", "on-request", "never"),
+        default="on-request",
+        help="policy passed to the App Server; no controller blanket allow is used",
+    )
+    agent_parser.add_argument("--continuation", help="optional explicit second turn on the same live thread")
+    agent_parser.add_argument("--start-timeout", type=float, default=20.0)
+    agent_parser.add_argument("--request-timeout", type=float, default=30.0)
+    agent_parser.add_argument("--turn-timeout", type=float, default=300.0)
+    agent_parser.set_defaults(function=agent)
     return parser
 
 

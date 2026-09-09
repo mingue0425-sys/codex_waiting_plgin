@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T08:35:10.171852Z",
+  "overall": "PARTIAL",
+  "checks": {
+    "event_claim_persisted": {
+      "status": "PASS",
+      "state": "CLAIMED"
+    },
+    "same_event_routes_once": {
+      "status": "PASS",
+      "turn_id": "turn-1"
+    },
+    "duplicate_guard": {
+      "status": "PASS",
+      "error": "completion event is SENT_UNCONFIRMED; duplicate permission is required"
+    },
+    "ack_state": {
+      "status": "PASS",
+      "state": "ACKED"
+    },
+    "owned_thread_and_turn": {
+      "status": "PASS",
+      "owner": "codex-snooze",
+      "thread_id": "fake-thread"
+    },
+    "partial_jsonl_reader": {
+      "status": "PASS"
+    },
+    "crash_detection": {
+      "status": "PASS",
+      "state": "CRASHED"
+    },
+    "turn_response_loss_is_retryable": {
+      "status": "PASS",
+      "error": "timed out waiting for turn/start response 3"
+    },
+    "exactly_once": {
+      "status": "UNKNOWN",
+      "reason": "The installed protocol exposes no client idempotency key; SENT_UNCONFIRMED remains at-least-once."
+    }
+  },
+  "controller_turns": 1,
+  "process_lifecycle": "STOPPED",
+  "exactly_once_claim": "NOT_CLAIMED"
+}

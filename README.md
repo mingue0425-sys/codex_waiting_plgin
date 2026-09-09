@@ -35,6 +35,32 @@ turn completed without invoking the requested terminal tool, so the generated
 latest capability remains `UNKNOWN`. No automatic PreToolUse rewrite or Desktop
 resume is enabled.
 
+## v0.3 result
+
+The v0.3 aggregate is [results/v0.3/capabilities.md](results/v0.3/capabilities.md).
+The Desktop attach probe is **FAIL**: the running Desktop owns a stdio App
+Server child and no supported external reconnect surface was observed. The new
+Snooze-owned App Server controller is implemented and its initialize, JSONL,
+thread registry, crash/reconnect, native process fixture and duplicate-marker
+tests are available, but the model-backed ten-second handoff and sandbox/
+approval parity are **UNKNOWN**. The selected production route remains
+`CLI_RESUME_FALLBACK`; the owned App Server route is explicit and experimental.
+
+Run an explicit owned thread:
+
+```bash
+./scripts/codex-snooze --store "$HOME/.codex-snooze" agent \
+  --cwd "$PWD" \
+  --task 'Use the terminal tool to run the explicitly named benign fixture and report its result.' \
+  --event-trace /tmp/codex-snooze-agent-events.json
+```
+
+The agent command uses `on-request` approval by default and rejects unsolicited
+server requests. It does not rewrite tool calls or infer which commands are
+long-running. See [V0.3_APP_SERVER_ARCHITECTURE.md](V0.3_APP_SERVER_ARCHITECTURE.md),
+[V0.3_LIVE_THREAD_REPORT.md](V0.3_LIVE_THREAD_REPORT.md), and
+[V0.3_HANDOFF_E2E_REPORT.md](V0.3_HANDOFF_E2E_REPORT.md).
+
 ## Quick start
 
 Run a command to completion in the foreground:
@@ -151,6 +177,7 @@ python3 -m unittest discover -s tests -v
 python3 probes/capability_probe.py --live
 python3 probes/token_benchmark.py
 python3 probes/v0_2_report.py
+python3 probes/v0_3_report.py
 ```
 
 See [IMPLEMENTATION_REPORT.md](IMPLEMENTATION_REPORT.md),

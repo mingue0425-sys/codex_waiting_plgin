@@ -1,0 +1,2663 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T08:42:09.773382Z",
+  "probe": "observation_only_desktop_attach",
+  "status": "FAIL",
+  "meaning": "Desktop owns an App Server child, but the observed transport is stdio and no supported external attach/reconnect endpoint is exposed.",
+  "desktop_process_count": 15,
+  "desktop_processes": [
+    {
+      "pid": 8804,
+      "ppid": 1,
+      "comm": "/Applications/Ch",
+      "classification": "desktop",
+      "argv_head": "ChatGPT",
+      "transport": null
+    },
+    {
+      "pid": 8816,
+      "ppid": 1,
+      "comm": "/Applications/Ch",
+      "classification": "desktop",
+      "argv_head": "Codex",
+      "transport": null
+    },
+    {
+      "pid": 8818,
+      "ppid": 1,
+      "comm": "/Applications/Ch",
+      "classification": "desktop",
+      "argv_head": "Codex",
+      "transport": null
+    },
+    {
+      "pid": 8821,
+      "ppid": 8804,
+      "comm": "/Applications/Ch",
+      "classification": "desktop",
+      "argv_head": "Codex",
+      "transport": null
+    },
+    {
+      "pid": 8823,
+      "ppid": 8804,
+      "comm": "/Applications/Ch",
+      "classification": "desktop",
+      "argv_head": "Codex",
+      "transport": null
+    },
+    {
+      "pid": 8824,
+      "ppid": 8804,
+      "comm": "/Applications/Ch",
+      "classification": "desktop",
+      "argv_head": "Codex",
+      "transport": null
+    },
+    {
+      "pid": 8844,
+      "ppid": 8804,
+      "comm": "/Applications/Ch",
+      "classification": "desktop",
+      "argv_head": "Codex",
+      "transport": null
+    },
+    {
+      "pid": 8904,
+      "ppid": 8804,
+      "comm": "<redacted-home>",
+      "classification": "desktop",
+      "argv_head": "Codex",
+      "transport": null
+    },
+    {
+      "pid": 8962,
+      "ppid": 8804,
+      "comm": "/Applications/Ch",
+      "classification": "desktop",
+      "argv_head": "Codex",
+      "transport": null
+    },
+    {
+      "pid": 9257,
+      "ppid": 8804,
+      "comm": "/Applications/Ch",
+      "classification": "desktop",
+      "argv_head": "Codex",
+      "transport": null
+    },
+    {
+      "pid": 12545,
+      "ppid": 8804,
+      "comm": "/Applications/Ch",
+      "classification": "desktop",
+      "argv_head": "Codex",
+      "transport": null
+    },
+    {
+      "pid": 17419,
+      "ppid": 8804,
+      "comm": "/Applications/Ch",
+      "classification": "desktop",
+      "argv_head": "Codex",
+      "transport": null
+    },
+    {
+      "pid": 17598,
+      "ppid": 8904,
+      "comm": "<redacted-home>",
+      "classification": "desktop",
+      "argv_head": "Codex",
+      "transport": null
+    },
+    {
+      "pid": 34523,
+      "ppid": 34522,
+      "comm": "/opt/homebrew/li",
+      "classification": "desktop",
+      "argv_head": "codex",
+      "transport": null
+    },
+    {
+      "pid": 72191,
+      "ppid": 72190,
+      "comm": "/opt/homebrew/li",
+      "classification": "desktop",
+      "argv_head": "codex",
+      "transport": null
+    }
+  ],
+  "codex_descendants": [
+    {
+      "pid": 8841,
+      "ppid": 8804,
+      "comm": "/Applications/Ch",
+      "classification": "app_server",
+      "argv_head": "codex",
+      "transport": null
+    },
+    {
+      "pid": 35852,
+      "ppid": 34531,
+      "comm": "/Applications/Ch",
+      "classification": "app_server",
+      "argv_head": "codex",
+      "transport": "stdio://"
+    },
+    {
+      "pid": 25942,
+      "ppid": 72244,
+      "comm": "/Applications/Ch",
+      "classification": "app_server",
+      "argv_head": "codex",
+      "transport": "stdio://"
+    }
+  ],
+  "app_server_children": [
+    {
+      "pid": 8841,
+      "ppid": 8804,
+      "comm": "/Applications/Ch",
+      "classification": "app_server",
+      "argv_head": "codex",
+      "transport": null
+    },
+    {
+      "pid": 35852,
+      "ppid": 34531,
+      "comm": "/Applications/Ch",
+      "classification": "app_server",
+      "argv_head": "codex",
+      "transport": "stdio://"
+    },
+    {
+      "pid": 25942,
+      "ppid": 72244,
+      "comm": "/Applications/Ch",
+      "classification": "app_server",
+      "argv_head": "codex",
+      "transport": "stdio://"
+    }
+  ],
+  "process_tree": [
+    {
+      "pid": 8804,
+      "ppid": 1,
+      "comm": "/Applications/Ch",
+      "classification": "desktop",
+      "argv_head": "ChatGPT",
+      "transport": null
+    },
+    {
+      "pid": 8816,
+      "ppid": 1,
+      "comm": "/Applications/Ch",
+      "classification": "desktop",
+      "argv_head": "Codex",
+      "transport": null
+    },
+    {
+      "pid": 8818,
+      "ppid": 1,
+      "comm": "/Applications/Ch",
+      "classification": "desktop",
+      "argv_head": "Codex",
+      "transport": null
+    },
+    {
+      "pid": 8821,
+      "ppid": 8804,
+      "comm": "/Applications/Ch",
+      "classification": "desktop",
+      "argv_head": "Codex",
+      "transport": null
+    },
+    {
+      "pid": 8823,
+      "ppid": 8804,
+      "comm": "/Applications/Ch",
+      "classification": "desktop",
+      "argv_head": "Codex",
+      "transport": null
+    },
+    {
+      "pid": 8824,
+      "ppid": 8804,
+      "comm": "/Applications/Ch",
+      "classification": "desktop",
+      "argv_head": "Codex",
+      "transport": null
+    },
+    {
+      "pid": 8844,
+      "ppid": 8804,
+      "comm": "/Applications/Ch",
+      "classification": "desktop",
+      "argv_head": "Codex",
+      "transport": null
+    },
+    {
+      "pid": 8904,
+      "ppid": 8804,
+      "comm": "<redacted-home>",
+      "classification": "desktop",
+      "argv_head": "Codex",
+      "transport": null
+    },
+    {
+      "pid": 8962,
+      "ppid": 8804,
+      "comm": "/Applications/Ch",
+      "classification": "desktop",
+      "argv_head": "Codex",
+      "transport": null
+    },
+    {
+      "pid": 9257,
+      "ppid": 8804,
+      "comm": "/Applications/Ch",
+      "classification": "desktop",
+      "argv_head": "Codex",
+      "transport": null
+    },
+    {
+      "pid": 12545,
+      "ppid": 8804,
+      "comm": "/Applications/Ch",
+      "classification": "desktop",
+      "argv_head": "Codex",
+      "transport": null
+    },
+    {
+      "pid": 17419,
+      "ppid": 8804,
+      "comm": "/Applications/Ch",
+      "classification": "desktop",
+      "argv_head": "Codex",
+      "transport": null
+    },
+    {
+      "pid": 17598,
+      "ppid": 8904,
+      "comm": "<redacted-home>",
+      "classification": "desktop",
+      "argv_head": "Codex",
+      "transport": null
+    },
+    {
+      "pid": 34523,
+      "ppid": 34522,
+      "comm": "/opt/homebrew/li",
+      "classification": "desktop",
+      "argv_head": "codex",
+      "transport": null
+    },
+    {
+      "pid": 72191,
+      "ppid": 72190,
+      "comm": "/opt/homebrew/li",
+      "classification": "desktop",
+      "argv_head": "codex",
+      "transport": null
+    },
+    {
+      "pid": 8839,
+      "ppid": 8804,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "bare-modifier-monitor",
+      "transport": null
+    },
+    {
+      "pid": 8841,
+      "ppid": 8804,
+      "comm": "/Applications/Ch",
+      "classification": "app_server",
+      "argv_head": "codex",
+      "transport": null
+    },
+    {
+      "pid": 57148,
+      "ppid": 34523,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 34526,
+      "ppid": 34523,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 34527,
+      "ppid": 34523,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 34528,
+      "ppid": 34523,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 34544,
+      "ppid": 34523,
+      "comm": "/opt/homebrew/li",
+      "classification": "other",
+      "argv_head": "codex-code-mode-host",
+      "transport": null
+    },
+    {
+      "pid": 34590,
+      "ppid": 34523,
+      "comm": "zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 34595,
+      "ppid": 34523,
+      "comm": "zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 34596,
+      "ppid": 34523,
+      "comm": "zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 34597,
+      "ppid": 34523,
+      "comm": "zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 34600,
+      "ppid": 34523,
+      "comm": "zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 34602,
+      "ppid": 34523,
+      "comm": "zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 34604,
+      "ppid": 34523,
+      "comm": "zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 34606,
+      "ppid": 34523,
+      "comm": "zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 34611,
+      "ppid": 34523,
+      "comm": "zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 11791,
+      "ppid": 72191,
+      "comm": "zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 15731,
+      "ppid": 72191,
+      "comm": "zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 85588,
+      "ppid": 72191,
+      "comm": "zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 72230,
+      "ppid": 72191,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 72231,
+      "ppid": 72191,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 72232,
+      "ppid": 72191,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 72261,
+      "ppid": 72191,
+      "comm": "/opt/homebrew/li",
+      "classification": "other",
+      "argv_head": "codex-code-mode-host",
+      "transport": null
+    },
+    {
+      "pid": 85601,
+      "ppid": 72191,
+      "comm": "zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 86506,
+      "ppid": 72191,
+      "comm": "zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 95748,
+      "ppid": 72191,
+      "comm": "zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 95814,
+      "ppid": 72191,
+      "comm": "zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 96807,
+      "ppid": 72191,
+      "comm": "zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 97298,
+      "ppid": 72191,
+      "comm": "zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 98951,
+      "ppid": 72191,
+      "comm": "zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 99324,
+      "ppid": 72191,
+      "comm": "zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 99860,
+      "ppid": 72191,
+      "comm": "zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 14438,
+      "ppid": 72191,
+      "comm": "zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 14450,
+      "ppid": 72191,
+      "comm": "zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 15421,
+      "ppid": 72191,
+      "comm": "zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 25966,
+      "ppid": 72191,
+      "comm": "zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 26361,
+      "ppid": 72191,
+      "comm": "zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 30383,
+      "ppid": 72191,
+      "comm": "zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 9064,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 9065,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 9066,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 9067,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 11598,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 11599,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 11600,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 11601,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 12028,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 12029,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 12030,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 12031,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 12369,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "codex-code-mode-host",
+      "transport": null
+    },
+    {
+      "pid": 12679,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 12680,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 12681,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 12682,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 12875,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 12876,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 12877,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 12878,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 12932,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 12933,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 12934,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 12935,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 13342,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 13343,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 13344,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 13345,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 13511,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 13512,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 13513,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 13514,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 13552,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 13553,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 13554,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 13555,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 13861,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 13862,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 13863,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 13864,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 14232,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 14233,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 14234,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 14235,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 17159,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 17160,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 17161,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 17162,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 17983,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 17984,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 17985,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 17986,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 18877,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 18878,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 18879,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 18880,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 19000,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 19001,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 19002,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 19003,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 19544,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 19545,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 19546,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 19547,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 21799,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 21800,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 21801,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 21802,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 22414,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 22415,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 22416,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 22417,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 25585,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 25586,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 25587,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 25588,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 25804,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 25805,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 25806,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 25807,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 29837,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 29838,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 29839,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 29840,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 30350,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 30351,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 30352,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 30353,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 30987,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 30988,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 30989,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 30990,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 31409,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 31410,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 31411,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 31412,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 31823,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 31824,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 31825,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 31826,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 32303,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 32304,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 32305,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 32306,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 32481,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 32482,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 32483,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 32484,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 33817,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 33818,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 33819,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 33820,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 34103,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 34104,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 34105,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 34106,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 35197,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 35198,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 35199,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 35200,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 44305,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 44306,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 44307,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 44308,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 44924,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 44925,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 44926,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 44927,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 45233,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 45234,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 45235,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 45236,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 50079,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 50080,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 50081,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 50082,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 54112,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 54113,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 54114,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 54115,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 54567,
+      "ppid": 8841,
+      "comm": "/bin/zsh",
+      "classification": "other",
+      "argv_head": "zsh",
+      "transport": null
+    },
+    {
+      "pid": 54568,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 54569,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 54570,
+      "ppid": 8841,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 57149,
+      "ppid": 57148,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 34530,
+      "ppid": 34526,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 34531,
+      "ppid": 34528,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 72243,
+      "ppid": 72230,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 72244,
+      "ppid": 72231,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 9072,
+      "ppid": 9066,
+      "comm": "<redacted-home>",
+      "classification": "other",
+      "argv_head": "chrome-headless-shell",
+      "transport": null
+    },
+    {
+      "pid": 9105,
+      "ppid": 9066,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 9084,
+      "ppid": 9067,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 11603,
+      "ppid": 11598,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 11604,
+      "ppid": 11601,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 12033,
+      "ppid": 12028,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 12034,
+      "ppid": 12029,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 12685,
+      "ppid": 12679,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 12684,
+      "ppid": 12681,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 12880,
+      "ppid": 12876,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 12881,
+      "ppid": 12877,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 12937,
+      "ppid": 12933,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 12938,
+      "ppid": 12934,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 13347,
+      "ppid": 13342,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 13349,
+      "ppid": 13343,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 13516,
+      "ppid": 13511,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 13517,
+      "ppid": 13512,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 13557,
+      "ppid": 13552,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 13558,
+      "ppid": 13554,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 13866,
+      "ppid": 13862,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 13867,
+      "ppid": 13863,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 14237,
+      "ppid": 14232,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 14238,
+      "ppid": 14235,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 17165,
+      "ppid": 17160,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 17164,
+      "ppid": 17162,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 17989,
+      "ppid": 17983,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 17988,
+      "ppid": 17984,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 18883,
+      "ppid": 18878,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 18882,
+      "ppid": 18879,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 19006,
+      "ppid": 19001,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 19005,
+      "ppid": 19003,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 19550,
+      "ppid": 19545,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 19549,
+      "ppid": 19546,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 21804,
+      "ppid": 21799,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 21805,
+      "ppid": 21802,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 22419,
+      "ppid": 22415,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 22420,
+      "ppid": 22417,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 25592,
+      "ppid": 25585,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 25590,
+      "ppid": 25586,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 25809,
+      "ppid": 25804,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 25810,
+      "ppid": 25807,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 29842,
+      "ppid": 29837,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 29843,
+      "ppid": 29839,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 30355,
+      "ppid": 30351,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 30356,
+      "ppid": 30353,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 30992,
+      "ppid": 30987,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 30995,
+      "ppid": 30990,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 31415,
+      "ppid": 31409,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 31414,
+      "ppid": 31412,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 31828,
+      "ppid": 31824,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 31829,
+      "ppid": 31825,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 32308,
+      "ppid": 32303,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 32309,
+      "ppid": 32305,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 32486,
+      "ppid": 32481,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 32487,
+      "ppid": 32484,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 33823,
+      "ppid": 33819,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 33822,
+      "ppid": 33820,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 34108,
+      "ppid": 34105,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 34109,
+      "ppid": 34106,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 35202,
+      "ppid": 35197,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 35203,
+      "ppid": 35199,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 44311,
+      "ppid": 44306,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 44310,
+      "ppid": 44308,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 44930,
+      "ppid": 44925,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 44929,
+      "ppid": 44927,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 45238,
+      "ppid": 45233,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 45239,
+      "ppid": 45236,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 50084,
+      "ppid": 50080,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 50086,
+      "ppid": 50081,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 54117,
+      "ppid": 54112,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 54118,
+      "ppid": 54114,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 54572,
+      "ppid": 54567,
+      "comm": "/opt/homebrew/Ce",
+      "classification": "other",
+      "argv_head": "Python",
+      "transport": null
+    },
+    {
+      "pid": 54574,
+      "ppid": 54569,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node_repl",
+      "transport": null
+    },
+    {
+      "pid": 57150,
+      "ppid": 57149,
+      "comm": "ps",
+      "classification": "other",
+      "argv_head": "ps",
+      "transport": null
+    },
+    {
+      "pid": 35850,
+      "ppid": 34531,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 35851,
+      "ppid": 34531,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 35852,
+      "ppid": 34531,
+      "comm": "/Applications/Ch",
+      "classification": "app_server",
+      "argv_head": "codex",
+      "transport": "stdio://"
+    },
+    {
+      "pid": 25940,
+      "ppid": 72244,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 25941,
+      "ppid": 72244,
+      "comm": "/Applications/Ch",
+      "classification": "other",
+      "argv_head": "node",
+      "transport": null
+    },
+    {
+      "pid": 25942,
+      "ppid": 72244,
+      "comm": "/Applications/Ch",
+      "classification": "app_server",
+      "argv_head": "codex",
+      "transport": "stdio://"
+    },
+    {
+      "pid": 9098,
+      "ppid": 9072,
+      "comm": "<redacted-home>",
+      "classification": "other",
+      "argv_head": "chrome-headless-shell",
+      "transport": null
+    },
+    {
+      "pid": 9100,
+      "ppid": 9072,
+      "comm": "<redacted-home>",
+      "classification": "other",
+      "argv_head": "chrome-headless-shell",
+      "transport": null
+    },
+    {
+      "pid": 9101,
+      "ppid": 9072,
+      "comm": "<redacted-home>",
+      "classification": "other",
+      "argv_head": "chrome-headless-shell",
+      "transport": null
+    }
+  ],
+  "standard_fd_types": [
+    {
+      "pid": 8804,
+      "returncode": 0,
+      "types": {
+        "CHR": 3
+      }
+    },
+    {
+      "pid": 8816,
+      "returncode": 0,
+      "types": {
+        "CHR": 3
+      }
+    },
+    {
+      "pid": 8818,
+      "returncode": 0,
+      "types": {
+        "CHR": 3
+      }
+    },
+    {
+      "pid": 8821,
+      "returncode": 0,
+      "types": {
+        "CHR": 3
+      }
+    },
+    {
+      "pid": 8823,
+      "returncode": 0,
+      "types": {
+        "CHR": 3
+      }
+    },
+    {
+      "pid": 8824,
+      "returncode": 0,
+      "types": {
+        "CHR": 3
+      }
+    },
+    {
+      "pid": 8844,
+      "returncode": 0,
+      "types": {
+        "CHR": 3
+      }
+    },
+    {
+      "pid": 8904,
+      "returncode": 0,
+      "types": {
+        "CHR": 3
+      }
+    },
+    {
+      "pid": 8962,
+      "returncode": 0,
+      "types": {
+        "CHR": 3
+      }
+    },
+    {
+      "pid": 9257,
+      "returncode": 0,
+      "types": {
+        "CHR": 3
+      }
+    },
+    {
+      "pid": 12545,
+      "returncode": 0,
+      "types": {
+        "CHR": 3
+      }
+    },
+    {
+      "pid": 17419,
+      "returncode": 0,
+      "types": {
+        "CHR": 3
+      }
+    },
+    {
+      "pid": 17598,
+      "returncode": 0,
+      "types": {
+        "CHR": 3
+      }
+    },
+    {
+      "pid": 34523,
+      "returncode": 0,
+      "types": {
+        "CHR": 3
+      }
+    },
+    {
+      "pid": 72191,
+      "returncode": 0,
+      "types": {
+        "CHR": 3
+      }
+    },
+    {
+      "pid": 8841,
+      "returncode": 0,
+      "types": {
+        "unix": 3
+      }
+    },
+    {
+      "pid": 35852,
+      "returncode": 0,
+      "types": {
+        "PIPE": 2,
+        "CHR": 1
+      }
+    },
+    {
+      "pid": 25942,
+      "returncode": 0,
+      "types": {
+        "PIPE": 2,
+        "CHR": 1
+      }
+    }
+  ],
+  "public_help": {
+    "app_server_help": {
+      "argv": [
+        "codex",
+        "app-server",
+        "--help"
+      ],
+      "returncode": 0,
+      "mentions": {
+        "attach": false,
+        "reconnect": false,
+        "socket": true,
+        "pipe": false,
+        "stdio": true,
+        "endpoint": true,
+        "connect": true
+      },
+      "line_count": 82
+    },
+    "app_server_daemon_help": {
+      "argv": [
+        "codex",
+        "app-server",
+        "daemon",
+        "--help"
+      ],
+      "returncode": 0,
+      "mentions": {
+        "attach": false,
+        "reconnect": false,
+        "socket": false,
+        "pipe": false,
+        "stdio": false,
+        "endpoint": false,
+        "connect": false
+      },
+      "line_count": 34
+    },
+    "app_server_version": {
+      "argv": [
+        "codex",
+        "--version"
+      ],
+      "returncode": 0,
+      "mentions": {
+        "attach": false,
+        "reconnect": false,
+        "socket": false,
+        "pipe": false,
+        "stdio": false,
+        "endpoint": false,
+        "connect": false
+      },
+      "line_count": 2
+    }
+  },
+  "transport_observed": "descriptor_type_only",
+  "credential_extraction": "NOT_ATTEMPTED",
+  "memory_or_debugger_injection": "NOT_ATTEMPTED",
+  "fd_stealing": "NOT_ATTEMPTED",
+  "thread_mutation": "NOT_ATTEMPTED"
+}

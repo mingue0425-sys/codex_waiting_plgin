@@ -6,7 +6,7 @@ The standard-library suite was run with:
 python3 -m unittest discover -s tests -v
 ```
 
-Result: **29 tests passed** (the original 21 plus 8 v0.2 tests).
+Result: **36 tests passed** (the original 21, 9 v0.2 tests and 6 v0.3 tests).
 
 Coverage includes JobSpec canonical hashing, shell operator handling, bounded
 stdout/stderr/combined logs, process identity checks, Git fingerprint changes,
@@ -18,6 +18,11 @@ explicit CLI resume state, live-job recovery protection, and capability routing.
 The v0.2 tests also cover the JSON-RPC probe client's response/notification
 trace, redaction and bounded values, installed-method inventory, conservative
 status aggregation, control-plane gating and the transparent hook boundary.
+
+The v0.3 tests cover the owned App Server partial-line reader, lifecycle,
+default server-request rejection, response-loss timeout, durable thread
+registry, completion-router duplicate guard, crash state and experimental
+backend gating.
 
 The live capability command was also run:
 
@@ -57,3 +62,10 @@ interrupt probe attempted all five race points once; all five were UNKNOWN
 because the model did not invoke the requested terminal command. The live
 security probe retained PASS for command integrity and environment-value
 non-persistence, while sandbox/approval/network remained UNKNOWN.
+
+The v0.3 live evidence includes Desktop attach **FAIL**, owned App Server
+schema/process fixture **PASS**, durable thread reconnect **PASS**, native
+`process/spawn` fixture **PASS**, model-backed handoff **UNKNOWN**, sandbox and
+approval parity **UNKNOWN**, and token telemetry **PASS** with no token-savings
+claim. The deterministic v0.3 handoff race checks pass locally and retain
+exactly-once as UNKNOWN.

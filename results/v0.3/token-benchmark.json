@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T08:25:59.400122Z",
+  "baseline": {
+    "returncode": 0,
+    "wall_seconds": 19.285,
+    "marker_written": false,
+    "model_turn_count": 1,
+    "model_request_count": 1,
+    "tool_call_count": 6,
+    "event_types": [
+      "item.completed",
+      "item.started",
+      "thread.started",
+      "turn.completed",
+      "turn.started"
+    ],
+    "token_telemetry": [
+      {
+        "input_tokens": 33708,
+        "cached_input_tokens": 22016,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 381,
+        "reasoning_output_tokens": 232
+      }
+    ],
+    "stdout_tail": "{\"type\":\"thread.started\",\"thread_id\":\"01a08545-9832-7a01-ad8f-97dd6dc7d9dc\"}\n{\"type\":\"turn.started\"}\n{\"type\":\"item.completed\",\"item\":{\"id\":\"item_0\",\"type\":\"reasoning\",\"text\":\"**Planning single exec_command call**\\n**Confirming single terminal command execution**\"}}\n{\"type\":\"item.completed\",\"item\":{\"id\":\"item_1\",\"type\":\"agent_message\",\"text\":\"I’m running the specified command once and waiting for it to finish.\"}}\n{\"type\":\"item.started\",\"item\":{\"id\":\"item_2\",\"type\":\"command_execution\",\"command\":\"/bin/zsh -lc 'python3 fixtures/long_job.py --duration 2 --marker baseline-marker.json --exit-code 0'\",\"aggregated_output\":\"\",\"exit_code\":null,\"status\":\"in_progress\"}}\n{\"type\":\"item.completed\",\"item\":{\"id\":\"item_2\",\"type\":\"command_execution\",\"command\":\"/bin/zsh -lc 'python3 fixtures/long_job.py --duration 2 --marker baseline-marker.json --exit-code 0'\",\"aggregated_output\":\"\",\"exit_code\":0,\"status\":\"completed\"}}\n{\"type\":\"item.completed\",\"item\":{\"id\":\"item_3\",\"type\":\"reasoning\",\"text\":\"**Confirming command completion**\"}}\n{\"type\":\"item.completed\",\"item\":{\"id\":\"item_4\",\"type\":\"agent_message\",\"text\":\"Finished.\"}}\n{\"type\":\"turn.completed\",\"usage\":{\"input_tokens\":33708,\"cached_input_tokens\":22016,\"cache_write_input_tokens\":0,\"output_tokens\":381,\"reasoning_output_tokens\":232}}\n",
+    "stderr_tail": "Reading additional input from stdin...\n"
+  },
+  "snooze_owned_app_server": {
+    "return_status": "completed",
+    "wall_seconds": 14.653,
+    "marker_written": false,
+    "model_turn_count": 1,
+    "model_request_count": 1,
+    "tool_call_count": 12,
+    "notification_methods": [
+      "account/rateLimits/updated",
+      "item/agentMessage/delta",
+      "item/completed",
+      "item/reasoning/summaryPartAdded",
+      "item/reasoning/summaryTextDelta",
+      "item/started",
+      "mcpServer/startupStatus/updated",
+      "remoteControl/status/changed",
+      "thread/started",
+      "thread/status/changed",
+      "thread/tokenUsage/updated",
+      "turn/completed",
+      "turn/started"
+    ],
+    "token_telemetry": [
+      {
+        "method": "thread/tokenUsage/updated",
+        "params": {
+          "threadId": "01a08545-e287-7d52-88ac-0404d3485575",
+          "turnId": "01a08545-e2cb-7843-83df-e614561da0b7",
+          "tokenUsage": {
+            "total": {
+              "totalTokens": 17485,
+              "inputTokens": 17262,
+              "cachedInputTokens": 12032,
+              "cacheWriteInputTokens": 0,
+              "outputTokens": 223,
+              "reasoningOutputTokens": 96
+            },
+            "last": {
+              "totalTokens": 17485,
+              "inputTokens": 17262,
+              "cachedInputTokens": 12032,
+              "cacheWriteInputTokens": 0,
+              "outputTokens": 223,
+              "reasoningOutputTokens": 96
+            },
+            "modelContextWindow": 258400
+          }
+        },
+        "received_at": "2026-09-09T08:25:55.655445Z"
+      },
+      {
+        "method": "thread/tokenUsage/updated",
+        "params": {
+          "threadId": "01a08545-e287-7d52-88ac-0404d3485575",
+          "turnId": "01a08545-e2cb-7843-83df-e614561da0b7",
+          "tokenUsage": {
+            "total": {
+              "totalTokens": 35079,
+              "inputTokens": 34770,
+              "cachedInputTokens": 28160,
+              "cacheWriteInputTokens": 0,
+              "outputTokens": 309,
+              "reasoningOutputTokens": 169
+            },
+            "last": {
+              "totalTokens": 17594,
+              "inputTokens": 17508,
+              "cachedInputTokens": 16128,
+              "cacheWriteInputTokens": 0,
+              "outputTokens": 86,
+              "reasoningOutputTokens": 73
+            },
+            "modelContextWindow": 258400
+          }
+        },
+        "received_at": "2026-09-09T08:25:59.344797Z"
+      }
+    ],
+    "server_requests": []
+  },
+  "telemetry_available": true,
+  "comparison": {
+    "model_turn_count": {
+      "baseline": 1,
+      "snooze": 1
+    },
+    "model_request_count": {
+      "baseline": 1,
+      "snooze": 1
+    },
+    "tool_call_count": {
+      "baseline": 6,
+      "snooze": 12
+    },
+    "poll_operations": {
+      "baseline": "not observed",
+      "snooze": 0
+    },
+    "wall_time_seconds": {
+      "baseline": 19.285,
+      "snooze": 14.653
+    }
+  },
+  "status": "UNKNOWN",
+  "token_savings_claim": "NOT_INFERRED"
+}
