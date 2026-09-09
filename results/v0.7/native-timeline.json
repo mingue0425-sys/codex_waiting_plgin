@@ -1,0 +1,209 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T11:41:22.161899Z",
+  "status": "UNKNOWN",
+  "timeline": [
+    {
+      "name": "turn_started",
+      "monotonic_ns": 537177587657083,
+      "elapsed_seconds": 1.7079291865229607e-06
+    },
+    {
+      "name": "command_item_requested",
+      "monotonic_ns": 537178228895958,
+      "elapsed_seconds": 0.6412409159820527,
+      "turn_id": "01a085f8-9d91-7520-ad95-f5d19af3009e"
+    },
+    {
+      "name": "threshold_reached",
+      "monotonic_ns": 537188328997625,
+      "elapsed_seconds": 10.7413427910069,
+      "completed_before_threshold": false
+    },
+    {
+      "name": "process_identity_not_established",
+      "monotonic_ns": 537188356034541,
+      "elapsed_seconds": 10.76837916590739,
+      "provenance_status": "FAIL"
+    },
+    {
+      "name": "yield_boundary_not_proven",
+      "monotonic_ns": 537188356036625,
+      "elapsed_seconds": 10.76838116592262,
+      "reason": "turn completed early or provenance was not established"
+    },
+    {
+      "name": "turn_completed",
+      "monotonic_ns": 537202084810500,
+      "elapsed_seconds": 24.497155249933712,
+      "status": "completed"
+    }
+  ],
+  "state_machine": {
+    "state": "PROVENANCE_PENDING",
+    "history": [
+      "REQUESTED",
+      "COMMAND_ITEM_STARTED",
+      "PROVENANCE_PENDING"
+    ]
+  },
+  "wait_family_calls_during_wait": [],
+  "model_events_after_threshold": [
+    {
+      "method": "item/reasoning/summaryPartAdded",
+      "monotonic_ns": 537192096199125
+    },
+    {
+      "method": "item/reasoning/summaryTextDelta",
+      "monotonic_ns": 537192101667541
+    },
+    {
+      "method": "item/reasoning/summaryPartAdded",
+      "monotonic_ns": 537194169444250
+    },
+    {
+      "method": "item/reasoning/summaryTextDelta",
+      "monotonic_ns": 537194169512625
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537194366054291
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537194366171541
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537194366197583
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537194366211291
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537194366228375
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537194366244500
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537194366262083
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537194366285458
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537194366301833
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537194366314000
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537194366326166
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537194366337833
+    },
+    {
+      "method": "item/reasoning/summaryPartAdded",
+      "monotonic_ns": 537201822562416
+    },
+    {
+      "method": "item/reasoning/summaryTextDelta",
+      "monotonic_ns": 537201822693500
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537201836318125
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537201836334791
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537201837658750
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537201837685166
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537201840944541
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537202026340708
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537202026396333
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537202026410041
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537202026438291
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537202026459416
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537202026476000
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537202026491541
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537202026507916
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537202026557333
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537202026587416
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537202026602916
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537202026616041
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537202026633416
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537202026646208
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537202026662125
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537202026693416
+    }
+  ]
+}

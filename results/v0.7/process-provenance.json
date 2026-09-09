@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T11:52:01.509777Z",
+  "status": "FAIL",
+  "short_identity_fixture": {
+    "status": "PASS",
+    "required_evidence": [
+      "ITEM_NONCE_MATCH",
+      "STDOUT_NONCE_MATCH",
+      "WORKSPACE_MARKER_MATCH",
+      "SELF_REPORTED_PID_OBSERVED",
+      "CWD_MATCH"
+    ],
+    "evidence": {
+      "ITEM_NONCE_MATCH": "PASS",
+      "STDOUT_NONCE_MATCH": "PASS",
+      "WORKSPACE_MARKER_MATCH": "PASS",
+      "SELF_REPORTED_PID_OBSERVED": "PASS",
+      "OS_COMMAND_MATCH": "UNKNOWN",
+      "OS_START_TIME_MATCH": "UNKNOWN",
+      "CWD_MATCH": "PASS"
+    },
+    "evidence_values": {
+      "ITEM_NONCE_MATCH": true,
+      "STDOUT_NONCE_MATCH": true,
+      "WORKSPACE_MARKER_MATCH": true,
+      "SELF_REPORTED_PID_OBSERVED": true,
+      "OS_COMMAND_MATCH": null,
+      "OS_START_TIME_MATCH": null,
+      "CWD_MATCH": true
+    },
+    "command_match": "UNKNOWN",
+    "observed_pid_match": "PASS",
+    "process_id_kind": "LOGICAL_HANDLE",
+    "logical_process_id": "81827",
+    "self_reported_os_pid": 79473,
+    "observed_os_pid": 79473,
+    "reason": "all required independent evidence matched"
+  },
+  "long_native_fixture": {
+    "status": "FAIL",
+    "required_evidence": [
+      "ITEM_NONCE_MATCH",
+      "STDOUT_NONCE_MATCH",
+      "WORKSPACE_MARKER_MATCH",
+      "SELF_REPORTED_PID_OBSERVED",
+      "CWD_MATCH"
+    ],
+    "evidence": {
+      "ITEM_NONCE_MATCH": "PASS",
+      "STDOUT_NONCE_MATCH": "FAIL",
+      "WORKSPACE_MARKER_MATCH": "UNKNOWN",
+      "SELF_REPORTED_PID_OBSERVED": "UNKNOWN",
+      "OS_COMMAND_MATCH": "UNKNOWN",
+      "OS_START_TIME_MATCH": "UNKNOWN",
+      "CWD_MATCH": "PASS"
+    },
+    "evidence_values": {
+      "ITEM_NONCE_MATCH": true,
+      "STDOUT_NONCE_MATCH": false,
+      "WORKSPACE_MARKER_MATCH": null,
+      "SELF_REPORTED_PID_OBSERVED": null,
+      "OS_COMMAND_MATCH": null,
+      "OS_START_TIME_MATCH": null,
+      "CWD_MATCH": true
+    },
+    "command_match": "UNKNOWN",
+    "observed_pid_match": "UNKNOWN",
+    "process_id_kind": "OPAQUE",
+    "logical_process_id": "44129",
+    "self_reported_os_pid": null,
+    "observed_os_pid": null,
+    "reason": "contradictory command or identity evidence"
+  },
+  "interpretation": "short fixture PASS establishes the exact namespace and identity method; long native fixture FAIL lacks stdout/marker/PID evidence"
+}

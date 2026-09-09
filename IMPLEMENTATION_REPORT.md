@@ -1,5 +1,24 @@
 # Implementation report
 
+## v0.7 native yield and provenance proof
+
+v0.7 adds an installed-runtime source trace, absolute-path namespace fixture,
+strict process provenance correlation, native-yield timeline, E2E/security/
+polling artifacts, and a state machine that rejects turn closure before
+provenance. The harness requests candidate execution only through a normal
+Codex thread. It never uses `command/exec`, `process/spawn`,
+`thread/shellCommand`, or a controller-started supervisor for the candidate.
+
+The production selector remains `CLI_RESUME_FALLBACK` unless every native
+handoff and security gate passes.
+
+The live 0.153.4 run exposed a normal `commandExecution` item, logical
+processId and matching App Server cwd, but the absolute fixture's marker,
+stdout nonce, result and run count were absent. The turn completed without an
+observable native yield or interrupt handoff. The resulting native path is
+`FAIL`; sandbox and approval parity remain `UNKNOWN` and the descendant path
+was not started.
+
 ## v0.6 native ownership proof
 
 v0.6 adds strict evidence-only evaluation in

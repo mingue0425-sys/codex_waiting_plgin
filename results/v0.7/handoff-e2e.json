@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T11:52:01.508797Z",
+  "status": "UNKNOWN",
+  "e2e_cases": {
+    "E2E-NATIVE-01-exit-0": {
+      "status": "UNKNOWN",
+      "reason": "requires normal command, provenance, native yield, survival, completion/exit-code mapping and continuation"
+    },
+    "E2E-NATIVE-02-exit-7": {
+      "status": "NOT_RUN",
+      "reason": "gated until E2E-NATIVE-01 native ownership is proven"
+    },
+    "E2E-NATIVE-03-threshold-race": {
+      "status": "NOT_RUN",
+      "reason": "gated until native yield is proven"
+    },
+    "E2E-NATIVE-04-interrupt-race-100": {
+      "status": "NOT_RUN",
+      "reason": "gated until native yield is proven"
+    },
+    "E2E-NATIVE-05-controller-crash": {
+      "status": "NOT_RUN",
+      "reason": "gated until durable native ownership is proven"
+    },
+    "E2E-NATIVE-06-app-server-crash": {
+      "status": "NOT_RUN",
+      "reason": "gated until native background ownership is proven"
+    }
+  },
+  "rerun_guard": "run_count must remain 1 before any continuation is eligible",
+  "continuation": {
+    "status": "NOT_RUN",
+    "reason": "continuation is forbidden until native yield, survival, completion and exit-code correlation are all PASS"
+  },
+  "production_selection": "CLI_RESUME_FALLBACK"
+}

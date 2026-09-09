@@ -3,6 +3,14 @@
 The authoritative generated evidence is [results/capabilities.json](results/capabilities.json)
 and [results/capabilities.md](results/capabilities.md).
 
+## v0.7 native yield and provenance proof
+
+The authoritative v0.7 aggregate is [results/v0.7/capabilities.json](results/v0.7/capabilities.json)
+and [results/v0.7/capabilities.md](results/v0.7/capabilities.md). The installed
+runtime/schema trace is [V0.7_RUNTIME_SOURCE_TRACE.md](V0.7_RUNTIME_SOURCE_TRACE.md).
+Logical process identity is evaluated independently from host OS PID identity.
+Unknown, failed and not-run gates select `CLI_RESUME_FALLBACK`.
+
 ## v0.6 native ownership proof
 
 The authoritative aggregate is [results/v0.6/capabilities.json](results/v0.6/capabilities.json)

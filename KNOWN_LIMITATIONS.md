@@ -1,5 +1,18 @@
 # Known limitations
 
+v0.7 native yield limitations:
+
+- The installed runtime is authoritative. Current upstream source is not a
+  substitute for a matching installed binary revision.
+- Normal-thread output, logical process identity, native yield, turn survival,
+  completion correlation and same-thread continuation must all be observed in
+  the live artifacts before handoff can be enabled.
+- `thread/backgroundTerminals/list` is an experimental observation surface;
+  an empty list does not by itself disprove provenance, and it cannot be used
+  as the only ownership source.
+- Approval absence is recorded separately from approval parity. No blanket
+  approval rule is used.
+
 v0.6 native ownership limitations:
 
 - The normal Codex runtime emits command item events and process identifiers,

@@ -1,0 +1,414 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T11:41:22.154322Z",
+  "candidate": "THREAD_NATIVE_TERMINAL",
+  "normal_tool_execution_only": true,
+  "controller_candidate_execution_used": false,
+  "forbidden_controller_methods": [],
+  "fixture": {
+    "probe_version": 1,
+    "nonce": "SNOOZE_PROBE_5bb771568d3330469be409c31c858a6a",
+    "command": "python3 <project-root>/fixtures/native_yield_probe.py --nonce SNOOZE_PROBE_5bb771568d3330469be409c31c858a6a --marker <project-root>/runtime_probe_runs/14ea876fcb57e0dc/markers/SNOOZE_PROBE_5bb771568d3330469be409c31c858a6a.json --result <project-root>/runtime_probe_runs/14ea876fcb57e0dc/result.json --run-count <project-root>/runtime_probe_runs/14ea876fcb57e0dc/run_count.txt --duration 20.000 --exit-code 0",
+    "expected_command_sha256": "718916448d508680d704643245724635e8ddc5ea2c68b6febb6e7d7e49a91e9a",
+    "expected_cwd": "<project-root>/runtime_probe_runs/14ea876fcb57e0dc",
+    "duration_seconds": 20.0,
+    "requested_exit_code": 0,
+    "expected_result_token": "<redacted>"
+  },
+  "execution_namespace": {
+    "controller_workspace": "<project-root>/runtime_probe_runs/14ea876fcb57e0dc",
+    "app_server_cwd": "<project-root>/runtime_probe_runs/14ea876fcb57e0dc",
+    "fixture_script": "<project-root>/fixtures/native_yield_probe.py",
+    "marker_path": "<project-root>/runtime_probe_runs/14ea876fcb57e0dc/markers/SNOOZE_PROBE_5bb771568d3330469be409c31c858a6a.json",
+    "marker_observed": false,
+    "result_observed": false,
+    "run_count": null,
+    "same_absolute_namespace": true
+  },
+  "command_records": [
+    {
+      "method": "item/started",
+      "item": {
+        "item_id": "exec-d02fe791-838a-4c6d-976d-eb2e1b0b419f",
+        "type": "commandExecution",
+        "command": "/bin/zsh -lc 'python3 <project-root>/fixtures/native_yield_probe.py --nonce SNOOZE_PROBE_5bb771568d3330469be409c31c858a6a --marker <project-root>/runtime_probe_runs/14ea876fcb57e0dc/markers/SNOOZE_PROBE_5bb771568d3330469be409c31c858a6a.json --result <project-root>/runtime_probe_runs/14ea876fcb57e0dc/result.json --run-count <project-root>/runtime_probe_runs/14ea876fcb57e0dc/run_count.txt --duration 20.000 --exit-code 0'",
+        "cwd": "<project-root>/runtime_probe_runs/14ea876fcb57e0dc",
+        "process_id": "44129",
+        "os_pid": null,
+        "exit_code": null,
+        "status": "inProgress",
+        "process_id_source": "thread/backgroundTerminals"
+      },
+      "params": {
+        "item": {
+          "type": "commandExecution",
+          "id": "exec-d02fe791-838a-4c6d-976d-eb2e1b0b419f",
+          "pluginId": null,
+          "scriptPath": null,
+          "command": "/bin/zsh -lc 'python3 <project-root>/fixtures/native_yield_probe.py --nonce SNOOZE_PROBE_5bb771568d3330469be409c31c858a6a --marker <project-root>/runtime_probe_runs/14ea876fcb57e0dc/markers/SNOOZE_PROBE_5bb771568d3330469be409c31c858a6a.json --result <project-root>/runtime_probe_runs/14ea876fcb57e0dc/result.json --run-count <project-root>/runtime_probe_runs/14ea876fcb57e0dc/run_count.txt --duration 20.000 --exit-code 0'",
+          "cwd": "<project-root>/runtime_probe_runs/14ea876fcb57e0dc",
+          "processId": "44129",
+          "source": "unifiedExecStartup",
+          "status": "inProgress",
+          "commandActions": [
+            {
+              "type": "unknown",
+              "command": "python3 <project-root>/fixtures/native_yield_probe.py --nonce SNOOZE_PROBE_5bb771568d3330469be409c31c858a6a --marker <project-root>/runtime_probe_runs/14ea876fcb57e0dc/markers/SNOOZE_PROBE_5bb771568d3330469be409c31c858a6a.json --result <project-root>/runtime_probe_runs/14ea876fcb57e0dc/result.json --run-count <project-root>/runtime_probe_runs/14ea876fcb57e0dc/run_count.txt --duration 20.000 --exit-code 0"
+            }
+          ],
+          "aggregatedOutput": null,
+          "exitCode": null,
+          "durationMs": null
+        },
+        "threadId": "01a085f8-9cfd-7b11-8514-bb091b2e9d47",
+        "turnId": "01a085f8-9d91-7520-ad95-f5d19af3009e",
+        "startedAtMs": 1788954078414
+      }
+    },
+    {
+      "method": "item/completed",
+      "item": {
+        "item_id": "exec-d02fe791-838a-4c6d-976d-eb2e1b0b419f",
+        "type": "commandExecution",
+        "command": "/bin/zsh -lc 'python3 <project-root>/fixtures/native_yield_probe.py --nonce SNOOZE_PROBE_5bb771568d3330469be409c31c858a6a --marker <project-root>/runtime_probe_runs/14ea876fcb57e0dc/markers/SNOOZE_PROBE_5bb771568d3330469be409c31c858a6a.json --result <project-root>/runtime_probe_runs/14ea876fcb57e0dc/result.json --run-count <project-root>/runtime_probe_runs/14ea876fcb57e0dc/run_count.txt --duration 20.000 --exit-code 0'",
+        "cwd": "<project-root>/runtime_probe_runs/14ea876fcb57e0dc",
+        "process_id": "44129",
+        "os_pid": null,
+        "exit_code": 0,
+        "status": "completed",
+        "process_id_source": "thread/backgroundTerminals"
+      },
+      "params": {
+        "item": {
+          "type": "commandExecution",
+          "id": "exec-d02fe791-838a-4c6d-976d-eb2e1b0b419f",
+          "pluginId": null,
+          "scriptPath": null,
+          "command": "/bin/zsh -lc 'python3 <project-root>/fixtures/native_yield_probe.py --nonce SNOOZE_PROBE_5bb771568d3330469be409c31c858a6a --marker <project-root>/runtime_probe_runs/14ea876fcb57e0dc/markers/SNOOZE_PROBE_5bb771568d3330469be409c31c858a6a.json --result <project-root>/runtime_probe_runs/14ea876fcb57e0dc/result.json --run-count <project-root>/runtime_probe_runs/14ea876fcb57e0dc/run_count.txt --duration 20.000 --exit-code 0'",
+          "cwd": "<project-root>/runtime_probe_runs/14ea876fcb57e0dc",
+          "processId": "44129",
+          "source": "unifiedExecStartup",
+          "status": "completed",
+          "commandActions": [
+            {
+              "type": "unknown",
+              "command": "python3 <project-root>/fixtures/native_yield_probe.py --nonce SNOOZE_PROBE_5bb771568d3330469be409c31c858a6a --marker <project-root>/runtime_probe_runs/14ea876fcb57e0dc/markers/SNOOZE_PROBE_5bb771568d3330469be409c31c858a6a.json --result <project-root>/runtime_probe_runs/14ea876fcb57e0dc/result.json --run-count <project-root>/runtime_probe_runs/14ea876fcb57e0dc/run_count.txt --duration 20.000 --exit-code 0"
+            }
+          ],
+          "aggregatedOutput": null,
+          "exitCode": 0,
+          "durationMs": 0
+        },
+        "threadId": "01a085f8-9cfd-7b11-8514-bb091b2e9d47",
+        "turnId": "01a085f8-9d91-7520-ad95-f5d19af3009e",
+        "completedAtMs": 1788954078416
+      }
+    }
+  ],
+  "item_completed": {
+    "item_id": "exec-d02fe791-838a-4c6d-976d-eb2e1b0b419f",
+    "type": "commandExecution",
+    "command": "/bin/zsh -lc 'python3 <project-root>/fixtures/native_yield_probe.py --nonce SNOOZE_PROBE_5bb771568d3330469be409c31c858a6a --marker <project-root>/runtime_probe_runs/14ea876fcb57e0dc/markers/SNOOZE_PROBE_5bb771568d3330469be409c31c858a6a.json --result <project-root>/runtime_probe_runs/14ea876fcb57e0dc/result.json --run-count <project-root>/runtime_probe_runs/14ea876fcb57e0dc/run_count.txt --duration 20.000 --exit-code 0'",
+    "cwd": "<project-root>/runtime_probe_runs/14ea876fcb57e0dc",
+    "process_id": "44129",
+    "os_pid": null,
+    "exit_code": 0,
+    "status": "completed",
+    "process_id_source": "thread/backgroundTerminals"
+  },
+  "stdout_evidence": "**Planning exact command execution**\n**Configuring exec_command with yield_time**\n**Planning single exec_command call with yield**\nRunning\n the\n exact\n command\n once\n with\n a\n \n10\n-second\n yield\n.\n**Confirming single command execution with empty output**\nExecuted\n the\n exact\n command\n once\n with\n `\nyield\n_time\n_ms\n=\n100\n00\n`.\n It\n completed\n successfully\n with\n no\n output\n.",
+  "self_report": null,
+  "marker_record": null,
+  "result_record": null,
+  "heartbeat_record": null,
+  "os_observation": {
+    "status": "UNKNOWN",
+    "reason": "pid unavailable"
+  },
+  "provenance": {
+    "status": "FAIL",
+    "required_evidence": [
+      "ITEM_NONCE_MATCH",
+      "STDOUT_NONCE_MATCH",
+      "WORKSPACE_MARKER_MATCH",
+      "SELF_REPORTED_PID_OBSERVED",
+      "CWD_MATCH"
+    ],
+    "evidence": {
+      "ITEM_NONCE_MATCH": "PASS",
+      "STDOUT_NONCE_MATCH": "FAIL",
+      "WORKSPACE_MARKER_MATCH": "UNKNOWN",
+      "SELF_REPORTED_PID_OBSERVED": "UNKNOWN",
+      "OS_COMMAND_MATCH": "UNKNOWN",
+      "OS_START_TIME_MATCH": "UNKNOWN",
+      "CWD_MATCH": "PASS"
+    },
+    "evidence_values": {
+      "ITEM_NONCE_MATCH": true,
+      "STDOUT_NONCE_MATCH": false,
+      "WORKSPACE_MARKER_MATCH": null,
+      "SELF_REPORTED_PID_OBSERVED": null,
+      "OS_COMMAND_MATCH": null,
+      "OS_START_TIME_MATCH": null,
+      "CWD_MATCH": true
+    },
+    "command_match": "UNKNOWN",
+    "observed_pid_match": "UNKNOWN",
+    "process_id_kind": "OPAQUE",
+    "logical_process_id": "44129",
+    "self_reported_os_pid": null,
+    "observed_os_pid": null,
+    "reason": "contradictory command or identity evidence"
+  },
+  "native_yield": "FAIL",
+  "job_survival": "UNKNOWN",
+  "completion_detection": "UNKNOWN",
+  "turn_completed_before_threshold": false,
+  "interrupt_requested": false,
+  "interrupt_response": null,
+  "turn": {
+    "id": "01a085f8-9d91-7520-ad95-f5d19af3009e",
+    "items": [
+      {
+        "type": "agentMessage",
+        "id": "msg_09f8f81e62ae2459016aa145e1acd487d0b05fef8dd02b45ee",
+        "text": "Executed the exact command once with `yield_time_ms=10000`. It completed successfully with no output.",
+        "phase": "final_answer",
+        "memoryCitation": null,
+        "delivery": null,
+        "questions": null
+      }
+    ],
+    "itemsView": "summary",
+    "status": "completed",
+    "error": null,
+    "startedAt": 1788954058,
+    "completedAt": 1788954081,
+    "durationMs": 23847
+  },
+  "error": null,
+  "timeline": [
+    {
+      "name": "turn_started",
+      "monotonic_ns": 537177587657083,
+      "elapsed_seconds": 1.7079291865229607e-06
+    },
+    {
+      "name": "command_item_requested",
+      "monotonic_ns": 537178228895958,
+      "elapsed_seconds": 0.6412409159820527,
+      "turn_id": "01a085f8-9d91-7520-ad95-f5d19af3009e"
+    },
+    {
+      "name": "threshold_reached",
+      "monotonic_ns": 537188328997625,
+      "elapsed_seconds": 10.7413427910069,
+      "completed_before_threshold": false
+    },
+    {
+      "name": "process_identity_not_established",
+      "monotonic_ns": 537188356034541,
+      "elapsed_seconds": 10.76837916590739,
+      "provenance_status": "FAIL"
+    },
+    {
+      "name": "yield_boundary_not_proven",
+      "monotonic_ns": 537188356036625,
+      "elapsed_seconds": 10.76838116592262,
+      "reason": "turn completed early or provenance was not established"
+    },
+    {
+      "name": "turn_completed",
+      "monotonic_ns": 537202084810500,
+      "elapsed_seconds": 24.497155249933712,
+      "status": "completed"
+    }
+  ],
+  "state_machine": {
+    "state": "PROVENANCE_PENDING",
+    "history": [
+      "REQUESTED",
+      "COMMAND_ITEM_STARTED",
+      "PROVENANCE_PENDING"
+    ]
+  },
+  "background_registry": {
+    "before": {
+      "data": [],
+      "nextCursor": null
+    },
+    "threshold": {
+      "data": [],
+      "nextCursor": null
+    },
+    "after": {
+      "data": [],
+      "nextCursor": null
+    }
+  },
+  "model_events_after_threshold": [
+    {
+      "method": "item/reasoning/summaryPartAdded",
+      "monotonic_ns": 537192096199125
+    },
+    {
+      "method": "item/reasoning/summaryTextDelta",
+      "monotonic_ns": 537192101667541
+    },
+    {
+      "method": "item/reasoning/summaryPartAdded",
+      "monotonic_ns": 537194169444250
+    },
+    {
+      "method": "item/reasoning/summaryTextDelta",
+      "monotonic_ns": 537194169512625
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537194366054291
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537194366171541
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537194366197583
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537194366211291
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537194366228375
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537194366244500
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537194366262083
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537194366285458
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537194366301833
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537194366314000
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537194366326166
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537194366337833
+    },
+    {
+      "method": "item/reasoning/summaryPartAdded",
+      "monotonic_ns": 537201822562416
+    },
+    {
+      "method": "item/reasoning/summaryTextDelta",
+      "monotonic_ns": 537201822693500
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537201836318125
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537201836334791
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537201837658750
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537201837685166
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537201840944541
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537202026340708
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537202026396333
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537202026410041
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537202026438291
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537202026459416
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537202026476000
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537202026491541
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537202026507916
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537202026557333
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537202026587416
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537202026602916
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537202026616041
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537202026633416
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537202026646208
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537202026662125
+    },
+    {
+      "method": "item/agentMessage/delta",
+      "monotonic_ns": 537202026693416
+    }
+  ],
+  "wait_family_calls_during_wait": [],
+  "continuation": {
+    "status": "NOT_RUN",
+    "reason": "continuation is forbidden until native yield, survival, completion and exit-code correlation are all PASS"
+  },
+  "status": "UNKNOWN",
+  "production_selection": "CLI_RESUME_FALLBACK"
+}

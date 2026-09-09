@@ -1,5 +1,18 @@
 # Test results
 
+## v0.7 validation
+
+v0.7 adds tests for logical process identity, independent nonce/marker/PID/cwd
+provenance, and invalid native state transitions. Live artifacts record the
+installed Codex schema, normal-thread namespace, native-yield timeline, E2E
+gates, security parity and wait-family benchmark. A missing live gate remains
+UNKNOWN and does not enable production automation.
+
+The full suite after v0.7 additions is **62 tests**. The installed 0.153.4
+normal-thread run exposed a command item and logical processId but no fixture
+side effect or native yield; the native candidate is therefore FAIL and the
+production route remains `CLI_RESUME_FALLBACK`.
+
 ## v0.6 validation
 
 The v0.6 unit additions cover strict process correlation, normal runtime

@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T11:52:01.508939Z",
+  "baseline": "2e7f865a399ef797eecfd43a86cde4dc36f42ab7",
+  "control_plane": "SNOOZE_APP_SERVER_EXPERIMENTAL",
+  "integration_flags": {
+    "PROCESS_ID_KIND": "OPAQUE",
+    "NATIVE_EXECUTION_PROVENANCE": "FAIL",
+    "NATIVE_YIELD": "FAIL",
+    "BACKGROUND_TERMINAL_REGISTRY_VISIBLE": "PARTIAL",
+    "THREAD_NATIVE_TERMINAL": "FAIL",
+    "DESCENDANT_SUPERVISOR": "NOT_RUN",
+    "CONTROLLER_COMMAND_EXEC": "FAIL",
+    "NATIVE_SANDBOX_PARITY": "UNKNOWN",
+    "NATIVE_APPROVAL_PARITY": "UNKNOWN",
+    "COMMAND_INTEGRITY": "UNKNOWN",
+    "PROCESS_IDENTITY": "FAIL",
+    "10S_HANDOFF": "FAIL",
+    "JOB_SURVIVAL": "UNKNOWN",
+    "MODEL_IDLE_DURING_WAIT": "UNKNOWN",
+    "COMPLETION_DETECTION": "UNKNOWN",
+    "AUTO_CONTINUATION": "UNKNOWN",
+    "WAIT_FAMILY_CALLS_DURING_WAIT": 0,
+    "OWNERSHIP_RACES": "PASS",
+    "DESKTOP_ATTACH": "FAIL",
+    "AUTO_PRETOOL_INTERCEPTION": "FAIL"
+  },
+  "backend_matrix": {
+    "THREAD_NATIVE_TERMINAL": {
+      "status": "FAIL",
+      "provenance": "FAIL",
+      "native_yield": "FAIL",
+      "survival": "UNKNOWN",
+      "completion": "UNKNOWN"
+    },
+    "DESCENDANT_SUPERVISOR": {
+      "status": "NOT_RUN",
+      "status_reason": "B is only run after A native yield is FAIL or clearly unavailable; no controller supervisor was started"
+    },
+    "CONTROLLER_COMMAND_EXEC": {
+      "status": "FAIL",
+      "production_candidate": false
+    }
+  },
+  "selected_backend": "CLI_RESUME_FALLBACK",
+  "safe_automatic_handoff": "NOT_SUPPORTED",
+  "production_path": "CLI_RESUME_FALLBACK",
+  "fallback_path": "CLI_RESUME_FALLBACK",
+  "production_automation": "DISABLED_SECURITY_GATE",
+  "source_trace_status": "PASS",
+  "execution_namespace_status": "PASS",
+  "short_identity_fixture": {
+    "status": "PASS",
+    "namespace": "PASS",
+    "provenance": "PASS",
+    "process_id_kind": "LOGICAL_HANDLE"
+  },
+  "e2e": {
+    "schema_version": 1,
+    "generated_at": "2026-09-09T11:52:01.508797Z",
+    "status": "UNKNOWN",
+    "e2e_cases": {
+      "E2E-NATIVE-01-exit-0": {
+        "status": "UNKNOWN",
+        "reason": "requires normal command, provenance, native yield, survival, completion/exit-code mapping and continuation"
+      },
+      "E2E-NATIVE-02-exit-7": {
+        "status": "NOT_RUN",
+        "reason": "gated until E2E-NATIVE-01 native ownership is proven"
+      },
+      "E2E-NATIVE-03-threshold-race": {
+        "status": "NOT_RUN",
+        "reason": "gated until native yield is proven"
+      },
+      "E2E-NATIVE-04-interrupt-race-100": {
+        "status": "NOT_RUN",
+        "reason": "gated until native yield is proven"
+      },
+      "E2E-NATIVE-05-controller-crash": {
+        "status": "NOT_RUN",
+        "reason": "gated until durable native ownership is proven"
+      },
+      "E2E-NATIVE-06-app-server-crash": {
+        "status": "NOT_RUN",
+        "reason": "gated until native background ownership is proven"
+      }
+    },
+    "rerun_guard": "run_count must remain 1 before any continuation is eligible",
+    "continuation": {
+      "status": "NOT_RUN",
+      "reason": "continuation is forbidden until native yield, survival, completion and exit-code correlation are all PASS"
+    },
+    "production_selection": "CLI_RESUME_FALLBACK"
+  },
+  "security": {
+    "schema_version": 1,
+    "generated_at": "2026-09-09T11:52:01.508929Z",
+    "status": "UNKNOWN",
+    "namespace_prerequisite": "PASS",
+    "normal_baseline": {
+      "status": "UNKNOWN",
+      "operations": [
+        "workspace_read",
+        "workspace_write",
+        "sibling_read",
+        "sibling_write"
+      ],
+      "reason": "v0.7 native semantic differential is not run before native yield proof"
+    },
+    "native_candidate": {
+      "status": "NOT_RUN",
+      "reason": "native yielded terminal is not established"
+    },
+    "approval_test": "NOT_APPLICABLE",
+    "approval_parity": "UNKNOWN",
+    "sandbox_parity": "UNKNOWN",
+    "command_integrity": "UNKNOWN",
+    "controller_reference": {
+      "status": "FAIL",
+      "evidence": "results/v0.4/security-parity.json",
+      "production_candidate": false
+    },
+    "policy": {
+      "sandbox": "workspace-write",
+      "approval": "on-request",
+      "allow_rule": "no blanket allow; absent request is not parity proof"
+    },
+    "notes": [
+      "Security parity is evaluated only after the fixture namespace is proven and native ownership is established.",
+      "A/B are independent; descendant supervisor was not started by the controller."
+    ]
+  },
+  "polling": {
+    "schema_version": 1,
+    "generated_at": "2026-09-09T11:52:01.508934Z",
+    "status": "UNKNOWN",
+    "metric": "WAIT_FAMILY_CALL_COUNT",
+    "wait_family": [
+      "wait",
+      "write_stdin(empty)",
+      "status polling"
+    ],
+    "baseline": {
+      "model_poll_calls": 0,
+      "wait_family_calls": [],
+      "measurement": "normal-thread event trace; no repeated wait family call observed"
+    },
+    "snooze": {
+      "model_poll_calls": 0,
+      "wait_family_calls": [],
+      "measurement": "controller-side observation only; no model turn after threshold"
+    },
+    "model_events_after_threshold": 39,
+    "reduction": "NOT_CLAIMED",
+    "reason": "zero observed calls is recorded, but a native wait interval was not established, so no savings claim is made"
+  },
+  "race": {
+    "status": "PASS",
+    "ownership_races": 100,
+    "dual_owners": 0,
+    "source": "v0.6 durable CAS regression"
+  },
+  "regressions": {
+    "v0.6": "PASS",
+    "v0.5": "PASS",
+    "v0.4": "PASS"
+  },
+  "evidence_files": [
+    "runtime-version.json",
+    "runtime-source-trace.json",
+    "identity-live-observation.json",
+    "native-live-observation.json",
+    "execution-namespace.json",
+    "process-provenance.json",
+    "native-yield.json",
+    "native-timeline.json",
+    "handoff-e2e.json",
+    "security-parity.json",
+    "polling-benchmark.json"
+  ],
+  "notes": [
+    "Normal-thread candidate execution only; no controller candidate command was used.",
+    "Unknown and not-run evidence is never promoted to PASS.",
+    "The v0.4 controller command/exec sibling-write failure remains immutable."
+  ]
+}

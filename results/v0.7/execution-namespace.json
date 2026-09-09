@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T11:52:01.509330Z",
+  "status": "PASS",
+  "short_identity_fixture": {
+    "status": "PASS",
+    "namespace": {
+      "controller_workspace": "<project-root>/runtime_probe_runs/identity-0758c6042bbe779c",
+      "app_server_cwd": "<project-root>/runtime_probe_runs/identity-0758c6042bbe779c",
+      "same_absolute_namespace": true,
+      "marker_observed": true,
+      "result_observed": true
+    },
+    "provenance": {
+      "status": "PASS",
+      "required_evidence": [
+        "ITEM_NONCE_MATCH",
+        "STDOUT_NONCE_MATCH",
+        "WORKSPACE_MARKER_MATCH",
+        "SELF_REPORTED_PID_OBSERVED",
+        "CWD_MATCH"
+      ],
+      "evidence": {
+        "ITEM_NONCE_MATCH": "PASS",
+        "STDOUT_NONCE_MATCH": "PASS",
+        "WORKSPACE_MARKER_MATCH": "PASS",
+        "SELF_REPORTED_PID_OBSERVED": "PASS",
+        "OS_COMMAND_MATCH": "UNKNOWN",
+        "OS_START_TIME_MATCH": "UNKNOWN",
+        "CWD_MATCH": "PASS"
+      },
+      "evidence_values": {
+        "ITEM_NONCE_MATCH": true,
+        "STDOUT_NONCE_MATCH": true,
+        "WORKSPACE_MARKER_MATCH": true,
+        "SELF_REPORTED_PID_OBSERVED": true,
+        "OS_COMMAND_MATCH": null,
+        "OS_START_TIME_MATCH": null,
+        "CWD_MATCH": true
+      },
+      "command_match": "UNKNOWN",
+      "observed_pid_match": "PASS",
+      "process_id_kind": "LOGICAL_HANDLE",
+      "logical_process_id": "81827",
+      "self_reported_os_pid": 79473,
+      "observed_os_pid": 79473,
+      "reason": "all required independent evidence matched"
+    }
+  },
+  "long_native_fixture": {
+    "status": "PASS",
+    "candidate_side_effect": "UNKNOWN",
+    "observation": null
+  }
+}

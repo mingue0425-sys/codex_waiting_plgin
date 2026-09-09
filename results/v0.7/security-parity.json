@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T11:52:01.508929Z",
+  "status": "UNKNOWN",
+  "namespace_prerequisite": "PASS",
+  "normal_baseline": {
+    "status": "UNKNOWN",
+    "operations": [
+      "workspace_read",
+      "workspace_write",
+      "sibling_read",
+      "sibling_write"
+    ],
+    "reason": "v0.7 native semantic differential is not run before native yield proof"
+  },
+  "native_candidate": {
+    "status": "NOT_RUN",
+    "reason": "native yielded terminal is not established"
+  },
+  "approval_test": "NOT_APPLICABLE",
+  "approval_parity": "UNKNOWN",
+  "sandbox_parity": "UNKNOWN",
+  "command_integrity": "UNKNOWN",
+  "controller_reference": {
+    "status": "FAIL",
+    "evidence": "results/v0.4/security-parity.json",
+    "production_candidate": false
+  },
+  "policy": {
+    "sandbox": "workspace-write",
+    "approval": "on-request",
+    "allow_rule": "no blanket allow; absent request is not parity proof"
+  },
+  "notes": [
+    "Security parity is evaluated only after the fixture namespace is proven and native ownership is established.",
+    "A/B are independent; descendant supervisor was not started by the controller."
+  ]
+}

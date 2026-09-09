@@ -1,5 +1,45 @@
 # Codex Snooze
 
+## v0.7 native yield and provenance proof
+
+v0.7 separates App Server logical process/session handles from OS PIDs and
+requires independent nonce, marker, self-reported PID and cwd evidence before
+an ownership transition is eligible. The installed Codex runtime is
+authoritative; current upstream source is recorded only as a comparison.
+
+The v0.7 artifacts are [results/v0.7/capabilities.md](results/v0.7/capabilities.md),
+[V0.7_RUNTIME_SOURCE_TRACE.md](V0.7_RUNTIME_SOURCE_TRACE.md),
+[V0.7_PROCESS_PROVENANCE_REPORT.md](V0.7_PROCESS_PROVENANCE_REPORT.md), and
+[V0.7_NATIVE_YIELD_REPORT.md](V0.7_NATIVE_YIELD_REPORT.md).
+
+The normal-thread candidate is selected only when provenance, native yield,
+turn survival, correlated completion/exit code, zero model wait-family calls,
+and same-thread continuation all pass. The v0.4 controller command/exec,
+Desktop attach, and automatic pretool interception paths remain failed and
+are not production candidates.
+
+The installed-runtime live result is:
+
+```text
+PROCESS_ID_KIND = OPAQUE
+NATIVE_EXECUTION_PROVENANCE = FAIL
+NATIVE_YIELD = FAIL
+BACKGROUND_TERMINAL_REGISTRY = PARTIAL
+THREAD_NATIVE_TERMINAL = FAIL
+DESCENDANT_SUPERVISOR = NOT_RUN
+NATIVE_SANDBOX_PARITY = UNKNOWN
+NATIVE_APPROVAL_PARITY = UNKNOWN
+SAFE_AUTOMATIC_HANDOFF = NOT_SUPPORTED
+PRODUCTION_PATH = CLI_RESUME_FALLBACK
+```
+
+The short identity fixture exposed a logical-looking `processId`, exact cwd,
+stdout nonce, marker, self PID and result in the controller-visible workspace.
+The long fixture exposed an item and cwd but produced no marker, stdout nonce,
+result, or run count. Its turn completed without a native yield, so the long
+side effect is recorded as a failed execution proof rather than sandbox parity
+evidence.
+
 ## v0.6 native ownership proof
 
 v0.6 independently tests whether a normal Codex thread execution can transfer

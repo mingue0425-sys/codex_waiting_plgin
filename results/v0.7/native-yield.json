@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T11:41:22.161618Z",
+  "status": "FAIL",
+  "job_survival": "UNKNOWN",
+  "background_registry": {
+    "before": {
+      "data": [],
+      "nextCursor": null
+    },
+    "threshold": {
+      "data": [],
+      "nextCursor": null
+    },
+    "after": {
+      "data": [],
+      "nextCursor": null
+    }
+  },
+  "interrupt_requested": false,
+  "reason": "live normal-thread observation"
+}

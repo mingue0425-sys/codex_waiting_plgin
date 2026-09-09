@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T11:52:01.508934Z",
+  "status": "UNKNOWN",
+  "metric": "WAIT_FAMILY_CALL_COUNT",
+  "wait_family": [
+    "wait",
+    "write_stdin(empty)",
+    "status polling"
+  ],
+  "baseline": {
+    "model_poll_calls": 0,
+    "wait_family_calls": [],
+    "measurement": "normal-thread event trace; no repeated wait family call observed"
+  },
+  "snooze": {
+    "model_poll_calls": 0,
+    "wait_family_calls": [],
+    "measurement": "controller-side observation only; no model turn after threshold"
+  },
+  "model_events_after_threshold": 39,
+  "reduction": "NOT_CLAIMED",
+  "reason": "zero observed calls is recorded, but a native wait interval was not established, so no savings claim is made"
+}

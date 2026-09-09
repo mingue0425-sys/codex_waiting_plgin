@@ -1,5 +1,25 @@
 # Security analysis
 
+## v0.7 provenance and native yield boundary
+
+The v0.7 path treats App Server `processId` as a logical or opaque handle
+unless independent evidence proves an OS PID identity. The required evidence
+set links the command item, nonce in runtime output, atomic workspace marker,
+self-reported PID and cwd. OS command and start identity are recorded as
+separate fields. Missing evidence is UNKNOWN and a mismatch is FAIL.
+
+The candidate command is requested only in a normal Codex thread. The
+controller writes the fixture and performs bounded observation; it does not
+execute the candidate or start a supervisor. `CLI_RESUME_FALLBACK` remains the
+only production path unless sandbox, approval, integrity and lifecycle gates
+all pass.
+
+In the installed-runtime run the command item completed with exit code 0, but
+the workspace marker and result file were absent. This prevents a provenance
+claim and keeps both sandbox and approval parity UNKNOWN. An approval request
+was not observed under the selected policy; that is recorded as
+`APPROVAL_TEST=NOT_APPLICABLE`, while `APPROVAL_PARITY` remains UNKNOWN.
+
 ## v0.6 ownership boundary
 
 The v0.6 harness never executes a candidate command from Snooze. Candidate A
