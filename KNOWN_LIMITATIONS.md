@@ -1,5 +1,28 @@
 # Known limitations
 
+v0.5 native backend limitations:
+
+- `THREAD_NATIVE_TERMINAL` is UNKNOWN. The installed schema exposes normal
+  command item events and an experimental background-terminal list, but the
+  live long fixture did not produce an observable command item or native
+  process handle before the turn was interrupted.
+- `SANDBOX_DESCENDANT_SUPERVISOR` is UNKNOWN. The normal descendant fixture
+  was not visible in the controller's temporary tree; the host-only detached
+  reference is not Codex evidence.
+- Native sandbox parity and approval parity are UNKNOWN. Missing local side
+  effects and missing approval requests are kept as an execution-namespace
+  boundary rather than converted into a security result.
+- `CONTROLLER_COMMAND_EXEC` remains FAIL because the v0.4 sibling-write
+  regression is reproducible. It is reference-only and cannot be selected.
+- The v0.5 ownership ledger proves one durable backend owner per local race,
+  but it does not provide exactly-once completion delivery. The protocol lacks
+  a client idempotency key.
+- Production automation remains disabled and `CLI_RESUME_FALLBACK` remains
+  the selected path until a candidate satisfies every security and lifecycle
+  gate.
+- macOS sleep/wake was not automated in v0.5; no survival claim is made for
+  that boundary.
+
 - The current capability evidence does not identify a user's active Desktop
   thread from an external controller.
 - `codex exec resume` restored conversation history in the live probe, but cwd,

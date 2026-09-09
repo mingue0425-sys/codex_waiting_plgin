@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T10:49:31.593660Z",
+  "control_plane": "SNOOZE_APP_SERVER_EXPERIMENTAL",
+  "integration_flags": {
+    "THREAD_NATIVE_TERMINAL": "UNKNOWN",
+    "DESCENDANT_SUPERVISOR": "UNKNOWN",
+    "CONTROLLER_COMMAND_EXEC": "FAIL",
+    "NATIVE_SANDBOX_PARITY": "UNKNOWN",
+    "NATIVE_APPROVAL_PARITY": "UNKNOWN",
+    "DESCENDANT_SANDBOX_INHERITANCE": "UNKNOWN",
+    "DESCENDANT_APPROVAL_INTEGRITY": "UNKNOWN",
+    "COMMAND_INTEGRITY": "UNKNOWN",
+    "10S_HANDOFF": "UNKNOWN",
+    "JOB_SURVIVAL": "UNKNOWN",
+    "MODEL_IDLE_DURING_WAIT": "UNKNOWN",
+    "AUTO_CONTINUATION": "UNKNOWN",
+    "COMPLETION_DETECTION": "UNKNOWN",
+    "OWNERSHIP_RACES": "PASS",
+    "APP_SERVER_CRASH_RECOVERY": "PASS",
+    "CONTROLLER_CRASH_RECOVERY": "PASS",
+    "DESKTOP_ATTACH": "FAIL",
+    "AUTO_PRETOOL_INTERCEPTION": "FAIL",
+    "SCHEMA_INVENTORY": "PASS",
+    "BENCHMARK": "UNKNOWN"
+  },
+  "backend_matrix": {
+    "THREAD_NATIVE_TERMINAL": {
+      "status": "UNKNOWN",
+      "sandbox_parity": "UNKNOWN",
+      "approval_parity": "UNKNOWN",
+      "handoff_10s": "UNKNOWN",
+      "job_survival": "UNKNOWN",
+      "model_idle": "UNKNOWN",
+      "auto_continuation": "UNKNOWN",
+      "command_integrity": "UNKNOWN",
+      "evidence": [
+        "native-terminal-schema.json",
+        "native-terminal-e2e.json",
+        "sandbox-parity.json",
+        "approval-parity.json"
+      ]
+    },
+    "SANDBOX_DESCENDANT_SUPERVISOR": {
+      "status": "UNKNOWN",
+      "sandbox_parity": "UNKNOWN",
+      "approval_parity": "UNKNOWN",
+      "handoff_10s": "UNKNOWN",
+      "job_survival": "UNKNOWN",
+      "model_idle": "UNKNOWN",
+      "auto_continuation": "UNKNOWN",
+      "command_integrity": "UNKNOWN",
+      "evidence": [
+        "process-inheritance.json",
+        "sandbox-parity.json",
+        "approval-parity.json"
+      ]
+    },
+    "CONTROLLER_COMMAND_EXEC": {
+      "status": "FAIL",
+      "sandbox_parity": "FAIL",
+      "approval_parity": "FAIL",
+      "command_integrity": "PASS",
+      "reason": "immutable v0.4 fixture showed a sibling write through the controller-level command/exec path",
+      "evidence": [
+        "../v0.4/security-parity.json"
+      ]
+    }
+  },
+  "safe_automatic_handoff": "NOT_SUPPORTED",
+  "selected_production_path": "CLI_RESUME_FALLBACK",
+  "fallback_path": "CLI_RESUME_FALLBACK",
+  "production_automation": "DISABLED_SECURITY_GATE",
+  "automatic_features_enabled": [],
+  "evidence_files": [
+    "native-terminal-schema.json",
+    "native-terminal-e2e.json",
+    "sandbox-parity.json",
+    "approval-parity.json",
+    "process-inheritance.json",
+    "backend-comparison.json",
+    "handoff-races.json",
+    "benchmark.json"
+  ],
+  "immutable_reference": {
+    "CONTROLLER_COMMAND_EXEC_SECURITY": "FAIL",
+    "v04_security_artifact": "../v0.4/security-parity.json",
+    "reason": "controller-level command/exec allowed a sibling write under the v0.4 fixture"
+  },
+  "exactly_once": "NOT_CLAIMED",
+  "notes": [
+    "Normal thread command events prove a tool item only; they do not by themselves prove native background ownership.",
+    "The normal-path sandbox and approval artifacts remain separate capability decisions.",
+    "No command is started by the v0.5 controller implementation for candidate backend A or B.",
+    "Desktop attach and automatic PreToolUse interception remain FAIL."
+  ]
+}

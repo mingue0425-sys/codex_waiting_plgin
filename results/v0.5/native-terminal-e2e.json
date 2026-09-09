@@ -1,0 +1,293 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T10:42:54.000022Z",
+  "live_requested": true,
+  "status": "UNKNOWN",
+  "backend": "THREAD_NATIVE_TERMINAL",
+  "thread_id": "01a085c3-4a9a-7fc2-9f3c-0259ea481fcd",
+  "turn_id": "01a085c3-4b23-7381-8e7e-041d988e84c7",
+  "requested_command": "python3 fixture.py",
+  "command_events": [],
+  "command_event_count": 0,
+  "command_values": [],
+  "approval_requests": [],
+  "approval_request_count": 0,
+  "notification_method_counts": {
+    "remoteControl/status/changed": 1,
+    "thread/started": 1,
+    "mcpServer/startupStatus/updated": 10,
+    "thread/status/changed": 2,
+    "turn/started": 1,
+    "item/started": 3,
+    "item/completed": 3,
+    "item/reasoning/summaryPartAdded": 1,
+    "item/reasoning/summaryTextDelta": 1,
+    "item/agentMessage/delta": 9,
+    "thread/tokenUsage/updated": 1,
+    "account/rateLimits/updated": 1,
+    "turn/completed": 1
+  },
+  "background_before": {
+    "data": [],
+    "nextCursor": null
+  },
+  "background_at_threshold": {
+    "data": [],
+    "nextCursor": null
+  },
+  "background_item_count_at_threshold": 0,
+  "native_process_handle_observed": false,
+  "command_running_at_threshold": false,
+  "threshold_elapsed_seconds": 10.764,
+  "turn_status_after_threshold": "interrupted",
+  "interrupt_response": {},
+  "heartbeat_at_threshold": {
+    "state": {},
+    "heartbeat_count": 0,
+    "state_exists": false
+  },
+  "heartbeat_after_threshold": {
+    "state": {},
+    "heartbeat_count": 0,
+    "state_exists": false
+  },
+  "heartbeat_continued_after_threshold": false,
+  "command_completed_event": false,
+  "model_events_during_wait": 0,
+  "model_events_after_threshold": [],
+  "command_integrity": "UNKNOWN",
+  "normal_tool_execution_observed": false,
+  "sandbox_parity": "UNKNOWN",
+  "approval_parity": "UNKNOWN",
+  "handoff_10s": "UNKNOWN",
+  "job_survival": "UNKNOWN",
+  "model_idle": "UNKNOWN",
+  "completion_detection": "UNKNOWN",
+  "auto_continuation": "UNKNOWN",
+  "same_thread_continuation": "UNKNOWN",
+  "run_count": null,
+  "error": null,
+  "app_server_snapshot": {
+    "state": "READY",
+    "experimental_api": true,
+    "restart_count": 0,
+    "event_count": 51,
+    "notification_count": 35,
+    "notification_method_counts": {
+      "account/rateLimits/updated": 1,
+      "initialize": 1,
+      "item/agentMessage/delta": 9,
+      "item/completed": 3,
+      "item/reasoning/summaryPartAdded": 1,
+      "item/reasoning/summaryTextDelta": 1,
+      "item/started": 3,
+      "mcpServer/startupStatus/updated": 10,
+      "remoteControl/status/changed": 1,
+      "thread/backgroundTerminals/list": 2,
+      "thread/start": 1,
+      "thread/started": 1,
+      "thread/status/changed": 2,
+      "thread/tokenUsage/updated": 1,
+      "turn/completed": 1,
+      "turn/interrupt": 1,
+      "turn/start": 1,
+      "turn/started": 1
+    },
+    "relevant_events": [
+      {
+        "sequence": 1,
+        "kind": "lifecycle",
+        "state": "STARTING",
+        "reason": null
+      },
+      {
+        "sequence": 3,
+        "kind": "lifecycle",
+        "state": "INITIALIZING",
+        "reason": null
+      },
+      {
+        "sequence": 4,
+        "kind": "request",
+        "request_id": 1,
+        "method": "initialize"
+      },
+      {
+        "sequence": 6,
+        "kind": "lifecycle",
+        "state": "READY",
+        "reason": null
+      },
+      {
+        "sequence": 7,
+        "kind": "request",
+        "request_id": 2,
+        "method": "thread/start"
+      },
+      {
+        "sequence": 10,
+        "kind": "notification",
+        "method": "thread/started",
+        "params": {}
+      },
+      {
+        "sequence": 15,
+        "kind": "request",
+        "request_id": 3,
+        "method": "thread/backgroundTerminals/list"
+      },
+      {
+        "sequence": 17,
+        "kind": "request",
+        "request_id": 4,
+        "method": "turn/start"
+      },
+      {
+        "sequence": 19,
+        "kind": "notification",
+        "method": "thread/status/changed",
+        "params": {
+          "status": {
+            "type": "active",
+            "activeFlags": []
+          },
+          "threadId": "01a085c3-4a9a-7fc2-9f3c-0259ea481fcd"
+        }
+      },
+      {
+        "sequence": 20,
+        "kind": "notification",
+        "method": "turn/started",
+        "params": {
+          "turn": {
+            "id": "01a085c3-4b23-7381-8e7e-041d988e84c7",
+            "status": "inProgress",
+            "startedAt": 1788950563,
+            "completedAt": null,
+            "durationMs": null
+          },
+          "threadId": "01a085c3-4a9a-7fc2-9f3c-0259ea481fcd"
+        }
+      },
+      {
+        "sequence": 27,
+        "kind": "notification",
+        "method": "item/started",
+        "params": {
+          "item": {
+            "id": "01a085c3-5fc7-71d2-b7ac-d17200bb0d7b",
+            "type": "userMessage"
+          },
+          "threadId": "01a085c3-4a9a-7fc2-9f3c-0259ea481fcd",
+          "turnId": "01a085c3-4b23-7381-8e7e-041d988e84c7"
+        }
+      },
+      {
+        "sequence": 28,
+        "kind": "notification",
+        "method": "item/completed",
+        "params": {
+          "item": {
+            "id": "01a085c3-5fc7-71d2-b7ac-d17200bb0d7b",
+            "type": "userMessage"
+          },
+          "threadId": "01a085c3-4a9a-7fc2-9f3c-0259ea481fcd",
+          "turnId": "01a085c3-4b23-7381-8e7e-041d988e84c7"
+        }
+      },
+      {
+        "sequence": 29,
+        "kind": "notification",
+        "method": "item/started",
+        "params": {
+          "item": {
+            "id": "rs_0215b1e124777a83016aa13829fe0887d080091979362180aa",
+            "type": "reasoning"
+          },
+          "threadId": "01a085c3-4a9a-7fc2-9f3c-0259ea481fcd",
+          "turnId": "01a085c3-4b23-7381-8e7e-041d988e84c7"
+        }
+      },
+      {
+        "sequence": 32,
+        "kind": "notification",
+        "method": "item/completed",
+        "params": {
+          "item": {
+            "id": "rs_0215b1e124777a83016aa13829fe0887d080091979362180aa",
+            "type": "reasoning"
+          },
+          "threadId": "01a085c3-4a9a-7fc2-9f3c-0259ea481fcd",
+          "turnId": "01a085c3-4b23-7381-8e7e-041d988e84c7"
+        }
+      },
+      {
+        "sequence": 33,
+        "kind": "notification",
+        "method": "item/started",
+        "params": {
+          "item": {
+            "id": "msg_0215b1e124777a83016aa1382b649487d0b084365e1a8b5f0b",
+            "type": "agentMessage"
+          },
+          "threadId": "01a085c3-4a9a-7fc2-9f3c-0259ea481fcd",
+          "turnId": "01a085c3-4b23-7381-8e7e-041d988e84c7"
+        }
+      },
+      {
+        "sequence": 43,
+        "kind": "notification",
+        "method": "item/completed",
+        "params": {
+          "item": {
+            "id": "msg_0215b1e124777a83016aa1382b649487d0b084365e1a8b5f0b",
+            "type": "agentMessage"
+          },
+          "threadId": "01a085c3-4a9a-7fc2-9f3c-0259ea481fcd",
+          "turnId": "01a085c3-4b23-7381-8e7e-041d988e84c7"
+        }
+      },
+      {
+        "sequence": 44,
+        "kind": "request",
+        "request_id": 5,
+        "method": "thread/backgroundTerminals/list"
+      },
+      {
+        "sequence": 46,
+        "kind": "request",
+        "request_id": 6,
+        "method": "turn/interrupt"
+      },
+      {
+        "sequence": 50,
+        "kind": "notification",
+        "method": "thread/status/changed",
+        "params": {
+          "status": {
+            "type": "idle"
+          },
+          "threadId": "01a085c3-4a9a-7fc2-9f3c-0259ea481fcd"
+        }
+      },
+      {
+        "sequence": 51,
+        "kind": "notification",
+        "method": "turn/completed",
+        "params": {
+          "turn": {
+            "id": "01a085c3-4b23-7381-8e7e-041d988e84c7",
+            "status": "interrupted",
+            "startedAt": 1788950563,
+            "completedAt": 1788950573,
+            "durationMs": 9617
+          },
+          "threadId": "01a085c3-4a9a-7fc2-9f3c-0259ea481fcd"
+        }
+      }
+    ],
+    "server_request_methods": [],
+    "stderr_line_count": 0
+  },
+  "duration_seconds": 10.765
+}

@@ -1,5 +1,29 @@
 # Test results
 
+## v0.5 validation
+
+The current standard-library suite contains **49 tests**. It covers the v0.1
+through v0.4 behavior plus exact command hashing, approval/hash separation,
+security-gated backend selection and durable single-owner compare-and-swap
+transitions. `compileall` also passes.
+
+The v0.5 live artifacts report schema inventory **PASS**, normal terminal
+execution evidence **PARTIAL/UNKNOWN by fixture**, native sandbox and approval
+parity **UNKNOWN**, descendant inheritance **UNKNOWN**, the controller
+`command/exec` reference **FAIL**, and the production selector
+`CLI_RESUME_FALLBACK`. The ownership race suite passes **100/100** and does
+not claim exactly-once delivery. The benchmark records model and token
+telemetry where exposed but makes no token-savings claim.
+
+Artifacts are under [results/v0.5/](results/v0.5/). The seven detailed reports
+are [V0.5_NATIVE_TERMINAL_ARCHITECTURE.md](V0.5_NATIVE_TERMINAL_ARCHITECTURE.md),
+[V0.5_SECURITY_RECOVERY_REPORT.md](V0.5_SECURITY_RECOVERY_REPORT.md),
+[V0.5_SANDBOX_INHERITANCE_REPORT.md](V0.5_SANDBOX_INHERITANCE_REPORT.md),
+[V0.5_APPROVAL_INTEGRITY_REPORT.md](V0.5_APPROVAL_INTEGRITY_REPORT.md),
+[V0.5_NATIVE_HANDOFF_E2E.md](V0.5_NATIVE_HANDOFF_E2E.md),
+[V0.5_BACKEND_COMPARISON.md](V0.5_BACKEND_COMPARISON.md), and
+[V0.5_AGENT_BENCHMARK.md](V0.5_AGENT_BENCHMARK.md).
+
 ## v0.4 validation
 
 The v0.4 standard-library suite contains **41 tests** and covers the prior
@@ -28,7 +52,9 @@ The standard-library suite was run with:
 python3 -m unittest discover -s tests -v
 ```
 
-Result: **36 tests passed** (the original 21, 9 v0.2 tests and 6 v0.3 tests).
+Historical v0.3 checkpoint result: **36 tests passed** (the original 21, 9
+v0.2 tests and 6 v0.3 tests). v0.4 added five tests for 41; v0.5 adds eight
+tests for the current 49-test suite above.
 
 Coverage includes JobSpec canonical hashing, shell operator handling, bounded
 stdout/stderr/combined logs, process identity checks, Git fingerprint changes,

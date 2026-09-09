@@ -62,7 +62,7 @@ class AppServerProcess:
         env: Optional[Dict[str, str]] = None,
         client_name: str = "codex_snooze",
         client_title: str = "Codex Snooze",
-        client_version: str = "0.3.0",
+        client_version: str = "0.5.0",
         experimental_api: bool = False,
         request_handler: Optional[ServerRequestHandler] = None,
         max_events: int = 4000,

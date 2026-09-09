@@ -3,6 +3,26 @@
 The authoritative generated evidence is [results/capabilities.json](results/capabilities.json)
 and [results/capabilities.md](results/capabilities.md).
 
+## v0.5 security-gated native backends
+
+The authoritative aggregate is [results/v0.5/capabilities.json](results/v0.5/capabilities.json)
+and [results/v0.5/capabilities.md](results/v0.5/capabilities.md).
+
+| Capability | Result | Production consequence |
+|---|---|---|
+| Installed normal-terminal schema inventory | PASS | Protocol names and schema descriptions are recorded; availability is not ownership proof. |
+| `THREAD_NATIVE_TERMINAL` | UNKNOWN | Normal command item was not tied to an observable native background handle; disabled. |
+| `SANDBOX_DESCENDANT_SUPERVISOR` | UNKNOWN | Normal descendant fixture was not locally observable; host-only evidence is excluded. |
+| `CONTROLLER_COMMAND_EXEC` | FAIL | v0.4 sibling-write regression reference only; never selected. |
+| Native sandbox parity | UNKNOWN | Separate from approval and blocked by missing fixture evidence. |
+| Native approval parity | UNKNOWN | Explicit deny/allow handler was scoped; no live request was observed. |
+| Command integrity | UNKNOWN | Wrapper command text was observed, but exact process identity was not established. |
+| Ownership race ledger | PASS | 100/100 single-owner CAS transfers; exactly-once delivery remains unclaimed. |
+| Safe automatic handoff | NOT_SUPPORTED | All required native security and lifecycle gates are not PASS. |
+| Production path | CLI_RESUME_FALLBACK | Native automation remains disabled. |
+| Desktop attach | FAIL | No external Desktop attach path is enabled. |
+| Automatic PreToolUse interception | FAIL | Hook remains transparent. |
+
 | Capability | Result | Production consequence |
 |---|---|---|
 | Installed CLI and App Server protocol discovery | PASS | Static method names are recorded from the installed binary. |

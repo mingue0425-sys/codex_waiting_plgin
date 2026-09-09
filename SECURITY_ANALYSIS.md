@@ -1,5 +1,31 @@
 # Security analysis
 
+## v0.5 native backend boundary
+
+The v0.4 controller-level `command/exec` sibling-write result is immutable:
+the v0.5 rerun remains `SANDBOX_PARITY=FAIL` and `APPROVAL_PARITY=FAIL`.
+v0.5 does not repair or promote that backend.
+
+Backend A uses only normal thread turns in the probe. Backend B is evaluated
+only when a normal terminal command launches a descendant supervisor. Their
+sandbox and approval results are independent fields. In the live temporary
+tree the command item and processId were visible, but fixture side effects and
+approval requests were not visible to the controller process. Both candidate
+parity fields therefore remain **UNKNOWN**. A host subprocess inheritance
+result is kept out of Codex evidence.
+
+Approval handlers in the probes are explicit: the deny case returns `decline`,
+and the allow case accepts only a matching benign fixture request. There is no
+blanket allow, no global config edit, no `approval_policy=never` shortcut and
+no sandbox widening. The v0.5 selector returns `CLI_RESUME_FALLBACK` unless
+all security, command-integrity, ownership, handoff, survival, model-idle and
+continuation gates are PASS.
+
+Command SHA-256 records exact command equality only. It does not prove that a
+user approved the semantic action. Completion delivery remains at-least-once
+compatible and exactly-once is not claimed. See [V0.5_APPROVAL_INTEGRITY_REPORT.md](V0.5_APPROVAL_INTEGRITY_REPORT.md)
+and [V0.5_SECURITY_RECOVERY_REPORT.md](V0.5_SECURITY_RECOVERY_REPORT.md).
+
 The trusted execution record is `spec.json` plus its canonical SHA-256 digest.
 The supervisor re-reads and hashes it immediately before launching the child;
 metadata must contain the same digest. A changed spec or writable-by-group-or-

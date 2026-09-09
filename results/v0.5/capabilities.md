@@ -1,0 +1,52 @@
+# Codex Snooze v0.5 capabilities
+
+```text
+THREAD NATIVE TERMINAL = UNKNOWN
+DESCENDANT SUPERVISOR = UNKNOWN
+CONTROLLER COMMAND/EXEC = FAIL
+
+NATIVE SANDBOX PARITY = UNKNOWN
+NATIVE APPROVAL PARITY = UNKNOWN
+COMMAND INTEGRITY = UNKNOWN
+
+10S HANDOFF = UNKNOWN
+MODEL IDLE DURING WAIT = UNKNOWN
+AUTO CONTINUATION = UNKNOWN
+
+SAFE AUTOMATIC HANDOFF = NOT_SUPPORTED
+PRODUCTION PATH = CLI_RESUME_FALLBACK
+FALLBACK PATH = CLI_RESUME_FALLBACK
+
+DESKTOP ATTACH = FAIL
+AUTO PRETOOL INTERCEPTION = FAIL
+```
+
+| Capability | Status |
+|---|---|
+| `THREAD_NATIVE_TERMINAL` | **UNKNOWN** |
+| `DESCENDANT_SUPERVISOR` | **UNKNOWN** |
+| `CONTROLLER_COMMAND_EXEC` | **FAIL** |
+| `NATIVE_SANDBOX_PARITY` | **UNKNOWN** |
+| `NATIVE_APPROVAL_PARITY` | **UNKNOWN** |
+| `DESCENDANT_SANDBOX_INHERITANCE` | **UNKNOWN** |
+| `DESCENDANT_APPROVAL_INTEGRITY` | **UNKNOWN** |
+| `COMMAND_INTEGRITY` | **UNKNOWN** |
+| `10S_HANDOFF` | **UNKNOWN** |
+| `JOB_SURVIVAL` | **UNKNOWN** |
+| `MODEL_IDLE_DURING_WAIT` | **UNKNOWN** |
+| `AUTO_CONTINUATION` | **UNKNOWN** |
+| `COMPLETION_DETECTION` | **UNKNOWN** |
+| `OWNERSHIP_RACES` | **PASS** |
+| `APP_SERVER_CRASH_RECOVERY` | **PASS** |
+| `CONTROLLER_CRASH_RECOVERY` | **PASS** |
+| `DESKTOP_ATTACH` | **FAIL** |
+| `AUTO_PRETOOL_INTERCEPTION` | **FAIL** |
+| `SCHEMA_INVENTORY` | **PASS** |
+| `BENCHMARK` | **UNKNOWN** |
+
+Production automation: **DISABLED_SECURITY_GATE**
+
+- Normal thread command events prove a tool item only; they do not by themselves prove native background ownership.
+- The normal-path sandbox and approval artifacts remain separate capability decisions.
+- No command is started by the v0.5 controller implementation for candidate backend A or B.
+- Desktop attach and automatic PreToolUse interception remain FAIL.

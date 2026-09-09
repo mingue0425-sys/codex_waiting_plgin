@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T10:45:32.405218Z",
+  "iterations": 100,
+  "ownership_claims": 100,
+  "expected_compare_and_swap_rejections": 100,
+  "dual_owner_observations": 0,
+  "terminal_completed": 100,
+  "unexpected_errors": [],
+  "status": "PASS",
+  "exactly_once": "NOT_CLAIMED",
+  "scope": "durable ownership ledger only; no claim about Codex tool execution or delivery exactly-once"
+}

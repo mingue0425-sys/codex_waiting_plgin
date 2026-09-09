@@ -5,6 +5,43 @@ under a detached supervisor. The supervisor owns the child process, waits for
 the real operating-system exit status, stores bounded logs and a durable result,
 and leaves a completion event in an outbox for explicit delivery.
 
+## v0.5 current gate
+
+v0.5 keeps execution backends separate. The controller does not execute the
+candidate native command; it only records protocol events, waits for measured
+completion and selects a backend from evidence.
+
+```text
+Stable supervisor = PASS
+Snooze-owned App Server = PASS
+Controller command/exec backend = FAIL (reference only)
+Thread-native terminal backend = UNKNOWN
+Descendant-supervisor backend = UNKNOWN
+
+Explicit handoff = UNKNOWN for native path
+10s handoff = UNKNOWN
+Model idle during wait = UNKNOWN
+Auto continuation = UNKNOWN
+
+Sandbox parity = UNKNOWN
+Approval parity = UNKNOWN
+Command integrity = UNKNOWN
+
+Production backend = CLI_RESUME_FALLBACK
+Fallback backend = CLI_RESUME_FALLBACK
+Desktop attach = FAIL
+Automatic PreToolUse = FAIL
+```
+
+The installed `codex-cli 0.153.4` schema contains normal
+`commandExecution` lifecycle events and experimental background-terminal
+methods, but the live disposable fixture did not establish a shared local
+process/filesystem identity or approval request. The v0.4 controller-level
+`command/exec` sibling-write failure remains an immutable regression fact.
+The complete v0.5 evidence is in [results/v0.5/capabilities.md](results/v0.5/capabilities.md),
+with architecture, security, inheritance, approval, E2E, comparison and
+benchmark reports in the `V0.5_*.md` files.
+
 ## v0.4 current gate
 
 The v0.4 explicit handoff chain passes for a thread created and owned by

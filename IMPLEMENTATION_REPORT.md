@@ -1,5 +1,39 @@
 # Implementation report
 
+## v0.5 security-preserving native handoff research
+
+v0.5 adds explicit `THREAD_NATIVE_TERMINAL`,
+`SANDBOX_DESCENDANT_SUPERVISOR` and `CONTROLLER_COMMAND_EXEC` backend labels.
+The first two candidates never start a command from the controller. They rely
+on a normal Codex thread terminal item and record only process/session
+tracking, waiting, completion detection and continuation evidence. The third
+backend remains the v0.4 `command/exec` implementation as a regression
+reference and is fixed at `FAIL` after the sibling-write fixture.
+
+The installed `codex-cli 0.153.4` schema was regenerated under
+`results/v0.5/runtime-schema/`. It documents normal `commandExecution` item
+events, approval requests, `turn/interrupt`, and experimental background
+terminal methods. It also documents that `process/spawn` is host execution
+without a Codex sandbox and that `thread/shellCommand` is unsandboxed; neither
+is treated as a secure backend.
+
+The v0.5 normal-thread probe observed command item events in the security
+cases, but the temporary fixture's filesystem side effects were not visible to
+the controller process and no approval request was observed. The exact long
+fixture handoff did not produce a command item before interruption. These are
+UNKNOWN results, not inferred PASS or FAIL results. The descendant process
+probe has the same boundary; its separate host reference is explicitly not
+Codex evidence.
+
+`snooze_controller/v05_backend.py` adds a durable ownership ledger with
+compare-and-swap transitions and a selector that requires every security and
+lifecycle gate to be PASS. The 100-iteration race artifact recorded one owner
+and one CAS rejection per iteration. The selected production path remains
+`CLI_RESUME_FALLBACK`; no v0.5 automatic feature is enabled and exactly-once
+delivery is not claimed. See [V0.5_NATIVE_TERMINAL_ARCHITECTURE.md](V0.5_NATIVE_TERMINAL_ARCHITECTURE.md),
+[V0.5_SECURITY_RECOVERY_REPORT.md](V0.5_SECURITY_RECOVERY_REPORT.md), and
+[V0.5_BACKEND_COMPARISON.md](V0.5_BACKEND_COMPARISON.md).
+
 ## v0.4 explicit handoff
 
 v0.4 adds an explicit model-selected `codex_snooze_handoff` dynamic tool for

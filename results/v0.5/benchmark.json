@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T10:45:32.592996Z",
+  "workload": "normal Codex terminal fixture requested as python3 fixture.py",
+  "baseline": {
+    "source": "results/v0.4/agent-benchmark.json",
+    "turns": 1,
+    "model_events": 8,
+    "tool_calls": 2,
+    "terminal_poll_count": "UNKNOWN",
+    "token_usage": [
+      {
+        "input_tokens": 33704,
+        "cached_input_tokens": 27136,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 1035,
+        "reasoning_output_tokens": 921
+      }
+    ],
+    "wall_seconds": 29.801
+  },
+  "native_candidate": {
+    "source": "results/v0.5/native-terminal-e2e.json",
+    "status": "UNKNOWN",
+    "turns": 1,
+    "model_events_during_wait": 0,
+    "tool_command_events": 0,
+    "terminal_poll_count": 0,
+    "token_usage_notifications": 1,
+    "foreground_duration_seconds": 10.764,
+    "handoff_10s": "UNKNOWN"
+  },
+  "prior_owned_server_reference": {
+    "source": "results/v0.3/token-benchmark.json",
+    "token_telemetry": true,
+    "model_turn_count": 1,
+    "tool_call_count": 12
+  },
+  "model_events_during_wait": 0,
+  "telemetry_status": "PASS",
+  "token_savings": "NOT_CLAIMED",
+  "status": "UNKNOWN",
+  "notes": [
+    "The benchmark reports telemetry only when the normal terminal fixture was actually exercised.",
+    "No token savings claim is made because the native security and ownership gates are not PASS.",
+    "Controller-level polling count is zero in the native probe; notification processing is not model polling."
+  ]
+}
