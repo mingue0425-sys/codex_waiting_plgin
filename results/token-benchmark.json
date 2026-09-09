@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T07:49:09Z",
+  "workload": {
+    "type": "sleep_then_marker",
+    "duration_seconds": 0.4
+  },
+  "baseline": {
+    "returncode": 0,
+    "wall_seconds": 0.432929,
+    "input_tokens": null,
+    "output_tokens": null,
+    "cached_tokens": null,
+    "model_turns": null,
+    "tool_calls": null,
+    "poll_calls": null
+  },
+  "snooze": {
+    "submit_returncode": 0,
+    "foreground_seconds": 0.205271,
+    "completion_wall_seconds": 0.633875,
+    "local_result_checks": 9,
+    "input_tokens": null,
+    "output_tokens": null,
+    "cached_tokens": null,
+    "model_turns": null,
+    "tool_calls": null,
+    "poll_calls": null
+  },
+  "interpretation": "Local timing is measured. Codex token, turn and tool telemetry is not exposed by this harness, so those fields remain null; no token savings claim is inferred."
+}

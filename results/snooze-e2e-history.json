@@ -1,0 +1,76 @@
+[
+  {
+    "generated_at": "2026-09-09T00:10:53Z",
+    "status": "PASS",
+    "observations": {
+      "thread_id": "01a08192-336d-7fc2-99da-a19cfe9fcda9",
+      "turn_id": "01a08192-33ae-72e2-833f-6da7d4ade7d9",
+      "job_id": "d920cf8f-f933-422c-a657-29e65b740311",
+      "interrupt_error": null,
+      "completed_status": "interrupted",
+      "supervisor_survival": true,
+      "child_exit_code": 0,
+      "marker_written": true
+    },
+    "recorded": "Earlier live run before the repeat-probe history file was added"
+  },
+  {
+    "generated_at": "2026-09-09T07:01:39Z",
+    "status": "UNKNOWN",
+    "observations": {
+      "completed_status": "completed",
+      "job_created": false,
+      "reason": "model turn completed without invoking the requested terminal command"
+    }
+  },
+  {
+    "generated_at": "2026-09-09T07:06:06Z",
+    "status": "UNKNOWN",
+    "observations": {
+      "store": "/var/folders/y_/0qzdf4dj2kn7tmpd08q0cr6w0000gn/T/codex-snooze-e2e-ljcg62rp/store",
+      "notification_methods": [
+        "remoteControl/status/changed",
+        "thread/started",
+        "mcpServer/startupStatus/updated",
+        "mcpServer/startupStatus/updated",
+        "mcpServer/startupStatus/updated",
+        "mcpServer/startupStatus/updated",
+        "thread/status/changed",
+        "turn/started",
+        "mcpServer/startupStatus/updated",
+        "mcpServer/startupStatus/updated",
+        "mcpServer/startupStatus/updated",
+        "mcpServer/startupStatus/updated",
+        "mcpServer/startupStatus/updated",
+        "mcpServer/startupStatus/updated",
+        "item/started",
+        "item/completed",
+        "item/started",
+        "item/reasoning/summaryPartAdded",
+        "item/reasoning/summaryTextDelta",
+        "item/reasoning/summaryPartAdded",
+        "item/reasoning/summaryTextDelta",
+        "item/completed",
+        "item/started",
+        "item/completed",
+        "thread/tokenUsage/updated",
+        "account/rateLimits/updated",
+        "item/started",
+        "item/reasoning/summaryPartAdded",
+        "item/reasoning/summaryTextDelta",
+        "item/completed",
+        "item/started",
+        "item/agentMessage/delta",
+        "item/agentMessage/delta",
+        "item/agentMessage/delta",
+        "item/agentMessage/delta",
+        "item/completed",
+        "thread/tokenUsage/updated",
+        "account/rateLimits/updated",
+        "thread/status/changed",
+        "turn/completed"
+      ],
+      "turn_completed_status": "completed"
+    }
+  }
+]

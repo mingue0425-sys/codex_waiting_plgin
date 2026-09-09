@@ -1,0 +1,271 @@
+{
+  "schema_version": 2,
+  "generated_at": "2026-09-09T07:51:46Z",
+  "codex_version": "0.153.4",
+  "platform": {
+    "system": "Darwin",
+    "machine": "arm64"
+  },
+  "control_plane": "APP_SERVER_PARTIAL",
+  "feature_flags": {
+    "app_server_control": "PASS",
+    "conversation_history_shared": "PASS",
+    "thread_identifier_shared": "PASS",
+    "desktop_thread_visible": "UNKNOWN",
+    "desktop_ui_integration": "UNKNOWN",
+    "cwd_restored": "UNKNOWN",
+    "model_config_restored": "UNKNOWN",
+    "sandbox_policy_restored": "UNKNOWN",
+    "approval_policy_restored": "UNKNOWN",
+    "tool_state_restored": "UNKNOWN",
+    "cli_resume": "PASS",
+    "turn_interrupt": "PASS",
+    "job_survives_interrupt": "PARTIAL",
+    "actual_command_continues_after_interrupt": "PARTIAL",
+    "exit_code_authoritative_after_interrupt": "PARTIAL",
+    "turn_handoff_supported": "PARTIAL",
+    "busy_thread_delivery": "PARTIAL",
+    "idle_check_to_external_turn_race": "UNKNOWN",
+    "automatic_completion_delivery": "UNKNOWN",
+    "delivery_deduplication_and_recovery": "PASS",
+    "project_change_stale": "PASS",
+    "actual_command_integrity": "PASS",
+    "environment_value_persistence": "PASS",
+    "sandbox_preserved": "UNKNOWN",
+    "approval_preserved": "UNKNOWN",
+    "network_boundary": "UNKNOWN",
+    "auto_pretool_rewrite": "FAIL",
+    "auto_pretool_interception": "FAIL"
+  },
+  "integration_flags": {
+    "TURN_INTERRUPT_SUPPORTED": "PASS",
+    "JOB_SURVIVES_INTERRUPT": "PARTIAL",
+    "BUSY_THREAD_DELIVERY_SUPPORTED": "PARTIAL",
+    "DESKTOP_UI_INTEGRATION_SUPPORTED": "UNKNOWN",
+    "SANDBOX_PRESERVED": "UNKNOWN",
+    "APPROVAL_PRESERVED": "UNKNOWN",
+    "AUTO_RESUME_SUPPORTED": "UNKNOWN",
+    "AUTO_HANDOFF_SUPPORTED": "PARTIAL",
+    "AUTO_PRETOOL_INTERCEPTION_SUPPORTED": "FAIL"
+  },
+  "capabilities": [
+    {
+      "name": "app_server_control",
+      "status": "PASS",
+      "evidence": [
+        "v0.2 App Server runtime/schema probe"
+      ]
+    },
+    {
+      "name": "conversation_history_shared",
+      "status": "PASS",
+      "evidence": [
+        "v0.1/v0.2 capability aggregation"
+      ]
+    },
+    {
+      "name": "thread_identifier_shared",
+      "status": "PASS",
+      "evidence": [
+        "thread/start + thread/read same identifier"
+      ]
+    },
+    {
+      "name": "desktop_thread_visible",
+      "status": "UNKNOWN",
+      "evidence": [
+        "v0.1/v0.2 capability aggregation"
+      ]
+    },
+    {
+      "name": "desktop_ui_integration",
+      "status": "UNKNOWN",
+      "evidence": [
+        "v0.1/v0.2 capability aggregation"
+      ]
+    },
+    {
+      "name": "cwd_restored",
+      "status": "UNKNOWN",
+      "evidence": [
+        "v0.1/v0.2 capability aggregation"
+      ]
+    },
+    {
+      "name": "model_config_restored",
+      "status": "UNKNOWN",
+      "evidence": [
+        "v0.1/v0.2 capability aggregation"
+      ]
+    },
+    {
+      "name": "sandbox_policy_restored",
+      "status": "UNKNOWN",
+      "evidence": [
+        "v0.1/v0.2 capability aggregation"
+      ]
+    },
+    {
+      "name": "approval_policy_restored",
+      "status": "UNKNOWN",
+      "evidence": [
+        "v0.1/v0.2 capability aggregation"
+      ]
+    },
+    {
+      "name": "tool_state_restored",
+      "status": "UNKNOWN",
+      "evidence": [
+        "v0.1/v0.2 capability aggregation"
+      ]
+    },
+    {
+      "name": "cli_resume",
+      "status": "PASS",
+      "evidence": [
+        "v0.1/v0.2 capability aggregation"
+      ]
+    },
+    {
+      "name": "turn_interrupt",
+      "status": "PASS",
+      "evidence": [
+        "v0.1 and App Server turn/interrupt probe"
+      ]
+    },
+    {
+      "name": "job_survives_interrupt",
+      "status": "PARTIAL",
+      "evidence": [
+        "v0.1/v0.2 capability aggregation"
+      ]
+    },
+    {
+      "name": "actual_command_continues_after_interrupt",
+      "status": "PARTIAL",
+      "evidence": [
+        "v0.1/v0.2 capability aggregation"
+      ]
+    },
+    {
+      "name": "exit_code_authoritative_after_interrupt",
+      "status": "PARTIAL",
+      "evidence": [
+        "v0.1/v0.2 capability aggregation"
+      ]
+    },
+    {
+      "name": "turn_handoff_supported",
+      "status": "PARTIAL",
+      "evidence": [
+        "v0.1/v0.2 capability aggregation"
+      ]
+    },
+    {
+      "name": "busy_thread_delivery",
+      "status": "PARTIAL",
+      "evidence": [
+        "v0.2 active-turn candidate mechanism probe"
+      ]
+    },
+    {
+      "name": "idle_check_to_external_turn_race",
+      "status": "UNKNOWN",
+      "evidence": [
+        "v0.2 idle-check TOCTOU probe"
+      ]
+    },
+    {
+      "name": "automatic_completion_delivery",
+      "status": "UNKNOWN",
+      "evidence": [
+        "v0.1/v0.2 capability aggregation"
+      ]
+    },
+    {
+      "name": "delivery_deduplication_and_recovery",
+      "status": "PASS",
+      "evidence": [
+        "v0.2 J1-J5 durable delivery race probe"
+      ]
+    },
+    {
+      "name": "project_change_stale",
+      "status": "PASS",
+      "evidence": [
+        "v0.2 disposable Git mutation probe"
+      ]
+    },
+    {
+      "name": "actual_command_integrity",
+      "status": "PASS",
+      "evidence": [
+        "v0.2 JobSpec tamper probe"
+      ]
+    },
+    {
+      "name": "environment_value_persistence",
+      "status": "PASS",
+      "evidence": [
+        "v0.1/v0.2 capability aggregation"
+      ]
+    },
+    {
+      "name": "sandbox_preserved",
+      "status": "UNKNOWN",
+      "evidence": [
+        "v0.2 disposable workspace differential probe"
+      ]
+    },
+    {
+      "name": "approval_preserved",
+      "status": "UNKNOWN",
+      "evidence": [
+        "v0.1/v0.2 capability aggregation"
+      ]
+    },
+    {
+      "name": "network_boundary",
+      "status": "UNKNOWN",
+      "evidence": [
+        "v0.1/v0.2 capability aggregation"
+      ]
+    },
+    {
+      "name": "auto_pretool_rewrite",
+      "status": "FAIL",
+      "evidence": [
+        "v0.1/v0.2 capability aggregation"
+      ]
+    },
+    {
+      "name": "auto_pretool_interception",
+      "status": "FAIL",
+      "evidence": [
+        "v0.2 policy rule; production interception is disabled"
+      ]
+    }
+  ],
+  "automatic_features": {
+    "auto_resume": false,
+    "auto_handoff": false,
+    "auto_pretool_interception": false,
+    "reason": "all unproven control-plane and security gates remain disabled"
+  },
+  "sources": {
+    "v01_capabilities": "/Volumes/game/codex_hook_waiting_plgin/codex-snooze/results/capabilities.json",
+    "app_server": "/Volumes/game/codex_hook_waiting_plgin/codex-snooze/results/v0.2/app-server-probes.json",
+    "interrupt": "/Volumes/game/codex_hook_waiting_plgin/codex-snooze/results/v0.2/interrupt-tests.json",
+    "delivery": "/Volumes/game/codex_hook_waiting_plgin/codex-snooze/results/v0.2/delivery-races.json",
+    "concurrency": "/Volumes/game/codex_hook_waiting_plgin/codex-snooze/results/v0.2/concurrency-tests.json",
+    "security": "/Volumes/game/codex_hook_waiting_plgin/codex-snooze/results/v0.2/security-probes.json",
+    "project_stale": "/Volumes/game/codex_hook_waiting_plgin/codex-snooze/results/v0.2/project-stale-tests.json"
+  },
+  "decision_reasons": [
+    "Installed App Server initialize, thread list/read/start and queue/background APIs were exercised on disposable threads.",
+    "turn/interrupt was observed to complete an App Server turn as interrupted.",
+    "Desktop same-thread identity/UI visibility, busy-thread safety, policy restoration and automatic acknowledgement are not proven.",
+    "One earlier handoff survival run passed, while repeat/race runs were UNKNOWN; the survival gate is therefore PARTIAL.",
+    "Automatic PreToolUse rewrite/interception remains FAIL and disabled."
+  ]
+}

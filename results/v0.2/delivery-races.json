@@ -1,0 +1,2529 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-09-09T07:46:53Z",
+  "repetitions": 10,
+  "cases": [
+    {
+      "name": "J1_duplicate_event_and_ack_guard",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "first": {
+          "job_id": "a287275a-d91d-4916-afcc-64f6f657652a",
+          "state": "SENT_UNCONFIRMED",
+          "attempts": 1,
+          "payload_path": "/private/var/folders/y_/0qzdf4dj2kn7tmpd08q0cr6w0000gn/T/codex-snooze-v02-delivery-exi8w4u_/store/jobs/a287275a-d91d-4916-afcc-64f6f657652a/delivery_payload.json",
+          "event_id": "7055c1f3-50b2-4c8c-b1f1-2bf9740bdc9c",
+          "duplicate": false
+        },
+        "duplicate_without_permission": {
+          "job_id": "a287275a-d91d-4916-afcc-64f6f657652a",
+          "state": "SENT_UNCONFIRMED",
+          "duplicate": false,
+          "action": "ack_or_explicitly_retry"
+        },
+        "retry_without_permission": "DeliveryControllerError",
+        "after_ack": {
+          "job_id": "a287275a-d91d-4916-afcc-64f6f657652a",
+          "state": "ACKED",
+          "duplicate": false
+        }
+      },
+      "run_number": 1
+    },
+    {
+      "name": "J2_delivery_controller_crash_before_rename",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "crash_returncode": 75,
+        "delivery_before_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "630ffc2b-b5db-4698-b01a-02ed8eb9d980",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "20d9a844-f54e-4a46-a6f9-1da2064bd399",
+          "last_attempt_at": "2026-09-09T07:46:45.880090Z",
+          "remote_marker": null,
+          "result_sha256": "c09c4c82dc346fbb7a4aa23cd18f462eac6da7a28c2ff1c483119bded70bed2f",
+          "schema_version": 1,
+          "state": "SENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:45.880953Z"
+        },
+        "recovery": {
+          "job_id": "20d9a844-f54e-4a46-a6f9-1da2064bd399",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "delivery_retry_required": true,
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "630ffc2b-b5db-4698-b01a-02ed8eb9d980",
+          "error_code": "DELIVERY_INTERRUPTED",
+          "error_message": "delivery state was in-flight when recovery ran",
+          "job_id": "20d9a844-f54e-4a46-a6f9-1da2064bd399",
+          "last_attempt_at": "2026-09-09T07:46:45.880090Z",
+          "remote_marker": null,
+          "result_sha256": "c09c4c82dc346fbb7a4aa23cd18f462eac6da7a28c2ff1c483119bded70bed2f",
+          "schema_version": 1,
+          "state": "RETRY_WAIT",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:45.883073Z"
+        }
+      },
+      "run_number": 1
+    },
+    {
+      "name": "J2_delivery_controller_crash_after_rename",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "crash_returncode": 75,
+        "delivery_before_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "31cac5d5-eb9f-4fd2-bc50-65e0119f63db",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "068d0911-c7ad-4ab8-a108-04aa5119ccbf",
+          "last_attempt_at": "2026-09-09T07:46:46.029097Z",
+          "remote_marker": null,
+          "result_sha256": "7a89c9913f7553dd974fedf5ac4427e9e22ebebc0d425316e4b8d256451f9027",
+          "schema_version": 1,
+          "state": "SENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:46.030096Z"
+        },
+        "recovery": {
+          "job_id": "068d0911-c7ad-4ab8-a108-04aa5119ccbf",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "delivery_repaired": true,
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "31cac5d5-eb9f-4fd2-bc50-65e0119f63db",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "068d0911-c7ad-4ab8-a108-04aa5119ccbf",
+          "last_attempt_at": "2026-09-09T07:46:46.029097Z",
+          "remote_marker": "delivery_payload.json",
+          "result_sha256": "7a89c9913f7553dd974fedf5ac4427e9e22ebebc0d425316e4b8d256451f9027",
+          "schema_version": 1,
+          "state": "SENT_UNCONFIRMED",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:46.032346Z"
+        }
+      },
+      "run_number": 1
+    },
+    {
+      "name": "J3_ack_write_crash_after_rename",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "crash_returncode": 75,
+        "recovery": {
+          "job_id": "2a06b72f-14ed-4b35-afd9-57477d900996",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": "2026-09-09T07:46:46.177560Z",
+          "attempts": 1,
+          "completion_event_id": "c21db34e-7312-46c2-8d6f-ccd0abfeb928",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "2a06b72f-14ed-4b35-afd9-57477d900996",
+          "last_attempt_at": "2026-09-09T07:46:46.127359Z",
+          "remote_marker": "delivery_payload.json",
+          "result_sha256": "24d54c67e6903c076d77c6efc948959b57a56ae44372fcc312fc1b626c5e2dc7",
+          "schema_version": 1,
+          "state": "ACKED",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:46.179714Z"
+        }
+      },
+      "run_number": 1
+    },
+    {
+      "name": "J4_controller_restart_explicit_duplicate_retry",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "first": {
+          "job_id": "db735456-3c18-4180-8510-20285ffea57f",
+          "state": "SENT_UNCONFIRMED",
+          "attempts": 1,
+          "payload_path": "/private/var/folders/y_/0qzdf4dj2kn7tmpd08q0cr6w0000gn/T/codex-snooze-v02-restart-ikl2uifg/store/jobs/db735456-3c18-4180-8510-20285ffea57f/delivery_payload.json",
+          "event_id": "1d49eeb5-6d70-43be-8dc7-080bba517ff4",
+          "duplicate": false
+        },
+        "recovery": {
+          "job_id": "db735456-3c18-4180-8510-20285ffea57f",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "after_execution_state": "COMPLETED"
+        },
+        "retry": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "1d49eeb5-6d70-43be-8dc7-080bba517ff4",
+          "error_code": "EXPLICIT_RETRY",
+          "error_message": "operator requested another at-least-once delivery attempt",
+          "job_id": "db735456-3c18-4180-8510-20285ffea57f",
+          "last_attempt_at": "2026-09-09T07:46:46.266844Z",
+          "remote_marker": "delivery_payload.json",
+          "result_sha256": "91926e790522b869439a730907a5f1f476e0f70a60d2e7ae8017a2f41df6c44c",
+          "schema_version": 1,
+          "state": "PENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:46.269638Z"
+        },
+        "second": {
+          "job_id": "db735456-3c18-4180-8510-20285ffea57f",
+          "state": "SENT_UNCONFIRMED",
+          "attempts": 2,
+          "payload_path": "/private/var/folders/y_/0qzdf4dj2kn7tmpd08q0cr6w0000gn/T/codex-snooze-v02-restart-ikl2uifg/store/jobs/db735456-3c18-4180-8510-20285ffea57f/delivery_payload.json",
+          "event_id": "1d49eeb5-6d70-43be-8dc7-080bba517ff4",
+          "duplicate": false
+        }
+      },
+      "run_number": 1
+    },
+    {
+      "name": "J5_concurrent_delivery_claim",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "first_returncode": 75,
+        "second_returncode": 2,
+        "first_stdout": "",
+        "first_stderr": "",
+        "second_stdout": "",
+        "second_stderr": "deliver failed: delivery changed before claim; currently CLAIMED\n",
+        "delivery_before_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "d96b305d-8965-4f5a-9935-3b760d7a4988",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "d2063ad3-58f3-4ae1-9083-d5abe3535661",
+          "last_attempt_at": "2026-09-09T07:46:46.416289Z",
+          "remote_marker": null,
+          "result_sha256": "e5b28d5d701228004befeb9d5d55a6efa0e39cddf45a0eedc804c4d6511a273b",
+          "schema_version": 1,
+          "state": "SENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:46.417550Z"
+        },
+        "recovery": {
+          "job_id": "d2063ad3-58f3-4ae1-9083-d5abe3535661",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "delivery_retry_required": true,
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "d96b305d-8965-4f5a-9935-3b760d7a4988",
+          "error_code": "DELIVERY_INTERRUPTED",
+          "error_message": "delivery state was in-flight when recovery ran",
+          "job_id": "d2063ad3-58f3-4ae1-9083-d5abe3535661",
+          "last_attempt_at": "2026-09-09T07:46:46.416289Z",
+          "remote_marker": null,
+          "result_sha256": "e5b28d5d701228004befeb9d5d55a6efa0e39cddf45a0eedc804c4d6511a273b",
+          "schema_version": 1,
+          "state": "RETRY_WAIT",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:46.424439Z"
+        }
+      },
+      "run_number": 1
+    },
+    {
+      "name": "J1_duplicate_event_and_ack_guard",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "first": {
+          "job_id": "cc86ab65-805a-4057-abea-b1a6244be5bc",
+          "state": "SENT_UNCONFIRMED",
+          "attempts": 1,
+          "payload_path": "/private/var/folders/y_/0qzdf4dj2kn7tmpd08q0cr6w0000gn/T/codex-snooze-v02-delivery-y1il40a3/store/jobs/cc86ab65-805a-4057-abea-b1a6244be5bc/delivery_payload.json",
+          "event_id": "ded4cc69-75e5-4028-b421-18239f84585c",
+          "duplicate": false
+        },
+        "duplicate_without_permission": {
+          "job_id": "cc86ab65-805a-4057-abea-b1a6244be5bc",
+          "state": "SENT_UNCONFIRMED",
+          "duplicate": false,
+          "action": "ack_or_explicitly_retry"
+        },
+        "retry_without_permission": "DeliveryControllerError",
+        "after_ack": {
+          "job_id": "cc86ab65-805a-4057-abea-b1a6244be5bc",
+          "state": "ACKED",
+          "duplicate": false
+        }
+      },
+      "run_number": 2
+    },
+    {
+      "name": "J2_delivery_controller_crash_before_rename",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "crash_returncode": 75,
+        "delivery_before_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "e7de5413-f7f7-43fb-8d75-d7dc9ed07168",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "9ce804c5-0bca-49bf-807d-35636880f4f6",
+          "last_attempt_at": "2026-09-09T07:46:46.667463Z",
+          "remote_marker": null,
+          "result_sha256": "7079e34b388a176875955d97dc56d38716401b365586d2129d520a072e5e957a",
+          "schema_version": 1,
+          "state": "SENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:46.668354Z"
+        },
+        "recovery": {
+          "job_id": "9ce804c5-0bca-49bf-807d-35636880f4f6",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "delivery_retry_required": true,
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "e7de5413-f7f7-43fb-8d75-d7dc9ed07168",
+          "error_code": "DELIVERY_INTERRUPTED",
+          "error_message": "delivery state was in-flight when recovery ran",
+          "job_id": "9ce804c5-0bca-49bf-807d-35636880f4f6",
+          "last_attempt_at": "2026-09-09T07:46:46.667463Z",
+          "remote_marker": null,
+          "result_sha256": "7079e34b388a176875955d97dc56d38716401b365586d2129d520a072e5e957a",
+          "schema_version": 1,
+          "state": "RETRY_WAIT",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:46.670432Z"
+        }
+      },
+      "run_number": 2
+    },
+    {
+      "name": "J2_delivery_controller_crash_after_rename",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "crash_returncode": 75,
+        "delivery_before_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "120082c9-9df4-4665-9f58-002effd1ee27",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "01acd387-553b-4b5f-b5d0-6c8561325e44",
+          "last_attempt_at": "2026-09-09T07:46:46.818497Z",
+          "remote_marker": null,
+          "result_sha256": "000faee2188692565cbb70db951ce8d4ab56efbee74b3f62436c82a6c472b1c0",
+          "schema_version": 1,
+          "state": "SENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:46.819555Z"
+        },
+        "recovery": {
+          "job_id": "01acd387-553b-4b5f-b5d0-6c8561325e44",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "delivery_repaired": true,
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "120082c9-9df4-4665-9f58-002effd1ee27",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "01acd387-553b-4b5f-b5d0-6c8561325e44",
+          "last_attempt_at": "2026-09-09T07:46:46.818497Z",
+          "remote_marker": "delivery_payload.json",
+          "result_sha256": "000faee2188692565cbb70db951ce8d4ab56efbee74b3f62436c82a6c472b1c0",
+          "schema_version": 1,
+          "state": "SENT_UNCONFIRMED",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:46.821667Z"
+        }
+      },
+      "run_number": 2
+    },
+    {
+      "name": "J3_ack_write_crash_after_rename",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "crash_returncode": 75,
+        "recovery": {
+          "job_id": "79f73bef-c797-422f-8e5b-fb596a1d826e",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": "2026-09-09T07:46:46.967456Z",
+          "attempts": 1,
+          "completion_event_id": "a98103f2-a13e-4cbc-a546-a3fed0d7ec73",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "79f73bef-c797-422f-8e5b-fb596a1d826e",
+          "last_attempt_at": "2026-09-09T07:46:46.914931Z",
+          "remote_marker": "delivery_payload.json",
+          "result_sha256": "af6987fcc790b5c0e0ed4678d4f7cc25f073aab9a00ed5fcbd4d5dc4a66b71d2",
+          "schema_version": 1,
+          "state": "ACKED",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:46.969676Z"
+        }
+      },
+      "run_number": 2
+    },
+    {
+      "name": "J4_controller_restart_explicit_duplicate_retry",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "first": {
+          "job_id": "d8c3b9c4-f8da-4833-b898-516246363fb7",
+          "state": "SENT_UNCONFIRMED",
+          "attempts": 1,
+          "payload_path": "/private/var/folders/y_/0qzdf4dj2kn7tmpd08q0cr6w0000gn/T/codex-snooze-v02-restart-ymyd6blg/store/jobs/d8c3b9c4-f8da-4833-b898-516246363fb7/delivery_payload.json",
+          "event_id": "b100d496-685b-4798-ac08-220f55b03a76",
+          "duplicate": false
+        },
+        "recovery": {
+          "job_id": "d8c3b9c4-f8da-4833-b898-516246363fb7",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "after_execution_state": "COMPLETED"
+        },
+        "retry": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "b100d496-685b-4798-ac08-220f55b03a76",
+          "error_code": "EXPLICIT_RETRY",
+          "error_message": "operator requested another at-least-once delivery attempt",
+          "job_id": "d8c3b9c4-f8da-4833-b898-516246363fb7",
+          "last_attempt_at": "2026-09-09T07:46:47.061922Z",
+          "remote_marker": "delivery_payload.json",
+          "result_sha256": "cd56fe729598cc2e145d670282ae321a9963d3db6a8f4b5b0a58c23522f34564",
+          "schema_version": 1,
+          "state": "PENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:47.064127Z"
+        },
+        "second": {
+          "job_id": "d8c3b9c4-f8da-4833-b898-516246363fb7",
+          "state": "SENT_UNCONFIRMED",
+          "attempts": 2,
+          "payload_path": "/private/var/folders/y_/0qzdf4dj2kn7tmpd08q0cr6w0000gn/T/codex-snooze-v02-restart-ymyd6blg/store/jobs/d8c3b9c4-f8da-4833-b898-516246363fb7/delivery_payload.json",
+          "event_id": "b100d496-685b-4798-ac08-220f55b03a76",
+          "duplicate": false
+        }
+      },
+      "run_number": 2
+    },
+    {
+      "name": "J5_concurrent_delivery_claim",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "first_returncode": 2,
+        "second_returncode": 75,
+        "first_stdout": "",
+        "first_stderr": "deliver failed: delivery changed before claim; currently CLAIMED\n",
+        "second_stdout": "",
+        "second_stderr": "",
+        "delivery_before_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "c69f98e7-2f20-4255-a030-471da1d11732",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "1015dc3d-dfd4-429f-afbb-29533cbb616e",
+          "last_attempt_at": "2026-09-09T07:46:47.210724Z",
+          "remote_marker": null,
+          "result_sha256": "201c1efb73a347b3a53ed0bcb2db8891bf5b9438371dbf39824294a64180b10b",
+          "schema_version": 1,
+          "state": "SENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:47.211803Z"
+        },
+        "recovery": {
+          "job_id": "1015dc3d-dfd4-429f-afbb-29533cbb616e",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "delivery_retry_required": true,
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "c69f98e7-2f20-4255-a030-471da1d11732",
+          "error_code": "DELIVERY_INTERRUPTED",
+          "error_message": "delivery state was in-flight when recovery ran",
+          "job_id": "1015dc3d-dfd4-429f-afbb-29533cbb616e",
+          "last_attempt_at": "2026-09-09T07:46:47.210724Z",
+          "remote_marker": null,
+          "result_sha256": "201c1efb73a347b3a53ed0bcb2db8891bf5b9438371dbf39824294a64180b10b",
+          "schema_version": 1,
+          "state": "RETRY_WAIT",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:47.219629Z"
+        }
+      },
+      "run_number": 2
+    },
+    {
+      "name": "J1_duplicate_event_and_ack_guard",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "first": {
+          "job_id": "0f3a1e9b-184c-4e48-80f8-99872a8252de",
+          "state": "SENT_UNCONFIRMED",
+          "attempts": 1,
+          "payload_path": "/private/var/folders/y_/0qzdf4dj2kn7tmpd08q0cr6w0000gn/T/codex-snooze-v02-delivery-f9mwaujb/store/jobs/0f3a1e9b-184c-4e48-80f8-99872a8252de/delivery_payload.json",
+          "event_id": "967e414b-b9d8-4228-87d5-2058d60f75ea",
+          "duplicate": false
+        },
+        "duplicate_without_permission": {
+          "job_id": "0f3a1e9b-184c-4e48-80f8-99872a8252de",
+          "state": "SENT_UNCONFIRMED",
+          "duplicate": false,
+          "action": "ack_or_explicitly_retry"
+        },
+        "retry_without_permission": "DeliveryControllerError",
+        "after_ack": {
+          "job_id": "0f3a1e9b-184c-4e48-80f8-99872a8252de",
+          "state": "ACKED",
+          "duplicate": false
+        }
+      },
+      "run_number": 3
+    },
+    {
+      "name": "J2_delivery_controller_crash_before_rename",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "crash_returncode": 75,
+        "delivery_before_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "ee0eaa61-7de8-4dc8-b897-41ad6e834786",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "443480b1-7405-4226-8550-af83f000306f",
+          "last_attempt_at": "2026-09-09T07:46:47.459505Z",
+          "remote_marker": null,
+          "result_sha256": "16c5968c3769f3a361b8a02aca15e62bf7ecf034b7d6676f338f18cb9329474b",
+          "schema_version": 1,
+          "state": "SENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:47.460516Z"
+        },
+        "recovery": {
+          "job_id": "443480b1-7405-4226-8550-af83f000306f",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "delivery_retry_required": true,
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "ee0eaa61-7de8-4dc8-b897-41ad6e834786",
+          "error_code": "DELIVERY_INTERRUPTED",
+          "error_message": "delivery state was in-flight when recovery ran",
+          "job_id": "443480b1-7405-4226-8550-af83f000306f",
+          "last_attempt_at": "2026-09-09T07:46:47.459505Z",
+          "remote_marker": null,
+          "result_sha256": "16c5968c3769f3a361b8a02aca15e62bf7ecf034b7d6676f338f18cb9329474b",
+          "schema_version": 1,
+          "state": "RETRY_WAIT",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:47.462623Z"
+        }
+      },
+      "run_number": 3
+    },
+    {
+      "name": "J2_delivery_controller_crash_after_rename",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "crash_returncode": 75,
+        "delivery_before_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "4a6b35ac-6ea0-4bb0-8d8e-bd727641ab81",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "aa5afafd-e45b-4c19-b369-d265b67a77c2",
+          "last_attempt_at": "2026-09-09T07:46:47.608398Z",
+          "remote_marker": null,
+          "result_sha256": "5361a65e2c341754a71de5827396e2dce7e41cd15b02873112860fe6580fa207",
+          "schema_version": 1,
+          "state": "SENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:47.609441Z"
+        },
+        "recovery": {
+          "job_id": "aa5afafd-e45b-4c19-b369-d265b67a77c2",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "delivery_repaired": true,
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "4a6b35ac-6ea0-4bb0-8d8e-bd727641ab81",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "aa5afafd-e45b-4c19-b369-d265b67a77c2",
+          "last_attempt_at": "2026-09-09T07:46:47.608398Z",
+          "remote_marker": "delivery_payload.json",
+          "result_sha256": "5361a65e2c341754a71de5827396e2dce7e41cd15b02873112860fe6580fa207",
+          "schema_version": 1,
+          "state": "SENT_UNCONFIRMED",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:47.611465Z"
+        }
+      },
+      "run_number": 3
+    },
+    {
+      "name": "J3_ack_write_crash_after_rename",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "crash_returncode": 75,
+        "recovery": {
+          "job_id": "696402e0-00c5-4bc4-b352-0d3b39d48185",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": "2026-09-09T07:46:47.759104Z",
+          "attempts": 1,
+          "completion_event_id": "8c186633-a207-4114-ae27-00ccd163f19e",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "696402e0-00c5-4bc4-b352-0d3b39d48185",
+          "last_attempt_at": "2026-09-09T07:46:47.706883Z",
+          "remote_marker": "delivery_payload.json",
+          "result_sha256": "c999e61ca865f6b7d63a0cb2e684e7cac87c3529f686d6eb962ed0c0f462a4a8",
+          "schema_version": 1,
+          "state": "ACKED",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:47.761215Z"
+        }
+      },
+      "run_number": 3
+    },
+    {
+      "name": "J4_controller_restart_explicit_duplicate_retry",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "first": {
+          "job_id": "2d4a3387-4aaf-4f99-bf6b-e4a35a3eb5f7",
+          "state": "SENT_UNCONFIRMED",
+          "attempts": 1,
+          "payload_path": "/private/var/folders/y_/0qzdf4dj2kn7tmpd08q0cr6w0000gn/T/codex-snooze-v02-restart-3y0ya_k7/store/jobs/2d4a3387-4aaf-4f99-bf6b-e4a35a3eb5f7/delivery_payload.json",
+          "event_id": "e68167d6-fa68-4787-9640-5ca54d0bcf2c",
+          "duplicate": false
+        },
+        "recovery": {
+          "job_id": "2d4a3387-4aaf-4f99-bf6b-e4a35a3eb5f7",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "after_execution_state": "COMPLETED"
+        },
+        "retry": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "e68167d6-fa68-4787-9640-5ca54d0bcf2c",
+          "error_code": "EXPLICIT_RETRY",
+          "error_message": "operator requested another at-least-once delivery attempt",
+          "job_id": "2d4a3387-4aaf-4f99-bf6b-e4a35a3eb5f7",
+          "last_attempt_at": "2026-09-09T07:46:47.858686Z",
+          "remote_marker": "delivery_payload.json",
+          "result_sha256": "7720a84c4953872d54d150c2cd682beef32b192fa96284bf3dc1126a53adfa6a",
+          "schema_version": 1,
+          "state": "PENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:47.861275Z"
+        },
+        "second": {
+          "job_id": "2d4a3387-4aaf-4f99-bf6b-e4a35a3eb5f7",
+          "state": "SENT_UNCONFIRMED",
+          "attempts": 2,
+          "payload_path": "/private/var/folders/y_/0qzdf4dj2kn7tmpd08q0cr6w0000gn/T/codex-snooze-v02-restart-3y0ya_k7/store/jobs/2d4a3387-4aaf-4f99-bf6b-e4a35a3eb5f7/delivery_payload.json",
+          "event_id": "e68167d6-fa68-4787-9640-5ca54d0bcf2c",
+          "duplicate": false
+        }
+      },
+      "run_number": 3
+    },
+    {
+      "name": "J5_concurrent_delivery_claim",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "first_returncode": 2,
+        "second_returncode": 75,
+        "first_stdout": "",
+        "first_stderr": "deliver failed: delivery changed before claim; currently CLAIMED\n",
+        "second_stdout": "",
+        "second_stderr": "",
+        "delivery_before_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "6e2aa7cd-69e1-4d40-95ba-adbdab514168",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "70b05ca2-5ec1-42e4-a869-1a13f24bf745",
+          "last_attempt_at": "2026-09-09T07:46:48.025008Z",
+          "remote_marker": null,
+          "result_sha256": "4e27bfec6a12ee33aedff81e0dd7d08ce2cd44c3aa9e36963cf8970ee2524e3a",
+          "schema_version": 1,
+          "state": "SENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:48.026052Z"
+        },
+        "recovery": {
+          "job_id": "70b05ca2-5ec1-42e4-a869-1a13f24bf745",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "delivery_retry_required": true,
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "6e2aa7cd-69e1-4d40-95ba-adbdab514168",
+          "error_code": "DELIVERY_INTERRUPTED",
+          "error_message": "delivery state was in-flight when recovery ran",
+          "job_id": "70b05ca2-5ec1-42e4-a869-1a13f24bf745",
+          "last_attempt_at": "2026-09-09T07:46:48.025008Z",
+          "remote_marker": null,
+          "result_sha256": "4e27bfec6a12ee33aedff81e0dd7d08ce2cd44c3aa9e36963cf8970ee2524e3a",
+          "schema_version": 1,
+          "state": "RETRY_WAIT",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:48.033709Z"
+        }
+      },
+      "run_number": 3
+    },
+    {
+      "name": "J1_duplicate_event_and_ack_guard",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "first": {
+          "job_id": "ffb19a88-9cf3-4eae-8337-681c86c89c35",
+          "state": "SENT_UNCONFIRMED",
+          "attempts": 1,
+          "payload_path": "/private/var/folders/y_/0qzdf4dj2kn7tmpd08q0cr6w0000gn/T/codex-snooze-v02-delivery-ztcei4ed/store/jobs/ffb19a88-9cf3-4eae-8337-681c86c89c35/delivery_payload.json",
+          "event_id": "417506bd-6b5d-497f-9883-9010f7d341a1",
+          "duplicate": false
+        },
+        "duplicate_without_permission": {
+          "job_id": "ffb19a88-9cf3-4eae-8337-681c86c89c35",
+          "state": "SENT_UNCONFIRMED",
+          "duplicate": false,
+          "action": "ack_or_explicitly_retry"
+        },
+        "retry_without_permission": "DeliveryControllerError",
+        "after_ack": {
+          "job_id": "ffb19a88-9cf3-4eae-8337-681c86c89c35",
+          "state": "ACKED",
+          "duplicate": false
+        }
+      },
+      "run_number": 4
+    },
+    {
+      "name": "J2_delivery_controller_crash_before_rename",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "crash_returncode": 75,
+        "delivery_before_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "38694469-a7d2-4d1b-9419-55af7e74e50a",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "3a2284ff-8813-4a62-b534-06768201bd71",
+          "last_attempt_at": "2026-09-09T07:46:48.319140Z",
+          "remote_marker": null,
+          "result_sha256": "b1935d779dd7a7f8145150699c3ace0de97a8be872701e11f5d774150b5867e7",
+          "schema_version": 1,
+          "state": "SENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:48.320150Z"
+        },
+        "recovery": {
+          "job_id": "3a2284ff-8813-4a62-b534-06768201bd71",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "delivery_retry_required": true,
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "38694469-a7d2-4d1b-9419-55af7e74e50a",
+          "error_code": "DELIVERY_INTERRUPTED",
+          "error_message": "delivery state was in-flight when recovery ran",
+          "job_id": "3a2284ff-8813-4a62-b534-06768201bd71",
+          "last_attempt_at": "2026-09-09T07:46:48.319140Z",
+          "remote_marker": null,
+          "result_sha256": "b1935d779dd7a7f8145150699c3ace0de97a8be872701e11f5d774150b5867e7",
+          "schema_version": 1,
+          "state": "RETRY_WAIT",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:48.322357Z"
+        }
+      },
+      "run_number": 4
+    },
+    {
+      "name": "J2_delivery_controller_crash_after_rename",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "crash_returncode": 75,
+        "delivery_before_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "dea6c772-f75d-4ee6-8b91-de5e7a94dda4",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "452a70f0-30d9-4cf8-a68d-fc9428603935",
+          "last_attempt_at": "2026-09-09T07:46:48.470754Z",
+          "remote_marker": null,
+          "result_sha256": "c80bb16f05f4582a2715d69d2abc34f47770d65f670858dc7cf4ca295e0e97c9",
+          "schema_version": 1,
+          "state": "SENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:48.471681Z"
+        },
+        "recovery": {
+          "job_id": "452a70f0-30d9-4cf8-a68d-fc9428603935",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "delivery_repaired": true,
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "dea6c772-f75d-4ee6-8b91-de5e7a94dda4",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "452a70f0-30d9-4cf8-a68d-fc9428603935",
+          "last_attempt_at": "2026-09-09T07:46:48.470754Z",
+          "remote_marker": "delivery_payload.json",
+          "result_sha256": "c80bb16f05f4582a2715d69d2abc34f47770d65f670858dc7cf4ca295e0e97c9",
+          "schema_version": 1,
+          "state": "SENT_UNCONFIRMED",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:48.473740Z"
+        }
+      },
+      "run_number": 4
+    },
+    {
+      "name": "J3_ack_write_crash_after_rename",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "crash_returncode": 75,
+        "recovery": {
+          "job_id": "e8ecd368-8f0c-46be-a3b7-ff6dfb533e26",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": "2026-09-09T07:46:48.624007Z",
+          "attempts": 1,
+          "completion_event_id": "43436d0f-979d-4908-89fa-82d8576712b7",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "e8ecd368-8f0c-46be-a3b7-ff6dfb533e26",
+          "last_attempt_at": "2026-09-09T07:46:48.569818Z",
+          "remote_marker": "delivery_payload.json",
+          "result_sha256": "8b8d6d479f4e0fa6066f6cffd268ac41e53e5352189c79082a42b99ccb2ddb48",
+          "schema_version": 1,
+          "state": "ACKED",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:48.626138Z"
+        }
+      },
+      "run_number": 4
+    },
+    {
+      "name": "J4_controller_restart_explicit_duplicate_retry",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "first": {
+          "job_id": "51174e9a-09b9-4467-b1be-ced89141c487",
+          "state": "SENT_UNCONFIRMED",
+          "attempts": 1,
+          "payload_path": "/private/var/folders/y_/0qzdf4dj2kn7tmpd08q0cr6w0000gn/T/codex-snooze-v02-restart-r2vl1pxt/store/jobs/51174e9a-09b9-4467-b1be-ced89141c487/delivery_payload.json",
+          "event_id": "02cfdbbc-f6d0-40da-ad1f-4ab5e62cf21a",
+          "duplicate": false
+        },
+        "recovery": {
+          "job_id": "51174e9a-09b9-4467-b1be-ced89141c487",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "after_execution_state": "COMPLETED"
+        },
+        "retry": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "02cfdbbc-f6d0-40da-ad1f-4ab5e62cf21a",
+          "error_code": "EXPLICIT_RETRY",
+          "error_message": "operator requested another at-least-once delivery attempt",
+          "job_id": "51174e9a-09b9-4467-b1be-ced89141c487",
+          "last_attempt_at": "2026-09-09T07:46:48.722793Z",
+          "remote_marker": "delivery_payload.json",
+          "result_sha256": "2c522ab36a4e290c6c875548a3f8b88c0cbcab2ee1da56e5f8f1cf3c832ccc2c",
+          "schema_version": 1,
+          "state": "PENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:48.725221Z"
+        },
+        "second": {
+          "job_id": "51174e9a-09b9-4467-b1be-ced89141c487",
+          "state": "SENT_UNCONFIRMED",
+          "attempts": 2,
+          "payload_path": "/private/var/folders/y_/0qzdf4dj2kn7tmpd08q0cr6w0000gn/T/codex-snooze-v02-restart-r2vl1pxt/store/jobs/51174e9a-09b9-4467-b1be-ced89141c487/delivery_payload.json",
+          "event_id": "02cfdbbc-f6d0-40da-ad1f-4ab5e62cf21a",
+          "duplicate": false
+        }
+      },
+      "run_number": 4
+    },
+    {
+      "name": "J5_concurrent_delivery_claim",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "first_returncode": 75,
+        "second_returncode": 2,
+        "first_stdout": "",
+        "first_stderr": "",
+        "second_stdout": "",
+        "second_stderr": "deliver failed: delivery changed before claim; currently CLAIMED\n",
+        "delivery_before_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "65495a6c-bb32-444c-8677-c8c596d620bf",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "d575a472-0386-4544-872d-edafd0e96fb5",
+          "last_attempt_at": "2026-09-09T07:46:48.876681Z",
+          "remote_marker": null,
+          "result_sha256": "dff2a7e895580d6b287c201f7829c80153ec336d5217cef603da84e91c9053d6",
+          "schema_version": 1,
+          "state": "SENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:48.877602Z"
+        },
+        "recovery": {
+          "job_id": "d575a472-0386-4544-872d-edafd0e96fb5",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "delivery_retry_required": true,
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "65495a6c-bb32-444c-8677-c8c596d620bf",
+          "error_code": "DELIVERY_INTERRUPTED",
+          "error_message": "delivery state was in-flight when recovery ran",
+          "job_id": "d575a472-0386-4544-872d-edafd0e96fb5",
+          "last_attempt_at": "2026-09-09T07:46:48.876681Z",
+          "remote_marker": null,
+          "result_sha256": "dff2a7e895580d6b287c201f7829c80153ec336d5217cef603da84e91c9053d6",
+          "schema_version": 1,
+          "state": "RETRY_WAIT",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:48.885046Z"
+        }
+      },
+      "run_number": 4
+    },
+    {
+      "name": "J1_duplicate_event_and_ack_guard",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "first": {
+          "job_id": "4bb849dd-d28d-46f0-881a-422440d8910f",
+          "state": "SENT_UNCONFIRMED",
+          "attempts": 1,
+          "payload_path": "/private/var/folders/y_/0qzdf4dj2kn7tmpd08q0cr6w0000gn/T/codex-snooze-v02-delivery-ktipw3cd/store/jobs/4bb849dd-d28d-46f0-881a-422440d8910f/delivery_payload.json",
+          "event_id": "6bf9efe4-97c5-4b63-8bdc-5ff3c71c568e",
+          "duplicate": false
+        },
+        "duplicate_without_permission": {
+          "job_id": "4bb849dd-d28d-46f0-881a-422440d8910f",
+          "state": "SENT_UNCONFIRMED",
+          "duplicate": false,
+          "action": "ack_or_explicitly_retry"
+        },
+        "retry_without_permission": "DeliveryControllerError",
+        "after_ack": {
+          "job_id": "4bb849dd-d28d-46f0-881a-422440d8910f",
+          "state": "ACKED",
+          "duplicate": false
+        }
+      },
+      "run_number": 5
+    },
+    {
+      "name": "J2_delivery_controller_crash_before_rename",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "crash_returncode": 75,
+        "delivery_before_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "e6abc40a-5fcb-4aa9-a8d4-8a65cf1ac961",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "f0dabb82-b545-4e48-98af-f4b8aecddc7c",
+          "last_attempt_at": "2026-09-09T07:46:49.130944Z",
+          "remote_marker": null,
+          "result_sha256": "238bd846b67421eb17b69ac01c845120a9132abad35430371c9c1edbae8c88bb",
+          "schema_version": 1,
+          "state": "SENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:49.131949Z"
+        },
+        "recovery": {
+          "job_id": "f0dabb82-b545-4e48-98af-f4b8aecddc7c",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "delivery_retry_required": true,
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "e6abc40a-5fcb-4aa9-a8d4-8a65cf1ac961",
+          "error_code": "DELIVERY_INTERRUPTED",
+          "error_message": "delivery state was in-flight when recovery ran",
+          "job_id": "f0dabb82-b545-4e48-98af-f4b8aecddc7c",
+          "last_attempt_at": "2026-09-09T07:46:49.130944Z",
+          "remote_marker": null,
+          "result_sha256": "238bd846b67421eb17b69ac01c845120a9132abad35430371c9c1edbae8c88bb",
+          "schema_version": 1,
+          "state": "RETRY_WAIT",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:49.134280Z"
+        }
+      },
+      "run_number": 5
+    },
+    {
+      "name": "J2_delivery_controller_crash_after_rename",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "crash_returncode": 75,
+        "delivery_before_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "32c10d84-23eb-4527-89f6-04538f13e7f7",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "308a4006-937c-40b0-b96d-a8976b6ad843",
+          "last_attempt_at": "2026-09-09T07:46:49.287697Z",
+          "remote_marker": null,
+          "result_sha256": "d942ff7d6042ed77e6e455a6e37a4e7ca94a3cae9e976307327e28e9c04de80b",
+          "schema_version": 1,
+          "state": "SENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:49.288566Z"
+        },
+        "recovery": {
+          "job_id": "308a4006-937c-40b0-b96d-a8976b6ad843",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "delivery_repaired": true,
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "32c10d84-23eb-4527-89f6-04538f13e7f7",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "308a4006-937c-40b0-b96d-a8976b6ad843",
+          "last_attempt_at": "2026-09-09T07:46:49.287697Z",
+          "remote_marker": "delivery_payload.json",
+          "result_sha256": "d942ff7d6042ed77e6e455a6e37a4e7ca94a3cae9e976307327e28e9c04de80b",
+          "schema_version": 1,
+          "state": "SENT_UNCONFIRMED",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:49.290789Z"
+        }
+      },
+      "run_number": 5
+    },
+    {
+      "name": "J3_ack_write_crash_after_rename",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "crash_returncode": 75,
+        "recovery": {
+          "job_id": "680ab44d-3516-4821-aa02-ef4ef14bf6a3",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": "2026-09-09T07:46:49.442834Z",
+          "attempts": 1,
+          "completion_event_id": "24a18c59-a020-48a2-bd10-b61cab398917",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "680ab44d-3516-4821-aa02-ef4ef14bf6a3",
+          "last_attempt_at": "2026-09-09T07:46:49.387448Z",
+          "remote_marker": "delivery_payload.json",
+          "result_sha256": "7a44d5840692d476b18e595b07b4ab8fa1ad5c5c976a19fcab9c52e3197d5af9",
+          "schema_version": 1,
+          "state": "ACKED",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:49.445118Z"
+        }
+      },
+      "run_number": 5
+    },
+    {
+      "name": "J4_controller_restart_explicit_duplicate_retry",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "first": {
+          "job_id": "e589604a-3901-466b-b095-9337e43590a7",
+          "state": "SENT_UNCONFIRMED",
+          "attempts": 1,
+          "payload_path": "/private/var/folders/y_/0qzdf4dj2kn7tmpd08q0cr6w0000gn/T/codex-snooze-v02-restart-a7ai6q_y/store/jobs/e589604a-3901-466b-b095-9337e43590a7/delivery_payload.json",
+          "event_id": "992eac81-c45e-49dc-8cf9-554e2add88a7",
+          "duplicate": false
+        },
+        "recovery": {
+          "job_id": "e589604a-3901-466b-b095-9337e43590a7",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "after_execution_state": "COMPLETED"
+        },
+        "retry": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "992eac81-c45e-49dc-8cf9-554e2add88a7",
+          "error_code": "EXPLICIT_RETRY",
+          "error_message": "operator requested another at-least-once delivery attempt",
+          "job_id": "e589604a-3901-466b-b095-9337e43590a7",
+          "last_attempt_at": "2026-09-09T07:46:49.542076Z",
+          "remote_marker": "delivery_payload.json",
+          "result_sha256": "a1e142cf1fe5a4bd17f6d5c588256973518e66bd658bc62f4a427d70691baaba",
+          "schema_version": 1,
+          "state": "PENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:49.544510Z"
+        },
+        "second": {
+          "job_id": "e589604a-3901-466b-b095-9337e43590a7",
+          "state": "SENT_UNCONFIRMED",
+          "attempts": 2,
+          "payload_path": "/private/var/folders/y_/0qzdf4dj2kn7tmpd08q0cr6w0000gn/T/codex-snooze-v02-restart-a7ai6q_y/store/jobs/e589604a-3901-466b-b095-9337e43590a7/delivery_payload.json",
+          "event_id": "992eac81-c45e-49dc-8cf9-554e2add88a7",
+          "duplicate": false
+        }
+      },
+      "run_number": 5
+    },
+    {
+      "name": "J5_concurrent_delivery_claim",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "first_returncode": 2,
+        "second_returncode": 75,
+        "first_stdout": "",
+        "first_stderr": "deliver failed: delivery changed before claim; currently CLAIMED\n",
+        "second_stdout": "",
+        "second_stderr": "",
+        "delivery_before_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "f42e781a-613a-4bcf-ae7a-41b86d72d324",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "6031b072-0121-4412-927a-3fbb69003209",
+          "last_attempt_at": "2026-09-09T07:46:49.699942Z",
+          "remote_marker": null,
+          "result_sha256": "6aca0b40fc1938021b514954184fa4c0f65e4e514ec72cdca96f0bdc342d5a88",
+          "schema_version": 1,
+          "state": "SENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:49.700865Z"
+        },
+        "recovery": {
+          "job_id": "6031b072-0121-4412-927a-3fbb69003209",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "delivery_retry_required": true,
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "f42e781a-613a-4bcf-ae7a-41b86d72d324",
+          "error_code": "DELIVERY_INTERRUPTED",
+          "error_message": "delivery state was in-flight when recovery ran",
+          "job_id": "6031b072-0121-4412-927a-3fbb69003209",
+          "last_attempt_at": "2026-09-09T07:46:49.699942Z",
+          "remote_marker": null,
+          "result_sha256": "6aca0b40fc1938021b514954184fa4c0f65e4e514ec72cdca96f0bdc342d5a88",
+          "schema_version": 1,
+          "state": "RETRY_WAIT",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:49.708575Z"
+        }
+      },
+      "run_number": 5
+    },
+    {
+      "name": "J1_duplicate_event_and_ack_guard",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "first": {
+          "job_id": "212bcfcf-f312-415d-919d-ff82c077aca4",
+          "state": "SENT_UNCONFIRMED",
+          "attempts": 1,
+          "payload_path": "/private/var/folders/y_/0qzdf4dj2kn7tmpd08q0cr6w0000gn/T/codex-snooze-v02-delivery-h_ji2foh/store/jobs/212bcfcf-f312-415d-919d-ff82c077aca4/delivery_payload.json",
+          "event_id": "04e136f1-9f0e-4b5d-a708-91a5f18bb34d",
+          "duplicate": false
+        },
+        "duplicate_without_permission": {
+          "job_id": "212bcfcf-f312-415d-919d-ff82c077aca4",
+          "state": "SENT_UNCONFIRMED",
+          "duplicate": false,
+          "action": "ack_or_explicitly_retry"
+        },
+        "retry_without_permission": "DeliveryControllerError",
+        "after_ack": {
+          "job_id": "212bcfcf-f312-415d-919d-ff82c077aca4",
+          "state": "ACKED",
+          "duplicate": false
+        }
+      },
+      "run_number": 6
+    },
+    {
+      "name": "J2_delivery_controller_crash_before_rename",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "crash_returncode": 75,
+        "delivery_before_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "6bca5d05-a755-412c-bfed-f8749d94ffcb",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "14101a25-e6d6-4cbc-a0f2-97b3851096c3",
+          "last_attempt_at": "2026-09-09T07:46:49.963554Z",
+          "remote_marker": null,
+          "result_sha256": "df68545de5a530c5d9b5c8cb930153abcd072e47f65480e3fb95120e2e056db1",
+          "schema_version": 1,
+          "state": "SENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:49.964568Z"
+        },
+        "recovery": {
+          "job_id": "14101a25-e6d6-4cbc-a0f2-97b3851096c3",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "delivery_retry_required": true,
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "6bca5d05-a755-412c-bfed-f8749d94ffcb",
+          "error_code": "DELIVERY_INTERRUPTED",
+          "error_message": "delivery state was in-flight when recovery ran",
+          "job_id": "14101a25-e6d6-4cbc-a0f2-97b3851096c3",
+          "last_attempt_at": "2026-09-09T07:46:49.963554Z",
+          "remote_marker": null,
+          "result_sha256": "df68545de5a530c5d9b5c8cb930153abcd072e47f65480e3fb95120e2e056db1",
+          "schema_version": 1,
+          "state": "RETRY_WAIT",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:49.967007Z"
+        }
+      },
+      "run_number": 6
+    },
+    {
+      "name": "J2_delivery_controller_crash_after_rename",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "crash_returncode": 75,
+        "delivery_before_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "e2fc9a6f-a5c9-4af6-a0c3-f6d0f965c932",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "3a85ce9d-291c-4575-be67-1f0e925d28da",
+          "last_attempt_at": "2026-09-09T07:46:50.113515Z",
+          "remote_marker": null,
+          "result_sha256": "f78a84b751a2ac815b8a5e8f785b696fa0f865bde8426e7e614980a7680b43e3",
+          "schema_version": 1,
+          "state": "SENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:50.114617Z"
+        },
+        "recovery": {
+          "job_id": "3a85ce9d-291c-4575-be67-1f0e925d28da",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "delivery_repaired": true,
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "e2fc9a6f-a5c9-4af6-a0c3-f6d0f965c932",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "3a85ce9d-291c-4575-be67-1f0e925d28da",
+          "last_attempt_at": "2026-09-09T07:46:50.113515Z",
+          "remote_marker": "delivery_payload.json",
+          "result_sha256": "f78a84b751a2ac815b8a5e8f785b696fa0f865bde8426e7e614980a7680b43e3",
+          "schema_version": 1,
+          "state": "SENT_UNCONFIRMED",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:50.116801Z"
+        }
+      },
+      "run_number": 6
+    },
+    {
+      "name": "J3_ack_write_crash_after_rename",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "crash_returncode": 75,
+        "recovery": {
+          "job_id": "463ed750-f698-482d-9996-239baa02b5ce",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": "2026-09-09T07:46:50.255385Z",
+          "attempts": 1,
+          "completion_event_id": "f865f7d6-de98-463f-a5f3-73a006e4e737",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "463ed750-f698-482d-9996-239baa02b5ce",
+          "last_attempt_at": "2026-09-09T07:46:50.205858Z",
+          "remote_marker": "delivery_payload.json",
+          "result_sha256": "473b58c7c4c0f9c372a84ef552976c7431e961511533c159497290989657e83d",
+          "schema_version": 1,
+          "state": "ACKED",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:50.257446Z"
+        }
+      },
+      "run_number": 6
+    },
+    {
+      "name": "J4_controller_restart_explicit_duplicate_retry",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "first": {
+          "job_id": "3e556a29-c4b8-4897-b167-5b18a76babab",
+          "state": "SENT_UNCONFIRMED",
+          "attempts": 1,
+          "payload_path": "/private/var/folders/y_/0qzdf4dj2kn7tmpd08q0cr6w0000gn/T/codex-snooze-v02-restart-h4ndvbpk/store/jobs/3e556a29-c4b8-4897-b167-5b18a76babab/delivery_payload.json",
+          "event_id": "6715fa96-fa86-441b-9cce-ae3af3f09034",
+          "duplicate": false
+        },
+        "recovery": {
+          "job_id": "3e556a29-c4b8-4897-b167-5b18a76babab",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "after_execution_state": "COMPLETED"
+        },
+        "retry": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "6715fa96-fa86-441b-9cce-ae3af3f09034",
+          "error_code": "EXPLICIT_RETRY",
+          "error_message": "operator requested another at-least-once delivery attempt",
+          "job_id": "3e556a29-c4b8-4897-b167-5b18a76babab",
+          "last_attempt_at": "2026-09-09T07:46:50.350220Z",
+          "remote_marker": "delivery_payload.json",
+          "result_sha256": "5d795146950f1bf19628670fb0fd72f9a06ae6c0122c6f730a8659ca5e5d87c1",
+          "schema_version": 1,
+          "state": "PENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:50.352881Z"
+        },
+        "second": {
+          "job_id": "3e556a29-c4b8-4897-b167-5b18a76babab",
+          "state": "SENT_UNCONFIRMED",
+          "attempts": 2,
+          "payload_path": "/private/var/folders/y_/0qzdf4dj2kn7tmpd08q0cr6w0000gn/T/codex-snooze-v02-restart-h4ndvbpk/store/jobs/3e556a29-c4b8-4897-b167-5b18a76babab/delivery_payload.json",
+          "event_id": "6715fa96-fa86-441b-9cce-ae3af3f09034",
+          "duplicate": false
+        }
+      },
+      "run_number": 6
+    },
+    {
+      "name": "J5_concurrent_delivery_claim",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "first_returncode": 2,
+        "second_returncode": 75,
+        "first_stdout": "",
+        "first_stderr": "deliver failed: delivery changed before claim; currently CLAIMED\n",
+        "second_stdout": "",
+        "second_stderr": "",
+        "delivery_before_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "ede1afda-38e3-4e65-91b8-195073b09a00",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "c578c661-3514-4439-861a-52448eb6b3b5",
+          "last_attempt_at": "2026-09-09T07:46:50.497894Z",
+          "remote_marker": null,
+          "result_sha256": "722e6090fa053278594966bf2216f336b880612439e6d331a1b15f82f5d4f595",
+          "schema_version": 1,
+          "state": "SENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:50.498992Z"
+        },
+        "recovery": {
+          "job_id": "c578c661-3514-4439-861a-52448eb6b3b5",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "delivery_retry_required": true,
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "ede1afda-38e3-4e65-91b8-195073b09a00",
+          "error_code": "DELIVERY_INTERRUPTED",
+          "error_message": "delivery state was in-flight when recovery ran",
+          "job_id": "c578c661-3514-4439-861a-52448eb6b3b5",
+          "last_attempt_at": "2026-09-09T07:46:50.497894Z",
+          "remote_marker": null,
+          "result_sha256": "722e6090fa053278594966bf2216f336b880612439e6d331a1b15f82f5d4f595",
+          "schema_version": 1,
+          "state": "RETRY_WAIT",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:50.506724Z"
+        }
+      },
+      "run_number": 6
+    },
+    {
+      "name": "J1_duplicate_event_and_ack_guard",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "first": {
+          "job_id": "5b9b0055-29e1-4a6c-a8aa-7df5e4fce69c",
+          "state": "SENT_UNCONFIRMED",
+          "attempts": 1,
+          "payload_path": "/private/var/folders/y_/0qzdf4dj2kn7tmpd08q0cr6w0000gn/T/codex-snooze-v02-delivery-st_958nw/store/jobs/5b9b0055-29e1-4a6c-a8aa-7df5e4fce69c/delivery_payload.json",
+          "event_id": "9983f14d-23c5-4c9d-9139-a48ddafd6e3b",
+          "duplicate": false
+        },
+        "duplicate_without_permission": {
+          "job_id": "5b9b0055-29e1-4a6c-a8aa-7df5e4fce69c",
+          "state": "SENT_UNCONFIRMED",
+          "duplicate": false,
+          "action": "ack_or_explicitly_retry"
+        },
+        "retry_without_permission": "DeliveryControllerError",
+        "after_ack": {
+          "job_id": "5b9b0055-29e1-4a6c-a8aa-7df5e4fce69c",
+          "state": "ACKED",
+          "duplicate": false
+        }
+      },
+      "run_number": 7
+    },
+    {
+      "name": "J2_delivery_controller_crash_before_rename",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "crash_returncode": 75,
+        "delivery_before_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "209f67c1-86e7-4be3-9f26-8b20b9a4a681",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "9cf0e2ad-793f-441e-ad9f-b96066c0e9b9",
+          "last_attempt_at": "2026-09-09T07:46:50.743552Z",
+          "remote_marker": null,
+          "result_sha256": "784d76055eee0e40944d190d44754f57c8cf6eba4688742de691ef5a8726104c",
+          "schema_version": 1,
+          "state": "SENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:50.744606Z"
+        },
+        "recovery": {
+          "job_id": "9cf0e2ad-793f-441e-ad9f-b96066c0e9b9",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "delivery_retry_required": true,
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "209f67c1-86e7-4be3-9f26-8b20b9a4a681",
+          "error_code": "DELIVERY_INTERRUPTED",
+          "error_message": "delivery state was in-flight when recovery ran",
+          "job_id": "9cf0e2ad-793f-441e-ad9f-b96066c0e9b9",
+          "last_attempt_at": "2026-09-09T07:46:50.743552Z",
+          "remote_marker": null,
+          "result_sha256": "784d76055eee0e40944d190d44754f57c8cf6eba4688742de691ef5a8726104c",
+          "schema_version": 1,
+          "state": "RETRY_WAIT",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:50.746523Z"
+        }
+      },
+      "run_number": 7
+    },
+    {
+      "name": "J2_delivery_controller_crash_after_rename",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "crash_returncode": 75,
+        "delivery_before_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "ebb570fb-923b-457d-b977-f8254ce8d5b5",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "867045ee-9c67-44eb-8cce-acacaccb09fd",
+          "last_attempt_at": "2026-09-09T07:46:50.889312Z",
+          "remote_marker": null,
+          "result_sha256": "c76f2db7ec2ee2ec6d938476661c39581bc9c77c57e9211795d9253ce5eec69e",
+          "schema_version": 1,
+          "state": "SENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:50.890344Z"
+        },
+        "recovery": {
+          "job_id": "867045ee-9c67-44eb-8cce-acacaccb09fd",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "delivery_repaired": true,
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "ebb570fb-923b-457d-b977-f8254ce8d5b5",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "867045ee-9c67-44eb-8cce-acacaccb09fd",
+          "last_attempt_at": "2026-09-09T07:46:50.889312Z",
+          "remote_marker": "delivery_payload.json",
+          "result_sha256": "c76f2db7ec2ee2ec6d938476661c39581bc9c77c57e9211795d9253ce5eec69e",
+          "schema_version": 1,
+          "state": "SENT_UNCONFIRMED",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:50.892338Z"
+        }
+      },
+      "run_number": 7
+    },
+    {
+      "name": "J3_ack_write_crash_after_rename",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "crash_returncode": 75,
+        "recovery": {
+          "job_id": "ad830235-ca73-4713-bc49-fbf583195737",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": "2026-09-09T07:46:51.046521Z",
+          "attempts": 1,
+          "completion_event_id": "77699c5e-7eff-4069-99c8-83f0adb2bcb7",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "ad830235-ca73-4713-bc49-fbf583195737",
+          "last_attempt_at": "2026-09-09T07:46:50.988591Z",
+          "remote_marker": "delivery_payload.json",
+          "result_sha256": "fe284a4913e462d4c5da19885ef9880f15a218176b5ec93b342191895777ed22",
+          "schema_version": 1,
+          "state": "ACKED",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:51.048806Z"
+        }
+      },
+      "run_number": 7
+    },
+    {
+      "name": "J4_controller_restart_explicit_duplicate_retry",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "first": {
+          "job_id": "ea5c3e5a-54ac-4618-9a97-2c5cf5e3f88c",
+          "state": "SENT_UNCONFIRMED",
+          "attempts": 1,
+          "payload_path": "/private/var/folders/y_/0qzdf4dj2kn7tmpd08q0cr6w0000gn/T/codex-snooze-v02-restart-mhlz2r1r/store/jobs/ea5c3e5a-54ac-4618-9a97-2c5cf5e3f88c/delivery_payload.json",
+          "event_id": "ada8855b-3553-4dbd-a201-4d4430f084b9",
+          "duplicate": false
+        },
+        "recovery": {
+          "job_id": "ea5c3e5a-54ac-4618-9a97-2c5cf5e3f88c",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "after_execution_state": "COMPLETED"
+        },
+        "retry": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "ada8855b-3553-4dbd-a201-4d4430f084b9",
+          "error_code": "EXPLICIT_RETRY",
+          "error_message": "operator requested another at-least-once delivery attempt",
+          "job_id": "ea5c3e5a-54ac-4618-9a97-2c5cf5e3f88c",
+          "last_attempt_at": "2026-09-09T07:46:51.142003Z",
+          "remote_marker": "delivery_payload.json",
+          "result_sha256": "9016f7fdde8466ebabdbb953836256e71263c45376e11634945b99b299894fde",
+          "schema_version": 1,
+          "state": "PENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:51.144168Z"
+        },
+        "second": {
+          "job_id": "ea5c3e5a-54ac-4618-9a97-2c5cf5e3f88c",
+          "state": "SENT_UNCONFIRMED",
+          "attempts": 2,
+          "payload_path": "/private/var/folders/y_/0qzdf4dj2kn7tmpd08q0cr6w0000gn/T/codex-snooze-v02-restart-mhlz2r1r/store/jobs/ea5c3e5a-54ac-4618-9a97-2c5cf5e3f88c/delivery_payload.json",
+          "event_id": "ada8855b-3553-4dbd-a201-4d4430f084b9",
+          "duplicate": false
+        }
+      },
+      "run_number": 7
+    },
+    {
+      "name": "J5_concurrent_delivery_claim",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "first_returncode": 75,
+        "second_returncode": 2,
+        "first_stdout": "",
+        "first_stderr": "",
+        "second_stdout": "",
+        "second_stderr": "deliver failed: delivery changed before claim; currently CLAIMED\n",
+        "delivery_before_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "a66364aa-e24b-48ce-9918-86df1bebad7e",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "ab3e245a-1c0b-42ba-ba75-d93f7769464f",
+          "last_attempt_at": "2026-09-09T07:46:51.292797Z",
+          "remote_marker": null,
+          "result_sha256": "d54fca275a50a14b598f71585e45e77ed0bf4ce7d013149442bc21ff801e9fe7",
+          "schema_version": 1,
+          "state": "SENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:51.293899Z"
+        },
+        "recovery": {
+          "job_id": "ab3e245a-1c0b-42ba-ba75-d93f7769464f",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "delivery_retry_required": true,
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "a66364aa-e24b-48ce-9918-86df1bebad7e",
+          "error_code": "DELIVERY_INTERRUPTED",
+          "error_message": "delivery state was in-flight when recovery ran",
+          "job_id": "ab3e245a-1c0b-42ba-ba75-d93f7769464f",
+          "last_attempt_at": "2026-09-09T07:46:51.292797Z",
+          "remote_marker": null,
+          "result_sha256": "d54fca275a50a14b598f71585e45e77ed0bf4ce7d013149442bc21ff801e9fe7",
+          "schema_version": 1,
+          "state": "RETRY_WAIT",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:51.301216Z"
+        }
+      },
+      "run_number": 7
+    },
+    {
+      "name": "J1_duplicate_event_and_ack_guard",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "first": {
+          "job_id": "3fd3d419-fb34-4170-8ec9-c726d774dd8c",
+          "state": "SENT_UNCONFIRMED",
+          "attempts": 1,
+          "payload_path": "/private/var/folders/y_/0qzdf4dj2kn7tmpd08q0cr6w0000gn/T/codex-snooze-v02-delivery-gyypd66e/store/jobs/3fd3d419-fb34-4170-8ec9-c726d774dd8c/delivery_payload.json",
+          "event_id": "aa6d4161-249b-4f84-9ef5-ebd09c3e7347",
+          "duplicate": false
+        },
+        "duplicate_without_permission": {
+          "job_id": "3fd3d419-fb34-4170-8ec9-c726d774dd8c",
+          "state": "SENT_UNCONFIRMED",
+          "duplicate": false,
+          "action": "ack_or_explicitly_retry"
+        },
+        "retry_without_permission": "DeliveryControllerError",
+        "after_ack": {
+          "job_id": "3fd3d419-fb34-4170-8ec9-c726d774dd8c",
+          "state": "ACKED",
+          "duplicate": false
+        }
+      },
+      "run_number": 8
+    },
+    {
+      "name": "J2_delivery_controller_crash_before_rename",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "crash_returncode": 75,
+        "delivery_before_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "486a7e15-a76e-4507-b578-2578983f2d55",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "dab45dea-a2cb-471c-888d-8316790e4faf",
+          "last_attempt_at": "2026-09-09T07:46:51.533612Z",
+          "remote_marker": null,
+          "result_sha256": "590e747bf38e1aea9c3469c398aaab802e0ce1b76713f18c374042f8e977b747",
+          "schema_version": 1,
+          "state": "SENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:51.534785Z"
+        },
+        "recovery": {
+          "job_id": "dab45dea-a2cb-471c-888d-8316790e4faf",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "delivery_retry_required": true,
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "486a7e15-a76e-4507-b578-2578983f2d55",
+          "error_code": "DELIVERY_INTERRUPTED",
+          "error_message": "delivery state was in-flight when recovery ran",
+          "job_id": "dab45dea-a2cb-471c-888d-8316790e4faf",
+          "last_attempt_at": "2026-09-09T07:46:51.533612Z",
+          "remote_marker": null,
+          "result_sha256": "590e747bf38e1aea9c3469c398aaab802e0ce1b76713f18c374042f8e977b747",
+          "schema_version": 1,
+          "state": "RETRY_WAIT",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:51.536830Z"
+        }
+      },
+      "run_number": 8
+    },
+    {
+      "name": "J2_delivery_controller_crash_after_rename",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "crash_returncode": 75,
+        "delivery_before_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "6ad0ad87-6974-4eb3-9d90-dabe86da9120",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "46163b80-de3f-4666-a8e6-ea4ff0d8ce7e",
+          "last_attempt_at": "2026-09-09T07:46:51.679141Z",
+          "remote_marker": null,
+          "result_sha256": "76156c1adca23b945736d41fe26ca68155e3ae5fc5ca76dc35ae73bf240d844b",
+          "schema_version": 1,
+          "state": "SENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:51.680194Z"
+        },
+        "recovery": {
+          "job_id": "46163b80-de3f-4666-a8e6-ea4ff0d8ce7e",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "delivery_repaired": true,
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "6ad0ad87-6974-4eb3-9d90-dabe86da9120",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "46163b80-de3f-4666-a8e6-ea4ff0d8ce7e",
+          "last_attempt_at": "2026-09-09T07:46:51.679141Z",
+          "remote_marker": "delivery_payload.json",
+          "result_sha256": "76156c1adca23b945736d41fe26ca68155e3ae5fc5ca76dc35ae73bf240d844b",
+          "schema_version": 1,
+          "state": "SENT_UNCONFIRMED",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:51.682589Z"
+        }
+      },
+      "run_number": 8
+    },
+    {
+      "name": "J3_ack_write_crash_after_rename",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "crash_returncode": 75,
+        "recovery": {
+          "job_id": "ff876822-12d9-4119-bcf1-cb57704f2afe",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": "2026-09-09T07:46:51.826679Z",
+          "attempts": 1,
+          "completion_event_id": "80a6098e-6189-4e8d-80fe-c10776b104ac",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "ff876822-12d9-4119-bcf1-cb57704f2afe",
+          "last_attempt_at": "2026-09-09T07:46:51.774792Z",
+          "remote_marker": "delivery_payload.json",
+          "result_sha256": "87e2f6dd34da827a6ecf44d9c83eced5e4a316ac39c0df1d45661f5c30c242d3",
+          "schema_version": 1,
+          "state": "ACKED",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:51.828807Z"
+        }
+      },
+      "run_number": 8
+    },
+    {
+      "name": "J4_controller_restart_explicit_duplicate_retry",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "first": {
+          "job_id": "4c83c944-0116-4a8a-8731-5fd66d611611",
+          "state": "SENT_UNCONFIRMED",
+          "attempts": 1,
+          "payload_path": "/private/var/folders/y_/0qzdf4dj2kn7tmpd08q0cr6w0000gn/T/codex-snooze-v02-restart-xg3fhhmn/store/jobs/4c83c944-0116-4a8a-8731-5fd66d611611/delivery_payload.json",
+          "event_id": "5f9db73c-0453-4ede-8fc9-574a78b69474",
+          "duplicate": false
+        },
+        "recovery": {
+          "job_id": "4c83c944-0116-4a8a-8731-5fd66d611611",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "after_execution_state": "COMPLETED"
+        },
+        "retry": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "5f9db73c-0453-4ede-8fc9-574a78b69474",
+          "error_code": "EXPLICIT_RETRY",
+          "error_message": "operator requested another at-least-once delivery attempt",
+          "job_id": "4c83c944-0116-4a8a-8731-5fd66d611611",
+          "last_attempt_at": "2026-09-09T07:46:51.921605Z",
+          "remote_marker": "delivery_payload.json",
+          "result_sha256": "f7955cb8d2f4293fdc292b5fc13acf5f4c7d3b19e4fb8793ccdfd9de05e5eb89",
+          "schema_version": 1,
+          "state": "PENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:51.924023Z"
+        },
+        "second": {
+          "job_id": "4c83c944-0116-4a8a-8731-5fd66d611611",
+          "state": "SENT_UNCONFIRMED",
+          "attempts": 2,
+          "payload_path": "/private/var/folders/y_/0qzdf4dj2kn7tmpd08q0cr6w0000gn/T/codex-snooze-v02-restart-xg3fhhmn/store/jobs/4c83c944-0116-4a8a-8731-5fd66d611611/delivery_payload.json",
+          "event_id": "5f9db73c-0453-4ede-8fc9-574a78b69474",
+          "duplicate": false
+        }
+      },
+      "run_number": 8
+    },
+    {
+      "name": "J5_concurrent_delivery_claim",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "first_returncode": 2,
+        "second_returncode": 75,
+        "first_stdout": "",
+        "first_stderr": "deliver failed: delivery changed before claim; currently CLAIMED\n",
+        "second_stdout": "",
+        "second_stderr": "",
+        "delivery_before_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "1190c351-51f7-4f3c-9cf6-c1c55279f47d",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "f7f00c3d-a4f7-4443-b1e4-97161cd45348",
+          "last_attempt_at": "2026-09-09T07:46:52.082634Z",
+          "remote_marker": null,
+          "result_sha256": "a4949e2e0a1817c37990f77a48ac880086a403792cf30c247d8a62d11c1c6574",
+          "schema_version": 1,
+          "state": "SENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:52.083561Z"
+        },
+        "recovery": {
+          "job_id": "f7f00c3d-a4f7-4443-b1e4-97161cd45348",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "delivery_retry_required": true,
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "1190c351-51f7-4f3c-9cf6-c1c55279f47d",
+          "error_code": "DELIVERY_INTERRUPTED",
+          "error_message": "delivery state was in-flight when recovery ran",
+          "job_id": "f7f00c3d-a4f7-4443-b1e4-97161cd45348",
+          "last_attempt_at": "2026-09-09T07:46:52.082634Z",
+          "remote_marker": null,
+          "result_sha256": "a4949e2e0a1817c37990f77a48ac880086a403792cf30c247d8a62d11c1c6574",
+          "schema_version": 1,
+          "state": "RETRY_WAIT",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:52.090851Z"
+        }
+      },
+      "run_number": 8
+    },
+    {
+      "name": "J1_duplicate_event_and_ack_guard",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "first": {
+          "job_id": "f8c16ac8-6cf0-4ea0-b9ea-5c81b81acf9e",
+          "state": "SENT_UNCONFIRMED",
+          "attempts": 1,
+          "payload_path": "/private/var/folders/y_/0qzdf4dj2kn7tmpd08q0cr6w0000gn/T/codex-snooze-v02-delivery-09cb420j/store/jobs/f8c16ac8-6cf0-4ea0-b9ea-5c81b81acf9e/delivery_payload.json",
+          "event_id": "7a8efa23-d2e0-46a3-8efd-2c4dfe122008",
+          "duplicate": false
+        },
+        "duplicate_without_permission": {
+          "job_id": "f8c16ac8-6cf0-4ea0-b9ea-5c81b81acf9e",
+          "state": "SENT_UNCONFIRMED",
+          "duplicate": false,
+          "action": "ack_or_explicitly_retry"
+        },
+        "retry_without_permission": "DeliveryControllerError",
+        "after_ack": {
+          "job_id": "f8c16ac8-6cf0-4ea0-b9ea-5c81b81acf9e",
+          "state": "ACKED",
+          "duplicate": false
+        }
+      },
+      "run_number": 9
+    },
+    {
+      "name": "J2_delivery_controller_crash_before_rename",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "crash_returncode": 75,
+        "delivery_before_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "eb4dba45-570b-4d06-b680-338d9c45c31e",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "05c1839d-01f2-4d5c-870c-01c986cce6c1",
+          "last_attempt_at": "2026-09-09T07:46:52.339323Z",
+          "remote_marker": null,
+          "result_sha256": "70c8b6eade9e6249f63a3e27546d22f8164a1568a769ef9143ac872689da2337",
+          "schema_version": 1,
+          "state": "SENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:52.340379Z"
+        },
+        "recovery": {
+          "job_id": "05c1839d-01f2-4d5c-870c-01c986cce6c1",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "delivery_retry_required": true,
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "eb4dba45-570b-4d06-b680-338d9c45c31e",
+          "error_code": "DELIVERY_INTERRUPTED",
+          "error_message": "delivery state was in-flight when recovery ran",
+          "job_id": "05c1839d-01f2-4d5c-870c-01c986cce6c1",
+          "last_attempt_at": "2026-09-09T07:46:52.339323Z",
+          "remote_marker": null,
+          "result_sha256": "70c8b6eade9e6249f63a3e27546d22f8164a1568a769ef9143ac872689da2337",
+          "schema_version": 1,
+          "state": "RETRY_WAIT",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:52.342301Z"
+        }
+      },
+      "run_number": 9
+    },
+    {
+      "name": "J2_delivery_controller_crash_after_rename",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "crash_returncode": 75,
+        "delivery_before_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "ac4e567f-4049-4c85-87ee-38235a6a4373",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "0e5fbeae-2dc7-4046-a218-261bd6f78e61",
+          "last_attempt_at": "2026-09-09T07:46:52.486822Z",
+          "remote_marker": null,
+          "result_sha256": "8a7bf43751dd64d7d0c523590ec11a5217d4612a970eafc228519a1ee0716b48",
+          "schema_version": 1,
+          "state": "SENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:52.487921Z"
+        },
+        "recovery": {
+          "job_id": "0e5fbeae-2dc7-4046-a218-261bd6f78e61",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "delivery_repaired": true,
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "ac4e567f-4049-4c85-87ee-38235a6a4373",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "0e5fbeae-2dc7-4046-a218-261bd6f78e61",
+          "last_attempt_at": "2026-09-09T07:46:52.486822Z",
+          "remote_marker": "delivery_payload.json",
+          "result_sha256": "8a7bf43751dd64d7d0c523590ec11a5217d4612a970eafc228519a1ee0716b48",
+          "schema_version": 1,
+          "state": "SENT_UNCONFIRMED",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:52.490093Z"
+        }
+      },
+      "run_number": 9
+    },
+    {
+      "name": "J3_ack_write_crash_after_rename",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "crash_returncode": 75,
+        "recovery": {
+          "job_id": "bbebeecb-a010-4be5-8098-6c9bece61480",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": "2026-09-09T07:46:52.646711Z",
+          "attempts": 1,
+          "completion_event_id": "79de93ad-9719-4ed3-9bca-997c632ab4ba",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "bbebeecb-a010-4be5-8098-6c9bece61480",
+          "last_attempt_at": "2026-09-09T07:46:52.593227Z",
+          "remote_marker": "delivery_payload.json",
+          "result_sha256": "6ab3c544307b73d112ad514e07cd5e82a7107bb73bb6b457d123fcde5fb58b8a",
+          "schema_version": 1,
+          "state": "ACKED",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:52.649060Z"
+        }
+      },
+      "run_number": 9
+    },
+    {
+      "name": "J4_controller_restart_explicit_duplicate_retry",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "first": {
+          "job_id": "54859f6d-c1ee-48ad-b94e-62a7945075b4",
+          "state": "SENT_UNCONFIRMED",
+          "attempts": 1,
+          "payload_path": "/private/var/folders/y_/0qzdf4dj2kn7tmpd08q0cr6w0000gn/T/codex-snooze-v02-restart-o3kzxhz9/store/jobs/54859f6d-c1ee-48ad-b94e-62a7945075b4/delivery_payload.json",
+          "event_id": "360e8396-d711-4803-ab15-40de8b890403",
+          "duplicate": false
+        },
+        "recovery": {
+          "job_id": "54859f6d-c1ee-48ad-b94e-62a7945075b4",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "after_execution_state": "COMPLETED"
+        },
+        "retry": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "360e8396-d711-4803-ab15-40de8b890403",
+          "error_code": "EXPLICIT_RETRY",
+          "error_message": "operator requested another at-least-once delivery attempt",
+          "job_id": "54859f6d-c1ee-48ad-b94e-62a7945075b4",
+          "last_attempt_at": "2026-09-09T07:46:52.741906Z",
+          "remote_marker": "delivery_payload.json",
+          "result_sha256": "16829c8bf0a8466d9f9fd097ba4434bd9ef4f9bb79fabafebec77dbda3cf6504",
+          "schema_version": 1,
+          "state": "PENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:52.744298Z"
+        },
+        "second": {
+          "job_id": "54859f6d-c1ee-48ad-b94e-62a7945075b4",
+          "state": "SENT_UNCONFIRMED",
+          "attempts": 2,
+          "payload_path": "/private/var/folders/y_/0qzdf4dj2kn7tmpd08q0cr6w0000gn/T/codex-snooze-v02-restart-o3kzxhz9/store/jobs/54859f6d-c1ee-48ad-b94e-62a7945075b4/delivery_payload.json",
+          "event_id": "360e8396-d711-4803-ab15-40de8b890403",
+          "duplicate": false
+        }
+      },
+      "run_number": 9
+    },
+    {
+      "name": "J5_concurrent_delivery_claim",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "first_returncode": 75,
+        "second_returncode": 2,
+        "first_stdout": "",
+        "first_stderr": "",
+        "second_stdout": "",
+        "second_stderr": "deliver failed: delivery changed before claim; currently CLAIMED\n",
+        "delivery_before_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "ec5f9918-8fa6-4a7e-9495-91da7b2a41a4",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "7df64adf-31f1-453b-bb62-6d0701193030",
+          "last_attempt_at": "2026-09-09T07:46:52.892292Z",
+          "remote_marker": null,
+          "result_sha256": "69298d4757dd584dcc1d484a9f7ce671991605be0635759b12864d038b33ad23",
+          "schema_version": 1,
+          "state": "SENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:52.893144Z"
+        },
+        "recovery": {
+          "job_id": "7df64adf-31f1-453b-bb62-6d0701193030",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "delivery_retry_required": true,
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "ec5f9918-8fa6-4a7e-9495-91da7b2a41a4",
+          "error_code": "DELIVERY_INTERRUPTED",
+          "error_message": "delivery state was in-flight when recovery ran",
+          "job_id": "7df64adf-31f1-453b-bb62-6d0701193030",
+          "last_attempt_at": "2026-09-09T07:46:52.892292Z",
+          "remote_marker": null,
+          "result_sha256": "69298d4757dd584dcc1d484a9f7ce671991605be0635759b12864d038b33ad23",
+          "schema_version": 1,
+          "state": "RETRY_WAIT",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:52.900424Z"
+        }
+      },
+      "run_number": 9
+    },
+    {
+      "name": "J1_duplicate_event_and_ack_guard",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "first": {
+          "job_id": "d04ef3e3-febb-415d-a96f-ac5fa0a12bc2",
+          "state": "SENT_UNCONFIRMED",
+          "attempts": 1,
+          "payload_path": "/private/var/folders/y_/0qzdf4dj2kn7tmpd08q0cr6w0000gn/T/codex-snooze-v02-delivery-m9x382jg/store/jobs/d04ef3e3-febb-415d-a96f-ac5fa0a12bc2/delivery_payload.json",
+          "event_id": "44b57f16-b91f-4c0b-a8bf-7416353552ec",
+          "duplicate": false
+        },
+        "duplicate_without_permission": {
+          "job_id": "d04ef3e3-febb-415d-a96f-ac5fa0a12bc2",
+          "state": "SENT_UNCONFIRMED",
+          "duplicate": false,
+          "action": "ack_or_explicitly_retry"
+        },
+        "retry_without_permission": "DeliveryControllerError",
+        "after_ack": {
+          "job_id": "d04ef3e3-febb-415d-a96f-ac5fa0a12bc2",
+          "state": "ACKED",
+          "duplicate": false
+        }
+      },
+      "run_number": 10
+    },
+    {
+      "name": "J2_delivery_controller_crash_before_rename",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "crash_returncode": 75,
+        "delivery_before_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "c882b327-b8c7-444b-82ec-441dc6378402",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "bcc9e3c1-1190-4807-88c2-96c53fa8d669",
+          "last_attempt_at": "2026-09-09T07:46:53.143982Z",
+          "remote_marker": null,
+          "result_sha256": "8aa6e03d9f2987fdc676c3de085ea76fbb00061e542ef7751b0752066682e977",
+          "schema_version": 1,
+          "state": "SENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:53.144974Z"
+        },
+        "recovery": {
+          "job_id": "bcc9e3c1-1190-4807-88c2-96c53fa8d669",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "delivery_retry_required": true,
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "c882b327-b8c7-444b-82ec-441dc6378402",
+          "error_code": "DELIVERY_INTERRUPTED",
+          "error_message": "delivery state was in-flight when recovery ran",
+          "job_id": "bcc9e3c1-1190-4807-88c2-96c53fa8d669",
+          "last_attempt_at": "2026-09-09T07:46:53.143982Z",
+          "remote_marker": null,
+          "result_sha256": "8aa6e03d9f2987fdc676c3de085ea76fbb00061e542ef7751b0752066682e977",
+          "schema_version": 1,
+          "state": "RETRY_WAIT",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:53.147003Z"
+        }
+      },
+      "run_number": 10
+    },
+    {
+      "name": "J2_delivery_controller_crash_after_rename",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "crash_returncode": 75,
+        "delivery_before_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "00943a37-53b6-4467-b9f7-35631d6a4e28",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "385ef771-5755-4002-bfe5-02b4bbb0278a",
+          "last_attempt_at": "2026-09-09T07:46:53.294099Z",
+          "remote_marker": null,
+          "result_sha256": "070217a882fd6e49d901e78c3f08815d9908cf3a257ead1d06a44277db8bd26a",
+          "schema_version": 1,
+          "state": "SENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:53.295156Z"
+        },
+        "recovery": {
+          "job_id": "385ef771-5755-4002-bfe5-02b4bbb0278a",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "delivery_repaired": true,
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "00943a37-53b6-4467-b9f7-35631d6a4e28",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "385ef771-5755-4002-bfe5-02b4bbb0278a",
+          "last_attempt_at": "2026-09-09T07:46:53.294099Z",
+          "remote_marker": "delivery_payload.json",
+          "result_sha256": "070217a882fd6e49d901e78c3f08815d9908cf3a257ead1d06a44277db8bd26a",
+          "schema_version": 1,
+          "state": "SENT_UNCONFIRMED",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:53.297223Z"
+        }
+      },
+      "run_number": 10
+    },
+    {
+      "name": "J3_ack_write_crash_after_rename",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "crash_returncode": 75,
+        "recovery": {
+          "job_id": "a1468936-5a24-40e9-ad3d-3835943904a6",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": "2026-09-09T07:46:53.442918Z",
+          "attempts": 1,
+          "completion_event_id": "2ee4649d-b5c5-4c72-90a2-91aee9d1988c",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "a1468936-5a24-40e9-ad3d-3835943904a6",
+          "last_attempt_at": "2026-09-09T07:46:53.390935Z",
+          "remote_marker": "delivery_payload.json",
+          "result_sha256": "4af9b302e0a290bb495e49712a416eb34c84d340eddc3296716f3ff831792fe1",
+          "schema_version": 1,
+          "state": "ACKED",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:53.445032Z"
+        }
+      },
+      "run_number": 10
+    },
+    {
+      "name": "J4_controller_restart_explicit_duplicate_retry",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "first": {
+          "job_id": "7fa97f97-be26-47a6-9e51-c54a4dffc0ef",
+          "state": "SENT_UNCONFIRMED",
+          "attempts": 1,
+          "payload_path": "/private/var/folders/y_/0qzdf4dj2kn7tmpd08q0cr6w0000gn/T/codex-snooze-v02-restart-qigsou3q/store/jobs/7fa97f97-be26-47a6-9e51-c54a4dffc0ef/delivery_payload.json",
+          "event_id": "d5f7e9bf-098f-45ef-a961-100441fac91b",
+          "duplicate": false
+        },
+        "recovery": {
+          "job_id": "7fa97f97-be26-47a6-9e51-c54a4dffc0ef",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "after_execution_state": "COMPLETED"
+        },
+        "retry": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "d5f7e9bf-098f-45ef-a961-100441fac91b",
+          "error_code": "EXPLICIT_RETRY",
+          "error_message": "operator requested another at-least-once delivery attempt",
+          "job_id": "7fa97f97-be26-47a6-9e51-c54a4dffc0ef",
+          "last_attempt_at": "2026-09-09T07:46:53.539090Z",
+          "remote_marker": "delivery_payload.json",
+          "result_sha256": "e52e045c7e28c7a7c6d4a5436a8b703dbf6b1ef3b145a0ea1c5fb958d155cae4",
+          "schema_version": 1,
+          "state": "PENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:53.541349Z"
+        },
+        "second": {
+          "job_id": "7fa97f97-be26-47a6-9e51-c54a4dffc0ef",
+          "state": "SENT_UNCONFIRMED",
+          "attempts": 2,
+          "payload_path": "/private/var/folders/y_/0qzdf4dj2kn7tmpd08q0cr6w0000gn/T/codex-snooze-v02-restart-qigsou3q/store/jobs/7fa97f97-be26-47a6-9e51-c54a4dffc0ef/delivery_payload.json",
+          "event_id": "d5f7e9bf-098f-45ef-a961-100441fac91b",
+          "duplicate": false
+        }
+      },
+      "run_number": 10
+    },
+    {
+      "name": "J5_concurrent_delivery_claim",
+      "status": "PASS",
+      "observations": {
+        "codex_messages": "NOT_ATTEMPTED",
+        "codex_turns": "NOT_ATTEMPTED",
+        "first_returncode": 75,
+        "second_returncode": 2,
+        "first_stdout": "",
+        "first_stderr": "",
+        "second_stdout": "",
+        "second_stderr": "deliver failed: delivery changed before claim; currently CLAIMED\n",
+        "delivery_before_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "8c490422-958e-4442-aedb-81db6e8d9e17",
+          "error_code": null,
+          "error_message": null,
+          "job_id": "9e3d437a-dda5-47e0-8628-ef7f6c35eb27",
+          "last_attempt_at": "2026-09-09T07:46:53.689548Z",
+          "remote_marker": null,
+          "result_sha256": "a9e3b116b6a75e70432a9d990e5384c45821db459fd3bc0b319c31c7ec5ae55c",
+          "schema_version": 1,
+          "state": "SENDING",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:53.690625Z"
+        },
+        "recovery": {
+          "job_id": "9e3d437a-dda5-47e0-8628-ef7f6c35eb27",
+          "before_execution_state": "COMPLETED",
+          "action": "none",
+          "delivery_retry_required": true,
+          "after_execution_state": "COMPLETED"
+        },
+        "delivery_after_recovery": {
+          "acked_at": null,
+          "attempts": 1,
+          "completion_event_id": "8c490422-958e-4442-aedb-81db6e8d9e17",
+          "error_code": "DELIVERY_INTERRUPTED",
+          "error_message": "delivery state was in-flight when recovery ran",
+          "job_id": "9e3d437a-dda5-47e0-8628-ef7f6c35eb27",
+          "last_attempt_at": "2026-09-09T07:46:53.689548Z",
+          "remote_marker": null,
+          "result_sha256": "a9e3b116b6a75e70432a9d990e5384c45821db459fd3bc0b319c31c7ec5ae55c",
+          "schema_version": 1,
+          "state": "RETRY_WAIT",
+          "transport": "manual-file",
+          "updated_at": "2026-09-09T07:46:53.697573Z"
+        }
+      },
+      "run_number": 10
+    }
+  ],
+  "aggregate_status": "PASS",
+  "delivery_guarantee": "at-least-once-compatible with explicit duplicate acknowledgement; exactly-once is not claimed"
+}
